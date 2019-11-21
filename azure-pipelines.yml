@@ -16,10 +16,10 @@ strategy:
     #   imageName: "vs2017-win2016"
     #   jdk_version: "1.11"
 
-    jdk8_mac_Mojave:
+    jdk8_macOS_Mojave:
       imageName: "macOS-10.14"
       jdk_version: "1.8"
-    jdk11_mac_Mojave:
+    jdk11_macOS_Mojave:
       imageName: "macOS-10.14"
       jdk_version: "1.11"
 

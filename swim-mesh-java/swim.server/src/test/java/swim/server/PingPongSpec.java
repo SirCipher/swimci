@@ -94,7 +94,7 @@ public class PingPongSpec {
             }
           })
           .open();
-      onPong.await(1, TimeUnit.SECONDS);
+      onPong.await(10, TimeUnit.SECONDS);
       assertEquals(onPong.getCount(), 0);
     } finally {
       kernel.stop();
