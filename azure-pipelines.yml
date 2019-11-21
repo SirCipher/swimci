@@ -36,7 +36,7 @@ strategy:
       imageName: "ubuntu-18.04"
       jdk_version: "1.11"
 
-  maxParallel: 3
+  maxParallel: 10
 
 pool:
   vmImage: $(imageName)
