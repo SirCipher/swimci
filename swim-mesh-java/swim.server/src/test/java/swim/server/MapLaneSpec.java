@@ -14,8 +14,6 @@
 
 package swim.server;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 import org.testng.annotations.Test;
 import swim.actor.ActorSpaceDef;
 import swim.api.SwimLane;
@@ -39,6 +37,8 @@ import swim.observable.function.WillTake;
 import swim.observable.function.WillUpdateKey;
 import swim.service.web.WebServiceDef;
 import swim.util.OrderedMap;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 
