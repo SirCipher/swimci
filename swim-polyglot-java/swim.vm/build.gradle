@@ -1,0 +1,13 @@
+apply from: '../project.gradle'
+
+description = 'Swim polyglot virtual machine integration'
+ext.homepage = 'https://github.com/swimos/swim/tree/master/swim-system-java/swim-polyglot-java/swim.vm'
+ext.moduleName = 'swim.vm'
+
+dependencies {
+  implementation group: 'org.swimos', name: 'swim-collections', version: version
+  api project(':swim-dynamic')
+  api group: 'org.graalvm.sdk', name: 'graal-sdk', version: graalVersion
+
+  testCompile group: 'org.graalvm.js', name: 'js', version: graalVersion
+}
