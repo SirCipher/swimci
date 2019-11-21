@@ -9,12 +9,12 @@ trigger:
 
 strategy:
   matrix:
-    # jdk8_windows:
-    #   imageName: "vs2017-win2016"
-    #   jdk_version: "1.8"
-    # jdk11_windows:
-    #   imageName: "vs2017-win2016"
-    #   jdk_version: "1.11"
+    jdk8_windows:
+       imageName: "vs2017-win2016"
+       jdk_version: "1.8"
+     jdk11_windows:
+       imageName: "vs2017-win2016"
+       jdk_version: "1.11"
 
     jdk8_macOS_Mojave:
       imageName: "macOS-10.14"
