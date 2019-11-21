@@ -365,19 +365,19 @@ public class TestTheaterSpec {
 
   @Test
   public void invokeIntrospectionCallbacks() {
-    final CountDownLatch didStart = new CountDownLatch(1);
-    final CountDownLatch didStop = new CountDownLatch(1);
-    final CountDownLatch taskWillCue = new CountDownLatch(1);
-    final CountDownLatch taskDidCancel = new CountDownLatch(1);
-    final CountDownLatch taskWillRun = new CountDownLatch(1);
-    final CountDownLatch taskDidRun = new CountDownLatch(1);
-    final CountDownLatch taskDidFail = new CountDownLatch(1);
-    final CountDownLatch callWillCue = new CountDownLatch(1);
-    final CountDownLatch callWillBind = new CountDownLatch(1);
-    final CountDownLatch callDidBind = new CountDownLatch(1);
-    final CountDownLatch callWillTrap = new CountDownLatch(1);
-    final CountDownLatch callDidTrap = new CountDownLatch(1);
-    final CountDownLatch callDidFail = new CountDownLatch(1);
+    final CountDownLatch didStart = new CountDownLatch(5);
+    final CountDownLatch didStop = new CountDownLatch(5);
+    final CountDownLatch taskWillCue = new CountDownLatch(5);
+    final CountDownLatch taskDidCancel = new CountDownLatch(5);
+    final CountDownLatch taskWillRun = new CountDownLatch(5);
+    final CountDownLatch taskDidRun = new CountDownLatch(5);
+    final CountDownLatch taskDidFail = new CountDownLatch(5);
+    final CountDownLatch callWillCue = new CountDownLatch(5);
+    final CountDownLatch callWillBind = new CountDownLatch(5);
+    final CountDownLatch callDidBind = new CountDownLatch(5);
+    final CountDownLatch callWillTrap = new CountDownLatch(5);
+    final CountDownLatch callDidTrap = new CountDownLatch(5);
+    final CountDownLatch callDidFail = new CountDownLatch(5);
     final TestTheater theater = new TestTheater() {
       @Override
       protected void didStart() {
