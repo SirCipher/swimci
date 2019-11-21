@@ -36,6 +36,7 @@ import swim.structure.Value;
 import static org.testng.Assert.assertEquals;
 
 public class PingPongSpec {
+
   static class TestPingAgent extends AbstractAgent {
     @SwimLane("ping")
     CommandLane<Value> ping = this.<Value>commandLane()
@@ -100,4 +101,5 @@ public class PingPongSpec {
       kernel.stop();
     }
   }
+
 }
