@@ -249,8 +249,8 @@ public class TestClockSpec {
                   timer.cancel();
                 }
               }
-              clock.await(fire, 5000);
-              clock.await(cancel, 5000);
+              clock.await(fire, 10000);
+              clock.await(cancel, 10000);
               shutdown.countDown();
             } catch (Throwable error) {
               throw new TestException(error);
@@ -259,7 +259,7 @@ public class TestClockSpec {
         };
         thread.start();
       }
-      clock.await(shutdown, 5000);
+      clock.await(shutdown, 10000);
     } finally {
       clock.stop();
     }
