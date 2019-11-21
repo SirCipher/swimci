@@ -365,19 +365,19 @@ public class TestTheaterSpec {
 
   @Test
   public void invokeIntrospectionCallbacks() {
-    final CountDownLatch didStart = new CountDownLatch(5);
-    final CountDownLatch didStop = new CountDownLatch(5);
-    final CountDownLatch taskWillCue = new CountDownLatch(5);
-    final CountDownLatch taskDidCancel = new CountDownLatch(5);
-    final CountDownLatch taskWillRun = new CountDownLatch(5);
-    final CountDownLatch taskDidRun = new CountDownLatch(5);
-    final CountDownLatch taskDidFail = new CountDownLatch(5);
-    final CountDownLatch callWillCue = new CountDownLatch(5);
-    final CountDownLatch callWillBind = new CountDownLatch(5);
-    final CountDownLatch callDidBind = new CountDownLatch(5);
-    final CountDownLatch callWillTrap = new CountDownLatch(5);
-    final CountDownLatch callDidTrap = new CountDownLatch(5);
-    final CountDownLatch callDidFail = new CountDownLatch(5);
+    final CountDownLatch didStart = new CountDownLatch(1);
+    final CountDownLatch didStop = new CountDownLatch(1);
+    final CountDownLatch taskWillCue = new CountDownLatch(1);
+    final CountDownLatch taskDidCancel = new CountDownLatch(1);
+    final CountDownLatch taskWillRun = new CountDownLatch(1);
+    final CountDownLatch taskDidRun = new CountDownLatch(1);
+    final CountDownLatch taskDidFail = new CountDownLatch(1);
+    final CountDownLatch callWillCue = new CountDownLatch(1);
+    final CountDownLatch callWillBind = new CountDownLatch(1);
+    final CountDownLatch callDidBind = new CountDownLatch(1);
+    final CountDownLatch callWillTrap = new CountDownLatch(1);
+    final CountDownLatch callDidTrap = new CountDownLatch(1);
+    final CountDownLatch callDidFail = new CountDownLatch(1);
     final TestTheater theater = new TestTheater() {
       @Override
       protected void didStart() {
@@ -436,7 +436,7 @@ public class TestTheaterSpec {
     };
     try {
       theater.start();
-      theater.await(didStart);
+      theater.await(didStart, 5000);
 
       theater.task(new AbstractTask() {
         @Override
@@ -444,16 +444,16 @@ public class TestTheaterSpec {
           // nop
         }
       }).cue();
-      theater.await(taskWillCue);
-      theater.await(taskWillRun);
-      theater.await(taskDidRun);
+      theater.await(taskWillCue, 5000);
+      theater.await(taskWillRun, 5000);
+      theater.await(taskDidRun, 5000);
 
       final CyclicBarrier barrier = new CyclicBarrier(2);
       final TaskRef blocker = theater.task(new AbstractTask() {
         @Override
         public void runTask() {
           // Block thread to prevent test task from running.
-          theater.await(barrier);
+          theater.await(barrier, 5000);
         }
       });
       blocker.cue();
@@ -466,8 +466,8 @@ public class TestTheaterSpec {
       });
       task2.cue();
       task2.cancel();
-      theater.await(taskDidCancel);
-      theater.await(barrier);
+      theater.await(taskDidCancel, 5000);
+      theater.await(barrier, 5000);
 
       theater.task(new AbstractTask() {
         @Override
@@ -475,7 +475,7 @@ public class TestTheaterSpec {
           throw new RuntimeException("test");
         }
       }).cue();
-      theater.await(taskDidFail);
+      theater.await(taskDidFail, 5000);
 
       theater.call(new Cont<Object>() {
         @Override
@@ -487,9 +487,9 @@ public class TestTheaterSpec {
           // nop
         }
       }).bind(null);
-      theater.await(callWillCue);
-      theater.await(callWillBind);
-      theater.await(callDidBind);
+      theater.await(callWillCue, 5000);
+      theater.await(callWillBind, 5000);
+      theater.await(callDidBind, 5000);
 
       theater.call(new Cont<Object>() {
         @Override
@@ -501,8 +501,8 @@ public class TestTheaterSpec {
           // nop
         }
       }).trap(new Exception());
-      theater.await(callWillTrap);
-      theater.await(callDidTrap);
+      theater.await(callWillTrap, 5000);
+      theater.await(callDidTrap, 5000);
 
       theater.call(new Cont<Object>() {
         @Override
@@ -514,11 +514,11 @@ public class TestTheaterSpec {
           // nop
         }
       }).bind(null);
-      theater.await(callDidFail);
+      theater.await(callDidFail, 5000);
 
     } finally {
       theater.stop();
-      theater.await(didStop);
+      theater.await(didStop, 5000);
     }
   }
 }
