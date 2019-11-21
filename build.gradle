@@ -132,9 +132,9 @@ gradle.projectsEvaluated {
                 def modules = javaProjects.collect { project -> project.moduleName }
                 options.addStringOption('-module', modules.join(','))
                 options.addStringOption('-module-source-path', [
-                        "${projectDir}" + File.pathSeparator + "swim-core-java" + File.pathSeparator + "*" + File.pathSeparator + "src" + File.pathSeparator + "main" + File.pathSeparator + "java",
-                        "${projectDir}" + File.pathSeparator + "swim-mesh-java" + File.pathSeparator + "*" + File.pathSeparator + "src" + File.pathSeparator + "main" + File.pathSeparator + "java",
-                        "${projectDir}" + File.pathSeparator + "swim-polyglot-java" + File.pathSeparator + "*" + File.pathSeparator + "src" + File.pathSeparator + "main" + File.pathSeparator + "java"]
+                        "${projectDir}" + File.separator + "swim-core-java" + File.separator + "*" + File.separator + "src" + File.separator + "main" + File.separator + "java",
+                        "${projectDir}" + File.separator + "swim-mesh-java" + File.separator + "*" + File.separator + "src" + File.separator + "main" + File.separator + "java",
+                        "${projectDir}" + File.separator + "swim-polyglot-java" + File.separator + "*" + File.separator + "src" + File.separator + "main" + File.separator + "java"]
                         .join(':'))
                 def classpaths = javaProjects.collect { project -> project.sourceSets.main.compileClasspath.asPath }
                 options.addStringOption('-module-path', classpaths.join(':'))
