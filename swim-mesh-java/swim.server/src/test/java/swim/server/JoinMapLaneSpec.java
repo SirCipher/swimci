@@ -248,8 +248,8 @@ public class JoinMapLaneSpec {
           .observe(new JoinMapLinkController())
           .open();
 
-      joinDidReceive.await(1, TimeUnit.SECONDS);
-      joinDidUpdate.await(1, TimeUnit.SECONDS);
+      joinDidReceive.await(5, TimeUnit.SECONDS);
+      joinDidUpdate.await(5, TimeUnit.SECONDS);
       assertEquals(joinDidReceive.getCount(), 0);
       assertEquals(joinDidUpdate.getCount(), 0);
       assertEquals(join.size(), 4);
