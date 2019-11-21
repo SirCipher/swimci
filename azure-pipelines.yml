@@ -20,7 +20,10 @@ strategy:
     jdk11_windows:
       imageName: "vs2017-win2016"
       jdk_version: "1.11"
-  
+    jdk12_windows:
+      imageName: "vs2017-win2016"
+      jdk_version: "1.12"
+
     jdk8_mac_Mojave:
       imageName: "macOS-10.14"
       jdk_version: "1.8"
@@ -40,16 +43,16 @@ strategy:
     jdk8_ubuntu_16:
       imageName: "ubuntu-18.04"
       jdk_version: "1.8"
-    jdk8_ubuntu_16:
+    jdk9_ubuntu_16:
       imageName: "ubuntu-18.04"
       jdk_version: "1.9"
-    jdk8_ubuntu_16:
+    jdk10_ubuntu_16:
       imageName: "ubuntu-18.04"
       jdk_version: "1.10"
-    jdk8_ubuntu_16:
+    jdk11_ubuntu_16:
       imageName: "ubuntu-18.04"
       jdk_version: "1.11"
-    jdk8_ubuntu_16:
+    jdk12_ubuntu_16:
       imageName: "ubuntu-18.04"
       jdk_version: "1.12"
   
