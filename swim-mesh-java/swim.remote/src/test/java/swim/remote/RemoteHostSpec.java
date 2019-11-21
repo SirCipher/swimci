@@ -159,10 +159,10 @@ public class RemoteHostSpec {
         }
       });
       clientHost.connect();
-      clientPush.await(1, TimeUnit.SECONDS);
-      serverPush.await(1, TimeUnit.SECONDS);
-      clientPull.await(1, TimeUnit.SECONDS);
-      serverPull.await(1, TimeUnit.SECONDS);
+      clientPush.await(10, TimeUnit.SECONDS);
+      serverPush.await(10, TimeUnit.SECONDS);
+      clientPull.await(10, TimeUnit.SECONDS);
+      serverPull.await(10, TimeUnit.SECONDS);
       assertEquals(clientPush.getCount(), 0);
       assertEquals(serverPush.getCount(), 0);
       assertEquals(clientPull.getCount(), 0);
