@@ -436,7 +436,7 @@ public class TestTheaterSpec {
     };
     try {
       theater.start();
-      theater.await(didStart, 10000);
+      theater.await(didStart, 30000);
 
       theater.task(new AbstractTask() {
         @Override
@@ -444,16 +444,16 @@ public class TestTheaterSpec {
           // nop
         }
       }).cue();
-      theater.await(taskWillCue, 10000);
-      theater.await(taskWillRun, 10000);
-      theater.await(taskDidRun, 10000);
+      theater.await(taskWillCue, 30000);
+      theater.await(taskWillRun, 30000);
+      theater.await(taskDidRun, 30000);
 
       final CyclicBarrier barrier = new CyclicBarrier(2);
       final TaskRef blocker = theater.task(new AbstractTask() {
         @Override
         public void runTask() {
           // Block thread to prevent test task from running.
-          theater.await(barrier, 10000);
+          theater.await(barrier, 30000);
         }
       });
       blocker.cue();
@@ -466,8 +466,8 @@ public class TestTheaterSpec {
       });
       task2.cue();
       task2.cancel();
-      theater.await(taskDidCancel, 10000);
-      theater.await(barrier, 10000);
+      theater.await(taskDidCancel, 30000);
+      theater.await(barrier, 30000);
 
       theater.task(new AbstractTask() {
         @Override
@@ -475,7 +475,7 @@ public class TestTheaterSpec {
           throw new RuntimeException("test");
         }
       }).cue();
-      theater.await(taskDidFail, 10000);
+      theater.await(taskDidFail, 30000);
 
       theater.call(new Cont<Object>() {
         @Override
@@ -487,9 +487,9 @@ public class TestTheaterSpec {
           // nop
         }
       }).bind(null);
-      theater.await(callWillCue, 10000);
-      theater.await(callWillBind, 10000);
-      theater.await(callDidBind, 10000);
+      theater.await(callWillCue, 30000);
+      theater.await(callWillBind, 30000);
+      theater.await(callDidBind, 30000);
 
       theater.call(new Cont<Object>() {
         @Override
@@ -501,8 +501,8 @@ public class TestTheaterSpec {
           // nop
         }
       }).trap(new Exception());
-      theater.await(callWillTrap, 10000);
-      theater.await(callDidTrap, 10000);
+      theater.await(callWillTrap, 30000);
+      theater.await(callDidTrap, 30000);
 
       theater.call(new Cont<Object>() {
         @Override
@@ -514,11 +514,11 @@ public class TestTheaterSpec {
           // nop
         }
       }).bind(null);
-      theater.await(callDidFail, 10000);
+      theater.await(callDidFail, 30000);
 
     } finally {
       theater.stop();
-      theater.await(didStop, 10000);
+      theater.await(didStop, 30000);
     }
   }
 }
