@@ -18,35 +18,17 @@ strategy:
     jdk8_mac_Mojave:
       imageName: "macOS-10.14"
       jdk_version: "1.8"
-    jdk9_mac_Mojave:
-      imageName: "macOS-10.14"
-      jdk_version: "1.9"
-    jdk10_mac_Mojave:
-      imageName: "macOS-10.14"
-      jdk_version: "1.10"
     jdk11_mac_Mojave:
       imageName: "macOS-10.14"
       jdk_version: "1.11"
-    jdk12_mac_Mojave:
-      imageName: "macOS-10.14"
-      jdk_version: "1.12"
 
     jdk8_ubuntu_16:
       imageName: "ubuntu-18.04"
       jdk_version: "1.8"
-    jdk9_ubuntu_16:
-      imageName: "ubuntu-18.04"
-      jdk_version: "1.9"
-    jdk10_ubuntu_16:
-      imageName: "ubuntu-18.04"
-      jdk_version: "1.10"
     jdk11_ubuntu_16:
       imageName: "ubuntu-18.04"
       jdk_version: "1.11"
-    jdk12_ubuntu_16:
-      imageName: "ubuntu-18.04"
-      jdk_version: "1.12"
-  
+
   maxParallel: 3
 
 pool:
