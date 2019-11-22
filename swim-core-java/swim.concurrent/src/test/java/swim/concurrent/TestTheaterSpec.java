@@ -366,8 +366,9 @@ public class TestTheaterSpec {
     } catch (SyncException e) {
       final long dt = System.nanoTime() - t0;
       timeout *= 1e6;
-      assertTrue(dt > timeout, "timeout too soon");
-      assertTrue(dt < 2L * timeout, "timeout too long");
+
+      assertTrue(dt > timeout, "Timeout too soon: dt: " + dt);
+      assertTrue(dt < 2L * timeout, "long too soon: dt: " + dt);
     } finally {
       theater.stop();
     }
