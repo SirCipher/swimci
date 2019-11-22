@@ -53,4 +53,4 @@ steps:
       jdkArchitectureOption: 'x64'
       publishJUnitResults: true
       testResultsFiles: '**/TEST-*.xml'
-      tasks: 'test'
+      tasks: 'test -Pslow -Pbenchmark'
