@@ -49,6 +49,7 @@ public class SyncSpec {
     long timeout = 200L;
     final Sync<Object> sync = new Sync<>();
     final long t0 = System.nanoTime();
+
     try {
       sync.await(timeout);
       fail();
