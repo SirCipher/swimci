@@ -46,7 +46,7 @@ public class SyncSpec {
 
   @Test
   public void awaitTimeout() throws InterruptedException {
-    final long timeout = 200L;
+    final long timeout = 5000L;
     final Sync<Object> sync = new Sync<Object>();
     final long t0 = System.currentTimeMillis();
     try {
@@ -61,7 +61,7 @@ public class SyncSpec {
 
   @Test
   public void concurrentAwait() throws InterruptedException {
-    final int awaitCount = 1000;
+    final int awaitCount = 5000;
     final int threadCount = 8;
     for (int i = 0; i < awaitCount; i += 1) {
       final Object result = new Object();
