@@ -355,7 +355,7 @@ public class TestTheaterSpec {
 
   @Test
   public void awaitSyncContTimeout() {
-    long timeout = 5000L;
+    long timeout = 200L;
     final TestTheater theater = new TestTheater();
     final long t0 = System.nanoTime();
 
@@ -366,8 +366,8 @@ public class TestTheaterSpec {
     } catch (SyncException e) {
       final long dt = System.nanoTime() - t0;
       timeout *= 1e6;
-      assertTrue(dt >= timeout, "timeout too soon");
-      assertTrue(dt <= 2L * timeout, "timeout too long");
+      assertTrue(dt > timeout, "timeout too soon");
+      assertTrue(dt < 2L * timeout, "timeout too long");
     } finally {
       theater.stop();
     }

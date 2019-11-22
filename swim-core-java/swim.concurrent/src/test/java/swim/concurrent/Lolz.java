@@ -1,7 +1,6 @@
 package swim.concurrent;
 
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 public class Lolz {
 
@@ -10,8 +9,8 @@ public class Lolz {
       System.out.println("-------------------------------------");
       System.out.println("Run: " + (i + 1));
 
-      SyncSpec syncSpec = new SyncSpec();
-      syncSpec.awaitTimeout();
+      TestTheaterSpec testTheaterSpec = new TestTheaterSpec();
+      testTheaterSpec.awaitSyncContTimeout();
 //      for (Method m : syncSpec.getClass().getDeclaredMethods()) {
 //        m.invoke(syncSpec);
 //      }
