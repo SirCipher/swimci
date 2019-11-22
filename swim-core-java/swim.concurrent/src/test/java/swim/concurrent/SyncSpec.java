@@ -14,10 +14,10 @@
 
 package swim.concurrent;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.CyclicBarrier;
 import org.testng.TestException;
 import org.testng.annotations.Test;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.CyclicBarrier;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.fail;
@@ -46,14 +46,17 @@ public class SyncSpec {
 
   @Test
   public void awaitTimeout() throws InterruptedException {
-    final long timeout = 5000L;
-    final Sync<Object> sync = new Sync<Object>();
-    final long t0 = System.currentTimeMillis();
+    long timeout = 200L;
+    final Sync<Object> sync = new Sync<>();
+    final long t0 = System.nanoTime();
     try {
       sync.await(timeout);
       fail();
     } catch (SyncException e) {
-      final long dt = System.currentTimeMillis() - t0;
+      final long dt = System.nanoTime() - t0;
+
+      timeout *= 1e6;
+
       assertTrue(dt > timeout);
       assertTrue(dt < 2L * timeout);
     }
