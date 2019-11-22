@@ -8,7 +8,7 @@ public class Lolz {
       System.out.println("Run: " + (i + 1));
 
       TestTheaterSpec testTheaterSpec = new TestTheaterSpec();
-      testTheaterSpec.invokeIntrospectionCallbacks();
+      testTheaterSpec.awaitSyncContTimeout();
     }
   }
 

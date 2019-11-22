@@ -356,7 +356,7 @@ public class TestTheaterSpec {
   @Test
   public void awaitSyncContTimeout() {
     final TestTheater theater = new TestTheater();
-    final long timeout = 1000L;
+    final long timeout = 5000L;
     final long t0 = System.currentTimeMillis();
     try {
       theater.start();
@@ -386,7 +386,7 @@ public class TestTheaterSpec {
     final CountDownLatch callWillTrap = new CountDownLatch(1);
     final CountDownLatch callDidTrap = new CountDownLatch(1);
     final CountDownLatch callDidFail = new CountDownLatch(1);
-    final TestTheater theater = new TestTheater() {
+    final TestTheater theater = new TestTheater(1) {
       @Override
       protected void didStart() {
         assertEquals(didStart.getCount(), 1);
@@ -406,9 +406,7 @@ public class TestTheaterSpec {
 
       @Override
       protected void taskDidCancel(TaskFunction task) {
-        System.out.println("Entered taskDidCancel");
         taskDidCancel.countDown();
-        System.out.println("Decremented latch taskDidCancel");
       }
 
       @Override
@@ -488,8 +486,8 @@ public class TestTheaterSpec {
         }
       });
 
-      System.out.println("Cue: " + task2.cue());
-      System.out.println("Cancel: " + task2.cancel());
+      task2.cue();
+      task2.cancel();
 
       theater.await(taskDidCancel, 30000);
       theater.await(barrier, 30000);
