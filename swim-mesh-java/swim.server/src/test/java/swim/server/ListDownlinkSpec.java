@@ -118,7 +118,7 @@ public class ListDownlinkSpec {
       listLink.add(0, "a");
       listLink.add(1, "b");
       listLink.add(2, "c");
-      linkDidReceive.await(1,0 TimeUnit.SECONDS);
+      linkDidReceive.await(1, TimeUnit.SECONDS);
       linkDidUpdate.await(10, TimeUnit.SECONDS);
       assertEquals(linkDidReceive.getCount(), 0);
       assertEquals(linkWillUpdate.getCount(), 0);

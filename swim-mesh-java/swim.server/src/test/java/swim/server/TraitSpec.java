@@ -188,7 +188,6 @@ public class TraitSpec {
     try {
       kernel.openService(WebServiceDef.standard().port(53556).spaceName("test"));
       kernel.start();
-
       final ValueDownlink<String> valueLink = plane.downlinkValue()
           .valueClass(String.class)
           .hostUri("warp://localhost:53556")
