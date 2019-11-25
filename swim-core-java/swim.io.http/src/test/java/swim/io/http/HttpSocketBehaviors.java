@@ -14,7 +14,6 @@
 
 package swim.io.http;
 
-import java.util.concurrent.CountDownLatch;
 import org.testng.TestException;
 import org.testng.annotations.Test;
 import swim.codec.Utf8;
@@ -27,14 +26,17 @@ import swim.http.MediaType;
 import swim.io.IpServiceRef;
 import swim.io.IpSocketRef;
 import swim.uri.Uri;
+import java.util.concurrent.CountDownLatch;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
 
 public abstract class HttpSocketBehaviors {
   protected abstract IpServiceRef bind(HttpEndpoint endpoint, HttpService service);
 
   protected abstract IpSocketRef connect(HttpEndpoint endpoint, HttpClient client);
 
-  @Test(timeOut = 600000)
+  @Test(timeOut = 60000)
   public void testRequestResponse() {
     final Theater stage = new Theater();
     final HttpEndpoint endpoint = new HttpEndpoint(stage);
@@ -42,21 +44,25 @@ public abstract class HttpSocketBehaviors {
     final CountDownLatch clientResponse = new CountDownLatch(1);
     final CountDownLatch serverRequest = new CountDownLatch(1);
     final CountDownLatch serverResponse = new CountDownLatch(1);
+
     final AbstractHttpRequester<String> requester = new AbstractHttpRequester<String>() {
       @Override
       public void doRequest() {
         writeRequest(HttpRequest.post(Uri.parse("/")).body("clientToServer"));
       }
+
       @Override
       public void didRequest(HttpRequest<?> request) {
         clientRequest.countDown();
       }
+
       @Override
       public void didRespond(HttpResponse<String> response) {
         assertEquals(response.entity().get(), "serverToClient");
         clientResponse.countDown();
       }
     };
+
     final AbstractHttpClient client = new AbstractHttpClient() {
       @Override
       public void didConnect() {
@@ -64,6 +70,7 @@ public abstract class HttpSocketBehaviors {
         doRequest(requester);
       }
     };
+
     final AbstractHttpResponder<String> responder = new AbstractHttpResponder<String>() {
       @Override
       public void doRespond(HttpRequest<String> request) {
@@ -71,11 +78,13 @@ public abstract class HttpSocketBehaviors {
         serverRequest.countDown();
         writeResponse(HttpResponse.from(HttpStatus.OK).body("serverToClient"));
       }
+
       @Override
       public void didRespond(HttpResponse<?> response) {
         serverResponse.countDown();
       }
     };
+
     final AbstractHttpServer server = new AbstractHttpServer() {
       @Override
       public HttpResponder<?> doRequest(HttpRequest<?> request) {
@@ -88,11 +97,17 @@ public abstract class HttpSocketBehaviors {
         return server;
       }
     };
+
     try {
       stage.start();
       endpoint.start();
+
       bind(endpoint, service);
-      connect(endpoint, client);
+
+      IpSocketRef connect = connect(endpoint, client);
+      assertNotNull(connect);
+      assertTrue(connect.isConnected(), "Failed to connect to: " + connect.remoteAddress());
+
       clientRequest.await();
       clientResponse.await();
       serverRequest.await();
@@ -127,10 +142,12 @@ public abstract class HttpSocketBehaviors {
             public void doRequest() {
               writeRequest(HttpRequest.post(Uri.parse("/")).body("clientToServer"));
             }
+
             @Override
             public void didRequest(HttpRequest<?> request) {
               clientRequest.countDown();
             }
+
             @Override
             public void didRespond(HttpResponse<String> response) {
               assertEquals(response.entity().get(), "serverToClient");
@@ -150,6 +167,7 @@ public abstract class HttpSocketBehaviors {
             serverRequest.countDown();
             writeResponse(HttpResponse.from(HttpStatus.OK).body("serverToClient"));
           }
+
           @Override
           public void didRespond(HttpResponse<?> response) {
             serverResponse.countDown();
@@ -196,12 +214,14 @@ public abstract class HttpSocketBehaviors {
       public void doRequest() {
         writeRequest(HttpRequest.post(Uri.parse("/"))
             .content(HttpChunked.from(Utf8.stringWriter("clientTo").andThen(Utf8.stringWriter("Server")),
-                                      MediaType.textPlain())));
+                MediaType.textPlain())));
       }
+
       @Override
       public void didRequest(HttpRequest<?> request) {
         clientRequest.countDown();
       }
+
       @Override
       public void didRespond(HttpResponse<String> response) {
         assertEquals(response.entity().get(), "serverToClient");
@@ -222,8 +242,9 @@ public abstract class HttpSocketBehaviors {
         serverRequest.countDown();
         writeResponse(HttpResponse.from(HttpStatus.OK)
             .content(HttpChunked.from(Utf8.stringWriter("serverTo").andThen(Utf8.stringWriter("Client")),
-                                       MediaType.textPlain())));
+                MediaType.textPlain())));
       }
+
       @Override
       public void didRespond(HttpResponse<?> response) {
         serverResponse.countDown();
