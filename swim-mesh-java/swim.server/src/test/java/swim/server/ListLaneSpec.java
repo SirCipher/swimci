@@ -225,6 +225,7 @@ public class ListLaneSpec {
     try {
       kernel.openService(WebServiceDef.standard().port(53556).spaceName("test"));
       kernel.start();
+
       final ListDownlink<String> listLink = plane.downlinkList()
           .valueClass(String.class)
           .hostUri("warp://localhost:53556")
@@ -235,7 +236,9 @@ public class ListLaneSpec {
       listLink.add(0, "a");
       listLink.add(1, "b");
       listLink.add(2, "c");
-      laneDidUpdate.await(1, TimeUnit.SECONDS);
+
+      laneDidUpdate.await(10, TimeUnit.SECONDS);
+
       assertEquals(laneWillUpdate.getCount(), 0);
       assertEquals(laneDidUpdate.getCount(), 0);
       assertEquals(listLaneCopy.size(), 3);
@@ -268,11 +271,15 @@ public class ListLaneSpec {
           .nodeUri("/list/update")
           .laneUri("list")
           .open();
+
       listLink.add(0, "a");
       listLink.add(1, "b");
       listLink.add(2, "c");
-      laneDidUpdateLower.await(1, TimeUnit.SECONDS);
+
+      laneDidUpdateLower.await(10, TimeUnit.SECONDS);
+
       assertEquals(laneDidUpdateLower.getCount(), 0);
+
       assertEquals(listLaneCopy.size(), 3);
       assertEquals(listLaneCopy.get(0), "a");
       assertEquals(listLaneCopy.get(1), "b");
@@ -287,7 +294,9 @@ public class ListLaneSpec {
       listLink.add(0, "A");
       listLink.add(1, "B");
       listLink.add(2, "C");
-      laneDidUpdateUpper.await(1, TimeUnit.SECONDS);
+
+      laneDidUpdateUpper.await(10, TimeUnit.SECONDS);
+
       assertEquals(laneDidUpdateUpper.getCount(), 0);
       assertEquals(listLaneCopy.size(), 3);
       assertEquals(listLaneCopy.get(0), "A");
@@ -313,19 +322,24 @@ public class ListLaneSpec {
     laneDidUpdate = new CountDownLatch(3);
     laneDidMove = new CountDownLatch(2);
     laneWillMove = new CountDownLatch(2);
+
     try {
       kernel.openService(WebServiceDef.standard().port(53556).spaceName("test"));
       kernel.start();
+
       final ListDownlink<String> listLink = plane.downlinkList()
           .valueClass(String.class)
           .hostUri("warp://localhost:53556")
           .nodeUri("/list/move")
           .laneUri("list")
           .open();
+
       listLink.add(0, "a");
       listLink.add(1, "b");
       listLink.add(2, "c");
-      laneDidUpdate.await(1, TimeUnit.SECONDS);
+
+      laneDidUpdate.await(10, TimeUnit.SECONDS);
+
       assertEquals(listLaneCopy.size(), 3);
       assertEquals(listLaneCopy.get(0), "a");
       assertEquals(listLaneCopy.get(1), "b");
@@ -338,10 +352,13 @@ public class ListLaneSpec {
 
       listLink.move(1, 0);
       listLink.move(2, 1);
-      laneDidMove.await(1, TimeUnit.SECONDS);
+
+      laneDidMove.await(10, TimeUnit.SECONDS);
+
       assertEquals(laneDidUpdate.getCount(), 0);
       assertEquals(laneWillMove.getCount(), 0);
       assertEquals(laneDidMove.getCount(), 0);
+
       assertEquals(listLaneCopy.size(), 3);
       assertEquals(listLaneCopy.get(0), "b");
       assertEquals(listLaneCopy.get(1), "c");
@@ -369,6 +386,7 @@ public class ListLaneSpec {
     try {
       kernel.openService(WebServiceDef.standard().port(53556).spaceName("test"));
       kernel.start();
+
       final ListDownlink<String> listLink = plane.downlinkList()
           .valueClass(String.class)
           .hostUri("warp://localhost:53556")
@@ -379,7 +397,9 @@ public class ListLaneSpec {
       listLink.add(0, "a");
       listLink.add(1, "b");
       listLink.add(2, "c");
-      laneDidUpdate.await(1, TimeUnit.SECONDS);
+
+      laneDidUpdate.await(10, TimeUnit.SECONDS);
+
       assertEquals(laneDidUpdate.getCount(), 0);
       assertEquals(listLaneCopy.size(), 3);
       assertEquals(listLaneCopy.get(0), "a");
@@ -392,8 +412,10 @@ public class ListLaneSpec {
       assertEquals(listLane1Copy.get(2), "c");
 
       listLink.remove(1);
-      laneWillRemove.await(1, TimeUnit.SECONDS);
-      laneDidRemove.await(1, TimeUnit.SECONDS);
+
+      laneWillRemove.await(10, TimeUnit.SECONDS);
+      laneDidRemove.await(10, TimeUnit.SECONDS);
+
       assertEquals(laneWillRemove.getCount(), 0);
       assertEquals(laneDidRemove.getCount(), 0);
       assertEquals(listLaneCopy.size(), 2);
@@ -422,6 +444,7 @@ public class ListLaneSpec {
     try {
       kernel.openService(WebServiceDef.standard().port(53556).spaceName("test"));
       kernel.start();
+
       final ListDownlink<String> listLink = plane.downlinkList()
           .valueClass(String.class)
           .hostUri("warp://localhost:53556")
@@ -432,18 +455,23 @@ public class ListLaneSpec {
       for (int i = 0; i < total; i++) {
         listLink.add(i, Integer.toString(i));
       }
+
       laneDidUpdate.await(1, TimeUnit.SECONDS);
+
       assertEquals(laneDidUpdate.getCount(), 0);
       assertEquals(listLaneCopy.size(), total);
       assertEquals(listLane1Copy.size(), total);
+
       for (int i = 0; i < total; i++) {
         assertEquals(listLaneCopy.get(i), Integer.toString(i));
         assertEquals(listLane1Copy.get(i), Integer.toString(i));
       }
 
       listLink.drop(2);
-      laneWillDrop.await(2, TimeUnit.SECONDS);
-      laneDidDrop.await(2, TimeUnit.SECONDS);
+
+      laneWillDrop.await(10, TimeUnit.SECONDS);
+      laneDidDrop.await(10, TimeUnit.SECONDS);
+
       assertEquals(laneDidDrop.getCount(), 0);
       assertEquals(listLaneCopy.size(), 3);
       assertEquals(listLaneCopy.get(0), "2");
@@ -465,6 +493,7 @@ public class ListLaneSpec {
     final TestListPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
         .openPlane("test", TestListPlane.class);
     final int total = 5;
+
     laneDidUpdate = new CountDownLatch(total);
     laneDidTake = new CountDownLatch(1);
     laneWillTake = new CountDownLatch(1);
@@ -482,18 +511,23 @@ public class ListLaneSpec {
       for (int i = 0; i < total; i++) {
         listLink.add(i, Integer.toString(i));
       }
-      laneDidUpdate.await(2, TimeUnit.SECONDS);
+
+      laneDidUpdate.await(10, TimeUnit.SECONDS);
+
       assertEquals(laneDidUpdate.getCount(), 0);
       assertEquals(listLaneCopy.size(), 5);
       assertEquals(listLane1Copy.size(), 5);
+
       for (int i = 0; i < total; i++) {
         assertEquals(listLaneCopy.get(i), Integer.toString(i));
         assertEquals(listLane1Copy.get(i), Integer.toString(i));
       }
 
       listLink.take(2);
-      laneWillTake.await(2, TimeUnit.SECONDS);
-      laneDidTake.await(2, TimeUnit.SECONDS);
+
+      laneWillTake.await(10, TimeUnit.SECONDS);
+      laneDidTake.await(10, TimeUnit.SECONDS);
+
       assertEquals(laneDidTake.getCount(), 0);
       assertEquals(listLaneCopy.size(), 2);
       assertEquals(listLaneCopy.get(0), "0");
@@ -513,6 +547,7 @@ public class ListLaneSpec {
     final TestListPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
         .openPlane("test", TestListPlane.class);
     final int total = 3;
+
     laneDidUpdate = new CountDownLatch(total);
     laneDidClear = new CountDownLatch(1);
     laneWillClear = new CountDownLatch(1);
@@ -520,6 +555,7 @@ public class ListLaneSpec {
     try {
       kernel.openService(WebServiceDef.standard().port(53556).spaceName("test"));
       kernel.start();
+
       final ListDownlink<String> listLink = plane.downlinkList()
           .valueClass(String.class)
           .hostUri("warp://localhost:53556")
@@ -531,17 +567,21 @@ public class ListLaneSpec {
         listLink.add(i, Integer.toString(i));
       }
 
-      laneDidUpdate.await(2, TimeUnit.SECONDS);
+      laneDidUpdate.await(10, TimeUnit.SECONDS);
+
       assertEquals(laneDidUpdate.getCount(), 0);
       assertEquals(listLaneCopy.size(), total);
       assertEquals(listLane1Copy.size(), total);
+
       for (int i = 0; i < total; i++) {
         assertEquals(listLaneCopy.get(i), Integer.toString(i));
         assertEquals(listLane1Copy.get(i), Integer.toString(i));
       }
 
       listLink.clear();
-      laneDidClear.await(1, TimeUnit.SECONDS);
+
+      laneDidClear.await(10, TimeUnit.SECONDS);
+
       assertEquals(laneWillClear.getCount(), 0);
       assertEquals(laneDidClear.getCount(), 0);
       assertEquals(listLaneCopy.size(), 0);
