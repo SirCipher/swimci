@@ -19,6 +19,7 @@ import swim.actor.ActorSpaceDef;
 import swim.kernel.Kernel;
 import swim.server.ServerLoader;
 import swim.uri.UriPath;
+import java.io.File;
 
 public class JsPlaneSpec {
   @Test
@@ -27,7 +28,8 @@ public class JsPlaneSpec {
     jsKernel.setRootPath(UriPath.parse(System.getProperty("project.dir")));
     final Kernel kernel = ServerLoader.loadServerStack().injectKernel(jsKernel);
 
-    final ActorSpaceDef spaceDef = ActorSpaceDef.fromPlaneDef(JsPlaneDef.from("plane", "./src/test/js/TestPlane"));
+    final String path = "." + File.separator + "src" + File.separator + "test" + File.separator + "js" + File.separator + "TestPlane";
+    final ActorSpaceDef spaceDef = ActorSpaceDef.fromPlaneDef(JsPlaneDef.from("plane", path));
     final JsPlane plane = (JsPlane) kernel.openSpace(spaceDef).getPlane("plane");
 
     try {
