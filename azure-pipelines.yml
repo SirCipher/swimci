@@ -14,12 +14,12 @@ strategy:
       imageName: "vs2015-win2012r2"
       jdk_version: "1.8"
 
-#    jdk8_windows_s2016:
-#      imageName: "vs2017-win2016"
-#      jdk_version: "1.8"
-#    jdk11_windows_s2016:
-#      imageName: "vs2017-win2016"
-#      jdk_version: "1.11"
+    jdk8_windows_s2016:
+      imageName: "vs2017-win2016"
+      jdk_version: "1.8"
+    jdk11_windows_s2016:
+      imageName: "vs2017-win2016"
+      jdk_version: "1.11"
 
     jdk8_macOS_HighSierra:
       imageName: "macOS-10.13"
@@ -35,12 +35,12 @@ strategy:
       imageName: "macOS-10.14"
       jdk_version: "1.11"
 
-#    jdk8_ubuntu_16:
-#      imageName: "ubuntu-16.04"
-#      jdk_version: "1.8"
-#    jdk11_ubuntu_16:
-#      imageName: "ubuntu-16.04"
-#      jdk_version: "1.11"
+    jdk8_ubuntu_16:
+      imageName: "ubuntu-16.04"
+      jdk_version: "1.8"
+    jdk11_ubuntu_16:
+      imageName: "ubuntu-16.04"
+      jdk_version: "1.11"
 
     jdk8_ubuntu_18:
       imageName: "ubuntu-18.04"
