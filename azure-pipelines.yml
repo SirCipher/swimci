@@ -23,12 +23,12 @@ strategy:
       imageName: "macOS-10.14"
       jdk_version: "1.11"
 
-    jdk8_ubuntu_16:
-      imageName: "ubuntu-16.04"
-      jdk_version: "1.8"
-    jdk11_ubuntu_16:
-      imageName: "ubuntu-16.04"
-      jdk_version: "1.11"
+#    jdk8_ubuntu_16:
+#      imageName: "ubuntu-16.04"
+#      jdk_version: "1.8"
+#    jdk11_ubuntu_16:
+#      imageName: "ubuntu-16.04"
+#      jdk_version: "1.11"
 
     jdk8_ubuntu_18:
       imageName: "ubuntu-18.04"
