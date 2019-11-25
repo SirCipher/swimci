@@ -165,14 +165,4 @@ gradle.projectsEvaluated {
         archives javadocJar
     }
 
-    test {
-        beforeTest { descriptor ->
-            logger.lifecycle("Running test: ${descriptor}")
-        }
-
-        testLogging {
-            exceptionFormat = 'full'
-            testLogging.showStandardStreams = true
-        }
-    }
 }
