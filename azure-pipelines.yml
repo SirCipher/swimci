@@ -10,19 +10,10 @@ trigger:
 strategy:
   matrix:
 
-    jdk7_windows_s2012:
-      imageName: "vs2015-win2012r2"
-      jdk_version: "1.7"
     jdk8_windows_s2012:
       imageName: "vs2015-win2012r2"
       jdk_version: "1.8"
-    jdk11_windows_s2012:
-      imageName: "vs2015-win2012r2"
-      jdk_version: "1.11"
 
-#    jdk7_windows_s2016:
-#      imageName: "vs2017-win2016"
-#      jdk_version: "1.7"
 #    jdk8_windows_s2016:
 #      imageName: "vs2017-win2016"
 #      jdk_version: "1.8"
@@ -30,9 +21,6 @@ strategy:
 #      imageName: "vs2017-win2016"
 #      jdk_version: "1.11"
 
-    jdk7_macOS_HighSierra:
-      imageName: "macOS-10.13"
-      jdk_version: "1.7"
     jdk8_macOS_HighSierra:
       imageName: "macOS-10.13"
       jdk_version: "1.8"
@@ -40,9 +28,6 @@ strategy:
       imageName: "macOS-10.13"
       jdk_version: "1.11"
 
-    jdk7_macOS_Mojave:
-      imageName: "macOS-10.14"
-      jdk_version: "1.7"
     jdk8_macOS_Mojave:
       imageName: "macOS-10.14"
       jdk_version: "1.8"
@@ -57,9 +42,6 @@ strategy:
 #      imageName: "ubuntu-16.04"
 #      jdk_version: "1.11"
 
-    jdk7_ubuntu_18:
-      imageName: "ubuntu-18.04"
-      jdk_version: "1.7"
     jdk8_ubuntu_18:
       imageName: "ubuntu-18.04"
       jdk_version: "1.8"
