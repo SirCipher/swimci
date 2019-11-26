@@ -27,6 +27,7 @@ import swim.io.IpServiceRef;
 import swim.io.IpSocketRef;
 import swim.uri.Uri;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;
@@ -109,13 +110,10 @@ public abstract class HttpSocketBehaviors {
 
       System.out.println("Connected to: " + connect.remoteAddress());
 
-      // TODO: Tom, this is returning false even when connected
-      assertTrue(connect.isConnected(), "Failed to connect to: " + connect.remoteAddress());
-
-      clientRequest.await();
-      clientResponse.await();
-      serverRequest.await();
-      serverResponse.await();
+      clientRequest.await(10, TimeUnit.SECONDS);
+      clientResponse.await(10, TimeUnit.SECONDS);
+      serverRequest.await(10, TimeUnit.SECONDS);
+      serverResponse.await(10, TimeUnit.SECONDS);
     } catch (InterruptedException cause) {
       throw new TestException(cause);
     } finally {

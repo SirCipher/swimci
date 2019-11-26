@@ -26,6 +26,7 @@ import swim.structure.Value;
 import static org.testng.Assert.assertEquals;
 
 public class HttpSettingsSpec {
+
   void assertDecodes(Value actualValue, HttpSettings expected) {
     final HttpSettings actual = HttpSettings.form().cast(actualValue);
     assertEquals(actual, expected);

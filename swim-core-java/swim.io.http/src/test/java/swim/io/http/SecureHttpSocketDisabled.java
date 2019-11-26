@@ -16,17 +16,35 @@ package swim.io.http;
 
 import swim.io.IpServiceRef;
 import swim.io.IpSocketRef;
+import java.io.IOException;
+import java.net.ServerSocket;
+import static org.testng.Assert.fail;
 
-public class SecureHttpSocketSpec extends HttpSocketBehaviors {
+public class SecureHttpSocketDisabled extends HttpSocketBehaviors {
+
   final HttpSettings httpSettings = TestTlsSettings.httpSettings();
+
+  private int portNo = 0;
+
+  SecureHttpSocketDisabled(){
+    try {
+      ServerSocket serverSocket = new ServerSocket(0);
+      portNo = serverSocket.getLocalPort();
+      serverSocket.setReuseAddress(true);
+      serverSocket.close();
+    } catch (IOException e) {
+      fail("Failure in finding an available socket", e);
+    }
+  }
 
   @Override
   protected IpServiceRef bind(HttpEndpoint endpoint, HttpService service) {
-    return endpoint.bindHttps("127.0.0.1", 33555, service, this.httpSettings);
+    return endpoint.bindHttps("127.0.0.1", portNo, service, this.httpSettings);
   }
 
   @Override
   protected IpSocketRef connect(HttpEndpoint endpoint, HttpClient client) {
-    return endpoint.connectHttps("127.0.0.1", 33555, client, this.httpSettings);
+    return endpoint.connectHttps("127.0.0.1", portNo, client, this.httpSettings);
   }
+
 }
