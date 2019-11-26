@@ -52,6 +52,7 @@ import swim.structure.Form;
 import swim.util.KeyedList;
 
 public class ListLaneView<V> extends WarpLaneView implements ListLane<V> {
+
   protected final AgentContext agentContext;
   protected Form<V> valueForm;
 
@@ -127,10 +128,12 @@ public class ListLaneView<V> extends WarpLaneView implements ListLane<V> {
     } else {
       this.flags &= ~RESIDENT;
     }
+
     final ListLaneModel laneBinding = this.laneBinding;
     if (laneBinding != null) {
       laneBinding.isResident(isResident);
     }
+
     return this;
   }
 

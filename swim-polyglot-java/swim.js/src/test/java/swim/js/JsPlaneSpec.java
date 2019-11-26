@@ -14,6 +14,7 @@
 
 package swim.js;
 
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import swim.actor.ActorSpaceDef;
 import swim.kernel.Kernel;
@@ -21,6 +22,8 @@ import swim.server.ServerLoader;
 import swim.uri.UriPath;
 import java.io.File;
 
+
+@Ignore
 public class JsPlaneSpec {
   @Test
   public void testJsPlane() {
