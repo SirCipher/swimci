@@ -2,7 +2,6 @@
 trigger:
   - master
 
-
 strategy:
   matrix:
 
@@ -61,4 +60,4 @@ steps:
       jdkArchitectureOption: 'x64'
       publishJUnitResults: true
       testResultsFiles: '**/TEST-*.xml'
-      tasks: 'test --continue -Pslow'#-Pslow -Pbenchmark --debugßßß
+      tasks: 'test --continue -Pslow'#-Pslow -Pbenchmark --debug

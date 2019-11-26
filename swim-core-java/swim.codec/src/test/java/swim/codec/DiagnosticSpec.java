@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 import swim.util.Severity;
 import static org.testng.Assert.assertEquals;
 
-public class DiagnosticDisabled {
+public class DiagnosticSpec {
   static void printDiagnostic(Diagnostic diagnostic) {
     System.out.println(diagnostic.toString(OutputSettings.styled()));
   }
