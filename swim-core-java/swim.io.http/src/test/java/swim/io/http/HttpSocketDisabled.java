@@ -20,12 +20,12 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import static org.testng.Assert.fail;
 
-public class HttpSocketSpec extends HttpSocketBehaviors {
+public class HttpSocketDisabled extends HttpSocketBehaviors {
   final HttpSettings httpSettings = HttpSettings.standard();
 
   private int portNo = 0;
 
-  HttpSocketSpec() {
+  HttpSocketDisabled() {
     try {
       ServerSocket serverSocket = new ServerSocket(0);
       portNo = serverSocket.getLocalPort();
