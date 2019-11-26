@@ -27,7 +27,7 @@ import swim.codec.OutputBuffer;
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.fail;
 
-public class DeflateSpec {
+public class DeflateSpecDisabled {
   @Test
   public void deflateFixed() {
     assertDeflates("Hello",
@@ -127,7 +127,7 @@ public class DeflateSpec {
   }
 
   static byte[] readResource(String resource) {
-    try (InputStream input = DeflateSpec.class.getResourceAsStream(resource)) {
+    try (InputStream input = DeflateSpecDisabled.class.getResourceAsStream(resource)) {
       final ByteArrayOutputStream output = new ByteArrayOutputStream();
       final byte[] buffer = new byte[4096];
       int count;

@@ -27,7 +27,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.fail;
 
-public class InflateSpec {
+public class InflateSpecDisabled {
   @Test
   public void inflateFixed() {
     assertInflates(byteArray(0xf2, 0x48, 0xcd, 0xc9, 0xc9, 0x07, 0x00, 0x00, 0x00, 0xff, 0xff),
@@ -128,7 +128,7 @@ public class InflateSpec {
   }
 
   static byte[] readResource(String resource) {
-    try (InputStream input = InflateSpec.class.getResourceAsStream(resource)) {
+    try (InputStream input = InflateSpecDisabled.class.getResourceAsStream(resource)) {
       final ByteArrayOutputStream output = new ByteArrayOutputStream();
       final byte[] buffer = new byte[4096];
       int count;
