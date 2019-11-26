@@ -137,10 +137,10 @@ public class MapDownlinkSpec {
           .open();
       mapLink.put("a", "indefinite article");
       mapLink.put("the", "definite article");
-      linkWillReceive.await(1, TimeUnit.SECONDS);
-      linkDidReceive.await(1, TimeUnit.SECONDS);
-      linkDidUpdate.await(1, TimeUnit.SECONDS);
-      linkDidSync.await(1, TimeUnit.SECONDS);
+      linkWillReceive.await(10, TimeUnit.SECONDS);
+      linkDidReceive.await(10, TimeUnit.SECONDS);
+      linkDidUpdate.await(10, TimeUnit.SECONDS);
+      linkDidSync.await(10, TimeUnit.SECONDS);
       assertEquals(linkWillReceive.getCount(), 0);
       assertEquals(linkDidReceive.getCount(), 0);
       assertEquals(linkDidUpdate.getCount(), 0);
@@ -149,7 +149,7 @@ public class MapDownlinkSpec {
       assertEquals(mapLink.get("a"), "indefinite article");
       assertEquals(mapLink.get("the"), "definite article");
 
-      readOnlyLinkDidReceive.await(1, TimeUnit.SECONDS);
+      readOnlyLinkDidReceive.await(10, TimeUnit.SECONDS);
       assertEquals(readOnlyLinkDidReceive.getCount(), 0);
       assertEquals(readOnlyMapLink.size(), 2);
       assertEquals(readOnlyMapLink.get("a"), "indefinite article");
@@ -227,24 +227,24 @@ public class MapDownlinkSpec {
 
       mapLink.put("a", "indefinite article");
       mapLink.put("the", "definite article");
-      didReceive.await(2, TimeUnit.SECONDS);
+      didReceive.await(10, TimeUnit.SECONDS);
       assertEquals(didReceive.getCount(), 0);
       assertEquals(mapLink.size(), 2);
 
-      readOnlyLinkDidReceive.await(2, TimeUnit.SECONDS);
+      readOnlyLinkDidReceive.await(10, TimeUnit.SECONDS);
       assertEquals(readOnlyLinkDidReceive.getCount(), 0);
       assertEquals(readOnlyMapLink.size(), 2);
 
       mapLink.remove("the");
-      willRemove.await(2, TimeUnit.SECONDS);
-      didRemove.await(2, TimeUnit.SECONDS);
+      willRemove.await(10, TimeUnit.SECONDS);
+      didRemove.await(10, TimeUnit.SECONDS);
       assertEquals(willRemove.getCount(), 0);
       assertEquals(didRemove.getCount(), 0);
       assertEquals(mapLink.size(), 1);
       assertEquals(mapLink.get("a"), "indefinite article");
       assertEquals(mapLink.get("the"), Form.forString().unit());
 
-      readOnlyLinkDidRemove.await(2, TimeUnit.SECONDS);
+      readOnlyLinkDidRemove.await(10, TimeUnit.SECONDS);
       assertEquals(readOnlyLinkDidRemove.getCount(), 0);
       assertEquals(readOnlyMapLink.size(), 1);
       assertEquals(readOnlyMapLink.get("a"), "indefinite article");
@@ -322,19 +322,19 @@ public class MapDownlinkSpec {
 
       mapLink.put("a", "indefinite article");
       mapLink.put("the", "definite article");
-      didReceive.await(2, TimeUnit.SECONDS);
+      didReceive.await(10, TimeUnit.SECONDS);
       assertEquals(didReceive.getCount(), 0);
       assertEquals(mapLink.size(), 2);
-      readOnlyLinkDidReceive.await(2, TimeUnit.SECONDS);
+      readOnlyLinkDidReceive.await(10, TimeUnit.SECONDS);
       assertEquals(readOnlyLinkDidReceive.getCount(), 0);
       assertEquals(readOnlyMapLink.size(), 2);
 
       mapLink.clear();
-      didClear.await(2, TimeUnit.SECONDS);
+      didClear.await(10, TimeUnit.SECONDS);
       assertEquals(didClear.getCount(), 0);
       assertEquals(mapLink.size(), 0);
 
-      readOnlyLinkDidClear.await(2, TimeUnit.SECONDS);
+      readOnlyLinkDidClear.await(10, TimeUnit.SECONDS);
       assertEquals(readOnlyLinkDidClear.getCount(), 0);
       assertEquals(readOnlyMapLink.size(), 0);
 
@@ -414,17 +414,17 @@ public class MapDownlinkSpec {
       mapLink.put("c", "charlie");
       mapLink.put("d", "delta");
       mapLink.put("e", "echo");
-      didReceive.await(2, TimeUnit.SECONDS);
+      didReceive.await(10, TimeUnit.SECONDS);
       assertEquals(didReceive.getCount(), 0);
       assertEquals(mapLink.size(), 5);
 
-      readOnlyLinkDidReceive.await(2, TimeUnit.SECONDS);
+      readOnlyLinkDidReceive.await(10, TimeUnit.SECONDS);
       assertEquals(readOnlyLinkDidReceive.getCount(), 0);
       assertEquals(readOnlyMapLink.size(), 5);
 
       mapLink.drop(2);
-      willDrop.await(2, TimeUnit.SECONDS);
-      didDrop.await(2, TimeUnit.SECONDS);
+      willDrop.await(10, TimeUnit.SECONDS);
+      didDrop.await(10, TimeUnit.SECONDS);
       assertEquals(willDrop.getCount(), 0);
       assertEquals(didDrop.getCount(), 0);
       assertEquals(mapLink.size(), 3);
@@ -434,7 +434,7 @@ public class MapDownlinkSpec {
       assertEquals(mapLink.get("a"), Form.forString().unit());
       assertEquals(mapLink.get("b"), Form.forString().unit());
 
-      readOnlyLinkDidDrop.await(2, TimeUnit.SECONDS);
+      readOnlyLinkDidDrop.await(10, TimeUnit.SECONDS);
       assertEquals(readOnlyLinkDidDrop.getCount(), 0);
       assertEquals(readOnlyMapLink.size(), 3);
       assertEquals(readOnlyMapLink.get("c"), "charlie");
@@ -516,24 +516,24 @@ public class MapDownlinkSpec {
       mapLink.put("c", "charlie");
       mapLink.put("d", "delta");
       mapLink.put("e", "echo");
-      didReceive.await(2, TimeUnit.SECONDS);
+      didReceive.await(10, TimeUnit.SECONDS);
       assertEquals(didReceive.getCount(), 0);
       assertEquals(mapLink.size(), 5);
 
-      readOnlyLinkDidReceive.await(2, TimeUnit.SECONDS);
+      readOnlyLinkDidReceive.await(10, TimeUnit.SECONDS);
       assertEquals(readOnlyLinkDidReceive.getCount(), 0);
       assertEquals(readOnlyMapLink.size(), 5);
 
       mapLink.take(2);
-      willTake.await(2, TimeUnit.SECONDS);
-      didTake.await(2, TimeUnit.SECONDS);
+      willTake.await(10, TimeUnit.SECONDS);
+      didTake.await(10, TimeUnit.SECONDS);
       assertEquals(willTake.getCount(), 0);
       assertEquals(didTake.getCount(), 0);
       assertEquals(mapLink.size(), 2);
       assertEquals(mapLink.get("a"), "alpha");
       assertEquals(mapLink.get("b"), "bravo");
 
-      readOnlyLinkDidTake.await(2, TimeUnit.SECONDS);
+      readOnlyLinkDidTake.await(10, TimeUnit.SECONDS);
       assertEquals(readOnlyLinkDidTake.getCount(), 0);
       assertEquals(readOnlyMapLink.size(), 2);
       assertEquals(readOnlyMapLink.size(), 2);
@@ -581,7 +581,7 @@ public class MapDownlinkSpec {
       mapLink.put("a", "indefinite article");
       mapLink.put("the", "definite article");
 
-      didReceive.await(2, TimeUnit.SECONDS);
+      didReceive.await(10, TimeUnit.SECONDS);
       assertEquals(didReceive.getCount(), 0);
       assertEquals(mapLink.size(), 2);
       assertEquals(mapLink1.size(), 2);
