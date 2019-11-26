@@ -19,6 +19,7 @@ import swim.util.Severity;
 import static org.testng.Assert.assertEquals;
 
 public class DiagnosticSpec {
+
   static void printDiagnostic(Diagnostic diagnostic) {
     System.out.println(diagnostic.toString(OutputSettings.styled()));
   }
