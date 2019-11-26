@@ -14,18 +14,26 @@
 
 package swim.io.http;
 
+import org.testng.annotations.Ignore;
 import swim.io.IpServiceRef;
 import swim.io.IpSocketRef;
 import java.io.IOException;
 import java.net.ServerSocket;
 import static org.testng.Assert.fail;
 
-public class HttpSocketDisabled extends HttpSocketBehaviors {
+/*
+  Tests here are currently failing and require further investigation.
+  Ref:
+    https://github.com/swimos/swim/issues/25
+    https://github.com/swimos/swim/issues/22
+ */
+@Ignore
+public class HttpSocketSpec extends HttpSocketBehaviors {
   final HttpSettings httpSettings = HttpSettings.standard();
 
   private int portNo = 0;
 
-  HttpSocketDisabled() {
+  HttpSocketSpec() {
     try {
       ServerSocket serverSocket = new ServerSocket(0);
       portNo = serverSocket.getLocalPort();

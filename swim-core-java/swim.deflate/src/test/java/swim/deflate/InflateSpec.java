@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import org.testng.TestException;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import swim.codec.Binary;
 import swim.codec.Decoder;
@@ -27,7 +28,12 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.fail;
 
-public class InflateSpecDisabled {
+/*
+  Disabled until tests have been further investigated on Windows.
+  Ref: https://github.com/swimos/swim/issues/20
+ */
+@Ignore
+public class InflateSpec {
   @Test
   public void inflateFixed() {
     assertInflates(byteArray(0xf2, 0x48, 0xcd, 0xc9, 0xc9, 0x07, 0x00, 0x00, 0x00, 0xff, 0xff),
@@ -128,7 +134,7 @@ public class InflateSpecDisabled {
   }
 
   static byte[] readResource(String resource) {
-    try (InputStream input = InflateSpecDisabled.class.getResourceAsStream(resource)) {
+    try (InputStream input = InflateSpec.class.getResourceAsStream(resource)) {
       final ByteArrayOutputStream output = new ByteArrayOutputStream();
       final byte[] buffer = new byte[4096];
       int count;

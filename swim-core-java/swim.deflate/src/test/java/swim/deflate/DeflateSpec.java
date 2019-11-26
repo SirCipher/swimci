@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import org.testng.TestException;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import swim.codec.Binary;
 import swim.codec.Encoder;
@@ -27,7 +28,12 @@ import swim.codec.OutputBuffer;
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.fail;
 
-public class DeflateSpecDisabled {
+/*
+  Disabled until tests have been further investigated on Windows.
+  Ref: https://github.com/swimos/swim/issues/20
+ */
+@Ignore
+public class DeflateSpec {
   @Test
   public void deflateFixed() {
     assertDeflates("Hello",
@@ -127,7 +133,7 @@ public class DeflateSpecDisabled {
   }
 
   static byte[] readResource(String resource) {
-    try (InputStream input = DeflateSpecDisabled.class.getResourceAsStream(resource)) {
+    try (InputStream input = DeflateSpec.class.getResourceAsStream(resource)) {
       final ByteArrayOutputStream output = new ByteArrayOutputStream();
       final byte[] buffer = new byte[4096];
       int count;

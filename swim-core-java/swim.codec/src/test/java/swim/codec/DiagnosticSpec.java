@@ -14,10 +14,16 @@
 
 package swim.codec;
 
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import swim.util.Severity;
 import static org.testng.Assert.assertEquals;
 
+/*
+  Disabled until tests have been further investigated on Windows.
+  Ref: https://github.com/swimos/swim/issues/20
+ */
+@Ignore
 public class DiagnosticSpec {
 
   static void printDiagnostic(Diagnostic diagnostic) {
