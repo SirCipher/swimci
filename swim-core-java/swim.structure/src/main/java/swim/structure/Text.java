@@ -342,11 +342,8 @@ public class Text extends Value {
     HashGenCacheMap<String, Text> cache = Text.cache.get();
     if (cache == null) {
       int cacheSize;
-      try {
-        cacheSize = Integer.parseInt(System.getProperty("swim.structure.text.cache.size"));
-      } catch (NumberFormatException e) {
-        cacheSize = 128;
-      }
+      cacheSize = Integer.parseInt(System.getProperty("swim.structure.text.cache.size", "128"));
+
       cache = new HashGenCacheMap<String, Text>(cacheSize);
       Text.cache.set(cache);
     }

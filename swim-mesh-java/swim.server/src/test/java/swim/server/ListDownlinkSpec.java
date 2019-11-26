@@ -22,6 +22,7 @@ import swim.api.SwimRoute;
 import swim.api.agent.AbstractAgent;
 import swim.api.agent.AgentRoute;
 import swim.api.downlink.ListDownlink;
+import swim.api.function.DidConnect;
 import swim.api.lane.ListLane;
 import swim.api.plane.AbstractPlane;
 import swim.api.warp.function.DidReceive;
@@ -51,7 +52,7 @@ import static org.testng.Assert.assertEquals;
  * Disabled until further investigation in to the initial value duplication is resolved:
  * Ref: https://github.com/swimos/swim/issues/21
  */
-@Ignore
+//@Ignore
 public class ListDownlinkSpec {
 
   static class TestListLaneAgent extends AbstractAgent {
@@ -75,8 +76,9 @@ public class ListDownlinkSpec {
     final CountDownLatch linkWillUpdate = new CountDownLatch(6);
     final CountDownLatch linkDidUpdate = new CountDownLatch(3);
     final CountDownLatch readOnlyLinkDidUpdate = new CountDownLatch(3);
+    final CountDownLatch connectedLatch = new CountDownLatch(2);
 
-    class ListLinkController implements WillUpdateIndex<String>, DidUpdateIndex<String>, WillReceive, DidReceive {
+    class ListLinkController implements WillUpdateIndex<String>, DidUpdateIndex<String>, WillReceive, DidReceive, DidConnect {
       @Override
       public String willUpdate(int index, String newValue) {
         System.out.println("link willUpdate index: " + index);
@@ -99,6 +101,12 @@ public class ListDownlinkSpec {
         System.out.println("ListLinkController- link didReceive body " + Recon.toString(body));
         linkDidReceive.countDown();
       }
+
+      @Override
+      public void didConnect() {
+        System.out.println("Did connect");
+        connectedLatch.countDown();
+      }
     }
 
     class ReadOnlyListLinkController implements DidUpdateIndex<String> {
@@ -113,6 +121,7 @@ public class ListDownlinkSpec {
     try {
       kernel.openService(WebServiceDef.standard().port(53556).spaceName("test"));
       kernel.start();
+
       final ListDownlink<String> listLink = plane.downlinkList()
           .valueClass(String.class)
           .hostUri("warp://localhost:53556")
@@ -127,6 +136,9 @@ public class ListDownlinkSpec {
           .laneUri("list")
           .observe(new ReadOnlyListLinkController())
           .open();
+
+      System.out.println("Awaiting latch");
+      connectedLatch.await(10, TimeUnit.SECONDS);
 
       listLink.add(0, "a");
       listLink.add(1, "b");
