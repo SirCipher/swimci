@@ -118,8 +118,8 @@ public class ListDownlinkSpec {
       listLink.add(0, "a");
       listLink.add(1, "b");
       listLink.add(2, "c");
-      linkDidReceive.await(10, TimeUnit.SECONDS);
-      linkDidUpdate.await(10, TimeUnit.SECONDS);
+      linkDidReceive.await(20, TimeUnit.SECONDS);
+      linkDidUpdate.await(20, TimeUnit.SECONDS);
       assertEquals(linkDidReceive.getCount(), 0);
       assertEquals(linkWillUpdate.getCount(), 0);
       assertEquals(linkDidUpdate.getCount(), 0);
@@ -127,7 +127,7 @@ public class ListDownlinkSpec {
       assertEquals(listLink.get(0), "a");
       assertEquals(listLink.get(1), "b");
       assertEquals(listLink.get(2), "c");
-      readOnlyLinkDidUpdate.await(10, TimeUnit.SECONDS);
+      readOnlyLinkDidUpdate.await(20, TimeUnit.SECONDS);
       assertEquals(readOnlyListLink.size(), 3);
       assertEquals(readOnlyListLink.get(0), "a");
       assertEquals(readOnlyListLink.get(1), "b");
@@ -210,23 +210,23 @@ public class ListDownlinkSpec {
       listLink.add(0, "a");
       listLink.add(1, "b");
       listLink.add(2, "c");
-      linkDidReceiveLower.await(10, TimeUnit.SECONDS);
-      linkDidUpdateLower.await(10, TimeUnit.SECONDS);
+      linkDidReceiveLower.await(20, TimeUnit.SECONDS);
+      linkDidUpdateLower.await(20, TimeUnit.SECONDS);
       assertEquals(linkDidReceiveLower.getCount(), 0);
       assertEquals(linkDidUpdateLower.getCount(), 0);
 
       listLink.add(0, "A");
       listLink.add(1, "B");
       listLink.add(2, "C");
-      linkDidReceiveUpper.await(10, TimeUnit.SECONDS);
-      linkDidUpdateUpper.await(10, TimeUnit.SECONDS);
+      linkDidReceiveUpper.await(20, TimeUnit.SECONDS);
+      linkDidUpdateUpper.await(20, TimeUnit.SECONDS);
       assertEquals(linkDidReceiveUpper.getCount(), 0);
       assertEquals(linkDidUpdateUpper.getCount(), 0);
       assertEquals(listLink.size(), 3);
       assertEquals(listLink.get(0), "A");
       assertEquals(listLink.get(1), "B");
       assertEquals(listLink.get(2), "C");
-      readOnlyLinkDidUpdate.await(10, TimeUnit.SECONDS);
+      readOnlyLinkDidUpdate.await(20, TimeUnit.SECONDS);
       assertEquals(readOnlyLinkDidUpdate.getCount(), 0);
       assertEquals(readOnlyListLink.size(), 3);
       assertEquals(readOnlyListLink.get(0), "A");
@@ -301,16 +301,16 @@ public class ListDownlinkSpec {
       listLink.add(0, "a");
       listLink.add(1, "b");
       listLink.add(2, "c");
-      linkDidUpdate.await(10, TimeUnit.SECONDS);
+      linkDidUpdate.await(20, TimeUnit.SECONDS);
       assertEquals(linkDidUpdate.getCount(), 0);
       assertEquals(listLink.size(), 3);
-      readOnlyLinkDidUpdate.await(10, TimeUnit.SECONDS);
+      readOnlyLinkDidUpdate.await(20, TimeUnit.SECONDS);
       assertEquals(readOnlyLinkDidUpdate.getCount(), 0);
       assertEquals(readOnlyListLink.size(), 3);
 
       listLink.move(1, 0);
       listLink.move(2, 1);
-      linkDidMove.await(10, TimeUnit.SECONDS);
+      linkDidMove.await(20, TimeUnit.SECONDS);
       assertEquals(linkWillMove.getCount(), 0);
       assertEquals(linkDidMove.getCount(), 0);
       assertEquals(listLink.size(), 3);
@@ -318,7 +318,7 @@ public class ListDownlinkSpec {
       assertEquals(listLink.get(1), "c");
       assertEquals(listLink.get(2), "a");
 
-      readOnlyLinkDidMove.await(10, TimeUnit.SECONDS);
+      readOnlyLinkDidMove.await(20, TimeUnit.SECONDS);
       assertEquals(readOnlyLinkDidMove.getCount(), 0);
       assertEquals(readOnlyListLink.size(), 3);
       assertEquals(readOnlyListLink.get(0), "b");
@@ -392,22 +392,22 @@ public class ListDownlinkSpec {
       listLink.add(0, "a");
       listLink.add(1, "b");
       listLink.add(2, "c");
-      linkDidUpdate.await(10, TimeUnit.SECONDS);
+      linkDidUpdate.await(20, TimeUnit.SECONDS);
       assertEquals(linkDidUpdate.getCount(), 0);
       assertEquals(listLink.size(), 3);
-      readOnlyLinkDidUpdate.await(10, TimeUnit.SECONDS);
+      readOnlyLinkDidUpdate.await(20, TimeUnit.SECONDS);
       assertEquals(readOnlyLinkDidUpdate.getCount(), 0);
       assertEquals(readOnlyListLink.size(), 3);
 
       listLink.remove(1);
-      linkDidRemove.await(10, TimeUnit.SECONDS);
+      linkDidRemove.await(20, TimeUnit.SECONDS);
       assertEquals(linkWillRemove.getCount(), 0);
       assertEquals(linkDidRemove.getCount(), 0);
       assertEquals(listLink.size(), 2);
       assertEquals(listLink.get(0), "a");
       assertEquals(listLink.get(1), "c");
 
-      readOnlyLinkDidRemove.await(10, TimeUnit.SECONDS);
+      readOnlyLinkDidRemove.await(20, TimeUnit.SECONDS);
       assertEquals(readOnlyListLink.size(), 2);
       assertEquals(readOnlyListLink.get(0), "a");
       assertEquals(readOnlyListLink.get(1), "c");
@@ -485,15 +485,15 @@ public class ListDownlinkSpec {
       for (int i = 0; i < total; i++) {
         listLink.add(i, Integer.toString(i));
       }
-      didUpdate.await(10, TimeUnit.SECONDS);
+      didUpdate.await(20, TimeUnit.SECONDS);
       assertEquals(didUpdate.getCount(), 0);
       assertEquals(listLink.size(), total);
-      readOnlyDidUpdate.await(10, TimeUnit.SECONDS);
+      readOnlyDidUpdate.await(20, TimeUnit.SECONDS);
       assertEquals(readOnlyDidUpdate.getCount(), 0);
       assertEquals(readOnlyListLink.size(), total);
 
       listLink.drop(2);
-      didDrop.await(10, TimeUnit.SECONDS);
+      didDrop.await(20, TimeUnit.SECONDS);
       assertEquals(willDrop.getCount(), 0);
       assertEquals(didDrop.getCount(), 0);
       assertEquals(listLink.size(), 3);
@@ -501,7 +501,7 @@ public class ListDownlinkSpec {
       assertEquals(listLink.get(1), "3");
       assertEquals(listLink.get(2), "4");
 
-      readOnlyDidDrop.await(10, TimeUnit.SECONDS);
+      readOnlyDidDrop.await(20, TimeUnit.SECONDS);
       assertEquals(readOnlyListLink.size(), 3);
       assertEquals(readOnlyListLink.get(0), "2");
       assertEquals(readOnlyListLink.get(1), "3");
@@ -579,22 +579,22 @@ public class ListDownlinkSpec {
         listLink.add(i, Integer.toString(i));
       }
 
-      didUpdate.await(10, TimeUnit.SECONDS);
+      didUpdate.await(20, TimeUnit.SECONDS);
       assertEquals(didUpdate.getCount(), 0);
       assertEquals(listLink.size(), total);
-      readOnlyDidUpdate.await(10, TimeUnit.SECONDS);
+      readOnlyDidUpdate.await(20, TimeUnit.SECONDS);
       assertEquals(readOnlyDidUpdate.getCount(), 0);
       assertEquals(readOnlyListLink.size(), total);
 
       listLink.take(2);
-      didTake.await(10, TimeUnit.SECONDS);
+      didTake.await(20, TimeUnit.SECONDS);
       assertEquals(willTake.getCount(), 0);
       assertEquals(didTake.getCount(), 0);
       assertEquals(listLink.size(), 2);
       assertEquals(listLink.get(0), "0");
       assertEquals(listLink.get(1), "1");
 
-      readOnlyDidTake.await(10, TimeUnit.SECONDS);
+      readOnlyDidTake.await(20, TimeUnit.SECONDS);
       assertEquals(readOnlyListLink.size(), 2);
       assertEquals(readOnlyListLink.get(0), "0");
       assertEquals(readOnlyListLink.get(1), "1");
@@ -673,20 +673,20 @@ public class ListDownlinkSpec {
         listLink.add(i, Integer.toString(i));
       }
 
-      didUpdate.await(10, TimeUnit.SECONDS);
+      didUpdate.await(20, TimeUnit.SECONDS);
       assertEquals(didUpdate.getCount(), 0);
       assertEquals(listLink.size(), total);
-      readOnlyDidUpdate.await(10, TimeUnit.SECONDS);
+      readOnlyDidUpdate.await(20, TimeUnit.SECONDS);
       assertEquals(didUpdate.getCount(), 0);
       assertEquals(readOnlyListLink.size(), total);
 
       listLink.clear();
-      didClear.await(10, TimeUnit.SECONDS);
+      didClear.await(20, TimeUnit.SECONDS);
       assertEquals(willClear.getCount(), 0);
       assertEquals(didClear.getCount(), 0);
       assertEquals(listLink.size(), 0);
 
-      readOnlyDidClear.await(10, TimeUnit.SECONDS);
+      readOnlyDidClear.await(20, TimeUnit.SECONDS);
       assertEquals(readOnlyListLink.size(), 0);
     } finally {
       kernel.stop();
