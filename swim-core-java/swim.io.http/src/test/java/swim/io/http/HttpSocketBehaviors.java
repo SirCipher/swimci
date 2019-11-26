@@ -15,6 +15,7 @@
 package swim.io.http;
 
 import org.testng.TestException;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import swim.codec.Utf8;
 import swim.concurrent.Theater;
@@ -32,6 +33,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;
 
+@Ignore
 public abstract class HttpSocketBehaviors {
   protected abstract IpServiceRef bind(HttpEndpoint endpoint, HttpService service);
 

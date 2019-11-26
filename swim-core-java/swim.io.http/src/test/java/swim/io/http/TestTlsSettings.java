@@ -22,11 +22,13 @@ import java.security.SecureRandom;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
+import org.testng.annotations.Ignore;
 import swim.io.ClientAuth;
 import swim.io.IpSettings;
 import swim.io.StationException;
 import swim.io.TlsSettings;
 
+@Ignore
 public final class TestTlsSettings {
   private TestTlsSettings() {
     // stub

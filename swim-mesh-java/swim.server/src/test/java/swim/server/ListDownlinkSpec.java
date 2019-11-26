@@ -47,6 +47,7 @@ import swim.structure.Value;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 /*
  * Disabled until further investigation in to the initial value duplication is resolved:
@@ -136,6 +137,11 @@ public class ListDownlinkSpec {
           .laneUri("list")
           .observe(new ReadOnlyListLinkController())
           .open();
+
+      boolean isConnected = readOnlyListLink.isConnected();
+      if(!isConnected){
+        readOnlyListLink.isConnected();
+      }
 
       System.out.println("Awaiting latch");
       connectedLatch.await(10, TimeUnit.SECONDS);

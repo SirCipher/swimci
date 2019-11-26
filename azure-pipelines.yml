@@ -1,4 +1,3 @@
-
 trigger:
   - master
 
@@ -60,4 +59,10 @@ steps:
       jdkArchitectureOption: 'x64'
       publishJUnitResults: true
       testResultsFiles: '**/TEST-*.xml'
-      tasks: 'test --continue -Pslow'#-Pslow -Pbenchmark --debug
+
+      #      --info: Display assertion information
+      #      --continue: Continue testing after errors
+      #      -Pslow: Run tests in the 'slow' group
+      #      -Pbenchmark: Run tests in the 'benchmark' group
+      #      --debug: Display Gradle messages at the 'debug' level
+      tasks: 'test --info --continue -Pslow'#-Pslow -Pbenchmark --debug
