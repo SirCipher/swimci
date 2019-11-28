@@ -265,9 +265,9 @@ public class TestClockSpec {
     }
   }
 
-  @Test//(groups = {"slow"})
+//  @Test(groups = {"slow"})
   public void concurrentSchedulingLongevity() {
-    final int threadCount = 4;
+    final int threadCount = 8;
     final int timerCount = 10000000;
     final int batchSize = 1000;
     final TestClock clock = new TestClock(1, 2);
