@@ -85,7 +85,7 @@ public class PingPongSpec {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestPingPongPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
                                           .openPlane("test", TestPingPongPlane.class);
-
+    final CountDownLatch onConnect = new CountDownLatch(1);
     final CountDownLatch onPong = new CountDownLatch(1);
     try {
       kernel.openService(WebServiceDef.standard().port(53556).spaceName("test"));
@@ -97,10 +97,10 @@ public class PingPongSpec {
           .nodeUri("/pong")
           .laneUri("pong")
           .onEvent(value -> onPong.countDown())
-          .didConnect(()-> {
-            System.out.println("DidConnect");
-          })
+          .didConnect(onConnect::countDown)
           .open();
+
+      onConnect.await();
 
       onPong.await(10, TimeUnit.SECONDS);
       assertEquals(onPong.getCount(), 0);
