@@ -593,6 +593,7 @@ public class ListDownlinkSpec {
     final CountDownLatch didClear = new CountDownLatch(2);
     final CountDownLatch readOnlyDidUpdate = new CountDownLatch(total);
     final CountDownLatch readOnlyDidClear = new CountDownLatch(1);
+    final CountDownLatch didSyncLatch = new CountDownLatch(2);
 
     class ListLinkController implements DidUpdateIndex<String>, WillClear, DidClear {
       @Override
@@ -639,15 +640,20 @@ public class ListDownlinkSpec {
           .nodeUri("/list/todo")
           .laneUri("list")
           .observe(new ListLinkController())
+          .didSync(didSyncLatch::countDown)
           .open();
       final ListDownlink<String> readOnlyListLink = plane.downlinkList()
           .valueClass(String.class)
           .hostUri("warp://localhost:53556")
           .nodeUri("/list/todo")
           .laneUri("list")
+          .didSync(didSyncLatch::countDown)
           .observe(new ReadOnlyListLinkController())
           .open();
       listLink.observe(new ListLinkController()).open();
+
+      didSyncLatch.await();
+
       for (int i = 0; i < total; i++) {
         listLink.add(i, Integer.toString(i));
       }

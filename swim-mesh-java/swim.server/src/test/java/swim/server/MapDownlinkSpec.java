@@ -343,12 +343,13 @@ public class MapDownlinkSpec {
     }
   }
 
-  @Test
+  @Test(invocationCount = 1000)
   void testDrop() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestMapPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
         .openPlane("test", TestMapPlane.class);
 
+    final CountDownLatch didSyncLatch = new CountDownLatch(2);
     final CountDownLatch didReceive = new CountDownLatch(5);
     final CountDownLatch willDrop = new CountDownLatch(1);
     final CountDownLatch didDrop = new CountDownLatch(1);
@@ -399,6 +400,7 @@ public class MapDownlinkSpec {
           .nodeUri("/map/words")
           .laneUri("map")
           .observe(new MapLinkController())
+          .didSync(didSyncLatch::countDown)
           .open();
       final MapDownlink<String, String> readOnlyMapLink = plane.downlinkMap()
           .keyClass(String.class)
@@ -407,7 +409,10 @@ public class MapDownlinkSpec {
           .nodeUri("/map/words")
           .laneUri("map")
           .observe(new ReadOnlyMapLinkController())
+          .didSync(didSyncLatch::countDown)
           .open();
+
+      didSyncLatch.await();
 
       mapLink.put("a", "alpha");
       mapLink.put("b", "bravo");

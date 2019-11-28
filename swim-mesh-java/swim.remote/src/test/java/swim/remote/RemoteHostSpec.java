@@ -93,11 +93,12 @@ public class RemoteHostSpec {
     }
   }
 
-  @Test
+  @Test(invocationCount = 1000)
   public void testRemoteHostCommands() throws InterruptedException {
     final Theater stage = new Theater();
     final HttpEndpoint endpoint = new HttpEndpoint(stage);
     final CountDownLatch clientPush = new CountDownLatch(1);
+    final CountDownLatch connectLatch = new CountDownLatch(1);
     final CountDownLatch serverPush = new CountDownLatch(1);
     final CountDownLatch clientPull = new CountDownLatch(1);
     final CountDownLatch serverPull = new CountDownLatch(1);
@@ -106,6 +107,13 @@ public class RemoteHostSpec {
     final Uri hostUri = Uri.parse("warp://127.0.0.1:53556/");
 
     final RemoteHostClient clientHost = new RemoteHostClient(hostUri, endpoint) {
+      @Override
+      public void didConnect() {
+        super.didConnect();
+        connectLatch.countDown();
+        System.out.println("didConnect");
+      }
+
       @Override
       public void didUpgrade(HttpRequest<?> httpRequest, HttpResponse<?> httpResponse) {
         super.didUpgrade(httpRequest, httpResponse);
@@ -159,10 +167,13 @@ public class RemoteHostSpec {
         }
       });
       clientHost.connect();
+      connectLatch.await();
+
       clientPush.await(10, TimeUnit.SECONDS);
       serverPush.await(10, TimeUnit.SECONDS);
       clientPull.await(10, TimeUnit.SECONDS);
       serverPull.await(10, TimeUnit.SECONDS);
+
       assertEquals(clientPush.getCount(), 0);
       assertEquals(serverPush.getCount(), 0);
       assertEquals(clientPull.getCount(), 0);
