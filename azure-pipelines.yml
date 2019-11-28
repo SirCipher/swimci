@@ -59,6 +59,7 @@ steps:
       jdkArchitectureOption: 'x64'
       publishJUnitResults: true
       testResultsFiles: '**/TEST-*.xml'
+      checkStyleRunAnalysis: true
 
       #      --info: Display assertion information
       #      --continue: Continue testing after errors
