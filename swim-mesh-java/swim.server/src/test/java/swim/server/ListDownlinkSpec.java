@@ -64,7 +64,7 @@ public class ListDownlinkSpec {
     AgentRoute<TestListLaneAgent> listRoute;
   }
 
-  @Test(invocationCount = 1)
+  @Test
   public void testInsert() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestListPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
