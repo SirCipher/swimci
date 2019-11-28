@@ -66,6 +66,7 @@ public class Clock implements Schedule {
    */
   volatile int status;
 
+
   /**
    * Constructs a new {@code Clock} with a timer resolution of {@code
    * tickMillis} milliseconds, and a clock period of {@code tickCount} ticks
@@ -76,6 +77,7 @@ public class Clock implements Schedule {
     if (tickMillis <= 0) {
       throw new IllegalArgumentException(Long.toString(tickMillis));
     }
+
     this.tickNanos = (long) tickMillis * 1000000L;
 
     // Initialize the number of ticks per clock revolution.

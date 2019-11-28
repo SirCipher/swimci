@@ -40,28 +40,32 @@ public class PingPongSpec {
   static class TestPingAgent extends AbstractAgent {
     @SwimLane("ping")
     CommandLane<Value> ping = this.<Value>commandLane()
-        .onCommand(new OnCommand<Value>() {
-          @Override
-          public void onCommand(Value value) {
-            System.out.println(nodeUri() + " onPing: " + Recon.toString(value));
-            context.command("warp://localhost:53556", "/pong", "pong", Record.of(Attr.of("pong")));
-          }
+        .onCommand(value -> {
+          System.out.println(nodeUri() + " onPing: " + Recon.toString(value));
+          context.command("warp://localhost:53556", "/pong", "pong", Record.of(Attr.of("pong")));
         });
   }
 
   static class TestPongAgent extends AbstractAgent {
     @SwimLane("pong")
     CommandLane<Value> pong = this.<Value>commandLane()
-        .onCommand(new OnCommand<Value>() {
-          @Override
-          public void onCommand(Value value) {
-            System.out.println(nodeUri() + " onPong: " + Recon.toString(value));
-          }
-        });
+        .onCommand(value -> System.out.println(nodeUri() + " onPong: " + Recon.toString(value)));
 
     @Override
     public void didStart() {
       context.command("/ping", "ping", Record.of(Attr.of("ping")));
+      context.command("/pung", "pung", Record.of(Attr.of("pung")));
+    }
+  }
+
+  static class TestPungAgent extends AbstractAgent {
+    @SwimLane("pung")
+    CommandLane<Value> pung = this.<Value>commandLane()
+        .onCommand(value -> System.out.println(nodeUri() + " onPung: " + Recon.toString(value)));
+
+    @Override
+    public void didStart() {
+
     }
   }
 
@@ -71,6 +75,9 @@ public class PingPongSpec {
 
     @SwimRoute("/pong")
     AgentRoute<TestPongAgent> pong;
+
+    @SwimRoute("/pung")
+    AgentRoute<TestPungAgent> pung;
   }
 
   @Test
@@ -83,18 +90,18 @@ public class PingPongSpec {
     try {
       kernel.openService(WebServiceDef.standard().port(53556).spaceName("test"));
       kernel.start();
+
       final EventDownlink<String> pongLink = plane.downlink()
           .valueClass(String.class)
           .hostUri("warp://localhost:53556")
           .nodeUri("/pong")
           .laneUri("pong")
-          .onEvent(new OnEvent<String>() {
-            @Override
-            public void onEvent(String value) {
-              onPong.countDown();
-            }
+          .onEvent(value -> onPong.countDown())
+          .didConnect(()-> {
+            System.out.println("DidConnect");
           })
           .open();
+
       onPong.await(10, TimeUnit.SECONDS);
       assertEquals(onPong.getCount(), 0);
     } finally {

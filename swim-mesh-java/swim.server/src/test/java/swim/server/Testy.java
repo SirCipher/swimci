@@ -8,15 +8,12 @@ public class Testy {
     for (int i = 0; i < 10000; i++) {
       System.out.println("Test: " + (i + 1));
       ListDownlinkSpec listDownlinkSpec = new ListDownlinkSpec();
-      listDownlinkSpec.testInsert();
+      try {
+        listDownlinkSpec.testInsert();
+      } catch (Exception | Error e){
+        e.printStackTrace();
+      }
       System.out.println("------------------------------------------------");
-
-//      for (Method m : listDownlinkSpec.getClass().getDeclaredMethods()) {
-//        if (m.isAnnotationPresent(Test.class)) {
-//          System.out.println("Invoking: " + m.getName());
-//          m.invoke(listDownlinkSpec);
-//        }
-//      }
     }
   }
 
