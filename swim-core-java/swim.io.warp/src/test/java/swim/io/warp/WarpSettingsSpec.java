@@ -14,6 +14,7 @@
 
 package swim.io.warp;
 
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import swim.collections.FingerTrieSeq;
 import swim.io.ClientAuth;
@@ -27,6 +28,7 @@ import swim.structure.Slot;
 import swim.structure.Value;
 import static org.testng.Assert.assertEquals;
 
+@Ignore
 public class WarpSettingsSpec {
   void assertDecodes(Value actualValue, WarpSettings expected) {
     final WarpSettings actual = WarpSettings.form().cast(actualValue);

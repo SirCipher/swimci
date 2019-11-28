@@ -14,6 +14,7 @@
 
 package swim.io.warp;
 
+import org.testng.annotations.Ignore;
 import swim.io.IpServiceRef;
 import swim.io.IpSocketRef;
 import swim.io.http.HttpClient;
@@ -22,6 +23,7 @@ import swim.io.http.HttpService;
 import swim.uri.Uri;
 import swim.ws.WsRequest;
 
+@Ignore
 public class WarpSocketSpec extends WarpSocketBehaviors {
   final WarpSettings warpSettings = WarpSettings.standard();
   final Uri wsUri = Uri.parse("ws://127.0.0.1:23556/");
