@@ -14,12 +14,6 @@
 
 package swim.server;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 import org.testng.annotations.Test;
 import swim.actor.ActorSpaceDef;
 import swim.api.SwimLane;
@@ -49,8 +43,15 @@ import swim.recon.Recon;
 import swim.service.web.WebServiceDef;
 import swim.structure.Form;
 import swim.structure.Value;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+
 
 public class MapDownlinkSpec {
   static class TestMapLaneAgent extends AbstractAgent {
@@ -68,7 +69,7 @@ public class MapDownlinkSpec {
     AgentRoute<TestMapLaneAgent> mapRoute;
   }
 
-  @Test
+  @Test(invocationCount = 1000)
   public void testPut() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestMapPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
@@ -77,7 +78,7 @@ public class MapDownlinkSpec {
     final CountDownLatch linkWillReceive = new CountDownLatch(2);
     final CountDownLatch linkDidReceive = new CountDownLatch(2);
     final CountDownLatch linkDidUpdate = new CountDownLatch(4);
-    final CountDownLatch linkDidSync = new CountDownLatch(1);
+    final CountDownLatch linkDidSync = new CountDownLatch(2);
     final CountDownLatch readOnlyLinkDidReceive = new CountDownLatch(2);
     class MapLinkController implements WillUpdateKey<String, String>,
         DidUpdateKey<String, String>, WillReceive, DidReceive, DidSync {
@@ -86,21 +87,25 @@ public class MapDownlinkSpec {
         System.out.println("MapLinkController- link willUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue));
         return newValue;
       }
+
       @Override
       public void didUpdate(String key, String newValue, String oldValue) {
         System.out.println("MapLinkController- link didUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue));
         linkDidUpdate.countDown();
       }
+
       @Override
       public void willReceive(Value body) {
         System.out.println("MapLinkController- link willReceive body: " + Recon.toString(body));
         linkWillReceive.countDown();
       }
+
       @Override
       public void didReceive(Value body) {
         System.out.println("MapLinkController- link didReceive body: " + Recon.toString(body));
         linkDidReceive.countDown();
       }
+
       @Override
       public void didSync() {
         System.out.println("MapLinkController- link didSync");
@@ -126,6 +131,7 @@ public class MapDownlinkSpec {
           .nodeUri("/map/words")
           .laneUri("map")
           .observe(new MapLinkController())
+          .didSync(linkDidSync::countDown)
           .open();
       final MapDownlink<String, String> readOnlyMapLink = plane.downlinkMap()
           .keyClass(String.class)
@@ -134,13 +140,16 @@ public class MapDownlinkSpec {
           .nodeUri("/map/words")
           .laneUri("map")
           .observe(new ReadOnlyMapLinkController())
+          .didSync(linkDidSync::countDown)
           .open();
+
+      linkDidSync.await();
+
       mapLink.put("a", "indefinite article");
       mapLink.put("the", "definite article");
       linkWillReceive.await(10, TimeUnit.SECONDS);
       linkDidReceive.await(10, TimeUnit.SECONDS);
       linkDidUpdate.await(10, TimeUnit.SECONDS);
-      linkDidSync.await(10, TimeUnit.SECONDS);
       assertEquals(linkWillReceive.getCount(), 0);
       assertEquals(linkDidReceive.getCount(), 0);
       assertEquals(linkDidUpdate.getCount(), 0);
@@ -159,7 +168,7 @@ public class MapDownlinkSpec {
     }
   }
 
-  @Test
+  @Test(invocationCount = 1000)
   void testRemove() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestMapPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
@@ -254,7 +263,7 @@ public class MapDownlinkSpec {
     }
   }
 
-  @Test
+  @Test(invocationCount = 1000)
   void testClear() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestMapPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
@@ -265,6 +274,7 @@ public class MapDownlinkSpec {
     final CountDownLatch didClear = new CountDownLatch(2);
     final CountDownLatch readOnlyLinkDidReceive = new CountDownLatch(2);
     final CountDownLatch readOnlyLinkDidClear = new CountDownLatch(1);
+    final CountDownLatch linkDidSync = new CountDownLatch(2);
 
     class MapLinkController implements DidReceive, WillClear, DidClear {
       @Override
@@ -310,6 +320,7 @@ public class MapDownlinkSpec {
           .nodeUri("/map/words")
           .laneUri("map")
           .observe(new MapLinkController())
+          .didSync(linkDidSync::countDown)
           .open();
       final MapDownlink<String, String> readOnlyMapLink = plane.downlinkMap()
           .keyClass(String.class)
@@ -318,7 +329,10 @@ public class MapDownlinkSpec {
           .nodeUri("/map/words")
           .laneUri("map")
           .observe(new ReadOnlyMapLinkController())
+          .didSync(linkDidSync::countDown)
           .open();
+
+      linkDidSync.await();
 
       mapLink.put("a", "indefinite article");
       mapLink.put("the", "definite article");
@@ -343,7 +357,7 @@ public class MapDownlinkSpec {
     }
   }
 
-  @Test
+  @Test(invocationCount = 1000)
   void testDrop() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestMapPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
@@ -450,7 +464,7 @@ public class MapDownlinkSpec {
     }
   }
 
-  @Test
+  @Test(invocationCount = 1000)
   void testTake() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestMapPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
@@ -461,6 +475,7 @@ public class MapDownlinkSpec {
     final CountDownLatch didTake = new CountDownLatch(1);
     final CountDownLatch readOnlyLinkDidReceive = new CountDownLatch(5);
     final CountDownLatch readOnlyLinkDidTake = new CountDownLatch(1);
+    final CountDownLatch didSyncLatch = new CountDownLatch(2);
 
     class MapLinkController implements DidReceive, WillTake, DidTake {
       @Override
@@ -506,6 +521,7 @@ public class MapDownlinkSpec {
           .nodeUri("/map/words")
           .laneUri("map")
           .observe(new MapLinkController())
+          .didSync(didSyncLatch::countDown)
           .open();
       final MapDownlink<String, String> readOnlyMapLink = plane.downlinkMap()
           .keyClass(String.class)
@@ -514,7 +530,10 @@ public class MapDownlinkSpec {
           .nodeUri("/map/words")
           .laneUri("map")
           .observe(new ReadOnlyMapLinkController())
+          .didSync(didSyncLatch::countDown)
           .open();
+
+      didSyncLatch.await();
 
       mapLink.put("a", "alpha");
       mapLink.put("b", "bravo");
@@ -549,7 +568,7 @@ public class MapDownlinkSpec {
     }
   }
 
-  @Test
+  @Test(invocationCount = 1000)
   public void testLinkMap() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestMapPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
