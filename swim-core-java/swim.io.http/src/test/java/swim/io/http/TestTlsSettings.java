@@ -14,29 +14,27 @@
 
 package swim.io.http;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.GeneralSecurityException;
-import java.security.KeyStore;
-import java.security.SecureRandom;
-import javax.net.ssl.KeyManagerFactory;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManagerFactory;
 import org.testng.annotations.Ignore;
 import swim.io.ClientAuth;
 import swim.io.IpSettings;
 import swim.io.StationException;
 import swim.io.TlsSettings;
+import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManagerFactory;
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.GeneralSecurityException;
+import java.security.KeyStore;
+import java.security.SecureRandom;
 
-@Ignore
 public final class TestTlsSettings {
-  private TestTlsSettings() {
-    // stub
-  }
-
   private static TlsSettings tlsSettings;
   private static IpSettings ipSettings;
   private static HttpSettings httpSettings;
+  private TestTlsSettings() {
+    // stub
+  }
 
   public static TlsSettings tlsSettings() {
     if (tlsSettings == null) {
