@@ -122,6 +122,8 @@ public class TraitSpec {
     final String testValue = "Hello, world!";
     final CountDownLatch valueDidReceive = new CountDownLatch(1);
     final CountDownLatch valueDidSet = new CountDownLatch(2);
+    final CountDownLatch didSync = new CountDownLatch(1);
+
     class ValueLinkController implements WillSet<String>, DidSet<String>,
         WillReceive, DidReceive, WillLink, DidLink, WillSync, DidSync,
         WillUnlink, DidUnlink, DidConnect, DidDisconnect, DidClose {
@@ -196,8 +198,10 @@ public class TraitSpec {
           .nodeUri("/node/root")
           .laneUri("value")
           .observe(new ValueLinkController())
+          .didSync(didSync::countDown)
           .open();
 
+      didSync.await();
       valueLink.set(testValue);
       valueDidReceive.await(10, TimeUnit.SECONDS);
       valueDidSet.await(10, TimeUnit.SECONDS);
