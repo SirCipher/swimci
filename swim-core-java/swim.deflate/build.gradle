@@ -1,6 +1,3 @@
-import org.apache.tools.ant.taskdefs.condition.Os
-
-
 apply from: '../project.gradle'
 
 description = 'DEFLATE codec that incrementally compresses and decompresses streams'
@@ -10,10 +7,4 @@ ext.moduleName = 'swim.deflate'
 dependencies {
     implementation project(':swim-util')
     api project(':swim-codec')
-}
-
-useTestNG() {
-    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-        excludeGroups 'ignoreOnWindows'
-    }
 }
