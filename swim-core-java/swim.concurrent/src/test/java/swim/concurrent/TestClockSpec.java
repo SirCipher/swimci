@@ -265,7 +265,7 @@ public class TestClockSpec {
     }
   }
 
-  @Test(groups = {"slow"})
+  @Test//(groups = {"slow"})
   public void concurrentSchedulingLongevity() {
     final int threadCount = 8;
     final int timerCount = 10000000;
@@ -309,6 +309,7 @@ public class TestClockSpec {
       }
       clock.await(shutdown, Integer.MAX_VALUE);
     } finally {
+      System.out.println("Stopping clock");
       clock.stop();
     }
   }
