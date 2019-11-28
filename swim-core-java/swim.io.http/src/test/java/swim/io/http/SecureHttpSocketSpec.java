@@ -34,7 +34,7 @@ public class SecureHttpSocketSpec extends HttpSocketBehaviors {
 
   private int portNo = 0;
 
-  SecureHttpSocketSpec(){
+  SecureHttpSocketSpec() {
     try {
       ServerSocket serverSocket = new ServerSocket(0);
       portNo = serverSocket.getLocalPort();

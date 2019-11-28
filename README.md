@@ -3,7 +3,7 @@
 [![package](https://img.shields.io/github/tag/swimOS/swim.svg?label=maven)](https://mvnrepository.com/artifact/org.swimos)
 [![documentation](https://img.shields.io/badge/doc-JavaDoc-blue.svg)](https://docs.swimos.org/java/latest)
 [![chat](https://img.shields.io/badge/chat-Gitter-green.svg)](https://gitter.im/swimos/community)
-
+[![Known Vulnerabilities](https://snyk.io/test/github/SirCipher/swimci/badge.svg?targetFile=build.gradle)](https://snyk.io/test/github/SirCipher/swimci?targetFile=build.gradle)
 <a href="https://www.swimos.org"><img src="https://docs.swimos.org/readme/marlin-blue.svg" align="left"></a>
 
 The **Swim System** Java implementation provides a self-contained distributed
