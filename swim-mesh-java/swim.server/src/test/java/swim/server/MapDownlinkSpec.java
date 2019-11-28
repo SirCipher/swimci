@@ -69,7 +69,7 @@ public class MapDownlinkSpec {
     AgentRoute<TestMapLaneAgent> mapRoute;
   }
 
-  @Test(invocationCount = 1000)
+  @Test
   public void testPut() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestMapPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
@@ -168,7 +168,7 @@ public class MapDownlinkSpec {
     }
   }
 
-  @Test(invocationCount = 1000)
+  @Test
   void testRemove() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestMapPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
@@ -263,7 +263,7 @@ public class MapDownlinkSpec {
     }
   }
 
-  @Test(invocationCount = 1000)
+  @Test
   void testClear() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestMapPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
@@ -357,7 +357,7 @@ public class MapDownlinkSpec {
     }
   }
 
-  @Test(invocationCount = 1000)
+  @Test
   void testDrop() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestMapPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
@@ -464,7 +464,7 @@ public class MapDownlinkSpec {
     }
   }
 
-  @Test(invocationCount = 1000)
+  @Test
   void testTake() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestMapPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
@@ -568,7 +568,7 @@ public class MapDownlinkSpec {
     }
   }
 
-  @Test(invocationCount = 1000)
+  @Test
   public void testLinkMap() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestMapPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
