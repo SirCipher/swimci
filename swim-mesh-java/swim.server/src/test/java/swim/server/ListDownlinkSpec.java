@@ -118,6 +118,7 @@ public class ListDownlinkSpec {
     final CountDownLatch linkDidUpdateLower = new CountDownLatch(6);
     final CountDownLatch linkDidUpdateUpper = new CountDownLatch(6);
     final CountDownLatch readOnlyLinkDidUpdate = new CountDownLatch(6);
+    final CountDownLatch didSyncListLinkLatch = new CountDownLatch(1);
 
     class ListLinkController implements WillUpdateIndex<String>, DidUpdateIndex<String>, WillReceive, DidReceive {
       @Override
@@ -172,6 +173,7 @@ public class ListDownlinkSpec {
           .nodeUri("/list/todo")
           .laneUri("list")
           .observe(new ListLinkController())
+          .didSync(didSyncListLinkLatch::countDown)
           .open();
       final ListDownlink<String> readOnlyListLink = plane.downlinkList()
           .valueClass(String.class)
@@ -179,7 +181,11 @@ public class ListDownlinkSpec {
           .nodeUri("/list/todo")
           .laneUri("list")
           .observe(new ReadOnlyListLinkController())
+          .didSync(didSyncListLinkLatch::countDown)
           .open();
+
+      didSyncListLinkLatch.await();
+
       listLink.add(0, "a");
       listLink.add(1, "b");
       listLink.add(2, "c");
@@ -406,6 +412,7 @@ public class ListDownlinkSpec {
     final CountDownLatch didDrop = new CountDownLatch(2);
     final CountDownLatch readOnlyDidDrop = new CountDownLatch(1);
     final CountDownLatch readOnlyDidUpdate = new CountDownLatch(total);
+    final CountDownLatch didSyncListLinkLatch = new CountDownLatch(2);
 
     class ListLinkController implements DidUpdateIndex<String>, WillDrop, DidDrop {
       @Override
@@ -450,6 +457,7 @@ public class ListDownlinkSpec {
           .nodeUri("/list/todo")
           .laneUri("list")
           .observe(new ListLinkController())
+          .didSync(didSyncListLinkLatch::countDown)
           .open();
 
       final ListDownlink<String> readOnlyListLink = plane.downlinkList()
@@ -458,7 +466,10 @@ public class ListDownlinkSpec {
           .nodeUri("/list/todo")
           .laneUri("list")
           .observe(new ReadOnlyListLinkController())
+          .didSync(didSyncListLinkLatch::countDown)
           .open();
+
+      didSyncListLinkLatch.await();
 
       listLink.observe(new ListLinkController()).open();
       for (int i = 0; i < total; i++) {
@@ -501,6 +512,7 @@ public class ListDownlinkSpec {
     final CountDownLatch didTake = new CountDownLatch(2);
     final CountDownLatch readOnlyDidUpdate = new CountDownLatch(total);
     final CountDownLatch readOnlyDidTake = new CountDownLatch(1);
+    final CountDownLatch didSyncListLinkLatch = new CountDownLatch(2);
 
     class ListLinkController implements DidUpdateIndex<String>, WillTake, DidTake {
       @Override
@@ -545,6 +557,7 @@ public class ListDownlinkSpec {
           .nodeUri("/list/todo")
           .laneUri("list")
           .observe(new ListLinkController())
+          .didSync(didSyncListLinkLatch::countDown)
           .open();
       final ListDownlink<String> readOnlyListLink = plane.downlinkList()
           .valueClass(String.class)
@@ -552,8 +565,12 @@ public class ListDownlinkSpec {
           .nodeUri("/list/todo")
           .laneUri("list")
           .observe(new ReadOnlyListLinkController())
+          .didSync(didSyncListLinkLatch::countDown)
           .open();
+
       listLink.observe(new ListLinkController()).open();
+      didSyncListLinkLatch.await();
+
       for (int i = 0; i < total; i++) {
         listLink.add(i, Integer.toString(i));
       }
