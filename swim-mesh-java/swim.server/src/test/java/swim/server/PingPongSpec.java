@@ -42,17 +42,17 @@ public class PingPongSpec {
           System.out.println(nodeUri() + " onPing: " + Recon.toString(value));
           context.command("warp://localhost:53556", "/pong", "pong", Record.of(Attr.of("pong")));
         });
+
+    @Override
+    public void didStart() {
+      System.out.println("Ping did start");
+    }
   }
 
   static class TestPongAgent extends AbstractAgent {
     @SwimLane("pong")
     CommandLane<Value> pong = this.<Value>commandLane()
         .onCommand(value -> System.out.println(nodeUri() + " onPong: " + Recon.toString(value)));
-
-    @Override
-    public void didStart() {
-      context.command("/ping", "ping", Record.of(Attr.of("ping")));
-    }
   }
 
   static class TestPingPongPlane extends AbstractPlane {
@@ -68,8 +68,8 @@ public class PingPongSpec {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestPingPongPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
         .openPlane("test", TestPingPongPlane.class);
-    final CountDownLatch onConnect = new CountDownLatch(1);
     final CountDownLatch onPong = new CountDownLatch(1);
+
     try {
       kernel.openService(WebServiceDef.standard().port(53556).spaceName("test"));
       kernel.start();
@@ -80,14 +80,8 @@ public class PingPongSpec {
           .nodeUri("/pong")
           .laneUri("pong")
           .onEvent(value -> onPong.countDown())
-          .didConnect(() -> {
-            System.out.println("Did connect");
-            onConnect.countDown();
-          })
+          .didLink(()-> plane.command("/ping", "ping", Record.of(Attr.of("ping"))))
           .open();
-
-      System.out.println("Awaiting connection");
-      onConnect.await();
 
       System.out.println("Waiting for a pong");
       onPong.await(10, TimeUnit.SECONDS);
