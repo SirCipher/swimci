@@ -37,7 +37,7 @@ public abstract class HttpSocketBehaviors {
 
   protected abstract IpSocketRef connect(HttpEndpoint endpoint, HttpClient client);
 
-  @Test(invocationCount = 1000)
+  @Test
   public void testRequestResponse() {
     final Theater stage = new Theater();
     final HttpEndpoint endpoint = new HttpEndpoint(stage);

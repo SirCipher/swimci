@@ -551,7 +551,7 @@ public class FileStoreSpec {
     }
   }
 
-  @Test(invocationCount = 1000)
+  @Test
   public void benchmarkStateChanges() throws InterruptedException {
     final File storePath = new File(testOutputDir, "state-changes.swimdb");
     final Theater stage = new Theater();
