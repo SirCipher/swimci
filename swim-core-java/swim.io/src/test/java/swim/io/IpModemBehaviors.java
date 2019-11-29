@@ -288,7 +288,7 @@ public abstract class IpModemBehaviors {
       stage.stop();
     }
   }
-  @Test
+  @Test(invocationCount = 10000)
   public void testTransmitMultipleLines() {
     final Theater stage = new Theater();
     final IpEndpoint endpoint = new IpEndpoint(stage);
@@ -376,6 +376,7 @@ public abstract class IpModemBehaviors {
     } catch (InterruptedException cause) {
       throw new TestException(cause);
     } finally {
+      System.out.println("Shutting down");
       endpoint.stop();
       stage.stop();
     }

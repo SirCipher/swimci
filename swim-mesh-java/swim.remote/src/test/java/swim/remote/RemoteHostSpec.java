@@ -93,7 +93,7 @@ public class RemoteHostSpec {
     }
   }
 
-  @Test
+  @Test(invocationCount = 10000)
   public void testRemoteHostCommands() throws InterruptedException {
     final Theater stage = new Theater();
     final HttpEndpoint endpoint = new HttpEndpoint(stage);

@@ -464,7 +464,7 @@ public class MapDownlinkSpec {
     }
   }
 
-  @Test
+  @Test(invocationCount = 10000)
   void testTake() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestMapPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
@@ -498,9 +498,10 @@ public class MapDownlinkSpec {
     }
 
     class ReadOnlyMapLinkController implements DidReceive, DidTake {
+
       @Override
       public void didReceive(Value body) {
-        System.out.println("MapLinkController- link didReceive body: " + Recon.toString(body));
+        System.out.println("ReadOnlyMapLinkController- link didReceive body: " + Recon.toString(body));
         readOnlyLinkDidReceive.countDown();
       }
 
@@ -514,6 +515,7 @@ public class MapDownlinkSpec {
     try {
       kernel.openService(WebServiceDef.standard().port(53556).spaceName("test"));
       kernel.start();
+
       final MapDownlink<String, String> mapLink = plane.downlinkMap()
           .keyClass(String.class)
           .valueClass(String.class)
