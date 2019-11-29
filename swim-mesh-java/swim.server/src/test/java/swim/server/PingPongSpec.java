@@ -63,7 +63,7 @@ public class PingPongSpec {
     AgentRoute<TestPongAgent> pong;
   }
 
-  @Test(invocationCount = 10000)
+  @Test
   public void testCommandPingPong() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestPingPongPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
