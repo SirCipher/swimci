@@ -87,7 +87,6 @@ public class PingPongSpec {
       onPong.await(10, TimeUnit.SECONDS);
       assertEquals(onPong.getCount(), 0);
     } finally {
-      System.out.println("Stopping kernel");
       kernel.stop();
     }
   }

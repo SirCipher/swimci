@@ -5,14 +5,10 @@ import java.lang.reflect.InvocationTargetException;
 public class Testy {
 
   public static void main(String[] args) throws InterruptedException, InvocationTargetException, IllegalAccessException {
+    PingPongSpec ping = new PingPongSpec();
     for (int i = 0; i < 10000; i++) {
       System.out.println("Test: " + (i + 1));
-      ListDownlinkSpec listDownlinkSpec = new ListDownlinkSpec();
-      try {
-        listDownlinkSpec.testInsert();
-      } catch (Exception | Error e){
-        e.printStackTrace();
-      }
+      ping.testCommandPingPong();
       System.out.println("------------------------------------------------");
     }
   }
