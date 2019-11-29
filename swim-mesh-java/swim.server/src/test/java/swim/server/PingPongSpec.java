@@ -14,8 +14,6 @@
 
 package swim.server;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 import org.testng.annotations.Test;
 import swim.actor.ActorSpaceDef;
 import swim.api.SwimLane;
@@ -25,14 +23,14 @@ import swim.api.agent.AgentRoute;
 import swim.api.downlink.EventDownlink;
 import swim.api.lane.CommandLane;
 import swim.api.plane.AbstractPlane;
-import swim.api.warp.function.OnCommand;
-import swim.api.warp.function.OnEvent;
 import swim.kernel.Kernel;
 import swim.recon.Recon;
 import swim.service.web.WebServiceDef;
 import swim.structure.Attr;
 import swim.structure.Record;
 import swim.structure.Value;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 
 public class PingPongSpec {
@@ -54,18 +52,6 @@ public class PingPongSpec {
     @Override
     public void didStart() {
       context.command("/ping", "ping", Record.of(Attr.of("ping")));
-      context.command("/pung", "pung", Record.of(Attr.of("pung")));
-    }
-  }
-
-  static class TestPungAgent extends AbstractAgent {
-    @SwimLane("pung")
-    CommandLane<Value> pung = this.<Value>commandLane()
-        .onCommand(value -> System.out.println(nodeUri() + " onPung: " + Recon.toString(value)));
-
-    @Override
-    public void didStart() {
-
     }
   }
 
@@ -75,16 +61,13 @@ public class PingPongSpec {
 
     @SwimRoute("/pong")
     AgentRoute<TestPongAgent> pong;
-
-    @SwimRoute("/pung")
-    AgentRoute<TestPungAgent> pung;
   }
 
-  @Test
+  @Test(invocationCount = 10000)
   public void testCommandPingPong() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestPingPongPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
-                                          .openPlane("test", TestPingPongPlane.class);
+        .openPlane("test", TestPingPongPlane.class);
     final CountDownLatch onConnect = new CountDownLatch(1);
     final CountDownLatch onPong = new CountDownLatch(1);
     try {
@@ -97,14 +80,20 @@ public class PingPongSpec {
           .nodeUri("/pong")
           .laneUri("pong")
           .onEvent(value -> onPong.countDown())
-          .didConnect(onConnect::countDown)
+          .didConnect(() -> {
+            System.out.println("Did connect");
+            onConnect.countDown();
+          })
           .open();
 
+      System.out.println("Awaiting connection");
       onConnect.await();
 
+      System.out.println("Waiting for a pong");
       onPong.await(10, TimeUnit.SECONDS);
       assertEquals(onPong.getCount(), 0);
     } finally {
+      System.out.println("Stopping kernel");
       kernel.stop();
     }
   }
