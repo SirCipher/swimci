@@ -288,7 +288,7 @@ public abstract class IpModemBehaviors {
       stage.stop();
     }
   }
-  @Test
+  @Test(invocationCount = 1000)
   public void testTransmitMultipleLines() {
     final Theater stage = new Theater();
     final IpEndpoint endpoint = new IpEndpoint(stage);
@@ -296,6 +296,8 @@ public abstract class IpModemBehaviors {
     final CountDownLatch serverWrite = new CountDownLatch(1);
     final CountDownLatch clientRead = new CountDownLatch(1);
     final CountDownLatch serverRead = new CountDownLatch(1);
+    final CountDownLatch connectLatch = new CountDownLatch(2);
+
     final String phrase = "Hello, world!";
     final String line = phrase + "\n";
     final int lineCount = 1024;
@@ -304,6 +306,7 @@ public abstract class IpModemBehaviors {
       int readCount;
       @Override
       public void didConnect() {
+        connectLatch.countDown();
         write(Utf8.stringWriter(line));
         read(Utf8.decodedParser(Unicode.lineParser()));
       }
@@ -333,6 +336,7 @@ public abstract class IpModemBehaviors {
       int readCount;
       @Override
       public void didConnect() {
+        connectLatch.countDown();
         write(Utf8.stringWriter(line));
         read(Utf8.decodedParser(Unicode.lineParser()));
       }
@@ -369,6 +373,9 @@ public abstract class IpModemBehaviors {
       endpoint.start();
       bind(endpoint, service);
       connect(endpoint, client);
+
+      connectLatch.await();
+
       clientWrite.await();
       serverWrite.await();
       clientRead.await();

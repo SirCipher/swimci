@@ -27,7 +27,6 @@ import static org.testng.Assert.fail;
     https://github.com/swimos/swim/issues/25
     https://github.com/swimos/swim/issues/22
  */
-@Ignore
 public class SecureHttpSocketSpec extends HttpSocketBehaviors {
 
   final HttpSettings httpSettings = TestTlsSettings.httpSettings();

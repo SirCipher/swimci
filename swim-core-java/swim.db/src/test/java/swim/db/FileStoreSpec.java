@@ -551,7 +551,7 @@ public class FileStoreSpec {
     }
   }
 
-  @Test
+  @Test(invocationCount = 1000)
   public void benchmarkStateChanges() throws InterruptedException {
     final File storePath = new File(testOutputDir, "state-changes.swimdb");
     final Theater stage = new Theater();
@@ -592,6 +592,7 @@ public class FileStoreSpec {
 
       System.out.println("Page cache hit ratio: " + (int) (store.pageCache().hitRatio() * 100) + "%");
     } finally {
+      System.out.println("Shutting down");
       stage.stop();
     }
   }

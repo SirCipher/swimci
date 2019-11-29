@@ -32,13 +32,12 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 
-@Ignore
 public abstract class HttpSocketBehaviors {
   protected abstract IpServiceRef bind(HttpEndpoint endpoint, HttpService service);
 
   protected abstract IpSocketRef connect(HttpEndpoint endpoint, HttpClient client);
 
-  @Test
+  @Test(invocationCount = 1000)
   public void testRequestResponse() {
     final Theater stage = new Theater();
     final HttpEndpoint endpoint = new HttpEndpoint(stage);

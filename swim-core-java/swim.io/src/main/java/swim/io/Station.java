@@ -14,6 +14,10 @@
 
 package swim.io;
 
+import swim.concurrent.AbstractTask;
+import swim.concurrent.Conts;
+import swim.concurrent.MainStage;
+import swim.concurrent.Stage;
 import java.io.IOException;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
@@ -29,10 +33,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
-import swim.concurrent.AbstractTask;
-import swim.concurrent.Conts;
-import swim.concurrent.MainStage;
-import swim.concurrent.Stage;
 
 /**
  * Asynchronous I/O multiplexor.
@@ -675,6 +675,8 @@ final class StationTransport implements TransportContext, TransportRef {
         if (count > 0) {
           // Output bytes were successfully written to the transport channel.
           if (!writeBuffer.hasRemaining()) {
+//            System.out.println("Buffer has remaining false");
+
             // The output buffer has no more bytes to be written.
             try {
               // Inform the transport binding that the write completed.
@@ -691,6 +693,7 @@ final class StationTransport implements TransportContext, TransportRef {
             }
             continue;
           } else {
+//            System.out.println("Buffer has remaining true");
             // The output buffer still has bytes remaining to be written;
             // synchronize the transport's flow control state with the
             // station's selector to ensure that doWrite gets called again,
@@ -726,6 +729,8 @@ final class StationTransport implements TransportContext, TransportRef {
         // Prepare the output buffer to be written to the transport channel.
         ((Buffer) writeBuffer).flip();
         if (writeBuffer.hasRemaining()) {
+//          System.out.println("Write buffer has remaining");
+
           // New output bytes were written by the transport binding to the
           // output buffer; continue writing the output buffer to the transport
           // channel.
@@ -747,6 +752,7 @@ final class StationTransport implements TransportContext, TransportRef {
         break;
       }
     } while (true);
+//    System.out.println("Breaked");
   }
 
   void didTimeout() {
