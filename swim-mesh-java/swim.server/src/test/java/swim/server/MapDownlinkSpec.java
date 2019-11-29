@@ -464,7 +464,7 @@ public class MapDownlinkSpec {
     }
   }
 
-  @Test(invocationCount = 10000)
+  @Test
   void testTake() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestMapPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
