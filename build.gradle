@@ -131,11 +131,10 @@ gradle.projectsEvaluated {
             if (useModules) {
                 def modules = javaProjects.collect { project -> project.moduleName }
                 options.addStringOption('-module', modules.join(','))
-                options.addStringOption('-module-source-path', [
-                        "${projectDir}" + File.separator + "swim-core-java" + File.separator + "*" + File.separator + "src" + File.separator + "main" + File.separator + "java",
-                        "${projectDir}" + File.separator + "swim-mesh-java" + File.separator + "*" + File.separator + "src" + File.separator + "main" + File.separator + "java",
-                        "${projectDir}" + File.separator + "swim-polyglot-java" + File.separator + "*" + File.separator + "src" + File.separator + "main" + File.separator + "java"]
-                        .join(':'))
+                options.addStringOption('-module-source-path', String.join(File.pathSeparator, subprojects.collect {
+                    "${projectDir}" + File.separator + it.name + File.separator + "src" + File.separator + "main" + File.separator + "java"
+                }.toSet()))
+
                 def classpaths = javaProjects.collect { project -> project.sourceSets.main.compileClasspath.asPath }
                 options.addStringOption('-module-path', classpaths.join(':'))
                 classpath = files()
@@ -165,4 +164,14 @@ gradle.projectsEvaluated {
         archives javadocJar
     }
 
+}
+
+
+task listProjects {
+    doLast {
+        String moduleSourcePaths = String.join(File.pathSeparator, subprojects.collect {
+            "${projectDir}" + File.separator + it.name + File.separator + "src" + File.separator + "main" + File.separator + "java" + "\n"
+        }.toSet())
+        System.out.println(moduleSourcePaths)
+    }
 }

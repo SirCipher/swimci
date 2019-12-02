@@ -209,7 +209,7 @@ public class UriParser {
   public UriPath parsePathString(String string) {
     final Input input = Unicode.stringInput(string);
     Parser<UriPath> parser = parsePath(input);
-    if (input.isCont() && !parser.isError()) {
+    if (input.isCont() && parser.isError()) {
       parser = Parser.error(Diagnostic.unexpected(input));
     }
     return parser.bind();
