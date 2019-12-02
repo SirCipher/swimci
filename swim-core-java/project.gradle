@@ -106,10 +106,6 @@ afterEvaluate {
             if (!project.hasProperty('benchmark')) {
                 excludeGroups 'benchmark'
             }
-
-            if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-                excludeGroups 'ignoreOnWindows'
-            }
         }
 
         scanForTestClasses = false

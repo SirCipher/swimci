@@ -28,11 +28,6 @@ import java.nio.charset.Charset;
 import static org.testng.Assert.*;
 import static swim.deflate.DeflateUtil.readResource;
 
-/*
-  Disabled until tests have been further investigated on Windows.
-  Ref: https://github.com/swimos/swim/issues/20
- */
-//@Test(groups = {"ignoreOnWindows"})
 public class InflateSpec {
 
     @Test

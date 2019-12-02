@@ -29,11 +29,6 @@ import swim.uri.UriPath;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-/*
-  Disabled until tests have been further investigated on Windows.
-  Ref: https://github.com/swimos/swim/issues/20
- */
-//@Ignore
 public class JsAgentSpec {
 
     @Test
