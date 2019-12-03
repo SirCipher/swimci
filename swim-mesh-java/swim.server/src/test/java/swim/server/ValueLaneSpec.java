@@ -79,6 +79,7 @@ public class ValueLaneSpec {
 
     final String testValue = "Hello, world!";
     final CountDownLatch linkDidReceive = new CountDownLatch(1);
+    final CountDownLatch linkDidSync = new CountDownLatch(1);
     final CountDownLatch linkDidSet = new CountDownLatch(2);
     class ValueLinkController implements WillSet<String>, DidSet<String>,
         WillReceive, DidReceive, WillLink, DidLink, WillSync, DidSync,
@@ -121,6 +122,7 @@ public class ValueLaneSpec {
       @Override
       public void didSync() {
         System.out.println("link didSync");
+        linkDidSync.countDown();
       }
       @Override
       public void willUnlink() {
@@ -154,6 +156,9 @@ public class ValueLaneSpec {
           .laneUri("value")
           .observe(new ValueLinkController())
           .open();
+
+      linkDidSync.await();
+
       valueLink.set(testValue);
       linkDidReceive.await(1, TimeUnit.SECONDS);
       linkDidSet.await(1, TimeUnit.SECONDS);
