@@ -100,6 +100,14 @@ afterEvaluate {
       if (!project.hasProperty('slow')) {
         excludeGroups 'slow'
       }
+      // Run `gradle -Pbenchmark test` to include benchmark tests.
+      if (!project.hasProperty('benchmark')) {
+        excludeGroups 'benchmark'
+      }
+      // Run `gradle -PbuildServer test` to exclude ignoredOnCi tests.
+      if (project.hasProperty('buildServer')) {
+        excludeGroups 'ignoredOnCi'
+      }
     }
 
     scanForTestClasses = false

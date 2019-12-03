@@ -106,9 +106,9 @@ afterEvaluate {
             if (!project.hasProperty('benchmark')) {
                 excludeGroups 'benchmark'
             }
-            // Exclude certain test until fixed for Windows
-            if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-                excludeGroups 'ignoreOnWindows'
+            // Run `gradle -PbuildServer test` to exclude ignoredOnCi tests.
+            if (project.hasProperty('buildServer')) {
+                excludeGroups 'ignoredOnCi'
             }
         }
 

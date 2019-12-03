@@ -29,7 +29,8 @@ import swim.api.warp.function.WillUnlink;
 import swim.structure.Value;
 
 public class ClientRuntimeSpec {
-  @Test
+
+  @Test(groups = {"ignoredOnCi"})
   public void testLink() throws InterruptedException {
     final ClientRuntime client = new ClientRuntime();
     final CountDownLatch didSync = new CountDownLatch(1);
