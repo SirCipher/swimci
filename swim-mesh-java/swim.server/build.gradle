@@ -21,7 +21,7 @@ test {
     doFirst {
       jvmArgs += [
         '--add-opens', 'swim.server/swim.server=swim.java',
-        '--add-opens', 'swim.server/swim.server=testng'
+        '--add-opens', 'swim.server/swim.server=testng',
       ]
     }
   }

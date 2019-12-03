@@ -30,7 +30,7 @@ repositories {
 
 afterEvaluate {
     dependencies {
-        testCompile 'org.testng:testng:6.14.3'
+        testImplementation 'org.testng:testng:6.14.3'
     }
 
     configurations {
@@ -106,6 +106,10 @@ afterEvaluate {
             if (!project.hasProperty('benchmark')) {
                 excludeGroups 'benchmark'
             }
+            // Exclude certain test until fixed for Windows
+            if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+                excludeGroups 'ignoreOnWindows'
+            }
         }
 
         scanForTestClasses = false
@@ -159,7 +163,7 @@ afterEvaluate {
         manifest {
             attributes(
                     'Implementation-Title': moduleName,
-                    'Implementation-Version': version)
+                    'Implementation-Version': archiveVersion)
         }
     }
 
@@ -261,8 +265,10 @@ afterEvaluate {
         }
     }
 
-    signing {
-        required { isReleaseVersion && gradle.taskGraph.hasTask('publish') }
-        sign publishing.publications.mavenJava
+    if (isReleaseVersion) {
+        signing {
+            required { gradle.taskGraph.hasTask('publish') }
+            sign publishing.publications.mavenJava
+        }
     }
 }

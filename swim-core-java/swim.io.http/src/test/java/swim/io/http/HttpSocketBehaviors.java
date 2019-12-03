@@ -15,7 +15,6 @@
 package swim.io.http;
 
 import org.testng.TestException;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import swim.codec.Utf8;
 import swim.concurrent.Theater;
@@ -28,11 +27,10 @@ import swim.io.IpServiceRef;
 import swim.io.IpSocketRef;
 import swim.uri.Uri;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
 
 public abstract class HttpSocketBehaviors {
+
   protected abstract IpServiceRef bind(HttpEndpoint endpoint, HttpService service);
 
   protected abstract IpSocketRef connect(HttpEndpoint endpoint, HttpClient client);
@@ -45,7 +43,6 @@ public abstract class HttpSocketBehaviors {
     final CountDownLatch clientResponse = new CountDownLatch(1);
     final CountDownLatch serverRequest = new CountDownLatch(1);
     final CountDownLatch serverResponse = new CountDownLatch(1);
-
     final AbstractHttpRequester<String> requester = new AbstractHttpRequester<String>() {
       @Override
       public void doRequest() {
@@ -63,7 +60,6 @@ public abstract class HttpSocketBehaviors {
         clientResponse.countDown();
       }
     };
-
     final AbstractHttpClient client = new AbstractHttpClient() {
       @Override
       public void didConnect() {
@@ -71,7 +67,6 @@ public abstract class HttpSocketBehaviors {
         doRequest(requester);
       }
     };
-
     final AbstractHttpResponder<String> responder = new AbstractHttpResponder<String>() {
       @Override
       public void doRespond(HttpRequest<String> request) {
@@ -85,7 +80,6 @@ public abstract class HttpSocketBehaviors {
         serverResponse.countDown();
       }
     };
-
     final AbstractHttpServer server = new AbstractHttpServer() {
       @Override
       public HttpResponder<?> doRequest(HttpRequest<?> request) {
@@ -98,22 +92,15 @@ public abstract class HttpSocketBehaviors {
         return server;
       }
     };
-
     try {
       stage.start();
       endpoint.start();
-
       bind(endpoint, service);
-
-      IpSocketRef connect = connect(endpoint, client);
-      assertNotNull(connect);
-
-      System.out.println("Connected to: " + connect.remoteAddress());
-
-      clientRequest.await(10, TimeUnit.SECONDS);
-      clientResponse.await(10, TimeUnit.SECONDS);
-      serverRequest.await(10, TimeUnit.SECONDS);
-      serverResponse.await(10, TimeUnit.SECONDS);
+      connect(endpoint, client);
+      clientRequest.await();
+      clientResponse.await();
+      serverRequest.await();
+      serverResponse.await();
     } catch (InterruptedException cause) {
       throw new TestException(cause);
     } finally {
@@ -283,4 +270,5 @@ public abstract class HttpSocketBehaviors {
       stage.stop();
     }
   }
+
 }

@@ -18,7 +18,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.testng.TestException;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import swim.concurrent.Theater;
 import swim.http.HttpRequest;
@@ -42,7 +41,6 @@ import swim.ws.WsRequest;
 import swim.ws.WsResponse;
 import static org.testng.Assert.assertEquals;
 
-@Ignore
 public abstract class WarpSocketBehaviors {
   protected abstract IpServiceRef bind(HttpEndpoint endpoint, HttpService service);
 

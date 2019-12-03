@@ -14,10 +14,10 @@
 
 package swim.concurrent;
 
-import org.testng.TestException;
-import org.testng.annotations.Test;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
+import org.testng.TestException;
+import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.fail;
@@ -65,7 +65,7 @@ public class SyncSpec {
 
   @Test
   public void concurrentAwait() throws InterruptedException {
-    final int awaitCount = 5000;
+    final int awaitCount = 1000;
     final int threadCount = 8;
     for (int i = 0; i < awaitCount; i += 1) {
       final Object result = new Object();
@@ -93,5 +93,4 @@ public class SyncSpec {
       shutdown.await();
     }
   }
-
 }

@@ -14,6 +14,8 @@
 
 package swim.server;
 
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import org.testng.annotations.Test;
 import swim.actor.ActorSpaceDef;
 import swim.api.SwimLane;
@@ -37,8 +39,6 @@ import swim.observable.function.WillTake;
 import swim.observable.function.WillUpdateKey;
 import swim.service.web.WebServiceDef;
 import swim.util.OrderedMap;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 
@@ -221,11 +221,9 @@ public class MapLaneSpec {
     laneDidUpdate = new CountDownLatch(2);
     laneWillRemove = new CountDownLatch(1);
     laneDidRemove = new CountDownLatch(1);
-
     try {
       kernel.openService(WebServiceDef.standard().port(53556).spaceName("test"));
       kernel.start();
-
       final MapDownlink<String, String> mapLink = plane.downlinkMap()
           .keyClass(String.class)
           .valueClass(String.class)
@@ -236,19 +234,14 @@ public class MapLaneSpec {
 
       mapLink.put("a", "indefinite article");
       mapLink.put("the", "definite article");
-
-      laneDidUpdate.await(5, TimeUnit.SECONDS);
-
+      laneDidUpdate.await(1, TimeUnit.SECONDS);
       assertEquals(laneDidUpdate.getCount(), 0);
       assertEquals(mapLaneCopy.size(), 2);
       assertEquals(mapLane1Copy.size(), 2);
 
       mapLink.remove("the");
-
-      laneDidRemove.await(5, TimeUnit.SECONDS);
-
+      laneDidRemove.await(1, TimeUnit.SECONDS);
       assertEquals(laneDidRemove.getCount(), 0);
-
       assertEquals(mapLaneCopy.size(), 1);
       assertEquals(mapLaneCopy.get("a"), "indefinite article");
 

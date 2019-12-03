@@ -296,8 +296,6 @@ public abstract class IpModemBehaviors {
     final CountDownLatch serverWrite = new CountDownLatch(1);
     final CountDownLatch clientRead = new CountDownLatch(1);
     final CountDownLatch serverRead = new CountDownLatch(1);
-    final CountDownLatch connectLatch = new CountDownLatch(2);
-
     final String phrase = "Hello, world!";
     final String line = phrase + "\n";
     final int lineCount = 1024;
@@ -306,7 +304,6 @@ public abstract class IpModemBehaviors {
       int readCount;
       @Override
       public void didConnect() {
-        connectLatch.countDown();
         write(Utf8.stringWriter(line));
         read(Utf8.decodedParser(Unicode.lineParser()));
       }
@@ -336,7 +333,6 @@ public abstract class IpModemBehaviors {
       int readCount;
       @Override
       public void didConnect() {
-        connectLatch.countDown();
         write(Utf8.stringWriter(line));
         read(Utf8.decodedParser(Unicode.lineParser()));
       }
@@ -373,9 +369,6 @@ public abstract class IpModemBehaviors {
       endpoint.start();
       bind(endpoint, service);
       connect(endpoint, client);
-
-      connectLatch.await();
-
       clientWrite.await();
       serverWrite.await();
       clientRead.await();
@@ -383,7 +376,6 @@ public abstract class IpModemBehaviors {
     } catch (InterruptedException cause) {
       throw new TestException(cause);
     } finally {
-      System.out.println("Shutting down");
       endpoint.stop();
       stage.stop();
     }

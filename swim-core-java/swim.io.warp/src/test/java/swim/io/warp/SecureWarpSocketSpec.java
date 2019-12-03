@@ -14,7 +14,6 @@
 
 package swim.io.warp;
 
-import org.testng.annotations.Ignore;
 import swim.io.IpServiceRef;
 import swim.io.IpSocketRef;
 import swim.io.http.HttpClient;
@@ -23,12 +22,7 @@ import swim.io.http.HttpService;
 import swim.uri.Uri;
 import swim.ws.WsRequest;
 
-/*
-  Disabled until https://github.com/swimos/swim/issues/22 is resolved
- */
-@Ignore
 public class SecureWarpSocketSpec extends WarpSocketBehaviors {
-
   final WarpSettings warpSettings = WarpSettings.standard().tlsSettings(TestTlsSettings.tlsSettings());
   final Uri wsUri = Uri.parse("ws://127.0.0.1:23555/");
 
@@ -49,5 +43,4 @@ public class SecureWarpSocketSpec extends WarpSocketBehaviors {
     };
     return endpoint.connectHttps("127.0.0.1", 23555, client, this.warpSettings.httpSettings());
   }
-
 }

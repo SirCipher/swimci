@@ -80,7 +80,7 @@ public class PingPongSpec {
           .nodeUri("/pong")
           .laneUri("pong")
           .onEvent(value -> onPong.countDown())
-          .didLink(()-> plane.command("/ping", "ping", Record.of(Attr.of("ping"))))
+          .didLink(() -> plane.command("/ping", "ping", Record.of(Attr.of("ping"))))
           .open();
 
       System.out.println("Waiting for a pong");

@@ -25,50 +25,46 @@ import swim.server.ServerLoader;
 import swim.service.web.WebServiceDef;
 import swim.structure.Text;
 import swim.uri.UriPath;
-
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 public class JsAgentSpec {
 
-    @Test
-    public void testJsAgentCommands() throws InterruptedException {
-        final JsKernel jsKernel = new JsKernel();
-        String projectDir = System.getProperty("project.dir");
+  @Test
+  public void testJsAgentCommands() throws InterruptedException {
+    final JsKernel jsKernel = new JsKernel();
+    jsKernel.setRootPath(UriPath.parse(System.getProperty("project.dir")));
 
-        UriPath uriPath = UriPath.parse(projectDir);
+    final Kernel kernel = ServerLoader.loadServerStack().injectKernel(jsKernel);
+    final ActorSpaceDef spaceDef = ActorSpaceDef.fromName("test")
+        .nodeDef(ActorNodeDef.fromNodePattern("/command/:name")
+            .agentDef(JsAgentDef.fromModulePath("./src/test/js/TestCommandAgent")));
+    final ActorSpace space = (ActorSpace) kernel.openSpace(spaceDef);
+    final CountDownLatch linkOnEvent = new CountDownLatch(1);
 
-        jsKernel.setRootPath(uriPath);
-        final Kernel kernel = ServerLoader.loadServerStack().injectKernel(jsKernel);
-
-        final ActorSpaceDef spaceDef = ActorSpaceDef.fromName("test")
-                .nodeDef(ActorNodeDef.fromNodePattern("/command/:name")
-                        .agentDef(JsAgentDef.fromModulePath("./src/test/js/TestCommandAgent")));
-        final ActorSpace space = (ActorSpace) kernel.openSpace(spaceDef);
-
-        final CountDownLatch linkOnEvent = new CountDownLatch(1);
-        class CommandLinkController implements OnEvent<String> {
-            @Override
-            public void onEvent(String value) {
-                System.out.println("link onEvent value: " + value);
-                linkOnEvent.countDown();
-            }
-        }
-
-        try {
-            kernel.openService(WebServiceDef.standard().port(53556).spaceName("test"));
-            kernel.start();
-            final EventDownlink<String> commandLink = space.downlink()
-                    .valueClass(String.class)
-                    .hostUri("warp://localhost:53556")
-                    .nodeUri("/command/hello")
-                    .laneUri("command")
-                    .observe(new CommandLinkController())
-                    .open();
-            commandLink.command(Text.from("Hello, world!"));
-            linkOnEvent.await(1, TimeUnit.SECONDS);
-        } finally {
-            kernel.stop();
-        }
+    class CommandLinkController implements OnEvent<String> {
+      @Override
+      public void onEvent(String value) {
+        System.out.println("link onEvent value: " + value);
+        linkOnEvent.countDown();
+      }
     }
+
+    try {
+      kernel.openService(WebServiceDef.standard().port(53556).spaceName("test"));
+      kernel.start();
+      final EventDownlink<String> commandLink = space.downlink()
+          .valueClass(String.class)
+          .hostUri("warp://localhost:53556")
+          .nodeUri("/command/hello")
+          .laneUri("command")
+          .observe(new CommandLinkController())
+          .open();
+      commandLink.command(Text.from("Hello, world!"));
+      linkOnEvent.await(1, TimeUnit.SECONDS);
+    } finally {
+      kernel.stop();
+    }
+  }
+
 }

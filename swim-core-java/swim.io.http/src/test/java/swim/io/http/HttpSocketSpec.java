@@ -14,43 +14,22 @@
 
 package swim.io.http;
 
-import org.testng.annotations.Ignore;
 import swim.io.IpServiceRef;
 import swim.io.IpSocketRef;
-import java.io.IOException;
-import java.net.ServerSocket;
-import static org.testng.Assert.fail;
 
-/*
-  Tests here are currently failing and require further investigation.
-  Ref:
-    https://github.com/swimos/swim/issues/25
-    https://github.com/swimos/swim/issues/22
- */
-@Ignore
+
 public class HttpSocketSpec extends HttpSocketBehaviors {
+
   final HttpSettings httpSettings = HttpSettings.standard();
-
-  private int portNo = 0;
-
-  HttpSocketSpec() {
-    try {
-      ServerSocket serverSocket = new ServerSocket(0);
-      portNo = serverSocket.getLocalPort();
-      serverSocket.setReuseAddress(true);
-      serverSocket.close();
-    } catch (IOException e) {
-      fail("Failure in finding an available socket", e);
-    }
-  }
 
   @Override
   protected IpServiceRef bind(HttpEndpoint endpoint, HttpService service) {
-    return endpoint.bindHttp("127.0.0.1", portNo, service, this.httpSettings);
+    return endpoint.bindHttp("127.0.0.1", 33556, service, this.httpSettings);
   }
 
   @Override
   protected IpSocketRef connect(HttpEndpoint endpoint, HttpClient client) {
-    return endpoint.connectHttp("127.0.0.1", portNo, client, this.httpSettings);
+    return endpoint.connectHttp("127.0.0.1", 33556, client, this.httpSettings);
   }
+
 }

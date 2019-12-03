@@ -14,10 +14,6 @@
 
 package swim.io;
 
-import swim.concurrent.AbstractTask;
-import swim.concurrent.Conts;
-import swim.concurrent.MainStage;
-import swim.concurrent.Stage;
 import java.io.IOException;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
@@ -33,6 +29,10 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
+import swim.concurrent.AbstractTask;
+import swim.concurrent.Conts;
+import swim.concurrent.MainStage;
+import swim.concurrent.Stage;
 
 /**
  * Asynchronous I/O multiplexor.
@@ -536,13 +536,10 @@ final class StationTransport implements TransportContext, TransportRef {
   /**
    * I/O callback invoked by the station's selector thread when the transport
    * is ready to perform a <em>read</em> operation.
-   *
-   * @return Whether the operation has yielded control without completing.
    */
-  boolean doRead() {
+  void doRead() {
     final ByteBuffer readBuffer = this.transport.readBuffer();
     final ReadableByteChannel channel = (ReadableByteChannel) this.transport.channel();
-    boolean yield = false;
     // Loop while reading is permitted.
     while (FLOW_CONTROL.get(this).isReadEnabled()) {
       final int count;
@@ -591,18 +588,10 @@ final class StationTransport implements TransportContext, TransportRef {
           }
         }
         if (readBuffer.hasRemaining()) {
-          final int currentPos = readBuffer.position();
           // The transport binding didn't read all the input bytes from the
           // input buffer; compact the input buffer to make room to read more
           // input data.
           readBuffer.compact();
-          if (count == 0 && currentPos == 0) {
-            //No progress was made in this iteration, however, the task is not
-            //complete. It should yield to allow other pending IO tasks to run
-            //that could potentially unblock this task.
-            yield = true;
-            break;
-          }
         } else {
           // The transport binding read all bytes from the input buffer; reset
           // the input buffer.
@@ -618,9 +607,7 @@ final class StationTransport implements TransportContext, TransportRef {
         break;
       }
     }
-    return yield;
   }
-
 
   /**
    * Schedules the transport's asynchronous write task for execution on the
@@ -675,8 +662,6 @@ final class StationTransport implements TransportContext, TransportRef {
         if (count > 0) {
           // Output bytes were successfully written to the transport channel.
           if (!writeBuffer.hasRemaining()) {
-//            System.out.println("Buffer has remaining false");
-
             // The output buffer has no more bytes to be written.
             try {
               // Inform the transport binding that the write completed.
@@ -693,7 +678,6 @@ final class StationTransport implements TransportContext, TransportRef {
             }
             continue;
           } else {
-//            System.out.println("Buffer has remaining true");
             // The output buffer still has bytes remaining to be written;
             // synchronize the transport's flow control state with the
             // station's selector to ensure that doWrite gets called again,
@@ -729,8 +713,6 @@ final class StationTransport implements TransportContext, TransportRef {
         // Prepare the output buffer to be written to the transport channel.
         ((Buffer) writeBuffer).flip();
         if (writeBuffer.hasRemaining()) {
-//          System.out.println("Write buffer has remaining");
-
           // New output bytes were written by the transport binding to the
           // output buffer; continue writing the output buffer to the transport
           // channel.
@@ -752,7 +734,6 @@ final class StationTransport implements TransportContext, TransportRef {
         break;
       }
     } while (true);
-//    System.out.println("Breaked");
   }
 
   void didTimeout() {
@@ -812,11 +793,7 @@ final class StationReader extends AbstractTask {
 
   @Override
   public void runTask() {
-    final boolean didYield = this.context.doRead();
-    if (didYield) {
-      //The task yielded control but had not completed so needs to be rescheduled.
-      cue();
-    }
+    this.context.doRead();
   }
 }
 

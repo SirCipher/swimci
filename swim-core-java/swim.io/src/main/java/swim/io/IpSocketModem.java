@@ -336,9 +336,6 @@ public class IpSocketModem<I, O> implements IpSocket, IpModemContext<I, O> {
     } while (reader != null);
     Encoder<?, ? extends O> writer = this.writing;
     this.writing = null;
-
-    System.out.println("Writer has disconnected");
-
     do {
       if (writer != null) {
         try {

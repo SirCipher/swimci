@@ -30,6 +30,7 @@ import swim.api.warp.function.WillLink;
 import swim.api.warp.function.WillReceive;
 import swim.api.warp.function.WillSync;
 import swim.api.warp.function.WillUnlink;
+import swim.concurrent.Cont;
 import swim.concurrent.Conts;
 import swim.concurrent.Stage;
 import swim.runtime.CellContext;
@@ -245,12 +246,7 @@ public abstract class WarpDownlinkView extends DownlinkView implements WarpDownl
     }
   }
 
-  private static int count;
-
   public boolean dispatchDidReceive(Value body, boolean preemptive) {
-    count++;
-    System.out.println("__________________________________________________________________________________");
-    System.out.println("dispatchDidReceive count: " + count);
     final Link oldLink = SwimContext.getLink();
     try {
       SwimContext.setLink(this);
@@ -259,10 +255,8 @@ public abstract class WarpDownlinkView extends DownlinkView implements WarpDownl
       if (observers instanceof DidReceive) {
         if (((DidReceive) observers).isPreemptive() == preemptive) {
           try {
-            System.out.println("Calling observer. Count: " + count);
             ((DidReceive) observers).didReceive(body);
           } catch (Throwable error) {
-            error.printStackTrace();
             if (Conts.isNonFatal(error)) {
               downlinkDidFail(error);
             }
@@ -272,19 +266,14 @@ public abstract class WarpDownlinkView extends DownlinkView implements WarpDownl
           complete = false;
         }
       } else if (observers instanceof Object[]) {
-        System.out.println("observers instanceof Object[]. Count: " + count);
-
         final Object[] array = (Object[]) observers;
         for (int i = 0, n = array.length; i < n; i += 1) {
           final Object observer = array[i];
           if (observer instanceof DidReceive) {
             if (((DidReceive) observer).isPreemptive() == preemptive) {
               try {
-                System.out.println("Calling DidReceive observer. Count: " + count);
-
                 ((DidReceive) observer).didReceive(body);
               } catch (Throwable error) {
-                error.printStackTrace();
                 if (Conts.isNonFatal(error)) {
                   downlinkDidFail(error);
                 }
@@ -658,6 +647,16 @@ public abstract class WarpDownlinkView extends DownlinkView implements WarpDownl
 
   @Override
   public abstract WarpDownlinkView open();
+
+  @Override
+  public void command(float prio, Value body, Cont<CommandMessage> cont) {
+    downlinkModel().command(prio, body, cont);
+  }
+
+  @Override
+  public void command(Value body, Cont<CommandMessage> cont) {
+    downlinkModel().command(body, cont);
+  }
 
   @Override
   public void command(float prio, Value body) {

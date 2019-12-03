@@ -259,7 +259,7 @@ public class TestClockSpec {
         };
         thread.start();
       }
-      clock.await(shutdown, 10000);
+      clock.await(shutdown, 5000);
     } finally {
       clock.stop();
     }
@@ -309,7 +309,6 @@ public class TestClockSpec {
       }
       clock.await(shutdown, Integer.MAX_VALUE);
     } finally {
-      System.out.println("Stopping clock");
       clock.stop();
     }
   }

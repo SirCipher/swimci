@@ -20,6 +20,7 @@ import swim.codec.Parser;
 import swim.codec.Unicode;
 
 public class UriParser {
+
   public Uri absolute(UriScheme scheme, UriAuthority authority, UriPath path,
                       UriQuery query, UriFragment fragment) {
     return Uri.from(scheme, authority, path, query, fragment);
@@ -100,7 +101,7 @@ public class UriParser {
   public UriScheme parseSchemeString(String string) {
     final Input input = Unicode.stringInput(string);
     Parser<UriScheme> parser = parseScheme(input);
-    if (input.isCont() && !parser.isError()) {
+    if (input.isCont() && parser.isError()) {
       parser = Parser.error(Diagnostic.unexpected(input));
     }
     return parser.bind();
@@ -209,7 +210,7 @@ public class UriParser {
   public UriPath parsePathString(String string) {
     final Input input = Unicode.stringInput(string);
     Parser<UriPath> parser = parsePath(input);
-    if (input.isCont() && parser.isError()) {
+    if (input.isCont() && !parser.isError()) {
       parser = Parser.error(Diagnostic.unexpected(input));
     }
     return parser.bind();

@@ -14,6 +14,8 @@
 
 package swim.server;
 
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import org.testng.annotations.Test;
 import swim.actor.ActorSpaceDef;
 import swim.api.SwimLane;
@@ -47,8 +49,6 @@ import swim.observable.function.WillUpdateKey;
 import swim.recon.Recon;
 import swim.service.web.WebServiceDef;
 import swim.structure.Value;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 
 public class JoinValueLaneSpec {
@@ -64,7 +64,6 @@ public class JoinValueLaneSpec {
         System.out.println(nodeUri() + " willSet newValue: " + Format.debug(newValue));
         return newValue;
       }
-
       @Override
       public void didSet(String newValue, String oldValue) {
         System.out.println(nodeUri() + " didSet newValue: " + Format.debug(newValue) + "; oldValue: " + Format.debug(oldValue));
@@ -86,18 +85,15 @@ public class JoinValueLaneSpec {
         System.out.println(nodeUri() + " willDownlink key: " + Format.debug(key) + "; downlink: " + downlink);
         return downlink;
       }
-
       @Override
       public void didDownlink(String key, ValueDownlink<?> downlink) {
         System.out.println(nodeUri() + " didDownlink key: " + Format.debug(key) + "; downlink: " + downlink);
       }
-
       @Override
       public String willUpdate(String key, String newValue) {
         System.out.println(nodeUri() + " willUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue));
         return newValue;
       }
-
       @Override
       public void didUpdate(String key, String newValue, String oldValue) {
         System.out.println(nodeUri() + " didUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue) + "; oldValue: " + Format.debug(oldValue));
@@ -119,11 +115,15 @@ public class JoinValueLaneSpec {
     AgentRoute<TestJoinValueLaneAgent> joinValue;
   }
 
+
+  /*
+    Disabled due to updates being called multiple times. Greg investigating cause
+   */
 //  @Test
   public void testLinkToJoinValueLane() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestJoinValuePlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
-        .openPlane("test", TestJoinValuePlane.class);
+                                           .openPlane("test", TestJoinValuePlane.class);
 
     final CountDownLatch joinDidReceive = new CountDownLatch(2);
     final CountDownLatch joinDidUpdate = new CountDownLatch(2 * 2); // 1 for the initial link and 1 for update for x, same for y
@@ -135,64 +135,52 @@ public class JoinValueLaneSpec {
         System.out.println("join link willUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue));
         return newValue;
       }
-
       @Override
       public void didUpdate(String key, String newValue, String oldValue) {
         System.out.println("join link didUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue) + "; oldValue: " + Format.debug(oldValue));
         joinDidUpdate.countDown();
       }
-
       @Override
       public void willReceive(Value body) {
         System.out.println("join link willReceive body: " + Recon.toString(body));
       }
-
       @Override
       public void didReceive(Value body) {
         System.out.println("join link didReceive body: " + Recon.toString(body));
         joinDidReceive.countDown();
       }
-
       @Override
       public void willLink() {
         System.out.println("join link willLink");
       }
-
       @Override
       public void didLink() {
         System.out.println("join link didLink");
       }
-
       @Override
       public void willSync() {
         System.out.println("join link willSync");
       }
-
       @Override
       public void didSync() {
         System.out.println("join link didSync");
       }
-
       @Override
       public void willUnlink() {
         System.out.println("join link willUnlink");
       }
-
       @Override
       public void didUnlink() {
         System.out.println("join link didUnlink");
       }
-
       @Override
       public void didConnect() {
         System.out.println("join link didConnect");
       }
-
       @Override
       public void didDisconnect() {
         System.out.println("join link didDisconnect");
       }
-
       @Override
       public void didClose() {
         System.out.println("join link didClose");
@@ -226,8 +214,8 @@ public class JoinValueLaneSpec {
           .observe(new JoinValueLinkController())
           .open();
 
-      joinDidReceive.await(30, TimeUnit.SECONDS);
-      joinDidUpdate.await(30, TimeUnit.SECONDS);
+      joinDidReceive.await(2, TimeUnit.SECONDS);
+      joinDidUpdate.await(2, TimeUnit.SECONDS);
       assertEquals(joinDidReceive.getCount(), 0);
       assertEquals(joinDidUpdate.getCount(), 0);
       assertEquals(join.size(), 2);

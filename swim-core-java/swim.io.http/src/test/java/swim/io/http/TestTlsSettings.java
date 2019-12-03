@@ -14,7 +14,6 @@
 
 package swim.io.http;
 
-import org.testng.annotations.Ignore;
 import swim.io.ClientAuth;
 import swim.io.IpSettings;
 import swim.io.StationException;
@@ -29,9 +28,11 @@ import java.security.KeyStore;
 import java.security.SecureRandom;
 
 public final class TestTlsSettings {
+
   private static TlsSettings tlsSettings;
   private static IpSettings ipSettings;
   private static HttpSettings httpSettings;
+
   private TestTlsSettings() {
     // stub
   }
@@ -87,4 +88,5 @@ public final class TestTlsSettings {
     }
     return httpSettings;
   }
+
 }

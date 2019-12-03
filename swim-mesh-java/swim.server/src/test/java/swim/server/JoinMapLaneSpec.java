@@ -14,6 +14,8 @@
 
 package swim.server;
 
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import org.testng.annotations.Test;
 import swim.actor.ActorSpaceDef;
 import swim.api.SwimLane;
@@ -46,8 +48,6 @@ import swim.observable.function.WillUpdateKey;
 import swim.recon.Recon;
 import swim.service.web.WebServiceDef;
 import swim.structure.Value;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 
 public class JoinMapLaneSpec {
@@ -63,17 +63,14 @@ public class JoinMapLaneSpec {
         System.out.println(nodeUri() + " willUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue));
         return newValue;
       }
-
       @Override
       public void didUpdate(String key, String newValue, String oldValue) {
         System.out.println(nodeUri() + " didUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue) + "; oldValue: " + Format.debug(oldValue));
       }
-
       @Override
       public void willRemove(String key) {
         System.out.println(nodeUri() + " willRemove key: " + Format.debug(key));
       }
-
       @Override
       public void didRemove(String key, String oldValue) {
         System.out.println(nodeUri() + " didRemove key: " + Format.debug(key) + "; oldValue: " + Format.debug(oldValue));
@@ -94,28 +91,23 @@ public class JoinMapLaneSpec {
         System.out.println(nodeUri() + " willDownlink key: " + Format.debug(key) + "; downlink: " + downlink);
         return downlink;
       }
-
       @Override
       public void didDownlink(String key, MapDownlink<?, ?> downlink) {
         System.out.println(nodeUri() + " didDownlink key: " + Format.debug(key) + "; downlink: " + downlink);
       }
-
       @Override
       public String willUpdate(String key, String newValue) {
         System.out.println(nodeUri() + " willUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue));
         return newValue;
       }
-
       @Override
       public void didUpdate(String key, String newValue, String oldValue) {
         System.out.println(nodeUri() + " didUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue) + "; oldValue: " + Format.debug(oldValue));
       }
-
       @Override
       public void willRemove(String key) {
         System.out.println(nodeUri() + " willRemove key: " + Format.debug(key));
       }
-
       @Override
       public void didRemove(String key, String oldValue) {
         System.out.println(nodeUri() + " didRemove key: " + Format.debug(key) + "; oldValue: " + Format.debug(oldValue));
@@ -137,11 +129,11 @@ public class JoinMapLaneSpec {
     AgentRoute<TestJoinMapLaneAgent> joinMapRoute;
   }
 
-//  @Test
+  @Test
   public void testLinkToJoinMapLane() throws InterruptedException {
     final Kernel kernel = ServerLoader.loadServerStack();
     final TestJoinMapPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
-        .openPlane("test", TestJoinMapPlane.class);
+                                         .openPlane("test", TestJoinMapPlane.class);
 
     final CountDownLatch joinDidReceive = new CountDownLatch(4);
     final CountDownLatch joinDidUpdate = new CountDownLatch(4);
@@ -153,64 +145,52 @@ public class JoinMapLaneSpec {
         System.out.println("join link willUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue));
         return newValue;
       }
-
       @Override
       public void didUpdate(String key, String newValue, String oldValue) {
         System.out.println("join link didUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue));
         joinDidUpdate.countDown();
       }
-
       @Override
       public void willReceive(Value body) {
         System.out.println("join link willReceive body: " + Recon.toString(body));
       }
-
       @Override
       public void didReceive(Value body) {
         System.out.println("join link didReceive body: " + Recon.toString(body));
         joinDidReceive.countDown();
       }
-
       @Override
       public void willLink() {
         System.out.println("join link willLink");
       }
-
       @Override
       public void didLink() {
         System.out.println("join link didLink");
       }
-
       @Override
       public void willSync() {
         System.out.println("join link willSync");
       }
-
       @Override
       public void didSync() {
         System.out.println("join link didSync");
       }
-
       @Override
       public void willUnlink() {
         System.out.println("join link willUnlink");
       }
-
       @Override
       public void didUnlink() {
         System.out.println("join link didUnlink");
       }
-
       @Override
       public void didConnect() {
         System.out.println("join link didConnect");
       }
-
       @Override
       public void didDisconnect() {
         System.out.println("join link didDisconnect");
       }
-
       @Override
       public void didClose() {
         System.out.println("join link didClose");
@@ -248,8 +228,8 @@ public class JoinMapLaneSpec {
           .observe(new JoinMapLinkController())
           .open();
 
-      joinDidReceive.await(5, TimeUnit.SECONDS);
-      joinDidUpdate.await(5, TimeUnit.SECONDS);
+      joinDidReceive.await(1, TimeUnit.SECONDS);
+      joinDidUpdate.await(1, TimeUnit.SECONDS);
       assertEquals(joinDidReceive.getCount(), 0);
       assertEquals(joinDidUpdate.getCount(), 0);
       assertEquals(join.size(), 4);
@@ -257,8 +237,6 @@ public class JoinMapLaneSpec {
       assertEquals(join.get("x1"), "b");
       assertEquals(join.get("y0"), "c");
       assertEquals(join.get("y1"), "d");
-
-      Thread.sleep(1000);
     } finally {
       kernel.stop();
     }

@@ -16,7 +16,7 @@ test {
     if (useModules) {
         doFirst {
             jvmArgs += [
-              '--add-opens', 'swim.io.http/swim.io.http=testng'
+                    '--add-opens', 'swim.io.http/swim.io.http=testng'
             ]
         }
     }

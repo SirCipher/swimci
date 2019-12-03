@@ -55,5 +55,4 @@ gradle.projectsEvaluated {
   artifacts {
     archives javadocJar
   }
-
 }

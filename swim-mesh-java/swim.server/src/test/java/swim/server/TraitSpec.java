@@ -45,7 +45,6 @@ import swim.service.web.WebServiceDef;
 import swim.structure.Text;
 import swim.structure.Value;
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 public class TraitSpec {
   static class TestGraphAgent extends AbstractAgent {
@@ -122,8 +121,6 @@ public class TraitSpec {
     final String testValue = "Hello, world!";
     final CountDownLatch valueDidReceive = new CountDownLatch(1);
     final CountDownLatch valueDidSet = new CountDownLatch(2);
-    final CountDownLatch didSync = new CountDownLatch(1);
-
     class ValueLinkController implements WillSet<String>, DidSet<String>,
         WillReceive, DidReceive, WillLink, DidLink, WillSync, DidSync,
         WillUnlink, DidUnlink, DidConnect, DidDisconnect, DidClose {
@@ -191,21 +188,16 @@ public class TraitSpec {
     try {
       kernel.openService(WebServiceDef.standard().port(53556).spaceName("test"));
       kernel.start();
-
       final ValueDownlink<String> valueLink = plane.downlinkValue()
           .valueClass(String.class)
           .hostUri("warp://localhost:53556")
           .nodeUri("/node/root")
           .laneUri("value")
           .observe(new ValueLinkController())
-          .didSync(didSync::countDown)
           .open();
-
-      didSync.await();
       valueLink.set(testValue);
       valueDidReceive.await(10, TimeUnit.SECONDS);
       valueDidSet.await(10, TimeUnit.SECONDS);
-
       assertEquals(valueDidReceive.getCount(), 0);
       assertEquals(valueDidSet.getCount(), 0);
       assertEquals(valueLink.get(), testValue);
@@ -294,7 +286,6 @@ public class TraitSpec {
     try {
       kernel.openService(WebServiceDef.standard().port(53556).spaceName("test"));
       kernel.start();
-
       final ValueDownlink<String> infoLink = plane.downlinkValue()
           .valueClass(String.class)
           .hostUri("warp://localhost:53556")
@@ -303,11 +294,9 @@ public class TraitSpec {
           .observe(new InfoLinkController())
           .open();
       infoLink.set(testValue);
-
-      valueDidSet.await(10, TimeUnit.SECONDS);
-      infoDidReceive.await(10, TimeUnit.SECONDS);
-      infoDidSet.await(10, TimeUnit.SECONDS);
-
+      valueDidSet.await(1, TimeUnit.SECONDS);
+      infoDidReceive.await(1, TimeUnit.SECONDS);
+      infoDidSet.await(1, TimeUnit.SECONDS);
       assertEquals(valueDidSet.getCount(), 0);
       assertEquals(infoDidReceive.getCount(), 0);
       assertEquals(infoDidSet.getCount(), 0);
