@@ -206,6 +206,8 @@ public abstract class WebSocketBehaviors {
       serverRead.await();
     } catch (InterruptedException cause) {
       throw new TestException(cause);
+    } catch (Exception e) {
+      throw new RuntimeException(e);
     } finally {
       clientSocket.close();
       serverSocket.close();
