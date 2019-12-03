@@ -14,10 +14,6 @@
 
 package swim.io.ws;
 
-import java.nio.charset.Charset;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
 import org.testng.TestException;
 import org.testng.annotations.Test;
 import swim.codec.Utf8;
@@ -44,7 +40,12 @@ import swim.ws.WsRequest;
 import swim.ws.WsResponse;
 import swim.ws.WsText;
 import swim.ws.WsValue;
+import java.nio.charset.Charset;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
 
 public abstract class WebSocketBehaviors {
   protected abstract IpServiceRef bind(HttpEndpoint endpoint, HttpService service);
@@ -65,6 +66,7 @@ public abstract class WebSocketBehaviors {
       public void didConnect() {
         clientConnect.countDown();
       }
+
       @Override
       public void didUpgrade(HttpRequest<?> httpRequest, HttpResponse<?> httpResponse) {
         clientUpgrade.countDown();
@@ -75,6 +77,7 @@ public abstract class WebSocketBehaviors {
       public void didConnect() {
         serverConnect.countDown();
       }
+
       @Override
       public void didUpgrade(HttpRequest<?> httpRequest, HttpResponse<?> httpResponse) {
         serverUpgrade.countDown();
@@ -93,6 +96,7 @@ public abstract class WebSocketBehaviors {
       public HttpServer createServer() {
         return server;
       }
+
       @Override
       public void didBind() {
         serverBind.countDown();
@@ -134,11 +138,13 @@ public abstract class WebSocketBehaviors {
         read(Utf8.stringParser());
         write(WsText.from("@clientToServer"));
       }
+
       @Override
       public void didRead(WsFrame<? extends String> frame) {
         assertEquals(frame, WsValue.from("@serverToClient"));
         clientRead.countDown();
       }
+
       @Override
       public void didWrite(WsFrame<? extends String> frame) {
         assertEquals(frame, WsText.from("@clientToServer"));
@@ -151,11 +157,13 @@ public abstract class WebSocketBehaviors {
         read(Utf8.stringParser());
         write(WsText.from("@serverToClient"));
       }
+
       @Override
       public void didRead(WsFrame<? extends String> frame) {
         assertEquals(frame, WsValue.from("@clientToServer"));
         serverRead.countDown();
       }
+
       @Override
       public void didWrite(WsFrame<? extends String> frame) {
         assertEquals(frame, WsText.from("@serverToClient"));
@@ -178,10 +186,20 @@ public abstract class WebSocketBehaviors {
     };
 
     try {
+      System.out.println("Starting stage");
       stage.start();
+
+      System.out.println("Starting endpoint");
       endpoint.start();
-      bind(endpoint, service);
-      connect(endpoint, clientSocket);
+
+      System.out.println("Binding endpoint");
+      IpServiceRef bind = bind(endpoint, service);
+      assertNotNull(bind);
+
+      System.out.println("Connecting to socket");
+      IpSocketRef connect = connect(endpoint, clientSocket);
+      assertNotNull(connect);
+
       clientWrite.await();
       serverWrite.await();
       clientRead.await();
@@ -213,11 +231,13 @@ public abstract class WebSocketBehaviors {
         read(Utf8.stringParser());
         write(WsPing.from(pingData));
       }
+
       @Override
       public void didRead(WsFrame<? extends String> frame) {
         assertEquals(frame, WsPong.from(pongData));
         clientReadPong.countDown();
       }
+
       @Override
       public void didWrite(WsFrame<? extends String> frame) {
         assertEquals(frame, WsPing.from(pingData));
@@ -229,12 +249,14 @@ public abstract class WebSocketBehaviors {
       public void didUpgrade(HttpRequest<?> httpRequest, HttpResponse<?> httpResponse) {
         read(Utf8.stringParser());
       }
+
       @Override
       public void didRead(WsFrame<? extends String> frame) {
         assertEquals(frame, WsPing.from(pingData));
         serverReadPing.countDown();
         write(WsPong.from(pongData));
       }
+
       @Override
       public void didWrite(WsFrame<? extends String> frame) {
         assertEquals(frame, WsPong.from(pongData));
@@ -290,11 +312,13 @@ public abstract class WebSocketBehaviors {
         read(Utf8.stringParser());
         write(WsClose.from(1000, "close"));
       }
+
       @Override
       public void didRead(WsFrame<? extends String> frame) {
         assertEquals(frame, WsClose.from(1001, "gone"));
         clientReadClose.countDown();
       }
+
       @Override
       public void didWrite(WsFrame<? extends String> frame) {
         assertEquals(frame, WsClose.from(1000, "close"));
@@ -306,12 +330,14 @@ public abstract class WebSocketBehaviors {
       public void didUpgrade(HttpRequest<?> httpRequest, HttpResponse<?> httpResponse) {
         read(Utf8.stringParser());
       }
+
       @Override
       public void didRead(WsFrame<? extends String> frame) {
         assertEquals(frame, WsClose.from(1000, "close"));
         serverReadClose.countDown();
         write(WsClose.from(1001, "gone"));
       }
+
       @Override
       public void didWrite(WsFrame<? extends String> frame) {
         assertEquals(frame, WsClose.from(1001, "gone"));
@@ -378,12 +404,14 @@ public abstract class WebSocketBehaviors {
               final WsResponse wsResponse = wsRequest.accept(wsSettings);
               return upgrade(new AbstractWebSocket<String, String>() {
                 boolean closed;
+
                 @Override
                 public void didUpgrade(HttpRequest<?> httpRequest, HttpResponse<?> httpResponse) {
                   t0.compareAndSet(0L, System.currentTimeMillis());
                   read(Utf8.stringParser());
                   write(WsText.from(payload));
                 }
+
                 @Override
                 public void doWrite() {
                   long oldDt;
@@ -406,6 +434,7 @@ public abstract class WebSocketBehaviors {
                   }
                   write(WsText.from(payload));
                 }
+
                 @Override
                 public void didWrite(WsFrame<? extends String> frame) {
                   if (frame instanceof WsClose<?, ?>) {
@@ -430,6 +459,7 @@ public abstract class WebSocketBehaviors {
           public void didUpgrade(HttpRequest<?> httpRequest, HttpResponse<?> httpResponse) {
             read(Utf8.stringParser());
           }
+
           @Override
           public void didRead(WsFrame<? extends String> frame) {
             if (frame instanceof WsData<?>) {
