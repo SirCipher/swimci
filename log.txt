@@ -1,0 +1,2287 @@
+Initialized native services in: /Users/swim/.gradle/native
+Found daemon DaemonInfo{pid=22866, address=[f6dc62a2-c901-4b8f-afe1-a839d56a3e8c port:54297, addresses:[/0:0:0:0:0:0:0:1, /127.0.0.1]], state=Idle, lastBusy=1575371572209, context=DefaultDaemonContext[uid=23329e74-9d27-42eb-a1cc-05bee5f9df19,javaHome=/Users/swim/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/192.7142.36/IntelliJ IDEA.app/Contents/jbr/Contents/Home,daemonRegistryDir=/Users/swim/.gradle/daemon,pid=22866,idleTimeout=10800000,priority=NORMAL,daemonOpts=--add-opens,java.base/java.util=ALL-UNNAMED,--add-opens,java.base/java.lang=ALL-UNNAMED,--add-opens,java.base/java.lang.invoke=ALL-UNNAMED,--add-opens,java.prefs/java.util.prefs=ALL-UNNAMED,-XX:MaxMetaspaceSize=256m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=GB,-Duser.language=en,-Duser.variant]} however its context does not match the desired criteria.
+Java home is different.
+Wanted: DefaultDaemonContext[uid=null,javaHome=/Library/Java/JavaVirtualMachines/jdk-12.0.2.jdk/Contents/Home,daemonRegistryDir=/Users/swim/.gradle/daemon,pid=29022,idleTimeout=null,priority=NORMAL,daemonOpts=--add-opens,java.base/java.util=ALL-UNNAMED,--add-opens,java.base/java.lang=ALL-UNNAMED,--add-opens,java.base/java.lang.invoke=ALL-UNNAMED,--add-opens,java.prefs/java.util.prefs=ALL-UNNAMED,-XX:MaxMetaspaceSize=256m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=GB,-Duser.language=en,-Duser.variant]
+Actual: DefaultDaemonContext[uid=23329e74-9d27-42eb-a1cc-05bee5f9df19,javaHome=/Users/swim/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/192.7142.36/IntelliJ IDEA.app/Contents/jbr/Contents/Home,daemonRegistryDir=/Users/swim/.gradle/daemon,pid=22866,idleTimeout=10800000,priority=NORMAL,daemonOpts=--add-opens,java.base/java.util=ALL-UNNAMED,--add-opens,java.base/java.lang=ALL-UNNAMED,--add-opens,java.base/java.lang.invoke=ALL-UNNAMED,--add-opens,java.prefs/java.util.prefs=ALL-UNNAMED,-XX:MaxMetaspaceSize=256m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=GB,-Duser.language=en,-Duser.variant]
+
+  Looking for a different daemon...
+Removing 0 daemon stop events from registry
+Previous Daemon (27722) stopped at Tue Dec 03 13:19:14 GMT 2019 other compatible daemons were started and after being idle for 0 minutes and not recently used
+Starting a Gradle Daemon, 1 incompatible and 1 stopped Daemons could not be reused, use --status for details
+Starting process 'Gradle build daemon'. Working directory: /Users/swim/.gradle/daemon/5.5 Command: /Library/Java/JavaVirtualMachines/jdk-12.0.2.jdk/Contents/Home/bin/java --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.invoke=ALL-UNNAMED --add-opens java.prefs/java.util.prefs=ALL-UNNAMED -XX:MaxMetaspaceSize=256m -XX:+HeapDumpOnOutOfMemoryError -Xms256m -Xmx512m -Dfile.encoding=UTF-8 -Duser.country=GB -Duser.language=en -Duser.variant -cp /Users/swim/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-launcher-5.5.jar org.gradle.launcher.daemon.bootstrap.GradleDaemon 5.5
+Successfully started process 'Gradle build daemon'
+An attempt to start the daemon took 1.676 secs.
+The client will now receive all logging from the daemon (pid: 29040). The daemon log file: /Users/swim/.gradle/daemon/5.5/daemon-29040.out.log
+Starting build in new daemon [memory: 536.9 MB]
+Using 4 worker leases.
+Starting Build
+Settings evaluated using settings file '/Users/swim/Desktop/work/swimci/settings.gradle'.
+Projects loaded. Root project using build file '/Users/swim/Desktop/work/swimci/build.gradle'.
+Included projects: [root project 'swim-system', project ':swim-actor', project ':swim-api', project ':swim-args', project ':swim-auth', project ':swim-avro', project ':swim-cli', project ':swim-client', project ':swim-codec', project ':swim-collections', project ':swim-concurrent', project ':swim-csv', project ':swim-dataflow', project ':swim-db', project ':swim-decipher', project ':swim-deflate', project ':swim-dynamic', project ':swim-dynamic-api', project ':swim-dynamic-java', project ':swim-dynamic-observable', project ':swim-dynamic-structure', project ':swim-http', project ':swim-io', project ':swim-io-http', project ':swim-io-mqtt', project ':swim-io-warp', project ':swim-io-ws', project ':swim-java', project ':swim-js', project ':swim-json', project ':swim-kernel', project ':swim-math', project ':swim-meta', project ':swim-mqtt', project ':swim-observable', project ':swim-protobuf', project ':swim-recon', project ':swim-remote', project ':swim-runtime', project ':swim-security', project ':swim-server', project ':swim-service', project ':swim-service-web', project ':swim-spatial', project ':swim-store', project ':swim-store-db', project ':swim-store-mem', project ':swim-streamlet', project ':swim-structure', project ':swim-uri', project ':swim-util', project ':swim-vm', project ':swim-vm-js', project ':swim-warp', project ':swim-web', project ':swim-ws', project ':swim-xml']
+
+> Configure project :
+Evaluating root project 'swim-system' using build file '/Users/swim/Desktop/work/swimci/build.gradle'.
+Configuring signAndPublish task for project :
+
+> Configure project :swim-actor
+Evaluating project ':swim-actor' using build file '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.actor/build.gradle'.
+
+> Configure project :swim-util
+Evaluating project ':swim-util' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.util/build.gradle'.
+
+> Configure project :swim-codec
+Evaluating project ':swim-codec' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.codec/build.gradle'.
+
+> Configure project :swim-collections
+Evaluating project ':swim-collections' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.collections/build.gradle'.
+
+> Configure project :swim-structure
+Evaluating project ':swim-structure' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.structure/build.gradle'.
+
+> Configure project :swim-math
+Evaluating project ':swim-math' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.math/build.gradle'.
+
+> Configure project :swim-spatial
+Evaluating project ':swim-spatial' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.spatial/build.gradle'.
+
+> Configure project :swim-concurrent
+Evaluating project ':swim-concurrent' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.concurrent/build.gradle'.
+
+> Configure project :swim-streamlet
+Evaluating project ':swim-streamlet' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.streamlet/build.gradle'.
+
+> Configure project :swim-dataflow
+Evaluating project ':swim-dataflow' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.dataflow/build.gradle'.
+
+> Configure project :swim-observable
+Evaluating project ':swim-observable' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.observable/build.gradle'.
+
+> Configure project :swim-uri
+Evaluating project ':swim-uri' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.uri/build.gradle'.
+
+> Configure project :swim-recon
+Evaluating project ':swim-recon' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.recon/build.gradle'.
+
+> Configure project :swim-json
+Evaluating project ':swim-json' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.json/build.gradle'.
+
+> Configure project :swim-xml
+Evaluating project ':swim-xml' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.xml/build.gradle'.
+
+> Configure project :swim-runtime
+Evaluating project ':swim-runtime' using build file '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.runtime/build.gradle'.
+
+> Configure project :swim-protobuf
+Evaluating project ':swim-protobuf' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.protobuf/build.gradle'.
+
+> Configure project :swim-api
+Evaluating project ':swim-api' using build file '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.api/build.gradle'.
+
+> Configure project :swim-decipher
+Evaluating project ':swim-decipher' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.decipher/build.gradle'.
+
+> Configure project :swim-http
+Evaluating project ':swim-http' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.http/build.gradle'.
+
+> Configure project :swim-deflate
+Evaluating project ':swim-deflate' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.deflate/build.gradle'.
+
+> Configure project :swim-ws
+Evaluating project ':swim-ws' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.ws/build.gradle'.
+
+> Configure project :swim-mqtt
+Evaluating project ':swim-mqtt' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.mqtt/build.gradle'.
+
+> Configure project :swim-warp
+Evaluating project ':swim-warp' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.warp/build.gradle'.
+
+> Configure project :swim-io
+Evaluating project ':swim-io' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.io/build.gradle'.
+
+> Configure project :swim-store
+Evaluating project ':swim-store' using build file '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.store/build.gradle'.
+
+> Configure project :swim-io-http
+Evaluating project ':swim-io-http' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.io.http/build.gradle'.
+
+> Configure project :swim-io-ws
+Evaluating project ':swim-io-ws' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.io.ws/build.gradle'.
+
+> Configure project :swim-io-warp
+Evaluating project ':swim-io-warp' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.io.warp/build.gradle'.
+
+> Configure project :swim-web
+Evaluating project ':swim-web' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.web/build.gradle'.
+
+> Configure project :swim-kernel
+Evaluating project ':swim-kernel' using build file '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.kernel/build.gradle'.
+
+> Configure project :swim-args
+Evaluating project ':swim-args' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.args/build.gradle'.
+
+> Configure project :swim-security
+Evaluating project ':swim-security' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.security/build.gradle'.
+
+> Configure project :swim-auth
+Evaluating project ':swim-auth' using build file '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.auth/build.gradle'.
+
+> Configure project :swim-avro
+Evaluating project ':swim-avro' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.avro/build.gradle'.
+
+> Configure project :swim-remote
+Evaluating project ':swim-remote' using build file '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.remote/build.gradle'.
+
+> Configure project :swim-client
+Evaluating project ':swim-client' using build file '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.client/build.gradle'.
+
+> Configure project :swim-cli
+Evaluating project ':swim-cli' using build file '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.cli/build.gradle'.
+
+> Configure project :swim-csv
+Evaluating project ':swim-csv' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.csv/build.gradle'.
+
+> Configure project :swim-db
+Evaluating project ':swim-db' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.db/build.gradle'.
+
+> Configure project :swim-dynamic
+Evaluating project ':swim-dynamic' using build file '/Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.dynamic/build.gradle'.
+
+> Configure project :swim-dynamic-java
+Evaluating project ':swim-dynamic-java' using build file '/Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.dynamic.java/build.gradle'.
+
+> Configure project :swim-dynamic-observable
+Evaluating project ':swim-dynamic-observable' using build file '/Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.dynamic.observable/build.gradle'.
+
+> Configure project :swim-dynamic-api
+Evaluating project ':swim-dynamic-api' using build file '/Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.dynamic.api/build.gradle'.
+
+> Configure project :swim-dynamic-structure
+Evaluating project ':swim-dynamic-structure' using build file '/Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.dynamic.structure/build.gradle'.
+
+> Configure project :swim-io-mqtt
+Evaluating project ':swim-io-mqtt' using build file '/Users/swim/Desktop/work/swimci/swim-core-java/swim.io.mqtt/build.gradle'.
+
+> Configure project :swim-java
+Evaluating project ':swim-java' using build file '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.java/build.gradle'.
+
+> Configure project :swim-vm
+Evaluating project ':swim-vm' using build file '/Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.vm/build.gradle'.
+
+> Configure project :swim-vm-js
+Evaluating project ':swim-vm-js' using build file '/Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.vm.js/build.gradle'.
+
+> Configure project :swim-js
+Evaluating project ':swim-js' using build file '/Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.js/build.gradle'.
+
+> Configure project :swim-meta
+Evaluating project ':swim-meta' using build file '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.meta/build.gradle'.
+
+> Configure project :swim-store-mem
+Evaluating project ':swim-store-mem' using build file '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.store.mem/build.gradle'.
+
+> Configure project :swim-store-db
+Evaluating project ':swim-store-db' using build file '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.store.db/build.gradle'.
+
+> Configure project :swim-service
+Evaluating project ':swim-service' using build file '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.service/build.gradle'.
+
+> Configure project :swim-service-web
+Evaluating project ':swim-service-web' using build file '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.service.web/build.gradle'.
+
+> Configure project :swim-server
+Evaluating project ':swim-server' using build file '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.server/build.gradle'.
+All projects evaluated.
+Selected primary task 'test' from project :
+Tasks to be executed: [task ':swim-util:compileJava', task ':swim-codec:compileJava', task ':swim-collections:compileJava', task ':swim-structure:compileJava', task ':swim-concurrent:compileJava', task ':swim-streamlet:compileJava', task ':swim-dataflow:compileJava', task ':swim-deflate:compileJava', task ':swim-json:compileJava', task ':swim-protobuf:compileJava', task ':swim-recon:compileJava', task ':swim-xml:compileJava', task ':swim-decipher:compileJava', task ':swim-uri:compileJava', task ':swim-http:compileJava', task ':swim-io:compileJava', task ':swim-math:compileJava', task ':swim-mqtt:compileJava', task ':swim-spatial:compileJava', task ':swim-observable:compileJava', task ':swim-warp:compileJava', task ':swim-ws:compileJava', task ':swim-api:compileJava', task ':swim-io-http:compileJava', task ':swim-io-ws:compileJava', task ':swim-io-warp:compileJava', task ':swim-store:compileJava', task ':swim-runtime:compileJava', task ':swim-web:compileJava', task ':swim-kernel:compileJava', task ':swim-actor:compileJava', task ':swim-util:compileModuleInfoJava', task ':swim-codec:compileModuleInfoJava', task ':swim-collections:compileModuleInfoJava', task ':swim-structure:compileModuleInfoJava', task ':swim-concurrent:compileModuleInfoJava', task ':swim-streamlet:compileModuleInfoJava', task ':swim-dataflow:compileModuleInfoJava', task ':swim-json:compileModuleInfoJava', task ':swim-protobuf:compileModuleInfoJava', task ':swim-recon:compileModuleInfoJava', task ':swim-xml:compileModuleInfoJava', task ':swim-decipher:compileModuleInfoJava', task ':swim-uri:compileModuleInfoJava', task ':swim-http:compileModuleInfoJava', task ':swim-io:compileModuleInfoJava', task ':swim-math:compileModuleInfoJava', task ':swim-mqtt:compileModuleInfoJava', task ':swim-spatial:compileModuleInfoJava', task ':swim-observable:compileModuleInfoJava', task ':swim-warp:compileModuleInfoJava', task ':swim-deflate:compileModuleInfoJava', task ':swim-ws:compileModuleInfoJava', task ':swim-api:compileModuleInfoJava', task ':swim-store:compileModuleInfoJava', task ':swim-runtime:compileModuleInfoJava', task ':swim-io-http:compileModuleInfoJava', task ':swim-io-ws:compileModuleInfoJava', task ':swim-io-warp:compileModuleInfoJava', task ':swim-web:compileModuleInfoJava', task ':swim-kernel:compileModuleInfoJava', task ':swim-actor:compileModuleInfoJava', task ':swim-args:compileJava', task ':swim-args:compileModuleInfoJava', task ':swim-security:compileJava', task ':swim-auth:compileJava', task ':swim-security:compileModuleInfoJava', task ':swim-auth:compileModuleInfoJava', task ':swim-avro:compileJava', task ':swim-avro:compileModuleInfoJava', task ':swim-remote:compileJava', task ':swim-client:compileJava', task ':swim-cli:compileJava', task ':swim-remote:compileModuleInfoJava', task ':swim-client:compileModuleInfoJava', task ':swim-cli:compileModuleInfoJava', task ':swim-csv:compileJava', task ':swim-csv:compileModuleInfoJava', task ':swim-db:compileJava', task ':swim-db:compileModuleInfoJava', task ':swim-dynamic:compileJava', task ':swim-dynamic:compileModuleInfoJava', task ':swim-dynamic-java:compileJava', task ':swim-dynamic-observable:compileJava', task ':swim-dynamic-api:compileJava', task ':swim-dynamic-java:compileModuleInfoJava', task ':swim-dynamic-observable:compileModuleInfoJava', task ':swim-dynamic-api:compileModuleInfoJava', task ':swim-dynamic-structure:compileJava', task ':swim-dynamic-structure:compileModuleInfoJava', task ':swim-io-mqtt:compileJava', task ':swim-io-mqtt:compileModuleInfoJava', task ':swim-java:compileJava', task ':swim-java:compileModuleInfoJava', task ':swim-vm:compileJava', task ':swim-vm-js:compileJava', task ':swim-js:compileJava', task ':swim-vm:compileModuleInfoJava', task ':swim-vm-js:compileModuleInfoJava', task ':swim-js:compileModuleInfoJava', task ':swim-meta:compileJava', task ':swim-meta:compileModuleInfoJava', task ':swim-service:compileJava', task ':swim-service-web:compileJava', task ':swim-store-db:compileJava', task ':swim-store-mem:compileJava', task ':swim-server:compileJava', task ':swim-service:compileModuleInfoJava', task ':swim-service-web:compileModuleInfoJava', task ':swim-store-db:compileModuleInfoJava', task ':swim-store-mem:compileModuleInfoJava', task ':swim-server:compileModuleInfoJava', task ':compileJava', task ':processResources', task ':classes', task ':compileTestJava', task ':processTestResources', task ':testClasses', task ':test', task ':swim-actor:processResources', task ':swim-actor:classes', task ':swim-actor:compileTestJava', task ':swim-actor:processTestResources', task ':swim-actor:testClasses', task ':swim-api:processResources', task ':swim-api:classes', task ':swim-api:jar', task ':swim-codec:processResources', task ':swim-codec:classes', task ':swim-codec:jar', task ':swim-collections:processResources', task ':swim-collections:classes', task ':swim-collections:jar', task ':swim-concurrent:processResources', task ':swim-concurrent:classes', task ':swim-concurrent:jar', task ':swim-dataflow:processResources', task ':swim-dataflow:classes', task ':swim-dataflow:jar', task ':swim-decipher:processResources', task ':swim-decipher:classes', task ':swim-decipher:jar', task ':swim-deflate:processResources', task ':swim-deflate:classes', task ':swim-deflate:jar', task ':swim-http:processResources', task ':swim-http:classes', task ':swim-http:jar', task ':swim-io:processResources', task ':swim-io:classes', task ':swim-io:jar', task ':swim-io-http:processResources', task ':swim-io-http:classes', task ':swim-io-http:jar', task ':swim-io-warp:processResources', task ':swim-io-warp:classes', task ':swim-io-warp:jar', task ':swim-io-ws:processResources', task ':swim-io-ws:classes', task ':swim-io-ws:jar', task ':swim-json:processResources', task ':swim-json:classes', task ':swim-json:jar', task ':swim-kernel:processResources', task ':swim-kernel:classes', task ':swim-kernel:jar', task ':swim-math:processResources', task ':swim-math:classes', task ':swim-math:jar', task ':swim-mqtt:processResources', task ':swim-mqtt:classes', task ':swim-mqtt:jar', task ':swim-observable:processResources', task ':swim-observable:classes', task ':swim-observable:jar', task ':swim-protobuf:processResources', task ':swim-protobuf:classes', task ':swim-protobuf:jar', task ':swim-recon:processResources', task ':swim-recon:classes', task ':swim-recon:jar', task ':swim-runtime:processResources', task ':swim-runtime:classes', task ':swim-runtime:jar', task ':swim-spatial:processResources', task ':swim-spatial:classes', task ':swim-spatial:jar', task ':swim-store:processResources', task ':swim-store:classes', task ':swim-store:jar', task ':swim-streamlet:processResources', task ':swim-streamlet:classes', task ':swim-streamlet:jar', task ':swim-structure:processResources', task ':swim-structure:classes', task ':swim-structure:jar', task ':swim-uri:processResources', task ':swim-uri:classes', task ':swim-uri:jar', task ':swim-util:processResources', task ':swim-util:classes', task ':swim-util:jar', task ':swim-warp:processResources', task ':swim-warp:classes', task ':swim-warp:jar', task ':swim-web:processResources', task ':swim-web:classes', task ':swim-web:jar', task ':swim-ws:processResources', task ':swim-ws:classes', task ':swim-ws:jar', task ':swim-xml:processResources', task ':swim-xml:classes', task ':swim-xml:jar', task ':swim-actor:test', task ':swim-api:compileTestJava', task ':swim-api:processTestResources', task ':swim-api:testClasses', task ':swim-api:test', task ':swim-args:processResources', task ':swim-args:classes', task ':swim-args:compileTestJava', task ':swim-args:processTestResources', task ':swim-args:testClasses', task ':swim-args:test', task ':swim-auth:processResources', task ':swim-auth:classes', task ':swim-auth:compileTestJava', task ':swim-auth:processTestResources', task ':swim-auth:testClasses', task ':swim-security:processResources', task ':swim-security:classes', task ':swim-security:jar', task ':swim-auth:test', task ':swim-avro:processResources', task ':swim-avro:classes', task ':swim-avro:compileTestJava', task ':swim-avro:processTestResources', task ':swim-avro:testClasses', task ':swim-avro:test', task ':swim-args:jar', task ':swim-cli:processResources', task ':swim-cli:classes', task ':swim-cli:compileTestJava', task ':swim-cli:processTestResources', task ':swim-cli:testClasses', task ':swim-client:processResources', task ':swim-client:classes', task ':swim-client:jar', task ':swim-remote:processResources', task ':swim-remote:classes', task ':swim-remote:jar', task ':swim-cli:test', task ':swim-client:compileTestJava', task ':swim-client:processTestResources', task ':swim-client:testClasses', task ':swim-client:test', task ':swim-codec:compileTestJava', task ':swim-codec:processTestResources', task ':swim-codec:testClasses', task ':swim-codec:test', task ':swim-collections:compileTestJava', task ':swim-collections:processTestResources', task ':swim-collections:testClasses', task ':swim-collections:test', task ':swim-concurrent:compileTestJava', task ':swim-concurrent:processTestResources', task ':swim-concurrent:testClasses', task ':swim-concurrent:test', task ':swim-csv:processResources', task ':swim-csv:classes', task ':swim-csv:compileTestJava', task ':swim-csv:processTestResources', task ':swim-csv:testClasses', task ':swim-csv:test', task ':swim-dataflow:compileTestJava', task ':swim-dataflow:processTestResources', task ':swim-dataflow:testClasses', task ':swim-dataflow:test', task ':swim-db:processResources', task ':swim-db:classes', task ':swim-db:compileTestJava', task ':swim-db:processTestResources', task ':swim-db:testClasses', task ':swim-db:test', task ':swim-decipher:compileTestJava', task ':swim-decipher:processTestResources', task ':swim-decipher:testClasses', task ':swim-decipher:test', task ':swim-deflate:compileTestJava', task ':swim-deflate:processTestResources', task ':swim-deflate:testClasses', task ':swim-deflate:test', task ':swim-dynamic:processResources', task ':swim-dynamic:classes', task ':swim-dynamic:compileTestJava', task ':swim-dynamic:processTestResources', task ':swim-dynamic:testClasses', task ':swim-dynamic:test', task ':swim-dynamic:jar', task ':swim-dynamic-api:processResources', task ':swim-dynamic-api:classes', task ':swim-dynamic-api:compileTestJava', task ':swim-dynamic-api:processTestResources', task ':swim-dynamic-api:testClasses', task ':swim-dynamic-java:processResources', task ':swim-dynamic-java:classes', task ':swim-dynamic-java:jar', task ':swim-dynamic-observable:processResources', task ':swim-dynamic-observable:classes', task ':swim-dynamic-observable:jar', task ':swim-vm:processResources', task ':swim-vm:classes', task ':swim-vm:jar', task ':swim-vm-js:processResources', task ':swim-vm-js:classes', task ':swim-vm-js:jar', task ':swim-dynamic-api:test', task ':swim-dynamic-java:compileTestJava', task ':swim-dynamic-java:processTestResources', task ':swim-dynamic-java:testClasses', task ':swim-dynamic-java:test', task ':swim-dynamic-observable:compileTestJava', task ':swim-dynamic-observable:processTestResources', task ':swim-dynamic-observable:testClasses', task ':swim-dynamic-observable:test', task ':swim-dynamic-structure:processResources', task ':swim-dynamic-structure:classes', task ':swim-dynamic-structure:compileTestJava', task ':swim-dynamic-structure:processTestResources', task ':swim-dynamic-structure:testClasses', task ':swim-dynamic-structure:test', task ':swim-http:compileTestJava', task ':swim-http:processTestResources', task ':swim-http:testClasses', task ':swim-http:test', task ':swim-io:compileTestJava', task ':swim-io:processTestResources', task ':swim-io:testClasses', task ':swim-io:test', task ':swim-io-http:compileTestJava', task ':swim-io-http:processTestResources', task ':swim-io-http:testClasses', task ':swim-io-http:test', task ':swim-io-mqtt:processResources', task ':swim-io-mqtt:classes', task ':swim-io-mqtt:compileTestJava', task ':swim-io-mqtt:processTestResources', task ':swim-io-mqtt:testClasses', task ':swim-io-mqtt:test', task ':swim-io-warp:compileTestJava', task ':swim-io-warp:processTestResources', task ':swim-io-warp:testClasses', task ':swim-io-warp:test', task ':swim-io-ws:compileTestJava', task ':swim-io-ws:processTestResources', task ':swim-io-ws:testClasses', task ':swim-io-ws:test', task ':swim-java:processResources', task ':swim-java:classes', task ':swim-java:compileTestJava', task ':swim-java:processTestResources', task ':swim-java:testClasses', task ':swim-java:test', task ':swim-actor:jar', task ':swim-auth:jar', task ':swim-db:jar', task ':swim-dynamic-api:jar', task ':swim-dynamic-structure:jar', task ':swim-java:jar', task ':swim-js:processResources', task ':swim-js:classes', task ':swim-js:compileTestJava', task ':swim-js:processTestResources', task ':swim-js:testClasses', task ':swim-server:processResources', task ':swim-server:classes', task ':swim-server:jar', task ':swim-service:processResources', task ':swim-service:classes', task ':swim-service:jar', task ':swim-service-web:processResources', task ':swim-service-web:classes', task ':swim-service-web:jar', task ':swim-store-db:processResources', task ':swim-store-db:classes', task ':swim-store-db:jar', task ':swim-store-mem:processResources', task ':swim-store-mem:classes', task ':swim-store-mem:jar', task ':swim-js:test', task ':swim-json:compileTestJava', task ':swim-json:processTestResources', task ':swim-json:testClasses', task ':swim-json:test', task ':swim-kernel:compileTestJava', task ':swim-kernel:processTestResources', task ':swim-kernel:testClasses', task ':swim-kernel:test', task ':swim-math:compileTestJava', task ':swim-math:processTestResources', task ':swim-math:testClasses', task ':swim-math:test', task ':swim-meta:processResources', task ':swim-meta:classes', task ':swim-meta:compileTestJava', task ':swim-meta:processTestResources', task ':swim-meta:testClasses', task ':swim-meta:test', task ':swim-mqtt:compileTestJava', task ':swim-mqtt:processTestResources', task ':swim-mqtt:testClasses', task ':swim-mqtt:test', task ':swim-observable:compileTestJava', task ':swim-observable:processTestResources', task ':swim-observable:testClasses', task ':swim-observable:test', task ':swim-protobuf:compileTestJava', task ':swim-protobuf:processTestResources', task ':swim-protobuf:testClasses', task ':swim-protobuf:test', task ':swim-recon:compileTestJava', task ':swim-recon:processTestResources', task ':swim-recon:testClasses', task ':swim-recon:test', task ':swim-remote:compileTestJava', task ':swim-remote:processTestResources', task ':swim-remote:testClasses', task ':swim-remote:test', task ':swim-runtime:compileTestJava', task ':swim-runtime:processTestResources', task ':swim-runtime:testClasses', task ':swim-runtime:test', task ':swim-security:compileTestJava', task ':swim-security:processTestResources', task ':swim-security:testClasses', task ':swim-security:test', task ':swim-server:compileTestJava', task ':swim-server:processTestResources', task ':swim-server:testClasses', task ':swim-server:test', task ':swim-service:compileTestJava', task ':swim-service:processTestResources', task ':swim-service:testClasses', task ':swim-service:test', task ':swim-service-web:compileTestJava', task ':swim-service-web:processTestResources', task ':swim-service-web:testClasses', task ':swim-service-web:test', task ':swim-spatial:compileTestJava', task ':swim-spatial:processTestResources', task ':swim-spatial:testClasses', task ':swim-spatial:test', task ':swim-store:compileTestJava', task ':swim-store:processTestResources', task ':swim-store:testClasses', task ':swim-store:test', task ':swim-store-db:compileTestJava', task ':swim-store-db:processTestResources', task ':swim-store-db:testClasses', task ':swim-store-db:test', task ':swim-store-mem:compileTestJava', task ':swim-store-mem:processTestResources', task ':swim-store-mem:testClasses', task ':swim-store-mem:test', task ':swim-streamlet:compileTestJava', task ':swim-streamlet:processTestResources', task ':swim-streamlet:testClasses', task ':swim-streamlet:test', task ':swim-structure:compileTestJava', task ':swim-structure:processTestResources', task ':swim-structure:testClasses', task ':swim-structure:test', task ':swim-uri:compileTestJava', task ':swim-uri:processTestResources', task ':swim-uri:testClasses', task ':swim-uri:test', task ':swim-util:compileTestJava', task ':swim-util:processTestResources', task ':swim-util:testClasses', task ':swim-util:test', task ':swim-vm:compileTestJava', task ':swim-vm:processTestResources', task ':swim-vm:testClasses', task ':swim-vm:test', task ':swim-vm-js:compileTestJava', task ':swim-vm-js:processTestResources', task ':swim-vm-js:testClasses', task ':swim-vm-js:test', task ':swim-warp:compileTestJava', task ':swim-warp:processTestResources', task ':swim-warp:testClasses', task ':swim-warp:test', task ':swim-web:compileTestJava', task ':swim-web:processTestResources', task ':swim-web:testClasses', task ':swim-web:test', task ':swim-ws:compileTestJava', task ':swim-ws:processTestResources', task ':swim-ws:testClasses', task ':swim-ws:test', task ':swim-xml:compileTestJava', task ':swim-xml:processTestResources', task ':swim-xml:testClasses', task ':swim-xml:test']
+:swim-util:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-util:compileJava UP-TO-DATE
+Caching disabled for task ':swim-util:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-util:compileJava' as it is up-to-date.
+:swim-util:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.171 secs.
+:swim-codec:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-codec:compileJava UP-TO-DATE
+Caching disabled for task ':swim-codec:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-codec:compileJava' as it is up-to-date.
+:swim-codec:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.109 secs.
+:swim-collections:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-collections:compileJava UP-TO-DATE
+Caching disabled for task ':swim-collections:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-collections:compileJava' as it is up-to-date.
+:swim-collections:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.087 secs.
+:swim-structure:compileJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-structure:compileJava UP-TO-DATE
+Caching disabled for task ':swim-structure:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-structure:compileJava' as it is up-to-date.
+:swim-structure:compileJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.096 secs.
+:swim-concurrent:compileJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-concurrent:compileJava UP-TO-DATE
+Caching disabled for task ':swim-concurrent:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-concurrent:compileJava' as it is up-to-date.
+:swim-concurrent:compileJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.042 secs.
+:swim-streamlet:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-streamlet:compileJava UP-TO-DATE
+Caching disabled for task ':swim-streamlet:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-streamlet:compileJava' as it is up-to-date.
+:swim-streamlet:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.034 secs.
+:swim-dataflow:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-dataflow:compileJava UP-TO-DATE
+Caching disabled for task ':swim-dataflow:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-dataflow:compileJava' as it is up-to-date.
+:swim-dataflow:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.029 secs.
+:swim-deflate:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-deflate:compileJava UP-TO-DATE
+Caching disabled for task ':swim-deflate:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-deflate:compileJava' as it is up-to-date.
+:swim-deflate:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.012 secs.
+:swim-json:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-json:compileJava UP-TO-DATE
+Caching disabled for task ':swim-json:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-json:compileJava' as it is up-to-date.
+:swim-json:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.018 secs.
+:swim-protobuf:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-protobuf:compileJava UP-TO-DATE
+Caching disabled for task ':swim-protobuf:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-protobuf:compileJava' as it is up-to-date.
+:swim-protobuf:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.014 secs.
+:swim-recon:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-recon:compileJava UP-TO-DATE
+Caching disabled for task ':swim-recon:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-recon:compileJava' as it is up-to-date.
+:swim-recon:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.031 secs.
+:swim-xml:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-xml:compileJava UP-TO-DATE
+Caching disabled for task ':swim-xml:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-xml:compileJava' as it is up-to-date.
+:swim-xml:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.017 secs.
+:swim-decipher:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-decipher:compileJava UP-TO-DATE
+Caching disabled for task ':swim-decipher:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-decipher:compileJava' as it is up-to-date.
+:swim-decipher:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.027 secs.
+:swim-uri:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-uri:compileJava UP-TO-DATE
+Caching disabled for task ':swim-uri:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-uri:compileJava' as it is up-to-date.
+:swim-uri:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.058 secs.
+:swim-http:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-http:compileJava UP-TO-DATE
+Caching disabled for task ':swim-http:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-http:compileJava' as it is up-to-date.
+:swim-http:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.073 secs.
+:swim-io:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-io:compileJava UP-TO-DATE
+Caching disabled for task ':swim-io:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-io:compileJava' as it is up-to-date.
+:swim-io:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.032 secs.
+:swim-math:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-math:compileJava UP-TO-DATE
+Caching disabled for task ':swim-math:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-math:compileJava' as it is up-to-date.
+:swim-math:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.038 secs.
+:swim-mqtt:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-mqtt:compileJava UP-TO-DATE
+Caching disabled for task ':swim-mqtt:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-mqtt:compileJava' as it is up-to-date.
+:swim-mqtt:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.029 secs.
+:swim-spatial:compileJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-spatial:compileJava UP-TO-DATE
+Caching disabled for task ':swim-spatial:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-spatial:compileJava' as it is up-to-date.
+:swim-spatial:compileJava (Thread[Daemon worker,5,main]) completed. Took 0.024 secs.
+:swim-observable:compileJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-observable:compileJava UP-TO-DATE
+Caching disabled for task ':swim-observable:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-observable:compileJava' as it is up-to-date.
+:swim-observable:compileJava (Thread[Daemon worker,5,main]) completed. Took 0.022 secs.
+:swim-warp:compileJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-warp:compileJava UP-TO-DATE
+Caching disabled for task ':swim-warp:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-warp:compileJava' as it is up-to-date.
+:swim-warp:compileJava (Thread[Daemon worker,5,main]) completed. Took 0.02 secs.
+:swim-ws:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-ws:compileJava UP-TO-DATE
+Caching disabled for task ':swim-ws:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-ws:compileJava' as it is up-to-date.
+:swim-ws:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.029 secs.
+:swim-api:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-api:compileJava UP-TO-DATE
+Caching disabled for task ':swim-api:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-api:compileJava' as it is up-to-date.
+:swim-api:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.112 secs.
+:swim-io-http:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-io-http:compileJava UP-TO-DATE
+Caching disabled for task ':swim-io-http:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-io-http:compileJava' as it is up-to-date.
+:swim-io-http:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.022 secs.
+:swim-io-ws:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-io-ws:compileJava UP-TO-DATE
+Caching disabled for task ':swim-io-ws:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-io-ws:compileJava' as it is up-to-date.
+:swim-io-ws:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.021 secs.
+:swim-io-warp:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-io-warp:compileJava UP-TO-DATE
+Caching disabled for task ':swim-io-warp:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-io-warp:compileJava' as it is up-to-date.
+:swim-io-warp:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.023 secs.
+:swim-store:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-store:compileJava UP-TO-DATE
+Caching disabled for task ':swim-store:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-store:compileJava' as it is up-to-date.
+:swim-store:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.044 secs.
+:swim-runtime:compileJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-runtime:compileJava UP-TO-DATE
+Caching disabled for task ':swim-runtime:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-runtime:compileJava' as it is up-to-date.
+:swim-runtime:compileJava (Thread[Daemon worker,5,main]) completed. Took 0.119 secs.
+:swim-web:compileJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-web:compileJava UP-TO-DATE
+Caching disabled for task ':swim-web:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-web:compileJava' as it is up-to-date.
+:swim-web:compileJava (Thread[Daemon worker,5,main]) completed. Took 0.028 secs.
+:swim-kernel:compileJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-kernel:compileJava UP-TO-DATE
+Caching disabled for task ':swim-kernel:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-kernel:compileJava' as it is up-to-date.
+:swim-kernel:compileJava (Thread[Daemon worker,5,main]) completed. Took 0.214 secs.
+:swim-actor:compileJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-actor:compileJava UP-TO-DATE
+Caching disabled for task ':swim-actor:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-actor:compileJava' as it is up-to-date.
+:swim-actor:compileJava (Thread[Daemon worker,5,main]) completed. Took 0.033 secs.
+:swim-util:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-util:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-util:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-util:compileModuleInfoJava' as it is up-to-date.
+:swim-util:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.005 secs.
+:swim-codec:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-codec:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-codec:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-codec:compileModuleInfoJava' as it is up-to-date.
+:swim-codec:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.003 secs.
+:swim-collections:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-collections:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-collections:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-collections:compileModuleInfoJava' as it is up-to-date.
+:swim-collections:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.004 secs.
+:swim-structure:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-structure:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-structure:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-structure:compileModuleInfoJava' as it is up-to-date.
+:swim-structure:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.004 secs.
+:swim-concurrent:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-concurrent:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-concurrent:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-concurrent:compileModuleInfoJava' as it is up-to-date.
+:swim-concurrent:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.004 secs.
+:swim-streamlet:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-streamlet:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-streamlet:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-streamlet:compileModuleInfoJava' as it is up-to-date.
+:swim-streamlet:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.005 secs.
+:swim-dataflow:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-dataflow:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-dataflow:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-dataflow:compileModuleInfoJava' as it is up-to-date.
+:swim-dataflow:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.005 secs.
+:swim-json:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-json:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-json:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-json:compileModuleInfoJava' as it is up-to-date.
+:swim-json:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.005 secs.
+:swim-protobuf:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-protobuf:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-protobuf:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-protobuf:compileModuleInfoJava' as it is up-to-date.
+:swim-protobuf:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.004 secs.
+:swim-recon:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-recon:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-recon:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-recon:compileModuleInfoJava' as it is up-to-date.
+:swim-recon:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.005 secs.
+:swim-xml:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-xml:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-xml:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-xml:compileModuleInfoJava' as it is up-to-date.
+:swim-xml:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.004 secs.
+:swim-decipher:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-decipher:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-decipher:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-decipher:compileModuleInfoJava' as it is up-to-date.
+:swim-decipher:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.004 secs.
+:swim-uri:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-uri:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-uri:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-uri:compileModuleInfoJava' as it is up-to-date.
+:swim-uri:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.005 secs.
+:swim-http:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-http:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-http:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-http:compileModuleInfoJava' as it is up-to-date.
+:swim-http:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.003 secs.
+:swim-io:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-io:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-io:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-io:compileModuleInfoJava' as it is up-to-date.
+:swim-io:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.003 secs.
+:swim-math:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-math:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-math:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-math:compileModuleInfoJava' as it is up-to-date.
+:swim-math:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.004 secs.
+:swim-mqtt:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-mqtt:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-mqtt:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-mqtt:compileModuleInfoJava' as it is up-to-date.
+:swim-mqtt:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) completed. Took 0.004 secs.
+:swim-spatial:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-spatial:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-spatial:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-spatial:compileModuleInfoJava' as it is up-to-date.
+:swim-spatial:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.004 secs.
+:swim-observable:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-observable:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-observable:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-observable:compileModuleInfoJava' as it is up-to-date.
+:swim-observable:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.005 secs.
+:swim-warp:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-warp:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-warp:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-warp:compileModuleInfoJava' as it is up-to-date.
+:swim-warp:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) completed. Took 0.003 secs.
+:swim-deflate:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-deflate:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-deflate:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-deflate:compileModuleInfoJava' as it is up-to-date.
+:swim-deflate:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) completed. Took 0.003 secs.
+:swim-ws:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-ws:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-ws:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-ws:compileModuleInfoJava' as it is up-to-date.
+:swim-ws:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) completed. Took 0.003 secs.
+:swim-api:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-api:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-api:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-api:compileModuleInfoJava' as it is up-to-date.
+:swim-api:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.003 secs.
+:swim-store:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-store:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-store:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-store:compileModuleInfoJava' as it is up-to-date.
+:swim-store:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.003 secs.
+:swim-runtime:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-runtime:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-runtime:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-runtime:compileModuleInfoJava' as it is up-to-date.
+:swim-runtime:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.004 secs.
+:swim-io-http:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-io-http:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-io-http:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-io-http:compileModuleInfoJava' as it is up-to-date.
+:swim-io-http:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) completed. Took 0.003 secs.
+:swim-io-ws:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-io-ws:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-io-ws:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-io-ws:compileModuleInfoJava' as it is up-to-date.
+:swim-io-ws:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.003 secs.
+:swim-io-warp:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-io-warp:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-io-warp:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-io-warp:compileModuleInfoJava' as it is up-to-date.
+:swim-io-warp:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.003 secs.
+:swim-web:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-web:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-web:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-web:compileModuleInfoJava' as it is up-to-date.
+:swim-web:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.008 secs.
+:swim-kernel:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-kernel:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-kernel:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-kernel:compileModuleInfoJava' as it is up-to-date.
+:swim-kernel:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) completed. Took 0.007 secs.
+:swim-actor:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-actor:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-actor:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-actor:compileModuleInfoJava' as it is up-to-date.
+:swim-actor:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) completed. Took 0.005 secs.
+:swim-args:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-args:compileJava UP-TO-DATE
+Caching disabled for task ':swim-args:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-args:compileJava' as it is up-to-date.
+:swim-args:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.015 secs.
+:swim-args:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-args:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-args:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-args:compileModuleInfoJava' as it is up-to-date.
+:swim-args:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) completed. Took 0.003 secs.
+:swim-security:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-security:compileJava UP-TO-DATE
+Caching disabled for task ':swim-security:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-security:compileJava' as it is up-to-date.
+:swim-security:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.02 secs.
+:swim-auth:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-auth:compileJava UP-TO-DATE
+Caching disabled for task ':swim-auth:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-auth:compileJava' as it is up-to-date.
+:swim-auth:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.034 secs.
+:swim-security:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-security:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-security:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-security:compileModuleInfoJava' as it is up-to-date.
+:swim-security:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) completed. Took 0.003 secs.
+:swim-auth:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-auth:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-auth:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-auth:compileModuleInfoJava' as it is up-to-date.
+:swim-auth:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) completed. Took 0.007 secs.
+:swim-avro:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-avro:compileJava UP-TO-DATE
+Caching disabled for task ':swim-avro:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-avro:compileJava' as it is up-to-date.
+:swim-avro:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.055 secs.
+:swim-avro:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-avro:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-avro:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-avro:compileModuleInfoJava' as it is up-to-date.
+:swim-avro:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) completed. Took 0.005 secs.
+:swim-remote:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-remote:compileJava UP-TO-DATE
+Caching disabled for task ':swim-remote:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-remote:compileJava' as it is up-to-date.
+:swim-remote:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.022 secs.
+:swim-client:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-client:compileJava UP-TO-DATE
+Caching disabled for task ':swim-client:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-client:compileJava' as it is up-to-date.
+:swim-client:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.019 secs.
+:swim-cli:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-cli:compileJava
+Caching disabled for task ':swim-cli:compileJava' because:
+  Build cache is disabled
+Task ':swim-cli:compileJava' is not up-to-date because:
+  Input property 'classpath' file /Users/swim/Desktop/work/swimci/swim-mesh-java/swim.client/build/classes/java/main/swim/client/ClientRuntime.class has been removed.
+  Input property 'classpath' file /Users/swim/Desktop/work/swimci/swim-mesh-java/swim.client/build/classes/java/main/module-info.class has been added.
+  Input property 'classpath' file /Users/swim/Desktop/work/swimci/swim-core-java/swim.args/build/classes/java/main/module-info.class has been removed.
+Created classpath snapshot for incremental compilation in 0.073 secs. 1 duplicate classes found in classpath (see all with --debug).
+Class dependency analysis for incremental compilation took 0.049 secs.
+Full recompilation is required because at least one of the classes of modified classpath entry '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.client/build/classes/java/main' is already present in the classpath. Analysis took 0.147 secs.
+Compiling with JDK Java compiler API.
+:swim-cli:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 3.904 secs.
+:swim-remote:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-remote:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-remote:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-remote:compileModuleInfoJava' as it is up-to-date.
+:swim-remote:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) completed. Took 0.003 secs.
+:swim-client:compileModuleInfoJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-client:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-client:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-client:compileModuleInfoJava' as it is up-to-date.
+:swim-client:compileModuleInfoJava (Thread[Daemon worker,5,main]) completed. Took 0.004 secs.
+:swim-cli:compileModuleInfoJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-cli:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-cli:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-cli:compileModuleInfoJava' as it is up-to-date.
+:swim-cli:compileModuleInfoJava (Thread[Daemon worker,5,main]) completed. Took 0.003 secs.
+:swim-csv:compileJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-csv:compileJava UP-TO-DATE
+Caching disabled for task ':swim-csv:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-csv:compileJava' as it is up-to-date.
+:swim-csv:compileJava (Thread[Daemon worker,5,main]) completed. Took 0.016 secs.
+:swim-csv:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-csv:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-csv:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-csv:compileModuleInfoJava' as it is up-to-date.
+:swim-csv:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.002 secs.
+:swim-db:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-db:compileJava UP-TO-DATE
+Caching disabled for task ':swim-db:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-db:compileJava' as it is up-to-date.
+:swim-db:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.091 secs.
+:swim-db:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-db:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-db:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-db:compileModuleInfoJava' as it is up-to-date.
+:swim-db:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.003 secs.
+:swim-dynamic:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-dynamic:compileJava UP-TO-DATE
+Caching disabled for task ':swim-dynamic:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-dynamic:compileJava' as it is up-to-date.
+:swim-dynamic:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.017 secs.
+:swim-dynamic:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-dynamic:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-dynamic:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-dynamic:compileModuleInfoJava' as it is up-to-date.
+:swim-dynamic:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.002 secs.
+:swim-dynamic-java:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-dynamic-java:compileJava UP-TO-DATE
+Caching disabled for task ':swim-dynamic-java:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-dynamic-java:compileJava' as it is up-to-date.
+:swim-dynamic-java:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.016 secs.
+:swim-dynamic-observable:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-dynamic-observable:compileJava
+Caching disabled for task ':swim-dynamic-observable:compileJava' because:
+  Build cache is disabled
+Task ':swim-dynamic-observable:compileJava' is not up-to-date because:
+  Input property 'classpath' file /Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.dynamic.java/build/classes/java/main/swim/dynamic/java/JavaBase.class has been removed.
+  Input property 'classpath' file /Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.dynamic.java/build/classes/java/main/module-info.class has been added.
+  Input property 'classpath' file /Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.dynamic.java/build/classes/java/main/swim/dynamic/java/lang/HostComparable.class has been removed.
+Created classpath snapshot for incremental compilation in 0.01 secs. 1 duplicate classes found in classpath (see all with --debug).
+Class dependency analysis for incremental compilation took 0.017 secs.
+Full recompilation is required because at least one of the classes of modified classpath entry '/Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.dynamic.java/build/classes/java/main' is already present in the classpath. Analysis took 0.029 secs.
+Compiling with JDK Java compiler API.
+:swim-dynamic-observable:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 1.52 secs.
+:swim-dynamic-api:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-dynamic-api:compileJava
+Caching disabled for task ':swim-dynamic-api:compileJava' because:
+  Build cache is disabled
+Task ':swim-dynamic-api:compileJava' is not up-to-date because:
+  Input property 'classpath' file /Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.dynamic.observable/build/classes/java/main/swim/dynamic/observable/HostObservableList.class has been removed.
+  Input property 'classpath' file /Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.dynamic.observable/build/classes/java/main/module-info.class has been added.
+  Input property 'classpath' file /Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.dynamic.observable/build/classes/java/main/swim/dynamic/observable/HostObservableListDidClear.class has been removed.
+Created classpath snapshot for incremental compilation in 0.027 secs. 1 duplicate classes found in classpath (see all with --debug).
+Class dependency analysis for incremental compilation took 0.029 secs.
+Full recompilation is required because at least one of the classes of modified classpath entry '/Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.dynamic.java/build/classes/java/main' is already present in the classpath. Analysis took 0.059 secs.
+Compiling with JDK Java compiler API.
+:swim-dynamic-api:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 2.305 secs.
+:swim-dynamic-java:compileModuleInfoJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-dynamic-java:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-dynamic-java:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-dynamic-java:compileModuleInfoJava' as it is up-to-date.
+:swim-dynamic-java:compileModuleInfoJava (Thread[Daemon worker,5,main]) completed. Took 0.004 secs.
+:swim-dynamic-observable:compileModuleInfoJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-dynamic-observable:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-dynamic-observable:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-dynamic-observable:compileModuleInfoJava' as it is up-to-date.
+:swim-dynamic-observable:compileModuleInfoJava (Thread[Daemon worker,5,main]) completed. Took 0.002 secs.
+:swim-dynamic-api:compileModuleInfoJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-dynamic-api:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-dynamic-api:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-dynamic-api:compileModuleInfoJava' as it is up-to-date.
+:swim-dynamic-api:compileModuleInfoJava (Thread[Daemon worker,5,main]) completed. Took 0.004 secs.
+:swim-dynamic-structure:compileJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-dynamic-structure:compileJava UP-TO-DATE
+Caching disabled for task ':swim-dynamic-structure:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-dynamic-structure:compileJava' as it is up-to-date.
+:swim-dynamic-structure:compileJava (Thread[Daemon worker,5,main]) completed. Took 0.015 secs.
+:swim-dynamic-structure:compileModuleInfoJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-dynamic-structure:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-dynamic-structure:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-dynamic-structure:compileModuleInfoJava' as it is up-to-date.
+:swim-dynamic-structure:compileModuleInfoJava (Thread[Daemon worker,5,main]) completed. Took 0.002 secs.
+:swim-io-mqtt:compileJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-io-mqtt:compileJava UP-TO-DATE
+Caching disabled for task ':swim-io-mqtt:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-io-mqtt:compileJava' as it is up-to-date.
+:swim-io-mqtt:compileJava (Thread[Daemon worker,5,main]) completed. Took 0.018 secs.
+:swim-io-mqtt:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-io-mqtt:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-io-mqtt:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-io-mqtt:compileModuleInfoJava' as it is up-to-date.
+:swim-io-mqtt:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.004 secs.
+:swim-java:compileJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-java:compileJava UP-TO-DATE
+Caching disabled for task ':swim-java:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-java:compileJava' as it is up-to-date.
+:swim-java:compileJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.042 secs.
+:swim-java:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-java:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-java:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-java:compileModuleInfoJava' as it is up-to-date.
+:swim-java:compileModuleInfoJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.004 secs.
+:swim-vm:compileJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-vm:compileJava UP-TO-DATE
+Caching disabled for task ':swim-vm:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-vm:compileJava' as it is up-to-date.
+:swim-vm:compileJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.011 secs.
+:swim-vm-js:compileJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-vm-js:compileJava
+Caching disabled for task ':swim-vm-js:compileJava' because:
+  Build cache is disabled
+Task ':swim-vm-js:compileJava' is not up-to-date because:
+  Input property 'classpath' file /Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.vm/build/classes/java/main/swim/vm/VmBridge.class has been removed.
+  Input property 'classpath' file /Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.vm/build/classes/java/main/module-info.class has been added.
+  Input property 'classpath' file /Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.vm/build/classes/java/main/swim/vm/VmBridgeArray.class has been removed.
+Created classpath snapshot for incremental compilation in 0.067 secs. 1 duplicate classes found in classpath (see all with --debug).
+Class dependency analysis for incremental compilation took 0.003 secs.
+Full recompilation is required because at least one of the classes of modified classpath entry '/Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.vm/build/classes/java/main' is already present in the classpath. Analysis took 0.073 secs.
+Compiling with JDK Java compiler API.
+:swim-vm-js:compileJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 1.258 secs.
+:swim-js:compileJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-js:compileJava
+Caching disabled for task ':swim-js:compileJava' because:
+  Build cache is disabled
+Task ':swim-js:compileJava' is not up-to-date because:
+  Input property 'classpath' file /Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.vm.js/build/classes/java/main/swim/vm/js/JsBridge.class has been removed.
+  Input property 'classpath' file /Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.vm.js/build/classes/java/main/module-info.class has been added.
+  Input property 'classpath' file /Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.vm.js/build/classes/java/main/swim/vm/js/JsCachedModuleResolver.class has been removed.
+Created classpath snapshot for incremental compilation in 0.033 secs. 1 duplicate classes found in classpath (see all with --debug).
+Class dependency analysis for incremental compilation took 0.008 secs.
+Full recompilation is required because at least one of the classes of modified classpath entry '/Users/swim/Desktop/work/swimci/swim-polyglot-java/swim.vm/build/classes/java/main' is already present in the classpath. Analysis took 0.043 secs.
+Compiling with JDK Java compiler API.
+:swim-js:compileJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 1.16 secs.
+:swim-vm:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-vm:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-vm:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-vm:compileModuleInfoJava' as it is up-to-date.
+:swim-vm:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) completed. Took 0.002 secs.
+:swim-vm-js:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-vm-js:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-vm-js:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-vm-js:compileModuleInfoJava' as it is up-to-date.
+:swim-vm-js:compileModuleInfoJava (Thread[Execution worker for ':',5,main]) completed. Took 0.003 secs.
+:swim-js:compileModuleInfoJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-js:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-js:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-js:compileModuleInfoJava' as it is up-to-date.
+:swim-js:compileModuleInfoJava (Thread[Daemon worker,5,main]) completed. Took 0.003 secs.
+:swim-meta:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-meta:compileJava UP-TO-DATE
+Caching disabled for task ':swim-meta:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-meta:compileJava' as it is up-to-date.
+:swim-meta:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 0.022 secs.
+:swim-meta:compileModuleInfoJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-meta:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-meta:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-meta:compileModuleInfoJava' as it is up-to-date.
+:swim-meta:compileModuleInfoJava (Thread[Daemon worker,5,main]) completed. Took 0.003 secs.
+:swim-service:compileJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-service:compileJava UP-TO-DATE
+Caching disabled for task ':swim-service:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-service:compileJava' as it is up-to-date.
+:swim-service:compileJava (Thread[Daemon worker,5,main]) completed. Took 0.024 secs.
+:swim-service-web:compileJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-service-web:compileJava UP-TO-DATE
+Caching disabled for task ':swim-service-web:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-service-web:compileJava' as it is up-to-date.
+:swim-service-web:compileJava (Thread[Daemon worker,5,main]) completed. Took 0.023 secs.
+:swim-store-db:compileJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-store-db:compileJava UP-TO-DATE
+Caching disabled for task ':swim-store-db:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-store-db:compileJava' as it is up-to-date.
+:swim-store-db:compileJava (Thread[Daemon worker,5,main]) completed. Took 0.048 secs.
+:swim-store-mem:compileJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-store-mem:compileJava UP-TO-DATE
+Caching disabled for task ':swim-store-mem:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-store-mem:compileJava' as it is up-to-date.
+:swim-store-mem:compileJava (Thread[Daemon worker,5,main]) completed. Took 0.031 secs.
+:swim-server:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-server:compileJava UP-TO-DATE
+Caching disabled for task ':swim-server:compileJava' because:
+  Build cache is disabled
+Skipping task ':swim-server:compileJava' as it is up-to-date.
+:swim-server:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.049 secs.
+:swim-service:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-service:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-service:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-service:compileModuleInfoJava' as it is up-to-date.
+:swim-service:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.01 secs.
+:swim-service-web:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-service-web:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-service-web:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-service-web:compileModuleInfoJava' as it is up-to-date.
+:swim-service-web:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.002 secs.
+:swim-store-db:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-store-db:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-store-db:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-store-db:compileModuleInfoJava' as it is up-to-date.
+:swim-store-db:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.004 secs.
+:swim-store-mem:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-store-mem:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-store-mem:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-store-mem:compileModuleInfoJava' as it is up-to-date.
+:swim-store-mem:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.004 secs.
+:swim-server:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-server:compileModuleInfoJava UP-TO-DATE
+Caching disabled for task ':swim-server:compileModuleInfoJava' because:
+  Build cache is disabled
+Skipping task ':swim-server:compileModuleInfoJava' as it is up-to-date.
+:swim-server:compileModuleInfoJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.002 secs.
+:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :compileJava NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/src/main/java', not found
+Skipping task ':compileJava' as it has no source files and no previous output files.
+:compileJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.005 secs.
+:processResources (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/src/main/resources', not found
+Skipping task ':processResources' as it has no source files and no previous output files.
+:processResources (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.003 secs.
+:classes (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :classes UP-TO-DATE
+Skipping task ':classes' as it has no actions.
+:classes (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.0 secs.
+:compileTestJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :compileTestJava NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/src/test/java', not found
+Skipping task ':compileTestJava' as it has no source files and no previous output files.
+:compileTestJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.001 secs.
+:processTestResources (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :processTestResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/src/test/resources', not found
+Skipping task ':processTestResources' as it has no source files and no previous output files.
+:processTestResources (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.001 secs.
+:testClasses (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :testClasses UP-TO-DATE
+Skipping task ':testClasses' as it has no actions.
+:testClasses (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.0 secs.
+:test (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :test NO-SOURCE
+Skipping task ':test' as it has no source files and no previous output files.
+:test (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.003 secs.
+:swim-actor:processResources (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-actor:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.actor/src/main/resources', not found
+Skipping task ':swim-actor:processResources' as it has no source files and no previous output files.
+:swim-actor:processResources (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.003 secs.
+:swim-actor:classes (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-actor:classes UP-TO-DATE
+Skipping task ':swim-actor:classes' as it has no actions.
+:swim-actor:classes (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.001 secs.
+:swim-actor:compileTestJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-actor:compileTestJava NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.actor/src/test/java', not found
+Skipping task ':swim-actor:compileTestJava' as it has no source files and no previous output files.
+:swim-actor:compileTestJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.002 secs.
+:swim-actor:processTestResources (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-actor:processTestResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.actor/src/test/resources', not found
+Skipping task ':swim-actor:processTestResources' as it has no source files and no previous output files.
+:swim-actor:processTestResources (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.001 secs.
+:swim-actor:testClasses (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-actor:testClasses UP-TO-DATE
+Skipping task ':swim-actor:testClasses' as it has no actions.
+:swim-actor:testClasses (Thread[Execution worker for ':',5,main]) completed. Took 0.0 secs.
+:swim-api:processResources (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-api:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.api/src/main/resources', not found
+Skipping task ':swim-api:processResources' as it has no source files and no previous output files.
+:swim-api:processResources (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.002 secs.
+:swim-api:classes (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-api:classes UP-TO-DATE
+Skipping task ':swim-api:classes' as it has no actions.
+:swim-api:classes (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.0 secs.
+:swim-api:jar (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-api:jar UP-TO-DATE
+Caching disabled for task ':swim-api:jar' because:
+  Build cache is disabled
+Skipping task ':swim-api:jar' as it is up-to-date.
+:swim-api:jar (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.011 secs.
+:swim-codec:processResources (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-codec:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.codec/src/main/resources', not found
+Skipping task ':swim-codec:processResources' as it has no source files and no previous output files.
+:swim-codec:processResources (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.004 secs.
+:swim-codec:classes (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-codec:classes UP-TO-DATE
+Skipping task ':swim-codec:classes' as it has no actions.
+:swim-codec:classes (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.0 secs.
+:swim-codec:jar (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-codec:jar UP-TO-DATE
+Caching disabled for task ':swim-codec:jar' because:
+  Build cache is disabled
+Skipping task ':swim-codec:jar' as it is up-to-date.
+:swim-codec:jar (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.011 secs.
+:swim-collections:processResources (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-collections:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.collections/src/main/resources', not found
+Skipping task ':swim-collections:processResources' as it has no source files and no previous output files.
+:swim-collections:processResources (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.002 secs.
+:swim-collections:classes (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-collections:classes UP-TO-DATE
+Skipping task ':swim-collections:classes' as it has no actions.
+:swim-collections:classes (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.0 secs.
+:swim-collections:jar (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-collections:jar UP-TO-DATE
+Caching disabled for task ':swim-collections:jar' because:
+  Build cache is disabled
+Skipping task ':swim-collections:jar' as it is up-to-date.
+:swim-collections:jar (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.012 secs.
+:swim-concurrent:processResources (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-concurrent:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.concurrent/src/main/resources', not found
+Skipping task ':swim-concurrent:processResources' as it has no source files and no previous output files.
+:swim-concurrent:processResources (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.001 secs.
+:swim-concurrent:classes (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-concurrent:classes UP-TO-DATE
+Skipping task ':swim-concurrent:classes' as it has no actions.
+:swim-concurrent:classes (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.0 secs.
+:swim-concurrent:jar (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-concurrent:jar UP-TO-DATE
+Caching disabled for task ':swim-concurrent:jar' because:
+  Build cache is disabled
+Skipping task ':swim-concurrent:jar' as it is up-to-date.
+:swim-concurrent:jar (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.006 secs.
+:swim-dataflow:processResources (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-dataflow:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.dataflow/src/main/resources', not found
+Skipping task ':swim-dataflow:processResources' as it has no source files and no previous output files.
+:swim-dataflow:processResources (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.001 secs.
+:swim-dataflow:classes (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-dataflow:classes UP-TO-DATE
+Skipping task ':swim-dataflow:classes' as it has no actions.
+:swim-dataflow:classes (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.0 secs.
+:swim-dataflow:jar (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-dataflow:jar UP-TO-DATE
+Caching disabled for task ':swim-dataflow:jar' because:
+  Build cache is disabled
+Skipping task ':swim-dataflow:jar' as it is up-to-date.
+:swim-dataflow:jar (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.005 secs.
+:swim-decipher:processResources (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-decipher:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.decipher/src/main/resources', not found
+Skipping task ':swim-decipher:processResources' as it has no source files and no previous output files.
+:swim-decipher:processResources (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.001 secs.
+:swim-decipher:classes (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-decipher:classes UP-TO-DATE
+Skipping task ':swim-decipher:classes' as it has no actions.
+:swim-decipher:classes (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.0 secs.
+:swim-decipher:jar (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-decipher:jar UP-TO-DATE
+Caching disabled for task ':swim-decipher:jar' because:
+  Build cache is disabled
+Skipping task ':swim-decipher:jar' as it is up-to-date.
+:swim-decipher:jar (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.007 secs.
+:swim-deflate:processResources (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-deflate:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.deflate/src/main/resources', not found
+Skipping task ':swim-deflate:processResources' as it has no source files and no previous output files.
+:swim-deflate:processResources (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.001 secs.
+:swim-deflate:classes (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-deflate:classes UP-TO-DATE
+Skipping task ':swim-deflate:classes' as it has no actions.
+:swim-deflate:classes (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.0 secs.
+:swim-deflate:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-deflate:jar UP-TO-DATE
+Caching disabled for task ':swim-deflate:jar' because:
+  Build cache is disabled
+Skipping task ':swim-deflate:jar' as it is up-to-date.
+:swim-deflate:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.006 secs.
+:swim-http:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-http:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.http/src/main/resources', not found
+Skipping task ':swim-http:processResources' as it has no source files and no previous output files.
+:swim-http:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.001 secs.
+:swim-http:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-http:classes UP-TO-DATE
+Skipping task ':swim-http:classes' as it has no actions.
+:swim-http:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-http:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-http:jar UP-TO-DATE
+Caching disabled for task ':swim-http:jar' because:
+  Build cache is disabled
+Skipping task ':swim-http:jar' as it is up-to-date.
+:swim-http:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.004 secs.
+:swim-io:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-io:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.io/src/main/resources', not found
+Skipping task ':swim-io:processResources' as it has no source files and no previous output files.
+:swim-io:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.001 secs.
+:swim-io:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-io:classes UP-TO-DATE
+Skipping task ':swim-io:classes' as it has no actions.
+:swim-io:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-io:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-io:jar UP-TO-DATE
+Caching disabled for task ':swim-io:jar' because:
+  Build cache is disabled
+Skipping task ':swim-io:jar' as it is up-to-date.
+:swim-io:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.006 secs.
+:swim-io-http:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-io-http:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.io.http/src/main/resources', not found
+Skipping task ':swim-io-http:processResources' as it has no source files and no previous output files.
+:swim-io-http:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.001 secs.
+:swim-io-http:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-io-http:classes UP-TO-DATE
+Skipping task ':swim-io-http:classes' as it has no actions.
+:swim-io-http:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-io-http:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-io-http:jar UP-TO-DATE
+Caching disabled for task ':swim-io-http:jar' because:
+  Build cache is disabled
+Skipping task ':swim-io-http:jar' as it is up-to-date.
+:swim-io-http:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.003 secs.
+:swim-io-warp:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-io-warp:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.io.warp/src/main/resources', not found
+Skipping task ':swim-io-warp:processResources' as it has no source files and no previous output files.
+:swim-io-warp:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.002 secs.
+:swim-io-warp:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-io-warp:classes UP-TO-DATE
+Skipping task ':swim-io-warp:classes' as it has no actions.
+:swim-io-warp:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-io-warp:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-io-warp:jar UP-TO-DATE
+Caching disabled for task ':swim-io-warp:jar' because:
+  Build cache is disabled
+Skipping task ':swim-io-warp:jar' as it is up-to-date.
+:swim-io-warp:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.007 secs.
+:swim-io-ws:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-io-ws:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.io.ws/src/main/resources', not found
+Skipping task ':swim-io-ws:processResources' as it has no source files and no previous output files.
+:swim-io-ws:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.001 secs.
+:swim-io-ws:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-io-ws:classes UP-TO-DATE
+Skipping task ':swim-io-ws:classes' as it has no actions.
+:swim-io-ws:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-io-ws:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-io-ws:jar UP-TO-DATE
+Caching disabled for task ':swim-io-ws:jar' because:
+  Build cache is disabled
+Skipping task ':swim-io-ws:jar' as it is up-to-date.
+:swim-io-ws:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.008 secs.
+:swim-json:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-json:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.json/src/main/resources', not found
+Skipping task ':swim-json:processResources' as it has no source files and no previous output files.
+:swim-json:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.002 secs.
+:swim-json:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-json:classes UP-TO-DATE
+Skipping task ':swim-json:classes' as it has no actions.
+:swim-json:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-json:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-json:jar UP-TO-DATE
+Caching disabled for task ':swim-json:jar' because:
+  Build cache is disabled
+Skipping task ':swim-json:jar' as it is up-to-date.
+:swim-json:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.004 secs.
+:swim-kernel:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-kernel:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.kernel/src/main/resources', not found
+Skipping task ':swim-kernel:processResources' as it has no source files and no previous output files.
+:swim-kernel:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.001 secs.
+:swim-kernel:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-kernel:classes UP-TO-DATE
+Skipping task ':swim-kernel:classes' as it has no actions.
+:swim-kernel:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-kernel:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-kernel:jar UP-TO-DATE
+Caching disabled for task ':swim-kernel:jar' because:
+  Build cache is disabled
+Skipping task ':swim-kernel:jar' as it is up-to-date.
+:swim-kernel:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.013 secs.
+:swim-math:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-math:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.math/src/main/resources', not found
+Skipping task ':swim-math:processResources' as it has no source files and no previous output files.
+:swim-math:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.001 secs.
+:swim-math:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-math:classes UP-TO-DATE
+Skipping task ':swim-math:classes' as it has no actions.
+:swim-math:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-math:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-math:jar UP-TO-DATE
+Caching disabled for task ':swim-math:jar' because:
+  Build cache is disabled
+Skipping task ':swim-math:jar' as it is up-to-date.
+:swim-math:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.008 secs.
+:swim-mqtt:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-mqtt:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.mqtt/src/main/resources', not found
+Skipping task ':swim-mqtt:processResources' as it has no source files and no previous output files.
+:swim-mqtt:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.001 secs.
+:swim-mqtt:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-mqtt:classes UP-TO-DATE
+Skipping task ':swim-mqtt:classes' as it has no actions.
+:swim-mqtt:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-mqtt:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-mqtt:jar UP-TO-DATE
+Caching disabled for task ':swim-mqtt:jar' because:
+  Build cache is disabled
+Skipping task ':swim-mqtt:jar' as it is up-to-date.
+:swim-mqtt:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.007 secs.
+:swim-observable:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-observable:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.observable/src/main/resources', not found
+Skipping task ':swim-observable:processResources' as it has no source files and no previous output files.
+:swim-observable:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.001 secs.
+:swim-observable:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-observable:classes UP-TO-DATE
+Skipping task ':swim-observable:classes' as it has no actions.
+:swim-observable:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-observable:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-observable:jar UP-TO-DATE
+Caching disabled for task ':swim-observable:jar' because:
+  Build cache is disabled
+Skipping task ':swim-observable:jar' as it is up-to-date.
+:swim-observable:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.004 secs.
+:swim-protobuf:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-protobuf:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.protobuf/src/main/resources', not found
+Skipping task ':swim-protobuf:processResources' as it has no source files and no previous output files.
+:swim-protobuf:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.001 secs.
+:swim-protobuf:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-protobuf:classes UP-TO-DATE
+Skipping task ':swim-protobuf:classes' as it has no actions.
+:swim-protobuf:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-protobuf:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-protobuf:jar UP-TO-DATE
+Caching disabled for task ':swim-protobuf:jar' because:
+  Build cache is disabled
+Skipping task ':swim-protobuf:jar' as it is up-to-date.
+:swim-protobuf:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.006 secs.
+:swim-recon:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-recon:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.recon/src/main/resources', not found
+Skipping task ':swim-recon:processResources' as it has no source files and no previous output files.
+:swim-recon:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.001 secs.
+:swim-recon:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-recon:classes UP-TO-DATE
+Skipping task ':swim-recon:classes' as it has no actions.
+:swim-recon:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-recon:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-recon:jar UP-TO-DATE
+Caching disabled for task ':swim-recon:jar' because:
+  Build cache is disabled
+Skipping task ':swim-recon:jar' as it is up-to-date.
+:swim-recon:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.052 secs.
+:swim-runtime:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-runtime:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.runtime/src/main/resources', not found
+Skipping task ':swim-runtime:processResources' as it has no source files and no previous output files.
+:swim-runtime:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.002 secs.
+:swim-runtime:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-runtime:classes UP-TO-DATE
+Skipping task ':swim-runtime:classes' as it has no actions.
+:swim-runtime:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-runtime:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-runtime:jar UP-TO-DATE
+Caching disabled for task ':swim-runtime:jar' because:
+  Build cache is disabled
+Skipping task ':swim-runtime:jar' as it is up-to-date.
+:swim-runtime:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.01 secs.
+:swim-spatial:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-spatial:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.spatial/src/main/resources', not found
+Skipping task ':swim-spatial:processResources' as it has no source files and no previous output files.
+:swim-spatial:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.003 secs.
+:swim-spatial:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-spatial:classes UP-TO-DATE
+Skipping task ':swim-spatial:classes' as it has no actions.
+:swim-spatial:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-spatial:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-spatial:jar UP-TO-DATE
+Caching disabled for task ':swim-spatial:jar' because:
+  Build cache is disabled
+Skipping task ':swim-spatial:jar' as it is up-to-date.
+:swim-spatial:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.012 secs.
+:swim-store:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-store:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.store/src/main/resources', not found
+Skipping task ':swim-store:processResources' as it has no source files and no previous output files.
+:swim-store:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.001 secs.
+:swim-store:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-store:classes UP-TO-DATE
+Skipping task ':swim-store:classes' as it has no actions.
+:swim-store:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-store:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-store:jar UP-TO-DATE
+Caching disabled for task ':swim-store:jar' because:
+  Build cache is disabled
+Skipping task ':swim-store:jar' as it is up-to-date.
+:swim-store:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.006 secs.
+:swim-streamlet:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-streamlet:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.streamlet/src/main/resources', not found
+Skipping task ':swim-streamlet:processResources' as it has no source files and no previous output files.
+:swim-streamlet:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.003 secs.
+:swim-streamlet:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-streamlet:classes UP-TO-DATE
+Skipping task ':swim-streamlet:classes' as it has no actions.
+:swim-streamlet:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-streamlet:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-streamlet:jar UP-TO-DATE
+Caching disabled for task ':swim-streamlet:jar' because:
+  Build cache is disabled
+Skipping task ':swim-streamlet:jar' as it is up-to-date.
+:swim-streamlet:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.004 secs.
+:swim-structure:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-structure:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.structure/src/main/resources', not found
+Skipping task ':swim-structure:processResources' as it has no source files and no previous output files.
+:swim-structure:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.001 secs.
+:swim-structure:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-structure:classes UP-TO-DATE
+Skipping task ':swim-structure:classes' as it has no actions.
+:swim-structure:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-structure:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-structure:jar UP-TO-DATE
+Caching disabled for task ':swim-structure:jar' because:
+  Build cache is disabled
+Skipping task ':swim-structure:jar' as it is up-to-date.
+:swim-structure:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.006 secs.
+:swim-uri:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-uri:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.uri/src/main/resources', not found
+Skipping task ':swim-uri:processResources' as it has no source files and no previous output files.
+:swim-uri:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.031 secs.
+:swim-uri:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-uri:classes UP-TO-DATE
+Skipping task ':swim-uri:classes' as it has no actions.
+:swim-uri:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-uri:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-uri:jar UP-TO-DATE
+Caching disabled for task ':swim-uri:jar' because:
+  Build cache is disabled
+Skipping task ':swim-uri:jar' as it is up-to-date.
+:swim-uri:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.011 secs.
+:swim-util:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-util:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.util/src/main/resources', not found
+Skipping task ':swim-util:processResources' as it has no source files and no previous output files.
+:swim-util:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.001 secs.
+:swim-util:classes (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-util:classes UP-TO-DATE
+Skipping task ':swim-util:classes' as it has no actions.
+:swim-util:classes (Thread[Execution worker for ':',5,main]) completed. Took 0.0 secs.
+:swim-util:jar (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-util:jar UP-TO-DATE
+Caching disabled for task ':swim-util:jar' because:
+  Build cache is disabled
+Skipping task ':swim-util:jar' as it is up-to-date.
+:swim-util:jar (Thread[Execution worker for ':',5,main]) completed. Took 0.004 secs.
+:swim-warp:processResources (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-warp:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.warp/src/main/resources', not found
+Skipping task ':swim-warp:processResources' as it has no source files and no previous output files.
+:swim-warp:processResources (Thread[Execution worker for ':',5,main]) completed. Took 0.003 secs.
+:swim-warp:classes (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-warp:classes UP-TO-DATE
+Skipping task ':swim-warp:classes' as it has no actions.
+:swim-warp:classes (Thread[Execution worker for ':',5,main]) completed. Took 0.0 secs.
+:swim-warp:jar (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-warp:jar UP-TO-DATE
+Caching disabled for task ':swim-warp:jar' because:
+  Build cache is disabled
+Skipping task ':swim-warp:jar' as it is up-to-date.
+:swim-warp:jar (Thread[Execution worker for ':',5,main]) completed. Took 0.004 secs.
+:swim-web:processResources (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-web:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.web/src/main/resources', not found
+Skipping task ':swim-web:processResources' as it has no source files and no previous output files.
+:swim-web:processResources (Thread[Execution worker for ':',5,main]) completed. Took 0.001 secs.
+:swim-web:classes (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-web:classes UP-TO-DATE
+Skipping task ':swim-web:classes' as it has no actions.
+:swim-web:classes (Thread[Execution worker for ':',5,main]) completed. Took 0.0 secs.
+:swim-web:jar (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-web:jar UP-TO-DATE
+Caching disabled for task ':swim-web:jar' because:
+  Build cache is disabled
+Skipping task ':swim-web:jar' as it is up-to-date.
+:swim-web:jar (Thread[Execution worker for ':',5,main]) completed. Took 0.004 secs.
+:swim-ws:processResources (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-ws:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.ws/src/main/resources', not found
+Skipping task ':swim-ws:processResources' as it has no source files and no previous output files.
+:swim-ws:processResources (Thread[Execution worker for ':',5,main]) completed. Took 0.002 secs.
+:swim-ws:classes (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-ws:classes UP-TO-DATE
+Skipping task ':swim-ws:classes' as it has no actions.
+:swim-ws:classes (Thread[Execution worker for ':',5,main]) completed. Took 0.0 secs.
+:swim-ws:jar (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-ws:jar UP-TO-DATE
+Caching disabled for task ':swim-ws:jar' because:
+  Build cache is disabled
+Skipping task ':swim-ws:jar' as it is up-to-date.
+:swim-ws:jar (Thread[Execution worker for ':',5,main]) completed. Took 0.005 secs.
+:swim-xml:processResources (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-xml:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.xml/src/main/resources', not found
+Skipping task ':swim-xml:processResources' as it has no source files and no previous output files.
+:swim-xml:processResources (Thread[Execution worker for ':',5,main]) completed. Took 0.001 secs.
+:swim-xml:classes (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-xml:classes UP-TO-DATE
+Skipping task ':swim-xml:classes' as it has no actions.
+:swim-xml:classes (Thread[Execution worker for ':',5,main]) completed. Took 0.0 secs.
+:swim-xml:jar (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-xml:jar UP-TO-DATE
+Caching disabled for task ':swim-xml:jar' because:
+  Build cache is disabled
+Skipping task ':swim-xml:jar' as it is up-to-date.
+:swim-xml:jar (Thread[Execution worker for ':',5,main]) completed. Took 0.006 secs.
+:swim-actor:test (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-actor:test NO-SOURCE
+Skipping task ':swim-actor:test' as it has no source files and no previous output files.
+:swim-actor:test (Thread[Execution worker for ':',5,main]) completed. Took 0.011 secs.
+:swim-api:compileTestJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-api:compileTestJava NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.api/src/test/java', not found
+Skipping task ':swim-api:compileTestJava' as it has no source files and no previous output files.
+:swim-api:compileTestJava (Thread[Execution worker for ':',5,main]) completed. Took 0.003 secs.
+:swim-api:processTestResources (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-api:processTestResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.api/src/test/resources', not found
+Skipping task ':swim-api:processTestResources' as it has no source files and no previous output files.
+:swim-api:processTestResources (Thread[Execution worker for ':',5,main]) completed. Took 0.002 secs.
+:swim-api:testClasses (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-api:testClasses UP-TO-DATE
+Skipping task ':swim-api:testClasses' as it has no actions.
+:swim-api:testClasses (Thread[Execution worker for ':',5,main]) completed. Took 0.0 secs.
+:swim-api:test (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-api:test NO-SOURCE
+Skipping task ':swim-api:test' as it has no source files and no previous output files.
+:swim-api:test (Thread[Execution worker for ':',5,main]) completed. Took 0.002 secs.
+:swim-args:processResources (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-args:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.args/src/main/resources', not found
+Skipping task ':swim-args:processResources' as it has no source files and no previous output files.
+:swim-args:processResources (Thread[Execution worker for ':',5,main]) completed. Took 0.001 secs.
+:swim-args:classes (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-args:classes UP-TO-DATE
+Skipping task ':swim-args:classes' as it has no actions.
+:swim-args:classes (Thread[Execution worker for ':',5,main]) completed. Took 0.0 secs.
+:swim-args:compileTestJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-args:compileTestJava UP-TO-DATE
+Caching disabled for task ':swim-args:compileTestJava' because:
+  Build cache is disabled
+Skipping task ':swim-args:compileTestJava' as it is up-to-date.
+:swim-args:compileTestJava (Thread[Execution worker for ':',5,main]) completed. Took 0.026 secs.
+:swim-args:processTestResources (Thread[Execution worker for ':',5,main]) started.
+
+> Task :swim-args:processTestResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.args/src/test/resources', not found
+Skipping task ':swim-args:processTestResources' as it has no source files and no previous output files.
+:swim-args:processTestResources (Thread[Execution worker for ':',5,main]) completed. Took 0.002 secs.
+:swim-args:testClasses (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-args:testClasses UP-TO-DATE
+Skipping task ':swim-args:testClasses' as it has no actions.
+:swim-args:testClasses (Thread[Daemon worker,5,main]) completed. Took 0.0 secs.
+:swim-args:test (Thread[Daemon worker,5,main]) started.
+Gradle Test Executor 1 started executing tests.
+
+> Task :swim-args:test
+Caching disabled for task ':swim-args:test' because:
+  Build cache is disabled
+Task ':swim-args:test' is not up-to-date because:
+  Task.upToDateWhen is false.
+Starting process 'Gradle Test Executor 1'. Working directory: /Users/swim/Desktop/work/swimci/swim-core-java/swim.args Command: /Library/Java/JavaVirtualMachines/jdk-12.0.2.jdk/Contents/Home/bin/java -Dorg.gradle.native=false --module-path /Users/swim/Desktop/work/swimci/swim-core-java/swim.args/build/classes/java/test:/Users/swim/Desktop/work/swimci/swim-core-java/swim.args/build/resources/test:/Users/swim/Desktop/work/swimci/swim-core-java/swim.args/build/classes/java/main:/Users/swim/Desktop/work/swimci/swim-core-java/swim.args/build/resources/main:/Users/swim/Desktop/work/swimci/swim-core-java/swim.collections/build/libs/swim-collections-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.codec/build/libs/swim-codec-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.util/build/libs/swim-util-3.11.0-SNAPSHOT.jar:/Users/swim/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.14.3/d24515dc253e77e54b73df97e1fb2eb7faf34fdd/testng-6.14.3.jar:/Users/swim/.gradle/caches/modules-2/files-2.1/com.beust/jcommander/1.72/6375e521c1e11d6563d4f25a07ce124ccf8cd171/jcommander-1.72.jar:/Users/swim/.gradle/caches/modules-2/files-2.1/org.apache-extras.beanshell/bsh/2.0b6/fb418f9b33a0b951e9a2978b4b6ee93b2707e72f/bsh-2.0b6.jar --add-modules ALL-MODULE-PATH --add-reads swim.args=testng --patch-module swim.args=/Users/swim/Desktop/work/swimci/swim-core-java/swim.args/build/classes/java/test:/Users/swim/Desktop/work/swimci/swim-core-java/swim.args/src/test/resources @/private/var/folders/kx/fsw2q0h93s939fd44ptyrg9c0000gr/T/gradle-worker-classpath12554450626562422059txt -Xmx1024m -Dfile.encoding=UTF-8 -Duser.country=GB -Duser.language=en -Duser.variant -ea worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 1'
+Successfully started process 'Gradle Test Executor 1'
+
+Gradle suite > Gradle test > swim.args.CmdSpec > testHelpCmd STANDARD_OUT
+    Usage: test <command>
+
+Gradle Test Executor 1 finished executing tests.
+
+> Task :swim-args:test
+
+    Commands:
+      data                  access data
+      help                
+
+
+Gradle suite > Gradle test > swim.args.CmdSpec > testHelpSubcmd STANDARD_OUT
+    Usage: test data [options] <command>
+
+    Options:
+      -f, --file <path>     output file
+          --force           overwrite existing file
+
+    Commands:
+      load                  load data
+      store                 store data
+      help                
+
+Finished generating test XML results (0.033 secs) into: /Users/swim/Desktop/work/swimci/swim-core-java/swim.args/build/test-results/test
+Generating HTML test report...
+Finished generating test html results (0.03 secs) into: /Users/swim/Desktop/work/swimci/swim-core-java/swim.args/build/reports/tests/test
+:swim-args:test (Thread[Daemon worker,5,main]) completed. Took 7.269 secs.
+:swim-auth:processResources (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-auth:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.auth/src/main/resources', not found
+Skipping task ':swim-auth:processResources' as it has no source files and no previous output files.
+:swim-auth:processResources (Thread[Daemon worker,5,main]) completed. Took 0.001 secs.
+:swim-auth:classes (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-auth:classes UP-TO-DATE
+Skipping task ':swim-auth:classes' as it has no actions.
+:swim-auth:classes (Thread[Daemon worker,5,main]) completed. Took 0.0 secs.
+:swim-auth:compileTestJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-auth:compileTestJava NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.auth/src/test/java', not found
+Skipping task ':swim-auth:compileTestJava' as it has no source files and no previous output files.
+:swim-auth:compileTestJava (Thread[Daemon worker,5,main]) completed. Took 0.002 secs.
+:swim-auth:processTestResources (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-auth:processTestResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.auth/src/test/resources', not found
+Skipping task ':swim-auth:processTestResources' as it has no source files and no previous output files.
+:swim-auth:processTestResources (Thread[Daemon worker,5,main]) completed. Took 0.001 secs.
+:swim-auth:testClasses (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-auth:testClasses UP-TO-DATE
+Skipping task ':swim-auth:testClasses' as it has no actions.
+:swim-auth:testClasses (Thread[Daemon worker,5,main]) completed. Took 0.0 secs.
+:swim-security:processResources (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-security:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.security/src/main/resources', not found
+Skipping task ':swim-security:processResources' as it has no source files and no previous output files.
+:swim-security:processResources (Thread[Daemon worker,5,main]) completed. Took 0.002 secs.
+:swim-security:classes (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-security:classes UP-TO-DATE
+Skipping task ':swim-security:classes' as it has no actions.
+:swim-security:classes (Thread[Daemon worker,5,main]) completed. Took 0.0 secs.
+:swim-security:jar (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-security:jar UP-TO-DATE
+Caching disabled for task ':swim-security:jar' because:
+  Build cache is disabled
+Skipping task ':swim-security:jar' as it is up-to-date.
+:swim-security:jar (Thread[Daemon worker,5,main]) completed. Took 0.005 secs.
+:swim-auth:test (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-auth:test NO-SOURCE
+Skipping task ':swim-auth:test' as it has no source files and no previous output files.
+:swim-auth:test (Thread[Daemon worker,5,main]) completed. Took 0.001 secs.
+:swim-avro:processResources (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-avro:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.avro/src/main/resources', not found
+Skipping task ':swim-avro:processResources' as it has no source files and no previous output files.
+:swim-avro:processResources (Thread[Daemon worker,5,main]) completed. Took 0.0 secs.
+:swim-avro:classes (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-avro:classes UP-TO-DATE
+Skipping task ':swim-avro:classes' as it has no actions.
+:swim-avro:classes (Thread[Daemon worker,5,main]) completed. Took 0.0 secs.
+:swim-avro:compileTestJava (Thread[Daemon worker,5,main]) started.
+
+> Task :swim-avro:compileTestJava UP-TO-DATE
+Caching disabled for task ':swim-avro:compileTestJava' because:
+  Build cache is disabled
+Skipping task ':swim-avro:compileTestJava' as it is up-to-date.
+:swim-avro:compileTestJava (Thread[Daemon worker,5,main]) completed. Took 0.026 secs.
+:swim-avro:processTestResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-avro:processTestResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.avro/src/test/resources', not found
+Skipping task ':swim-avro:processTestResources' as it has no source files and no previous output files.
+:swim-avro:processTestResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-avro:testClasses (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-avro:testClasses UP-TO-DATE
+Skipping task ':swim-avro:testClasses' as it has no actions.
+:swim-avro:testClasses (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-avro:test (Thread[Execution worker for ':' Thread 3,5,main]) started.
+Gradle Test Executor 2 started executing tests.
+Gradle Test Executor 2 finished executing tests.
+
+> Task :swim-avro:test
+Caching disabled for task ':swim-avro:test' because:
+  Build cache is disabled
+Task ':swim-avro:test' is not up-to-date because:
+  Task.upToDateWhen is false.
+Starting process 'Gradle Test Executor 2'. Working directory: /Users/swim/Desktop/work/swimci/swim-core-java/swim.avro Command: /Library/Java/JavaVirtualMachines/jdk-12.0.2.jdk/Contents/Home/bin/java -Dorg.gradle.native=false --module-path /Users/swim/Desktop/work/swimci/swim-core-java/swim.avro/build/classes/java/test:/Users/swim/Desktop/work/swimci/swim-core-java/swim.avro/build/resources/test:/Users/swim/Desktop/work/swimci/swim-core-java/swim.avro/build/classes/java/main:/Users/swim/Desktop/work/swimci/swim-core-java/swim.avro/build/resources/main:/Users/swim/Desktop/work/swimci/swim-core-java/swim.structure/build/libs/swim-structure-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.deflate/build/libs/swim-deflate-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.collections/build/libs/swim-collections-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.codec/build/libs/swim-codec-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.util/build/libs/swim-util-3.11.0-SNAPSHOT.jar:/Users/swim/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.14.3/d24515dc253e77e54b73df97e1fb2eb7faf34fdd/testng-6.14.3.jar:/Users/swim/.gradle/caches/modules-2/files-2.1/com.beust/jcommander/1.72/6375e521c1e11d6563d4f25a07ce124ccf8cd171/jcommander-1.72.jar:/Users/swim/.gradle/caches/modules-2/files-2.1/org.apache-extras.beanshell/bsh/2.0b6/fb418f9b33a0b951e9a2978b4b6ee93b2707e72f/bsh-2.0b6.jar --add-modules ALL-MODULE-PATH --add-reads swim.avro=testng --patch-module swim.avro=/Users/swim/Desktop/work/swimci/swim-core-java/swim.avro/build/classes/java/test:/Users/swim/Desktop/work/swimci/swim-core-java/swim.avro/src/test/resources @/private/var/folders/kx/fsw2q0h93s939fd44ptyrg9c0000gr/T/gradle-worker-classpath18048080309744623502txt -Xmx1024m -Dfile.encoding=UTF-8 -Duser.country=GB -Duser.language=en -Duser.variant -ea worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 2'
+Successfully started process 'Gradle Test Executor 2'
+Finished generating test XML results (0.006 secs) into: /Users/swim/Desktop/work/swimci/swim-core-java/swim.avro/build/test-results/test
+Generating HTML test report...
+Finished generating test html results (0.008 secs) into: /Users/swim/Desktop/work/swimci/swim-core-java/swim.avro/build/reports/tests/test
+:swim-avro:test (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 1.226 secs.
+:swim-args:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-args:jar UP-TO-DATE
+Caching disabled for task ':swim-args:jar' because:
+  Build cache is disabled
+Skipping task ':swim-args:jar' as it is up-to-date.
+:swim-args:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.004 secs.
+:swim-cli:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-cli:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.cli/src/main/resources', not found
+Skipping task ':swim-cli:processResources' as it has no source files and no previous output files.
+:swim-cli:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.001 secs.
+:swim-cli:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-cli:classes
+Skipping task ':swim-cli:classes' as it has no actions.
+:swim-cli:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-cli:compileTestJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-cli:compileTestJava NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.cli/src/test/java', not found
+Skipping task ':swim-cli:compileTestJava' as it has no source files and no previous output files.
+:swim-cli:compileTestJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.001 secs.
+:swim-cli:processTestResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-cli:processTestResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.cli/src/test/resources', not found
+Skipping task ':swim-cli:processTestResources' as it has no source files and no previous output files.
+:swim-cli:processTestResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-cli:testClasses (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-cli:testClasses UP-TO-DATE
+Skipping task ':swim-cli:testClasses' as it has no actions.
+:swim-cli:testClasses (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-client:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-client:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.client/src/main/resources', not found
+Skipping task ':swim-client:processResources' as it has no source files and no previous output files.
+:swim-client:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.001 secs.
+:swim-client:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-client:classes UP-TO-DATE
+Skipping task ':swim-client:classes' as it has no actions.
+:swim-client:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-client:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-client:jar UP-TO-DATE
+Caching disabled for task ':swim-client:jar' because:
+  Build cache is disabled
+Skipping task ':swim-client:jar' as it is up-to-date.
+:swim-client:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.004 secs.
+:swim-remote:processResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-remote:processResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.remote/src/main/resources', not found
+Skipping task ':swim-remote:processResources' as it has no source files and no previous output files.
+:swim-remote:processResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-remote:classes (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-remote:classes UP-TO-DATE
+Skipping task ':swim-remote:classes' as it has no actions.
+:swim-remote:classes (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-remote:jar (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-remote:jar UP-TO-DATE
+Caching disabled for task ':swim-remote:jar' because:
+  Build cache is disabled
+Skipping task ':swim-remote:jar' as it is up-to-date.
+:swim-remote:jar (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.004 secs.
+:swim-cli:test (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-cli:test NO-SOURCE
+Skipping task ':swim-cli:test' as it has no source files and no previous output files.
+:swim-cli:test (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.001 secs.
+:swim-client:compileTestJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-client:compileTestJava UP-TO-DATE
+Caching disabled for task ':swim-client:compileTestJava' because:
+  Build cache is disabled
+Skipping task ':swim-client:compileTestJava' as it is up-to-date.
+:swim-client:compileTestJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.062 secs.
+:swim-client:processTestResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-client:processTestResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.client/src/test/resources', not found
+Skipping task ':swim-client:processTestResources' as it has no source files and no previous output files.
+:swim-client:processTestResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-client:testClasses (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-client:testClasses UP-TO-DATE
+Skipping task ':swim-client:testClasses' as it has no actions.
+:swim-client:testClasses (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-client:test (Thread[Execution worker for ':' Thread 3,5,main]) started.
+Gradle Test Executor 3 started executing tests.
+
+> Task :swim-client:test
+Caching disabled for task ':swim-client:test' because:
+  Build cache is disabled
+Task ':swim-client:test' is not up-to-date because:
+  Task.upToDateWhen is false.
+Starting process 'Gradle Test Executor 3'. Working directory: /Users/swim/Desktop/work/swimci/swim-mesh-java/swim.client Command: /Library/Java/JavaVirtualMachines/jdk-12.0.2.jdk/Contents/Home/bin/java -Dorg.gradle.native=false --module-path /Users/swim/Desktop/work/swimci/swim-mesh-java/swim.client/build/classes/java/test:/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.client/build/resources/test:/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.client/build/classes/java/main:/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.client/build/resources/main:/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.remote/build/libs/swim-remote-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.kernel/build/libs/swim-kernel-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.runtime/build/libs/swim-runtime-3.11.0-SNAPSHOT.jar:/Users/swim/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.14.3/d24515dc253e77e54b73df97e1fb2eb7faf34fdd/testng-6.14.3.jar:/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.store/build/libs/swim-store-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.api/build/libs/swim-api-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.observable/build/libs/swim-observable-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.spatial/build/libs/swim-spatial-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.math/build/libs/swim-math-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.web/build/libs/swim-web-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.io.warp/build/libs/swim-io-warp-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.io.ws/build/libs/swim-io-ws-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.ws/build/libs/swim-ws-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.io.http/build/libs/swim-io-http-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.http/build/libs/swim-http-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.mqtt/build/libs/swim-mqtt-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.warp/build/libs/swim-warp-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.dataflow/build/libs/swim-dataflow-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.streamlet/build/libs/swim-streamlet-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.io/build/libs/swim-io-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.concurrent/build/libs/swim-concurrent-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.uri/build/libs/swim-uri-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.decipher/build/libs/swim-decipher-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.recon/build/libs/swim-recon-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.json/build/libs/swim-json-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.xml/build/libs/swim-xml-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.protobuf/build/libs/swim-protobuf-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.structure/build/libs/swim-structure-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.collections/build/libs/swim-collections-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.deflate/build/libs/swim-deflate-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.codec/build/libs/swim-codec-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.util/build/libs/swim-util-3.11.0-SNAPSHOT.jar:/Users/swim/.gradle/caches/modules-2/files-2.1/com.beust/jcommander/1.72/6375e521c1e11d6563d4f25a07ce124ccf8cd171/jcommander-1.72.jar:/Users/swim/.gradle/caches/modules-2/files-2.1/org.apache-extras.beanshell/bsh/2.0b6/fb418f9b33a0b951e9a2978b4b6ee93b2707e72f/bsh-2.0b6.jar --add-modules ALL-MODULE-PATH --add-reads swim.client=testng --patch-module swim.client=/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.client/build/classes/java/test:/Users/swim/Desktop/work/swimci/swim-mesh-java/swim.client/src/test/resources @/private/var/folders/kx/fsw2q0h93s939fd44ptyrg9c0000gr/T/gradle-worker-classpath12364725130406975046txt -Xmx1024m -Dfile.encoding=UTF-8 -Duser.country=GB -Duser.language=en -Duser.variant -ea worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 3'
+Successfully started process 'Gradle Test Executor 3'
+
+Gradle suite > Gradle test > swim.client.ClientRuntimeSpec > testLink STANDARD_OUT
+    didConnect
+    didConnect
+    willSync
+    didLink
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/10"))), Slot.of("id", 10), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Sand Hills Rd @ Oak Creek Apts"), Slot.of("lat", 37.42990103155996), Slot.of("lng", -122.1884695579713), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/101"))), Slot.of("id", 101), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "E Meadow Dr @ Waverly St"), Slot.of("lat", 37.42136903801686), Slot.of("lng", -122.12014774979713), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/102"))), Slot.of("id", 102), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Alma @ E. Meadow"), Slot.of("lat", 37.41775444123496), Slot.of("lng", -122.12315772991397), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/103"))), Slot.of("id", 103), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Alma @ East Charleston"), Slot.of("lat", 37.41478004619715), Slot.of("lng", -122.11845780235234), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/104"))), Slot.of("id", 104), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Alma St @ San Antonio Rd"), Slot.of("lat", 37.40887911942703), Slot.of("lng", -122.10884577503057), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/105"))), Slot.of("id", 105), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Arastradero @ Gunn High School"), Slot.of("lat", 37.3999674056013), Slot.of("lng", -122.131815674359), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/106"))), Slot.of("id", 106), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Arastradero @ Donald/Terman"), Slot.of("lat", 37.403724), Slot.of("lng", -122.127985), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/108"))), Slot.of("id", 108), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Arastradero @ Coulombe"), Slot.of("lat", 37.406042), Slot.of("lng", -122.126405), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/109"))), Slot.of("id", 109), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Charleston Rd @ Wilkie Way"), Slot.of("lat", 37.41254161330959), Slot.of("lng", -122.12097676683487), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/11"))), Slot.of("id", 11), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Sand Hills Rd @Stockfarm Rd"), Slot.of("lat", 37.431905160438305), Slot.of("lng", -122.18572990857427), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/111"))), Slot.of("id", 111), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Charleston @ Carlson"), Slot.of("lat", 37.4173840762526), Slot.of("lng", -122.114961720128), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/112"))), Slot.of("id", 112), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Charleston @ Nelson"), Slot.of("lat", 37.41918008868), Slot.of("lng", -122.111559298793), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/113"))), Slot.of("id", 113), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Sand Hill @ London Plane"), Slot.of("lat", 37.44387282931993), Slot.of("lng", -122.17354860509779), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/114"))), Slot.of("id", 114), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Quarry Rd @ Pear Ln/Palo Rd"), Slot.of("lat", 37.44244918229211), Slot.of("lng", -122.16884884667876), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/115"))), Slot.of("id", 115), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Quarry Rd @ Sweet Olive Way"), Slot.of("lat", 37.44092625556439), Slot.of("lng", -122.17047242380875), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/116"))), Slot.of("id", 116), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Embarcadero @ Town & Country"), Slot.of("lat", 0), Slot.of("lng", 0), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/117"))), Slot.of("id", 117), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Welch Rd @ LPCH (The Farm)"), Slot.of("lat", 37.43714470835478), Slot.of("lng", -122.17409300208665), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/118"))), Slot.of("id", 118), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Welch @ Blake Wilber Dr"), Slot.of("lat", 37.43660308597669), Slot.of("lng", -122.17738770957), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/119"))), Slot.of("id", 119), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Alma @ Alma Commons"), Slot.of("lat", 37.418892006928544), Slot.of("lng", -122.12492339506424), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/12"))), Slot.of("id", 12), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Sand Hills Rd @ Clark Wy/Pasteur Dr"), Slot.of("lat", 37.43461510845748), Slot.of("lng", -122.18202319251122), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/120"))), Slot.of("id", 120), Slot.of("name", "E Meadow @ Bryant"), Slot.of("lat", 37.438423), Slot.of("lng", -122.11077), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/121"))), Slot.of("id", 121), Slot.of("name", "Park @ Pagemill"), Slot.of("lat", 37.4384), Slot.of("lng", -122.11059), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/122"))), Slot.of("id", 122), Slot.of("name", "Charleston @ Louis- Montrose"), Slot.of("lat", 37.438393), Slot.of("lng", -122.110634), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/13"))), Slot.of("id", 13), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Sand Hills Rd @ Durand Wy/Blake Wilbur Dr"), Slot.of("lat", 37.43747185946541), Slot.of("lng", -122.17817055726277), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/14"))), Slot.of("id", 14), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Sand Hills Rd @ Clark Wy/Vinyard Ln"), Slot.of("lat", 37.439087107011254), Slot.of("lng", -122.17595423344609), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/15"))), Slot.of("id", 15), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Sand Hills Rd @ Arboretum Rd"), Slot.of("lat", 37.44065544162267), Slot.of("lng", -122.17434346175114), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/16"))), Slot.of("id", 16), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Sand Hills Rd @ Ronald McDonald/Plum Dr"), Slot.of("lat", 37.4423272463205), Slot.of("lng", -122.173912154827), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/17"))), Slot.of("id", 17), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Welch Rd @ Pasteur Dr"), Slot.of("lat", 37.4337651474936), Slot.of("lng", -122.17953174312), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/18"))), Slot.of("id", 18), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Quarry @ Vinyard Ln"), Slot.of("lat", 37.437844817241086), Slot.of("lng", -122.17184980766396), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/19"))), Slot.of("id", 19), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Quarry Rd @ Welch Rd"), Slot.of("lat", 37.436739100346244), Slot.of("lng", -122.17239687939461), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/20"))), Slot.of("id", 20), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Arboretum @ Orchard (Stanford Shopping)"), Slot.of("lat", 37.44006304565668), Slot.of("lng", -122.17265843281913), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/21"))), Slot.of("id", 21), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Quarry Rd @ Arboretum Rd"), Slot.of("lat", 37.439486225189164), Slot.of("lng", -122.17108582647717), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/22"))), Slot.of("id", 22), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Arboretum Rd @ Palm Dr"), Slot.of("lat", 37.43796165020442), Slot.of("lng", -122.16674646590855), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/23"))), Slot.of("id", 23), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Middlefield Rd @ Lytton Ave"), Slot.of("lat", 37.45152379612134), Slot.of("lng", -122.15808475129961), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/24"))), Slot.of("id", 24), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Middlefield @ University Ave"), Slot.of("lat", 37.450736), Slot.of("lng", -122.15682931779098), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/25"))), Slot.of("id", 25), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Middlefield Rd @ Hamilton Ave"), Slot.of("lat", 37.449934450853114), Slot.of("lng", -122.15555937723776), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/26"))), Slot.of("id", 26), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "MIddlefield Rd @ Homer St"), Slot.of("lat", 37.44836451886129), Slot.of("lng", -122.15309318599529), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/27"))), Slot.of("id", 27), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Middlefield Rd @ Channing Av"), Slot.of("lat", 37.447594348742165), Slot.of("lng", -122.15183426934657), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/28"))), Slot.of("id", 28), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Middlefield Rd @ Addison St"), Slot.of("lat", 37.44679717303652), Slot.of("lng", -122.15059248350848), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/29"))), Slot.of("id", 29), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Middlefield Rd @ Melville Ave"), Slot.of("lat", 37.44445001140152), Slot.of("lng", -122.14686239340756), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/30"))), Slot.of("id", 30), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Channing Ave @ Waverly St"), Slot.of("lat", 37.44394539356526), Slot.of("lng", -122.1554281617025), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/32"))), Slot.of("id", 32), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Middlefield Rd @ N California Ave"), Slot.of("lat", 37.43734230724978), Slot.of("lng", -122.13555042894623), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/33"))), Slot.of("id", 33), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Alma St @ Lytton Ave"), Slot.of("lat", 37.44425707351426), Slot.of("lng", -122.16528220381416), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/34"))), Slot.of("id", 34), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Lytton Ave @ High St"), Slot.of("lat", 37.4448807954121), Slot.of("lng", -122.16467751889805), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/35"))), Slot.of("id", 35), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Lytton Ave @ Emerson St"), Slot.of("lat", 37.445497538401156), Slot.of("lng", -122.16408391636004), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/36"))), Slot.of("id", 36), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Lytton Ave @ Ramona St"), Slot.of("lat", 37.446097040495296), Slot.of("lng", -122.16349613267526), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/37"))), Slot.of("id", 37), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Lytton Ave @ Bryant St"), Slot.of("lat", 37.44664073183335), Slot.of("lng", -122.16288955746518), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/38"))), Slot.of("id", 38), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Lytton Ave @ Florence Ave"), Slot.of("lat", 37.44729727971939), Slot.of("lng", -122.16228320259597), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/39"))), Slot.of("id", 39), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Lytton Ave @ Waverly St"), Slot.of("lat", 37.447899916053935), Slot.of("lng", -122.16168913245839), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/40"))), Slot.of("id", 40), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Lytton Ave @ Cowper St"), Slot.of("lat", 37.4491028516204), Slot.of("lng", -122.16049722958333), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/42"))), Slot.of("id", 42), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Lytton Ave @ Webster St"), Slot.of("lat", 37.45031384731269), Slot.of("lng", -122.15929935786978), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/43"))), Slot.of("id", 43), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "University @ El Camino Real"), Slot.of("lat", 37.44191475162571), Slot.of("lng", -122.16532183322238), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/44"))), Slot.of("id", 44), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "University Ave @ High St"), Slot.of("lat", 37.44408788307152), Slot.of("lng", -122.16342672883606), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/45"))), Slot.of("id", 45), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "University @ Emerson"), Slot.of("lat", 37.44469231535352), Slot.of("lng", -122.16281716749931), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/46"))), Slot.of("id", 46), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "University @ Ramona"), Slot.of("lat", 37.445301), Slot.of("lng", -122.16221), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/47"))), Slot.of("id", 47), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "University @ Bryant"), Slot.of("lat", 37.44590529236062), Slot.of("lng", -122.1616109950043), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/48"))), Slot.of("id", 48), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "University @ Florence"), Slot.of("lat", 37.44651216152446), Slot.of("lng", -122.16100358965905), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/49"))), Slot.of("id", 49), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "University @ Waverly"), Slot.of("lat", 37.447109107697976), Slot.of("lng", -122.16043968455539), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/50"))), Slot.of("id", 50), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "University @ Kipling"), Slot.of("lat", 37.44770980423896), Slot.of("lng", -122.15981814751648), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/51"))), Slot.of("id", 51), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "University @ Cowper"), Slot.of("lat", 37.448323), Slot.of("lng", -122.159235), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/52"))), Slot.of("id", 52), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "University @ Webster"), Slot.of("lat", 37.44951359267252), Slot.of("lng", -122.15804064332515), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/53"))), Slot.of("id", 53), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "University Ave @ Guinda Ave"), Slot.of("lat", 37.451951950519124), Slot.of("lng", -122.15562699949496), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/54"))), Slot.of("id", 54), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "University Ave @ Chaucer Ave"), Slot.of("lat", 37.45552750192349), Slot.of("lng", -122.15199557956524), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/55"))), Slot.of("id", 55), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "University Ave @ Lincoln Ave"), Slot.of("lat", 37.45549125770035), Slot.of("lng", -122.14692619606619), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/56"))), Slot.of("id", 56), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Hamilton Ave @ Alma St"), Slot.of("lat", 37.44266883386175), Slot.of("lng", -122.16275975826647), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/57"))), Slot.of("id", 57), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Hamilton @ High"), Slot.of("lat", 37.4432837767554), Slot.of("lng", -122.162153243546), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/58"))), Slot.of("id", 58), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Hamilton @ Emerson"), Slot.of("lat", 37.4439), Slot.of("lng", -122.161547), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/59"))), Slot.of("id", 59), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Hamilton @ Ramona"), Slot.of("lat", 37.444498), Slot.of("lng", -122.16096213988114), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/60"))), Slot.of("id", 60), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Hamilton @ Bryant"), Slot.of("lat", 37.445101), Slot.of("lng", -122.160355), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/61"))), Slot.of("id", 61), Slot.of("name", "Hamilton @ Gilman"), Slot.of("lat", 37.445698), Slot.of("lng", -122.15973), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/62"))), Slot.of("id", 62), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Hamilton @ Waverly"), Slot.of("lat", 37.446317), Slot.of("lng", -122.15915), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/63"))), Slot.of("id", 63), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Hamilton @ Cowper"), Slot.of("lat", 37.44750501800048), Slot.of("lng", -122.15796968736832), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/64"))), Slot.of("id", 64), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Hamilton @ Webster"), Slot.of("lat", 37.448719002910984), Slot.of("lng", -122.1567822379105), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/65"))), Slot.of("id", 65), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Embarcadero Rd @ Waverly St"), Slot.of("lat", 37.44027858027184), Slot.of("lng", -122.14963165542595), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/66"))), Slot.of("id", 66), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Embarcadero @ Middlefield"), Slot.of("lat", 37.442135611241), Slot.of("lng", -122.143187953373), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/67"))), Slot.of("id", 67), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Embarcadero @ Newell"), Slot.of("lat", 37.443124072199744), Slot.of("lng", -122.13973414095591), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/69"))), Slot.of("id", 69), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Embarcadero Rd @ Louis Rd"), Slot.of("lat", 37.44457262966947), Slot.of("lng", -122.13461563915632), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/70"))), Slot.of("id", 70), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Channing Ave @ Newell Rd"), Slot.of("lat", 37.44875122852322), Slot.of("lng", -122.13975011562435), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/71"))), Slot.of("id", 71), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Embarcadero Rd @ Greer Rd"), Slot.of("lat", 37.44597622314083), Slot.of("lng", -122.12975931779098), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/72"))), Slot.of("id", 72), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Embarcadero Rd @ Bryant St"), Slot.of("lat", 37.4396720373447), Slot.of("lng", -122.151752445797), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/73"))), Slot.of("id", 73), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Embarcadaro @ St. Francis"), Slot.of("lat", 37.4468744404716), Slot.of("lng", -122.126653088572), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/74"))), Slot.of("id", 74), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Embarcadero Rd @ E Bayshore Rd"), Slot.of("lat", 37.449699105949534), Slot.of("lng", -122.11971597963782), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/75"))), Slot.of("id", 75), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "East Bayshore @ Laura Lane"), Slot.of("lat", 37.45179249515359), Slot.of("lng", -122.12579887567009), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/76"))), Slot.of("id", 76), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Embarcadero @ Geng"), Slot.of("lat", 37.45014102352278), Slot.of("lng", -122.11889858078587), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/80"))), Slot.of("id", 80), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Middlefield Rd @ Bryson St"), Slot.of("lat", 37.433594036165914), Slot.of("lng", -122.12965808500438), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/81"))), Slot.of("id", 81), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Middlefeild @ Colorado"), Slot.of("lat", 37.43296745633606), Slot.of("lng", -122.12867577118904), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/82"))), Slot.of("id", 82), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Middlefield @ Loma Verde"), Slot.of("lat", 37.42914328669489), Slot.of("lng", -122.12258932986147), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/83"))), Slot.of("id", 83), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Middlefield @ Ped Crossing"), Slot.of("lat", 37.43398381543793), Slot.of("lng", -122.13033126915724), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/84"))), Slot.of("id", 84), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Stanford Ave @ Hanover St/Escondido Dr"), Slot.of("lat", 37.421434924314056), Slot.of("lng", -122.1544904686445), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/85"))), Slot.of("id", 85), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Hillview Dr @ Porter Dr/Hanover St"), Slot.of("lat", 37.40902580585105), Slot.of("lng", -122.14720548240416), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/86"))), Slot.of("id", 86), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "E Meadow @ Cowper St"), Slot.of("lat", 37.42308794829166), Slot.of("lng", -122.11686935006556), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/87"))), Slot.of("id", 87), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Middlefield @ Mayview"), Slot.of("lat", 37.422694196447), Slot.of("lng", -122.112392157745), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/88"))), Slot.of("id", 88), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Charleston Rd @ Middlefield Rd"), Slot.of("lat", 37.419934776179), Slot.of("lng", -122.11011342659), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/89"))), Slot.of("id", 89), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Middlefield Rd @ Montrose Ave"), Slot.of("lat", 37.4175374915991), Slot.of("lng", -122.105965180769), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/90"))), Slot.of("id", 90), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "San Antonio Rd @ Nita Ave"), Slot.of("lat", 37.4114552601251), Slot.of("lng", -122.106452403215), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/91"))), Slot.of("id", 91), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "San Antonio Rd @ Middlefield Rd"), Slot.of("lat", 37.416254351344), Slot.of("lng", -122.103399615806), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/92"))), Slot.of("id", 92), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "San Antonio Rd @ Leghorn Dr"), Slot.of("lat", 37.4194301601321), Slot.of("lng", -122.10208476796), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/93"))), Slot.of("id", 93), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "San Antonio Rd @ Charlesto Rd"), Slot.of("lat", 37.4218680418729), Slot.of("lng", -122.101694750257), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/94"))), Slot.of("id", 94), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "San Antonio Rd @ E Bayshore"), Slot.of("lat", 37.4308154881554), Slot.of("lng", -122.1005433469665), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/95"))), Slot.of("id", 95), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Charleston @ Fabian"), Slot.of("lat", 37.4220051887293), Slot.of("lng", -122.104196767042), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/96"))), Slot.of("id", 96), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Middlefield @ East Meadow"), Slot.of("lat", 37.4241980475267), Slot.of("lng", -122.114732492432), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/97"))), Slot.of("id", 97), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Alma @ Homer"), Slot.of("lat", 37.4411126345339), Slot.of("lng", -122.16027643015912), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    onEvent city/intersection: Record.of(Attr.of("update", Record.of(Slot.of("key", "/intersection/US/CA/PaloAlto/99"))), Slot.of("id", 99), Slot.of("dn", "PaloAlto.com"), Slot.of("name", "Alma @ Churchill"), Slot.of("lat", 37.43560207762127), Slot.of("lng", -122.15159497916528), Slot.of("city", "PaloAlto"), Slot.of("state", "CA"), Slot.of("country", "US"))
+    didSync
+
+Gradle Test Executor 3 finished executing tests.
+
+> Task :swim-client:test
+Finished generating test XML results (0.015 secs) into: /Users/swim/Desktop/work/swimci/swim-mesh-java/swim.client/build/test-results/test
+Generating HTML test report...
+Finished generating test html results (0.016 secs) into: /Users/swim/Desktop/work/swimci/swim-mesh-java/swim.client/build/reports/tests/test
+:swim-client:test (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 3.259 secs.
+:swim-codec:compileTestJava (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-codec:compileTestJava UP-TO-DATE
+Caching disabled for task ':swim-codec:compileTestJava' because:
+  Build cache is disabled
+Skipping task ':swim-codec:compileTestJava' as it is up-to-date.
+:swim-codec:compileTestJava (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.015 secs.
+:swim-codec:processTestResources (Thread[Execution worker for ':' Thread 3,5,main]) started.
+
+> Task :swim-codec:processTestResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.codec/src/test/resources', not found
+Skipping task ':swim-codec:processTestResources' as it has no source files and no previous output files.
+:swim-codec:processTestResources (Thread[Execution worker for ':' Thread 3,5,main]) completed. Took 0.0 secs.
+:swim-codec:testClasses (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-codec:testClasses UP-TO-DATE
+Skipping task ':swim-codec:testClasses' as it has no actions.
+:swim-codec:testClasses (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.0 secs.
+:swim-codec:test (Thread[Execution worker for ':' Thread 2,5,main]) started.
+Gradle Test Executor 4 started executing tests.
+
+> Task :swim-codec:test
+Caching disabled for task ':swim-codec:test' because:
+  Build cache is disabled
+Task ':swim-codec:test' is not up-to-date because:
+  Task.upToDateWhen is false.
+Starting process 'Gradle Test Executor 4'. Working directory: /Users/swim/Desktop/work/swimci/swim-core-java/swim.codec Command: /Library/Java/JavaVirtualMachines/jdk-12.0.2.jdk/Contents/Home/bin/java -Dorg.gradle.native=false --module-path /Users/swim/Desktop/work/swimci/swim-core-java/swim.codec/build/classes/java/test:/Users/swim/Desktop/work/swimci/swim-core-java/swim.codec/build/resources/test:/Users/swim/Desktop/work/swimci/swim-core-java/swim.codec/build/classes/java/main:/Users/swim/Desktop/work/swimci/swim-core-java/swim.codec/build/resources/main:/Users/swim/Desktop/work/swimci/swim-core-java/swim.util/build/libs/swim-util-3.11.0-SNAPSHOT.jar:/Users/swim/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.14.3/d24515dc253e77e54b73df97e1fb2eb7faf34fdd/testng-6.14.3.jar:/Users/swim/.gradle/caches/modules-2/files-2.1/com.beust/jcommander/1.72/6375e521c1e11d6563d4f25a07ce124ccf8cd171/jcommander-1.72.jar:/Users/swim/.gradle/caches/modules-2/files-2.1/org.apache-extras.beanshell/bsh/2.0b6/fb418f9b33a0b951e9a2978b4b6ee93b2707e72f/bsh-2.0b6.jar --add-modules ALL-MODULE-PATH --add-reads swim.codec=testng --patch-module swim.codec=/Users/swim/Desktop/work/swimci/swim-core-java/swim.codec/build/classes/java/test:/Users/swim/Desktop/work/swimci/swim-core-java/swim.codec/src/test/resources @/private/var/folders/kx/fsw2q0h93s939fd44ptyrg9c0000gr/T/gradle-worker-classpath18117822500948453214txt -Xmx1024m -Dfile.encoding=UTF-8 -Duser.country=GB -Duser.language=en -Duser.variant -ea worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 4'
+Successfully started process 'Gradle Test Executor 4'
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testCauseAfterError STANDARD_OUT
+    [1;31merror[0m[1m: clobbered field[0m
+     [1;34m-->[0m input:2:3
+    [1;34m  |[0m
+    [1;34m2 |[0m   foo: 1
+    [1;34m  |[0m   [1;31m^^^ defined here[0m
+    [1;34m.[0m  
+    [1;34m4 |[0m   foo: 3
+    [1;34m  |[0m   [1;32m^^^ clobbered here[0m
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testCauseBeforeError STANDARD_OUT
+    [1;31merror[0m[1m: duplicate field[0m
+     [1;34m-->[0m input:4:3
+    [1;34m  |[0m
+    [1;34m2 |[0m   foo: 1
+    [1;34m  |[0m   [1;32m^^^ first use[0m
+    [1;34m.[0m  
+    [1;34m4 |[0m   foo: 3
+    [1;34m  |[0m   [1;31m^^^ second use[0m
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testMultiInputCause STANDARD_OUT
+    [1;31merror[0m[1m: ambiguous definition[0m
+     [1;34m-->[0m input1:1:1
+    [1;34m  |[0m
+    [1;34m1 |[0m test: false
+    [1;34m  |[0m [1;31m^^^^ duplicate definition[0m
+     [1;34m-->[0m input0:1:1
+    [1;34m  |[0m
+    [1;34m1 |[0m test: true
+    [1;34m  |[0m [1;32m^^^^ original definition[0m
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testMultiInputMultiMessageCause STANDARD_OUT
+    [1;31merror[0m[1m: ambiguous definition[0m
+     [1;34m-->[0m input1:1:1
+    [1;34m  |[0m
+    [1;34m1 |[0m test: false
+    [1;34m  |[0m [1;31m^^^^ duplicate definition[0m
+    [1;32mnote[0m[1m: clobbered declaration[0m
+     [1;34m-->[0m input0:1:1
+    [1;34m  |[0m
+    [1;34m1 |[0m test: true
+    [1;34m  |[0m [1;32m^^^^ original definition[0m
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testMultiMessageCause STANDARD_OUT
+    [1;31merror[0m[1m: duplicate field[0m
+     [1;34m-->[0m input:4:3
+    [1;34m  |[0m
+    [1;34m4 |[0m   foo: 3
+    [1;34m  |[0m   [1;31m^^^ second use[0m
+    [1;32mnote[0m[1m: clobbered field[0m
+     [1;34m-->[0m input:2:3
+    [1;34m  |[0m
+    [1;34m2 |[0m   foo: 1
+    [1;34m  |[0m   [1;32m^^^ first use[0m
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testOneLineMark STANDARD_OUT
+     [1;34m-->[0m input:1:6
+    [1;34m  |[0m
+    [1;34m1 |[0m Hello, world!
+    [1;34m  |[0m      [1;36m^[0m
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testOneLineMarkAtNewline STANDARD_OUT
+     [1;34m-->[0m input:1:14
+    [1;34m  |[0m
+    [1;34m1 |[0m Hello, world!
+    [1;34m  |[0m              [1;35m^[0m
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testOneLineMarkAtStart STANDARD_OUT
+     [1;34m-->[0m input:1:1
+    [1;34m  |[0m
+    [1;34m1 |[0m Hello, world!
+    [1;34m  |[0m [1;35m^[0m
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testOneLineMarkNoNewline STANDARD_OUT
+     [1;34m-->[0m input:1:6
+    [1;34m  |[0m
+    [1;34m1 |[0m Hello, world!
+    [1;34m  |[0m      [1;33m^[0m
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testOneLineMarkWithNote STANDARD_OUT
+     [1;34m-->[0m input:1:6
+    [1;34m  |[0m
+    [1;34m1 |[0m Hello, world!
+    [1;34m  |[0m      [1;32m^ comma[0m
+    [1;34m  |[0m
+    [1;34m  =[0m [1mnote:[0m optional punctuation
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testOneLineNumberPadding STANDARD_OUT
+      [1;34m-->[0m input:10:6
+    [1;34m   |[0m
+    [1;34m10 |[0m Hello, world!
+    [1;34m   |[0m      [1;33m^[0m
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testOneLineSpan STANDARD_OUT
+     [1;34m-->[0m input:1:8
+    [1;34m  |[0m
+    [1;34m1 |[0m Hello, wordl!
+    [1;34m  |[0m        [1;33m^^^^^[0m
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testOneLineSpanWithMessageAndNotes STANDARD_OUT
+    [1;33mwarning[0m[1m: check your spelling[0m
+     [1;34m-->[0m input:1:8
+    [1;34m  |[0m
+    [1;34m1 |[0m Hello, wordl!
+    [1;34m  |[0m        [1;33m^^^^^ did you mean 'world'?[0m
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testSevenLineSpan STANDARD_OUT
+     [1;34m-->[0m input:1:7
+    [1;34m  |[0m
+    [1;34m1 |[0m   @test {
+    [1;34m  |[0m  [1;31m_______^[0m
+    [1;34m2 |[0m [1;31m|[0m   a: 1
+    [1;34m3 |[0m [1;31m|[0m   b: 2
+    [1;34m4 |[0m [1;31m|[0m   c: 3
+    [1;34m5 |[0m [1;31m|[0m   d: 4
+    [1;34m6 |[0m [1;31m|[0m   e: 5
+    [1;34m7 |[0m [1;31m|[0m ]
+    [1;34m  |[0m [1;31m|_^[0m
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testSevenLineSpanWithNotes STANDARD_OUT
+     [1;34m-->[0m input:1:7
+    [1;34m  |[0m
+    [1;34m1 |[0m   @test {
+    [1;34m  |[0m  [1;31m_______^ opened here[0m
+    [1;34m2 |[0m [1;31m|[0m   a: 1
+    [1;34m3 |[0m [1;31m|[0m   b: 2
+    [1;34m4 |[0m [1;31m|[0m   c: 3
+    [1;34m5 |[0m [1;31m|[0m   d: 4
+    [1;34m6 |[0m [1;31m|[0m   e: 5
+    [1;34m7 |[0m [1;31m|[0m ]
+    [1;34m  |[0m [1;31m|_^ implicitly closed[0m
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testTenLineSpan STANDARD_OUT
+      [1;34m-->[0m input:1:7
+    [1;34m   |[0m
+     [1;34m1 |[0m   @test {
+    [1;34m   |[0m  [1;31m_______^[0m
+     [1;34m2 |[0m [1;31m|[0m   a: 1
+     [1;34m3 |[0m [1;31m|[0m   b: 2
+    [1;34m..[0m   [1;31m|[0m
+     [1;34m8 |[0m [1;31m|[0m   g: 7
+     [1;34m9 |[0m [1;31m|[0m   h: 8
+    [1;34m10 |[0m [1;31m|[0m ]
+    [1;34m   |[0m [1;31m|_^[0m
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testTenLineSpanWithNotes STANDARD_OUT
+      [1;34m-->[0m input:1:7
+    [1;34m   |[0m
+     [1;34m1 |[0m   @test {
+    [1;34m   |[0m  [1;31m_______^ opened here[0m
+     [1;34m2 |[0m [1;31m|[0m   a: 1
+     [1;34m3 |[0m [1;31m|[0m   b: 2
+    [1;34m..[0m   [1;31m|[0m
+     [1;34m8 |[0m [1;31m|[0m   g: 7
+     [1;34m9 |[0m [1;31m|[0m   h: 8
+    [1;34m10 |[0m [1;31m|[0m ]
+    [1;34m   |[0m [1;31m|_^ implicitly closed[0m
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testTwoLineSpan STANDARD_OUT
+     [1;34m-->[0m input:1:7
+    [1;34m  |[0m
+    [1;34m1 |[0m   @test {"
+    [1;34m  |[0m  [1;31m_______^[0m
+    [1;34m2 |[0m [1;31m|[0m }"
+    [1;34m  |[0m [1;31m|__^[0m
+
+Gradle suite > Gradle test > swim.codec.DiagnosticSpec > testTwoLineSpanWithMessageAndNotes STANDARD_OUT
+    [1;31merror[0m[1m: unclosed block[0m
+     [1;34m-->[0m input:1:7
+    [1;34m  |[0m
+    [1;34m1 |[0m   @test {"
+    [1;34m  |[0m  [1;31m_______^ opened here[0m
+    [1;34m2 |[0m [1;31m|[0m }"
+    [1;34m  |[0m [1;31m|__^ implicitly closed[0m
+    [1;34m  |[0m
+    [1;34m  =[0m [1mnote:[0m check delimiter ordering
+
+Gradle Test Executor 4 finished executing tests.
+
+> Task :swim-codec:test
+Finished generating test XML results (0.013 secs) into: /Users/swim/Desktop/work/swimci/swim-core-java/swim.codec/build/test-results/test
+Generating HTML test report...
+Finished generating test html results (0.007 secs) into: /Users/swim/Desktop/work/swimci/swim-core-java/swim.codec/build/reports/tests/test
+:swim-codec:test (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 2.686 secs.
+:swim-collections:compileTestJava (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-collections:compileTestJava UP-TO-DATE
+Caching disabled for task ':swim-collections:compileTestJava' because:
+  Build cache is disabled
+Skipping task ':swim-collections:compileTestJava' as it is up-to-date.
+:swim-collections:compileTestJava (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.02 secs.
+:swim-collections:processTestResources (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-collections:processTestResources NO-SOURCE
+file or directory '/Users/swim/Desktop/work/swimci/swim-core-java/swim.collections/src/test/resources', not found
+Skipping task ':swim-collections:processTestResources' as it has no source files and no previous output files.
+:swim-collections:processTestResources (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.001 secs.
+:swim-collections:testClasses (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-collections:testClasses UP-TO-DATE
+Skipping task ':swim-collections:testClasses' as it has no actions.
+:swim-collections:testClasses (Thread[Execution worker for ':' Thread 2,5,main]) completed. Took 0.0 secs.
+:swim-collections:test (Thread[Execution worker for ':' Thread 2,5,main]) started.
+
+> Task :swim-collections:test
+Caching disabled for task ':swim-collections:test' because:
+  Build cache is disabled
+Task ':swim-collections:test' is not up-to-date because:
+  Task.upToDateWhen is false.
+Starting process 'Gradle Test Executor 5'. Working directory: /Users/swim/Desktop/work/swimci/swim-core-java/swim.collections Command: /Library/Java/JavaVirtualMachines/jdk-12.0.2.jdk/Contents/Home/bin/java -Dorg.gradle.native=false --module-path /Users/swim/Desktop/work/swimci/swim-core-java/swim.collections/build/classes/java/test:/Users/swim/Desktop/work/swimci/swim-core-java/swim.collections/build/resources/test:/Users/swim/Desktop/work/swimci/swim-core-java/swim.collections/build/classes/java/main:/Users/swim/Desktop/work/swimci/swim-core-java/swim.collections/build/resources/main:/Users/swim/Desktop/work/swimci/swim-core-java/swim.codec/build/libs/swim-codec-3.11.0-SNAPSHOT.jar:/Users/swim/Desktop/work/swimci/swim-core-java/swim.util/build/libs/swim-util-3.11.0-SNAPSHOT.jar:/Users/swim/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.14.3/d24515dc253e77e54b73df97e1fb2eb7faf34fdd/testng-6.14.3.jar:/Users/swim/.gradle/caches/modules-2/files-2.1/com.beust/jcommander/1.72/6375e521c1e11d6563d4f25a07ce124ccf8cd171/jcommander-1.72.jar:/Users/swim/.gradle/caches/modules-2/files-2.1/org.apache-extras.beanshell/bsh/2.0b6/fb418f9b33a0b951e9a2978b4b6ee93b2707e72f/bsh-2.0b6.jar --add-modules ALL-MODULE-PATH --add-reads swim.collections=testng --patch-module swim.collections=/Users/swim/Desktop/work/swimci/swim-core-java/swim.collections/build/classes/java/test:/Users/swim/Desktop/work/swimci/swim-core-java/swim.collections/src/test/resources @/private/var/folders/kx/fsw2q0h93s939fd44ptyrg9c0000gr/T/gradle-worker-classpath15823324403736280148txt -Xmx1024m -Dfile.encoding=UTF-8 -Duser.country=GB -Duser.language=en -Duser.variant -ea worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 5'
+Successfully started process 'Gradle Test Executor 5'
+
+Gradle Test Executor 5 started executing tests.
+
+> Task :swim-collections:test
+
+Gradle suite > Gradle test > swim.collections.BTreeMapSpec > testDrop STANDARD_OUT
+    drop prefixes of 4 items
+    drop prefixes of 8 items
+    drop prefixes of 16 items
+    drop prefixes of 32 items
+    drop prefixes of 64 items
+    drop prefixes of 128 items
+    drop prefixes of 256 items
+    drop prefixes of 512 items
