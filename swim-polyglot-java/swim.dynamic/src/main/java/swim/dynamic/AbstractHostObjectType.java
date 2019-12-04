@@ -14,17 +14,17 @@
 
 package swim.dynamic;
 
+import swim.collections.HashTrieMap;
 import java.util.Collection;
 import java.util.List;
-import swim.collections.HashTrieMap;
 
 public abstract class AbstractHostObjectType<T> extends AbstractHostType<T> implements HostObjectType<T> {
+
   @Override
   public abstract HostMember<? super T> getOwnMember(Bridge bridge, T self, String key);
 
   @Override
   public abstract Collection<HostMember<? super T>> ownMembers(Bridge bridge, T self);
-
   @Override
   public HostMember<? super T> getMember(Bridge bridge, T self, String key) {
     HostMember<? super T> member = getOwnMember(bridge, self, key);
@@ -42,7 +42,6 @@ public abstract class AbstractHostObjectType<T> extends AbstractHostType<T> impl
     }
     return member;
   }
-
   @Override
   public Collection<HostMember<? super T>> members(Bridge bridge, T self) {
     HashTrieMap<String, HostMember<? super T>> members = HashTrieMap.empty();
@@ -60,4 +59,5 @@ public abstract class AbstractHostObjectType<T> extends AbstractHostType<T> impl
     }
     return members.values();
   }
+
 }

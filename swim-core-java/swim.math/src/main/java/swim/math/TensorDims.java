@@ -171,6 +171,7 @@ public final class TensorDims implements Debug {
     }
     return false;
   }
+
   static boolean equals(TensorDims these, TensorDims those) {
     do {
       if (these.size != those.size || these.stride != those.stride) {
@@ -189,6 +190,7 @@ public final class TensorDims implements Debug {
     }
     return Murmur3.mash(hash(hashSeed, this));
   }
+
   static int hash(int code, TensorDims dim) {
     do {
       code = Murmur3.mix(Murmur3.mix(code, dim.size), dim.stride);

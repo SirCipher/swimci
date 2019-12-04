@@ -15,6 +15,18 @@
   <!-- Checks for whitespace -->
   <module name="FileTabCharacter"/>
 
+  <module name="RegexpMultiline">
+    <property name="format" value="^([^\n ]+ )*(class|interface|enum) [^{]*\{\n[^\n}]"/>
+    <property name="message" value="Empty row after class/interface/enum definition is required"/>
+    <property name="fileExtensions" value="java"/>
+  </module>
+
+  <module name="RegexpMultiline">
+    <property name="format" value="[^\n{]\n\}\n"/>
+    <property name="message" value="Empty row before end of class/interface/enum is required"/>
+    <property name="fileExtensions" value="java"/>
+  </module>
+
   <module name="TreeWalker">
 
     <module name="SuppressWarningsHolder"/>
@@ -62,6 +74,10 @@
     <module name="TypecastParenPad"/>
     <module name="WhitespaceAfter"/>
     <module name="WhitespaceAround"/>
+    <module name="EmptyLineSeparator">
+      <property name="allowNoEmptyLineBetweenFields" value="true"/>
+      <property name="allowMultipleEmptyLines" value="false"/>
+    </module>
 
     <!-- Checks for modifiers -->
     <module name="ModifierOrder"/>
@@ -83,6 +99,7 @@
     <module name="InnerAssignment"/>
     <module name="MissingSwitchDefault"/>
     <module name="SimplifyBooleanExpression"/>
+
 
     <!-- Checks for class design -->
     <module name="FinalClass"/>
