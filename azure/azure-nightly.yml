@@ -1,4 +1,4 @@
-# Nightly build that runs all tests and benchmarks on the master branch only
+# Nightly build that runs all tests and benchmarks on the master branch only with a removed timeout
 
 schedules:
   - cron: "0 0 * * *"
@@ -8,6 +8,7 @@ schedules:
         - master
 
 # Below is from the 'azure-pipelines.yml' file due to lack of an import system in YAML
+# With the timeout removed
 strategy:
   matrix:
 
