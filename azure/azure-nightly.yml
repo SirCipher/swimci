@@ -1,4 +1,5 @@
 # Nightly build that runs all tests and benchmarks on the master branch only with a removed timeout
+trigger: none
 
 schedules:
   - cron: "0 0 * * *"
