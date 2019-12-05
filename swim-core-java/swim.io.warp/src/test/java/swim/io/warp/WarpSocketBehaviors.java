@@ -347,6 +347,7 @@ public abstract class WarpSocketBehaviors {
 
       final IpSocketRef[] clients = new IpSocketRef[connections];
       for (int connection = 0; connection < connections; connection += 1) {
+        System.out.println("Creating client: " + connection);
         clients[connection] = connect(endpoint, new AbstractWarpSocket() {
           @Override
           public void didRead(WsControl<?, ?> frame) {
@@ -368,6 +369,8 @@ public abstract class WarpSocketBehaviors {
             System.out.println("Did disconnect");
           }
         });
+
+        System.out.println("Created client: " + connection);
       }
 
       System.out.println("Awaiting client...");
@@ -385,6 +388,7 @@ public abstract class WarpSocketBehaviors {
     } catch (InterruptedException cause) {
       throw new TestException(cause);
     } finally {
+      System.out.println("Closing resources");
       endpoint.stop();
       stage.stop();
     }
