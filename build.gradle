@@ -41,6 +41,16 @@ subprojects {
   }
 }
 
+allprojects {
+  apply plugin: 'java'
+
+  test {
+    beforeTest { descriptor ->
+      logger.lifecycle("[" + new Date().toString() + "] Running test: " + descriptor )
+    }
+  }
+}
+
 gradle.projectsEvaluated {
   apply plugin: 'java'
 
