@@ -14,6 +14,7 @@
 
 package swim.io.warp;
 
+import java.time.ZonedDateTime;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
@@ -355,6 +356,8 @@ public abstract class WarpSocketBehaviors {
 
   @Test(groups = {"benchmark"})
   public void benchmarkCommands() {
+    System.out.println("Starting test at: "+ ZonedDateTime.now().toLocalTime());
+
     final Value value = Record.create(1).attr("test");
     final CommandMessage envelope = new CommandMessage("node", "lane", value);
     benchmark(2 * Runtime.getRuntime().availableProcessors(), 2000L, envelope);

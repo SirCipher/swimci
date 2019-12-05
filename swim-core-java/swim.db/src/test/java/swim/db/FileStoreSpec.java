@@ -586,8 +586,10 @@ public class FileStoreSpec {
         // Override auto commit and compact behavior.
       }
     };
+
     final FileStore store = new FileStore(storeContext, storePath, stage).open();
     final long duration = 5 * 1000L;
+
     try {
       stage.start();
       final Database database = store.openDatabase();
@@ -596,12 +598,15 @@ public class FileStoreSpec {
           .valueForm(Form.forLong());
 
       System.out.println("Benchmarking ...");
+
       final long t0 = System.currentTimeMillis();
       long i = 0L;
+
       while (System.currentTimeMillis() - t0 < duration) {
         map.put("state", i);
         i += 1L;
       }
+
       database.commit(Commit.forced());
       store.close();
       store.delete();
@@ -609,10 +614,11 @@ public class FileStoreSpec {
       final long t1 = System.currentTimeMillis();
       final long dt = t1 - t0;
       final long changeRate = (1000L * i) / dt;
-      System.out.println("Applied " + i + " state changes in " + dt + " milliseconds (" + changeRate + " changes/second)");
 
+      System.out.println("Applied " + i + " state changes in " + dt + " milliseconds (" + changeRate + " changes/second)");
       System.out.println("Page cache hit ratio: " + (int) (store.pageCache().hitRatio() * 100) + "%");
     } finally {
+      System.out.println("Shutting down stage...");
       stage.stop();
     }
   }
