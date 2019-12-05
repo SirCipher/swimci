@@ -316,7 +316,6 @@ public abstract class WarpSocketBehaviors {
                   do {
                     oldDt = dt.get();
                     newDt = System.currentTimeMillis() - t0.get();
-                    System.out.println("DoWrite: " + newDt);
                   } while ((oldDt < 2L * duration || newDt < 2L * duration) && !dt.compareAndSet(oldDt, newDt));
                   if (newDt >= 2L * duration) {
                     if (!closed) {
@@ -337,6 +336,7 @@ public abstract class WarpSocketBehaviors {
                 public void didWrite(WsControl<?, ?> frame) {
                   if (frame instanceof WsClose<?, ?>) {
                     serverDone.countDown();
+                    System.out.println("Server done. Latch count: " + serverDone.getCount());
                   }
                 }
               }, wsResponse);
@@ -352,13 +352,14 @@ public abstract class WarpSocketBehaviors {
           public void didRead(WsControl<?, ?> frame) {
             if (frame instanceof WsClose<?, ?>) {
               clientDone.countDown();
+              System.out.println("Client done. Latch count: " + clientDone.getCount());
             }
           }
 
           @Override
           public void didConnect() {
             super.didConnect();
-            System.out.println("Did connect" + this);
+            System.out.println("Did connect: " + this);
           }
 
           @Override
