@@ -14,10 +14,6 @@
 
 package swim.io.warp;
 
-import java.time.ZonedDateTime;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
 import org.testng.TestException;
 import org.testng.annotations.Test;
 import swim.concurrent.Theater;
@@ -40,6 +36,9 @@ import swim.ws.WsClose;
 import swim.ws.WsControl;
 import swim.ws.WsRequest;
 import swim.ws.WsResponse;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 import static org.testng.Assert.assertEquals;
 
 public abstract class WarpSocketBehaviors {
@@ -61,6 +60,7 @@ public abstract class WarpSocketBehaviors {
       public void didConnect() {
         clientConnect.countDown();
       }
+
       @Override
       public void didUpgrade(HttpRequest<?> httpRequest, HttpResponse<?> httpResponse) {
         clientUpgrade.countDown();
@@ -71,6 +71,7 @@ public abstract class WarpSocketBehaviors {
       public void didConnect() {
         serverConnect.countDown();
       }
+
       @Override
       public void didUpgrade(HttpRequest<?> httpRequest, HttpResponse<?> httpResponse) {
         serverUpgrade.countDown();
@@ -89,6 +90,7 @@ public abstract class WarpSocketBehaviors {
       public HttpServer createServer() {
         return server;
       }
+
       @Override
       public void didBind() {
         serverBind.countDown();
@@ -131,11 +133,13 @@ public abstract class WarpSocketBehaviors {
       public void didUpgrade(HttpRequest<?> httpRequest, HttpResponse<?> httpResponse) {
         feed(clientToServerCommand);
       }
+
       @Override
       public void didRead(Envelope envelope) {
         assertEquals(envelope, serverToClientCommand);
         clientRead.countDown();
       }
+
       @Override
       public void didWrite(Envelope envelope) {
         assertEquals(envelope, clientToServerCommand);
@@ -147,11 +151,13 @@ public abstract class WarpSocketBehaviors {
       public void didUpgrade(HttpRequest<?> httpRequest, HttpResponse<?> httpResponse) {
         feed(serverToClientCommand);
       }
+
       @Override
       public void didRead(Envelope envelope) {
         assertEquals(envelope, clientToServerCommand);
         serverRead.countDown();
       }
+
       @Override
       public void didWrite(Envelope envelope) {
         assertEquals(envelope, serverToClientCommand);
@@ -208,11 +214,13 @@ public abstract class WarpSocketBehaviors {
       public void didUpgrade(HttpRequest<?> httpRequest, HttpResponse<?> httpResponse) {
         feed(linkRequest);
       }
+
       @Override
       public void didRead(Envelope envelope) {
         assertEquals(envelope, linkedResponse);
         clientRead.countDown();
       }
+
       @Override
       public void didWrite(Envelope envelope) {
         assertEquals(envelope, linkRequest);
@@ -226,6 +234,7 @@ public abstract class WarpSocketBehaviors {
         serverRead.countDown();
         feed(linkedResponse);
       }
+
       @Override
       public void didWrite(Envelope envelope) {
         assertEquals(envelope, linkedResponse);
@@ -268,6 +277,8 @@ public abstract class WarpSocketBehaviors {
   }
 
   protected void benchmark(int connections, final long duration, final Envelope envelope) {
+    System.out.println("Benchmarking with : " + connections + " connections");
+
     final Theater stage = new Theater();
     final HttpEndpoint endpoint = new HttpEndpoint(stage);
     final AtomicLong t0 = new AtomicLong();
@@ -280,6 +291,7 @@ public abstract class WarpSocketBehaviors {
       stage.start();
       endpoint.start();
       System.out.println("Warming up for " + duration + " milliseconds...");
+
       bind(endpoint, new AbstractHttpService() {
         @Override
         public HttpServer createServer() {
@@ -290,11 +302,13 @@ public abstract class WarpSocketBehaviors {
               final WsResponse wsResponse = wsRequest.accept(wsSettings);
               return upgrade(new AbstractWarpSocket() {
                 boolean closed;
+
                 @Override
                 public void didUpgrade(HttpRequest<?> httpRequest, HttpResponse<?> httpResponse) {
                   t0.compareAndSet(0L, System.currentTimeMillis());
                   feed(envelope);
                 }
+
                 @Override
                 public void doWrite() {
                   long oldDt;
@@ -302,6 +316,7 @@ public abstract class WarpSocketBehaviors {
                   do {
                     oldDt = dt.get();
                     newDt = System.currentTimeMillis() - t0.get();
+                    System.out.println("DoWrite: " + newDt);
                   } while ((oldDt < 2L * duration || newDt < 2L * duration) && !dt.compareAndSet(oldDt, newDt));
                   if (newDt >= 2L * duration) {
                     if (!closed) {
@@ -317,6 +332,7 @@ public abstract class WarpSocketBehaviors {
                   }
                   feed(envelope);
                 }
+
                 @Override
                 public void didWrite(WsControl<?, ?> frame) {
                   if (frame instanceof WsClose<?, ?>) {
@@ -328,6 +344,7 @@ public abstract class WarpSocketBehaviors {
           };
         }
       });
+
       final IpSocketRef[] clients = new IpSocketRef[connections];
       for (int connection = 0; connection < connections; connection += 1) {
         clients[connection] = connect(endpoint, new AbstractWarpSocket() {
@@ -337,13 +354,31 @@ public abstract class WarpSocketBehaviors {
               clientDone.countDown();
             }
           }
+
+          @Override
+          public void didConnect() {
+            super.didConnect();
+            System.out.println("Did connect" + this);
+          }
+
+          @Override
+          public void didDisconnect() {
+            super.didDisconnect();
+            System.out.println("Did disconnect");
+          }
         });
       }
+
+      System.out.println("Awaiting client...");
       clientDone.await();
+
+      System.out.println("Awaiting server...");
       serverDone.await();
+
       for (int connection = 0; connection < connections; connection += 1) {
         clients[connection].close();
       }
+
       final int rate = (int) (1000L * count.get() / duration);
       System.out.println("Wrote " + count.get() + " envelopes over " + connections + " connections in " + duration + " milliseconds (" + rate + " per second)");
     } catch (InterruptedException cause) {
@@ -354,10 +389,8 @@ public abstract class WarpSocketBehaviors {
     }
   }
 
-  @Test(groups = {"benchmark"})
+  @Test//(groups = {"benchmark"})
   public void benchmarkCommands() {
-    System.out.println("Starting test at: "+ ZonedDateTime.now().toLocalTime());
-
     final Value value = Record.create(1).attr("test");
     final CommandMessage envelope = new CommandMessage("node", "lane", value);
     benchmark(2 * Runtime.getRuntime().availableProcessors(), 2000L, envelope);
