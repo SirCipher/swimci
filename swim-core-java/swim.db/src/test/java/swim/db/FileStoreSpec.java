@@ -408,6 +408,7 @@ public class FileStoreSpec {
 
   @Test
   public void testAutoCompact() throws InterruptedException {
+    System.out.println("Opening file");
     final File storePath = new File(testOutputDir, "auto-compact.swimdb");
     final CountDownLatch didCompact = new CountDownLatch(1);
     final StoreContext storeContext = new StoreContext(storeSettings) {
@@ -448,8 +449,13 @@ public class FileStoreSpec {
       database.commit(Commit.forced());
     }
 
+    System.out.println("Awaiting did compact");
     didCompact.await();
+
+    System.out.println("Closing store");
     store.close();
+
+    System.out.println("Deleting store");
     store.delete();
   }
 
