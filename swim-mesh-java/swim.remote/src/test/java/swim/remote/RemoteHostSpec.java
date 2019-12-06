@@ -96,10 +96,12 @@ public class RemoteHostSpec {
     }
   }
 
-  @Test
+  @Test(invocationCount = 1001)
   public void testRemoteHostCommands() throws InterruptedException {
     final Theater stage = new Theater();
     final HttpEndpoint endpoint = new HttpEndpoint(stage);
+    final CountDownLatch clientConnected = new CountDownLatch(1);
+    final CountDownLatch serverConnected = new CountDownLatch(1);
     final CountDownLatch clientPush = new CountDownLatch(1);
     final CountDownLatch serverPush = new CountDownLatch(1);
     final CountDownLatch clientPull = new CountDownLatch(1);
@@ -116,6 +118,13 @@ public class RemoteHostSpec {
                                   clientToServerCommand.laneUri(), 0.0f, null, clientToServerCommand, null));
         clientPush.countDown();
       }
+
+      @Override
+      public void didConnect() {
+        super.didConnect();
+        clientConnected.countDown();
+      }
+
       @Override
       protected void reconnect() {
         // prevent reconnect
@@ -139,8 +148,15 @@ public class RemoteHostSpec {
     });
     final AbstractWarpServer server = new AbstractWarpServer() {
       @Override
+      public void didConnect() {
+        super.didConnect();
+        serverConnected.countDown();
+      }
+
+      @Override
       public HttpResponder<?> doRequest(HttpRequest<?> httpRequest) {
         final WsRequest wsRequest = WsRequest.from(httpRequest);
+        assertNotNull(wsRequest);
         final WsResponse wsResponse = wsRequest.accept(wsSettings);
         return upgrade(serverHost, wsResponse);
       }
@@ -156,6 +172,7 @@ public class RemoteHostSpec {
       stage.start();
       endpoint.start();
       endpoint.bindHttp("127.0.0.1", 53556, service);
+
       clientHost.setHostContext(new TestHostContext(hostUri, endpoint.stage()) {
         @Override
         public void pushDown(Push<?> push) {
@@ -163,11 +180,16 @@ public class RemoteHostSpec {
           clientPull.countDown();
         }
       });
+
       clientHost.connect();
-      clientPush.await(1, TimeUnit.SECONDS);
-      serverPush.await(1, TimeUnit.SECONDS);
-      clientPull.await(1, TimeUnit.SECONDS);
-      serverPull.await(1, TimeUnit.SECONDS);
+
+      clientConnected.await();
+      serverConnected.await();
+
+      clientPush.await(10, TimeUnit.SECONDS);
+      serverPush.await(10, TimeUnit.SECONDS);
+      clientPull.await(10, TimeUnit.SECONDS);
+      serverPull.await(10, TimeUnit.SECONDS);
       assertEquals(clientPush.getCount(), 0);
       assertEquals(serverPush.getCount(), 0);
       assertEquals(clientPull.getCount(), 0);
