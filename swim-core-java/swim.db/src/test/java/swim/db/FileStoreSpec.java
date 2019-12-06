@@ -409,10 +409,10 @@ public class FileStoreSpec {
 
   /*
    * TODO
-   * doTestAutoCompact has been locking up ocassionaly on the CI server.
+   * doTestAutoCompact has been locking up occasionally on the CI server.
    * So this is currently wrapped so that a thread dump can be performed
    */
-//  @Test
+  @Test
   public void testAutoCompact() {
     Thread thread = new Thread(() -> {
       try {
@@ -443,7 +443,7 @@ public class FileStoreSpec {
     }
   }
 
-  @Test(timeOut = 120000)
+//  @Test(timeOut = 120000)
   public void doTestAutoCompact() throws InterruptedException {
     System.out.println("Opening file");
     final File storePath = new File(testOutputDir, "auto-compact.swimdb");
