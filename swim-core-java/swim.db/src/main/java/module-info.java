@@ -29,5 +29,7 @@ module swim.db {
   requires transitive swim.concurrent;
   requires swim.uri;
 
+  requires java.management;
+
   exports swim.db;
 }

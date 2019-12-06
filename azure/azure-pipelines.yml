@@ -66,5 +66,5 @@ steps:
       #      -Pslow: Run tests in the 'slow' group
       #      -Pbenchmark: Run tests in the 'benchmark' group
       #      --debug: Display Gradle messages at the 'debug' level
-      tasks: 'test --info --continue -Pslow -PbuildServer' #-Pslow -Pbenchmark --debug
-
+#      tasks: 'test --info --continue -Pslow -PbuildServer' #-Pslow -Pbenchmark --debug
+      tasks: ':swim-db:test --info --continue -Pslow -PbuildServer' #-Pslow -Pbenchmark --debug

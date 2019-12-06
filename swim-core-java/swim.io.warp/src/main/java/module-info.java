@@ -29,7 +29,5 @@ module swim.io.warp {
   requires transitive swim.io.http;
   requires transitive swim.io.ws;
 
-  requires java.management;
-
   exports swim.io.warp;
 }

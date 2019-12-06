@@ -27,14 +27,19 @@ import swim.structure.Form;
 import swim.structure.Text;
 import swim.structure.Value;
 import java.io.File;
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadInfo;
+import java.lang.management.ThreadMXBean;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.fail;
 
 public class FileStoreSpec {
+
   final File testOutputDir = new File("build/test-output");
 
   final StoreSettings storeSettings = StoreSettings.standard()
@@ -547,6 +552,31 @@ public class FileStoreSpec {
   }
 
   @Test
+  public void doBenchmarkStateChanges() {
+    Thread thread = new Thread(() -> {
+      try {
+        benchmarkStateChanges();
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+        fail();
+      }
+    }, "Benchmark runner");
+
+    try {
+      thread.start();
+      thread.join(120000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+      fail();
+    }
+
+    ThreadMXBean bean = ManagementFactory.getThreadMXBean();
+    for (ThreadInfo ti : bean.dumpAllThreads(true, true)) {
+      System.out.println(ti);
+    }
+  }
+
+
   public void benchmarkStateChanges() throws InterruptedException {
     final File storePath = new File(testOutputDir, "state-changes.swimdb");
     final StoreContext storeContext = new StoreContext(storeSettings) {
@@ -632,4 +662,5 @@ public class FileStoreSpec {
 
     System.out.println("Page cache hit ratio: " + (int) (store.pageCache().hitRatio() * 100) + "%");
   }
+
 }
