@@ -406,7 +406,33 @@ public class FileStoreSpec {
     store.delete();
   }
 
+
   @Test
+  public void doTestAutoCompact(){
+    Thread thread = new Thread(() -> {
+      try {
+        testAutoCompact();
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+        fail();
+      }
+    });
+
+    thread.start();
+    try {
+      thread.join(60000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+
+      ThreadMXBean bean = ManagementFactory.getThreadMXBean();
+      for (ThreadInfo ti : bean.dumpAllThreads(true, true)) {
+        System.out.println(ti);
+      }
+
+      fail();
+    }
+  }
+
   public void testAutoCompact() throws InterruptedException {
     System.out.println("Opening file");
     final File storePath = new File(testOutputDir, "auto-compact.swimdb");
