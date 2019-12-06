@@ -411,7 +411,7 @@ public class FileStoreSpec {
    * doTestAutoCompact has been locking up ocassionaly on the CI server.
    * So this is currently wrapped so that a thread dump can be performed
    */
-//  @Test
+  @Test
   public void testAutoCompact() {
     Thread thread = new Thread(() -> {
       try {
@@ -426,6 +426,10 @@ public class FileStoreSpec {
 
     try {
       thread.join(60000);
+      if (thread.isAlive()) {
+        thread.interrupt();
+        throw new InterruptedException();
+      }
     } catch (InterruptedException e) {
       e.printStackTrace();
 
