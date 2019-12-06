@@ -407,11 +407,15 @@ public class FileStoreSpec {
   }
 
 
-  @Test
-  public void doTestAutoCompact(){
+  /*
+   * doTestAutoCompact has been locking up ocassionaly on the CI server.
+   * So this is currently wrapped so that a thread dump can be performed
+   */
+//  @Test
+  public void testAutoCompact() {
     Thread thread = new Thread(() -> {
       try {
-        testAutoCompact();
+        doTestAutoCompact();
       } catch (InterruptedException e) {
         e.printStackTrace();
         fail();
@@ -419,6 +423,7 @@ public class FileStoreSpec {
     });
 
     thread.start();
+
     try {
       thread.join(60000);
     } catch (InterruptedException e) {
@@ -433,7 +438,8 @@ public class FileStoreSpec {
     }
   }
 
-  public void testAutoCompact() throws InterruptedException {
+  @Test
+  public void doTestAutoCompact() throws InterruptedException {
     System.out.println("Opening file");
     final File storePath = new File(testOutputDir, "auto-compact.swimdb");
     final CountDownLatch didCompact = new CountDownLatch(1);
@@ -462,7 +468,6 @@ public class FileStoreSpec {
     };
 
     final FileStore store = new FileStore(storeContext, storePath, stage).open();
-
     final Database database = store.openDatabase();
     final Map<String, Long> map = database.openBTreeMap("test")
         .keyForm(Form.forString())
