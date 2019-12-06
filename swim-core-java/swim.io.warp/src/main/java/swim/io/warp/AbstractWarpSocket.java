@@ -35,6 +35,16 @@ import swim.ws.WsPong;
 public abstract class AbstractWarpSocket implements WarpSocket, IpContext, FlowContext {
   protected WarpSocketContext context;
 
+  private String name;
+
+  public void setName(String name){
+    this.name = name;
+  }
+
+  public String getName() {
+    return name;
+  }
+
   @Override
   public WarpSocketContext warpSocketContext() {
     return this.context;
