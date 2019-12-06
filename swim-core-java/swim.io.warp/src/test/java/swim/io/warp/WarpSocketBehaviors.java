@@ -36,13 +36,11 @@ import swim.ws.WsClose;
 import swim.ws.WsControl;
 import swim.ws.WsRequest;
 import swim.ws.WsResponse;
-import java.lang.management.ManagementFactory;
-import java.lang.management.ThreadInfo;
-import java.lang.management.ThreadMXBean;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
 
 public abstract class WarpSocketBehaviors {
 
@@ -172,6 +170,7 @@ public abstract class WarpSocketBehaviors {
       @Override
       public HttpResponder<?> doRequest(HttpRequest<?> httpRequest) {
         final WsRequest wsRequest = WsRequest.from(httpRequest);
+        assertNotNull(wsRequest);
         final WsResponse wsResponse = wsRequest.accept(wsSettings);
         return upgrade(serverSocket, wsResponse);
       }
@@ -249,6 +248,7 @@ public abstract class WarpSocketBehaviors {
       @Override
       public HttpResponder<?> doRequest(HttpRequest<?> httpRequest) {
         final WsRequest wsRequest = WsRequest.from(httpRequest);
+        assertNotNull(wsRequest);
         final WsResponse wsResponse = wsRequest.accept(wsSettings);
         return upgrade(serverSocket, wsResponse);
       }
@@ -280,7 +280,7 @@ public abstract class WarpSocketBehaviors {
     }
   }
 
-  protected void benchmark(int connections, final long duration, final Envelope envelope) {
+  private void benchmark(int connections, final long duration, final Envelope envelope) {
     System.out.println("Benchmarking with : " + connections + " connections");
 
     final Theater stage = new Theater();
@@ -303,6 +303,8 @@ public abstract class WarpSocketBehaviors {
             @Override
             public HttpResponder<?> doRequest(HttpRequest<?> httpRequest) {
               final WsRequest wsRequest = WsRequest.from(httpRequest);
+              assertNotNull(wsRequest);
+
               final WsResponse wsResponse = wsRequest.accept(wsSettings);
               return upgrade(new AbstractWarpSocket() {
                 boolean closed;
@@ -340,7 +342,6 @@ public abstract class WarpSocketBehaviors {
                 public void didWrite(WsControl<?, ?> frame) {
                   if (frame instanceof WsClose<?, ?>) {
                     serverDone.countDown();
-                    System.out.println("Server done. Latch count: " + serverDone.getCount());
                   }
                 }
               }, wsResponse);
@@ -351,47 +352,17 @@ public abstract class WarpSocketBehaviors {
 
       final IpSocketRef[] clients = new IpSocketRef[connections];
       for (int connection = 0; connection < connections; connection += 1) {
-        System.out.println("Creating client: " + connection);
-        final double[] lastLogged = {System.currentTimeMillis()};
-
-        AbstractWarpSocket socket = new AbstractWarpSocket() {
+        clients[connection] = connect(endpoint, new AbstractWarpSocket() {
           @Override
           public void didRead(WsControl<?, ?> frame) {
-            if (System.currentTimeMillis() - lastLogged[0] > 1000) {
-              lastLogged[0] = System.currentTimeMillis();
-              System.out.println(getName() + " did read");
-            }
-
             if (frame instanceof WsClose<?, ?>) {
               clientDone.countDown();
-              System.out.println(getName() + " client done. Latch count: " + clientDone.getCount());
             }
           }
-
-          @Override
-          public void didConnect() {
-            super.didConnect();
-            System.out.println(getName() + " did connect");
-          }
-
-          @Override
-          public void didDisconnect() {
-            super.didDisconnect();
-            System.out.println(getName() + " did disconnect");
-          }
-        };
-
-        socket.setName("AbstractWarpSocket: " + connection);
-
-        clients[connection] = connect(endpoint, socket);
-
-        System.out.println("Created client: " + connection);
+        });
       }
 
-      System.out.println("Awaiting client...");
       clientDone.await();
-
-      System.out.println("Awaiting server...");
       serverDone.await();
 
       for (int connection = 0; connection < connections; connection += 1) {
@@ -409,21 +380,12 @@ public abstract class WarpSocketBehaviors {
     }
   }
 
-  @Test//(groups = {"benchmark"})
-  public void benchmarkCommands() throws InterruptedException {
+  @Test(groups = {"benchmark"})
+  public void benchmarkCommands() {
     final Value value = Record.create(1).attr("test");
     final CommandMessage envelope = new CommandMessage("node", "lane", value);
 
-    Thread thread = new Thread(() -> benchmark(2 * Runtime.getRuntime().availableProcessors(), 2000L, envelope), "Benchmark runner");
-
-    thread.start();
-    thread.join(60000);
-
-    ThreadMXBean threadMxBean = ManagementFactory.getThreadMXBean();
-
-    for (ThreadInfo ti : threadMxBean.dumpAllThreads(true, true)) {
-      System.out.print(ti.toString());
-    }
+    benchmark(2 * Runtime.getRuntime().availableProcessors(), 2000L, envelope);
   }
 
 }
