@@ -94,7 +94,7 @@ public abstract class MapDownlinkModem<View extends WarpDownlinkView> extends Wa
     return this.upQueue.poll();
   }
 
-public static int nextUpCueNullCount;
+  public static int nextUpCueNullCount;
 
   @Override
   protected Push<CommandMessage> nextUpCue() {

@@ -28,6 +28,8 @@ import swim.api.lane.MapLane;
 import swim.api.plane.AbstractPlane;
 import swim.api.warp.function.DidReceive;
 import swim.api.warp.function.WillReceive;
+import swim.codec.Debug;
+import swim.codec.Format;
 import swim.kernel.Kernel;
 import swim.observable.function.DidUpdateKey;
 import swim.observable.function.WillUpdateKey;
@@ -35,6 +37,7 @@ import swim.runtime.downlink.MapDownlinkView;
 import swim.runtime.warp.MapDownlinkModem;
 import swim.runtime.warp.WarpDownlinkModem;
 import swim.service.web.WebServiceDef;
+import swim.structure.Form;
 import swim.structure.Value;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
@@ -122,9 +125,10 @@ public class JoinMapLaneSpec {
    *
    * @throws InterruptedException if the thread is interrupted while waiting for a countdown
    */
-  @Test
+  @Test(invocationCount = 100)//(groups = {"slow"})
   public void testInsertion() throws InterruptedException {
-    int insertionCount = 100_000;
+    final int insertionCount = 100000;
+
     final CountDownLatch willReceive = new CountDownLatch(insertionCount);
     final CountDownLatch didReceive = new CountDownLatch(insertionCount);
 
@@ -134,13 +138,13 @@ public class JoinMapLaneSpec {
     class Observer implements WillReceive, DidReceive {
       @Override
       public void didReceive(Value body) {
-//        System.out.println("Did receive: " + body);
+//        System.out.println("Did receive: "+ Format.debug(body));
         didReceive.countDown();
       }
 
       @Override
       public void willReceive(Value body) {
-//        System.out.println("Will receive: " + body);
+//        System.out.println("Will receive: "+ Format.debug(body));
         willReceive.countDown();
       }
     }
@@ -150,10 +154,33 @@ public class JoinMapLaneSpec {
     for (int i = 0; i < insertionCount; i++) {
       String ins = Integer.toString(i);
       xs.put(ins, ins);
+
+      if (i % 10000 == 0) {
+        System.out.println(i);
+      }
     }
 
-    willReceive.await(30, TimeUnit.SECONDS);
-    didReceive.await(30, TimeUnit.SECONDS);
+//    didReceive.await(10, TimeUnit.SECONDS);
+    willReceive.await(10, TimeUnit.SECONDS);
+
+//    if(willReceive.getCount()!=0){
+//      System.out.println("Will receive latch count: "+ willReceive.getCount());
+//      willReceive.await(5, TimeUnit.SECONDS);
+//    }
+
+    System.out.println("MapDownlinkView#putCount: " + MapDownlinkView.putCount);
+    System.out.println("WarpDownlinkModem#cueUpCount: " + WarpDownlinkModem.cueUpCount.get());
+    System.out.println("WarpDownlinkModem#didBreakCount: " + WarpDownlinkModem.didBreakCount.get());
+    System.out.println("WarpDownlinkModem#didFeedUpCount: " + WarpDownlinkModem.didFeedUpCount.get());
+    System.out.println("WarpDownlinkModem#conditionNotMetCount: " + WarpDownlinkModem.conditionNotMetCount.get());
+
+    System.out.println("MapDownlinkModem#feedUpMethodCount: " + MapDownlinkModem.feedUpMethodCount);
+    System.out.println("MapDownlinkModem#feedUpQueueNotEmpty: " + MapDownlinkModem.feedUpQueueNotEmpty);
+    System.out.println("MapDownlinkModem#nextUpCueCount: " + MapDownlinkModem.nextUpCueCount.get());
+    System.out.println("MapDownlinkModem#nullCount: " + MapDownlinkModem.nullCount.get());
+    System.out.println("MapDownlinkModem#conditionCount: " + MapDownlinkModem.conditionCount.get());
+    System.out.println("MapDownlinkModem#nextUpCueNullCount: " + MapDownlinkModem.nextUpCueNullCount);
+    System.out.println("MapDownlinkModem#pushNotNullCount: " + MapDownlinkModem.pushNotNullCount);
 
     assertEquals(willReceive.getCount(), 0);
     assertEquals(didReceive.getCount(), 0);
@@ -169,28 +196,31 @@ public class JoinMapLaneSpec {
       return newValue;
     });
 
-
-    int threads = 1000;
+    int threads = 1;
     CountDownLatch countDownLatch = new CountDownLatch(threads);
     Random random = new Random();
     ExecutorService executor = Executors.newFixedThreadPool(100);
 
     for (int i = 0; i < threads; i++) {
       executor.execute(() -> {
-        for (int j = 0; j < 15000; j++) {
+        for (int j = 0; j < 1_000_000; j++) {
           int r = random.nextInt();
           xs.put(Integer.toString(r), Integer.toString(r));
+
+          if(j%1000==0){
+            System.out.println(j);
+          }
+
 //      Thread.sleep(1);
         }
 
-        countDownLatch.countDown();
-        System.out.println(countDownLatch.getCount());
+//        countDownLatch.countDown();
       });
     }
 
-    countDownLatch.await();
+//    countDownLatch.await();
 
-//    Thread.sleep(60000);
+    Thread.sleep(30000);
 
     System.out.println("MapDownlinkView#putCount: " + MapDownlinkView.putCount);
     System.out.println("WarpDownlinkModem#cueUpCount: " + WarpDownlinkModem.cueUpCount.get());
@@ -204,7 +234,6 @@ public class JoinMapLaneSpec {
     System.out.println("MapDownlinkModem#nullCount: " + MapDownlinkModem.nullCount.get());
     System.out.println("MapDownlinkModem#conditionCount: " + MapDownlinkModem.conditionCount.get());
     System.out.println("MapDownlinkModem#nextUpCueNullCount: " + MapDownlinkModem.nextUpCueNullCount);
-
   }
 
   private MapDownlink<String, String> getDownlink(String nodeUri, String laneUri, Object observer) {

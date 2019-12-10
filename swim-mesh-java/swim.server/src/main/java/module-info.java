@@ -25,6 +25,9 @@ module swim.server {
   requires transitive swim.auth;
   requires transitive swim.actor;
   requires transitive swim.java;
+  requires transitive swim.warp;
+
+  requires java.management;
 
   exports swim.server;
 }

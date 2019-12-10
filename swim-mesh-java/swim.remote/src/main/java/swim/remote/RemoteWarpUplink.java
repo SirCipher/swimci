@@ -220,6 +220,7 @@ class RemoteWarpUplink implements WarpContext, PullRequest<Envelope> {
       }
     } while (oldStatus != newStatus && !STATUS.compareAndSet(this, oldStatus, newStatus));
     if ((oldStatus & PULLING_UP) == 0) {
+
       this.host.warpSocketContext.feed(this);
     }
   }

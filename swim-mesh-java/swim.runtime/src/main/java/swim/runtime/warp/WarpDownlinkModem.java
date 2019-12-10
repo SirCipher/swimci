@@ -257,20 +257,30 @@ public abstract class WarpDownlinkModem<View extends DownlinkView> extends Downl
   public static AtomicInteger didFeedUpCount = new AtomicInteger();
   public static AtomicInteger didBreakCount = new AtomicInteger();
 
+  private static boolean done = false;
 
   public void cueUp() {
     cueUpCount.incrementAndGet();
 
     do {
-      final int oldStatus = this.status;
+      final int oldStatus = STATUS.get(this);
       final int newStatus = oldStatus | (FEEDING_UP | CUED_UP);
       if (oldStatus != newStatus || !keyQueueIsEmpty()) {
         if (STATUS.compareAndSet(this, oldStatus, newStatus)) {
-          this.linkContext.feedUp();
-          didFeedUpCount.incrementAndGet();
+          // If we're not currently feeding up then start the process
+//          if ((oldStatus & FEEDING_UP) == 0) {
+            this.linkContext.feedUp();
+            didFeedUpCount.incrementAndGet();
+//          } else {
+//            if (!done) {
+//              System.out.println(System.nanoTime() + ": Inner new status: " + Integer.toBinaryString(newStatus) + ", old status: " + Integer.toBinaryString(oldStatus));
+//            }
+//            done = true;
+//          }
           break;
         }
       } else {
+//        System.out.println("Break new status: " + Integer.toBinaryString(newStatus) + ", old status: " + Integer.toBinaryString(oldStatus));
         didBreakCount.incrementAndGet();
         break;
       }
@@ -329,28 +339,35 @@ public abstract class WarpDownlinkModem<View extends DownlinkView> extends Downl
         }
       } else {
         newStatus = oldStatus & ~(FEEDING_UP | CUED_UP);
+
         if (oldStatus == newStatus || STATUS.compareAndSet(this, oldStatus, newStatus)) {
-          Push<CommandMessage> push = nextUpQueue();
+//          System.out.println(System.nanoTime() + ": Else new status: " + Integer.toBinaryString(newStatus) + ", Else old status: " + Integer.toBinaryString(oldStatus));
+
+          Push<CommandMessage> push = nextUpCue();
 
           if (push == null) {
             nullCount.incrementAndGet();
           }
 
-          if ((oldStatus & CUED_UP) != 0) {
+          if ((oldStatus & CUED_UP) == 0) {
             conditionCount.incrementAndGet();
           }
 
-          if (push == null && (oldStatus & CUED_UP) != 0) {
-            push = nextUpCue();
+          if (push == null ) {
+            push = nextUpQueue();
             nextUpCueCount.incrementAndGet();
           }
+
           if (push != null) {
             pullUpCommand(push.message());
             this.linkContext.pushUp(push);
+            pushNotNullCount.incrementAndGet();
             feedUp();
           } else {
             this.linkContext.skipUp();
           }
+//          System.out.println(System.nanoTime() + ":2 Else new status: " + Integer.toBinaryString(newStatus) + ", Else old status: " + Integer.toBinaryString(oldStatus));
+
           break;
         } else {
           conditionNotMetCount.incrementAndGet();
@@ -360,6 +377,7 @@ public abstract class WarpDownlinkModem<View extends DownlinkView> extends Downl
   }
 
   public static AtomicInteger nextUpCueCount = new AtomicInteger();
+  public static AtomicInteger pushNotNullCount = new AtomicInteger();
   public static AtomicInteger nullCount = new AtomicInteger();
   public static AtomicInteger conditionCount = new AtomicInteger();
   public static AtomicInteger conditionNotMetCount = new AtomicInteger();
@@ -597,6 +615,7 @@ public abstract class WarpDownlinkModem<View extends DownlinkView> extends Downl
   @Override
   public void didDisconnect() {
     do {
+      System.out.println("Did disconnect");
       final int oldStatus = this.status;
       final int newStatus = oldStatus & ~(FEEDING_UP | UNLINKING | UNLINK | SYNCING | SYNC | LINKING | LINK | LINKED);
       if (oldStatus == newStatus || STATUS.compareAndSet(this, oldStatus, newStatus)) {
