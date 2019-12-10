@@ -14,15 +14,15 @@
 
 package swim.runtime.warp;
 
-import java.util.Collection;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 import swim.collections.HashTrieSet;
 import swim.concurrent.Cont;
 import swim.runtime.Push;
 import swim.structure.Value;
 import swim.uri.Uri;
 import swim.warp.CommandMessage;
+import java.util.Collection;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 
 public abstract class MapDownlinkModem<View extends WarpDownlinkView> extends WarpDownlinkModel<View> {
   final ConcurrentLinkedQueue<Push<CommandMessage>> upQueue;
@@ -42,6 +42,12 @@ public abstract class MapDownlinkModem<View extends WarpDownlinkView> extends Wa
   }
 
   @Override
+  protected boolean keyQueueIsEmpty() {
+    return this.keyQueue.isEmpty();
+  }
+
+
+  @Override
   protected void queueUp(Value body, Cont<CommandMessage> cont) {
     final Uri hostUri = hostUri();
     final Uri nodeUri = nodeUri();
@@ -49,8 +55,9 @@ public abstract class MapDownlinkModem<View extends WarpDownlinkView> extends Wa
     final float prio = prio();
     final CommandMessage message = new CommandMessage(nodeUri, laneUri, body);
     this.upQueue.add(new Push<CommandMessage>(Uri.empty(), hostUri, nodeUri, laneUri,
-                                              prio, null, message, cont));
+        prio, null, message, cont));
   }
+
 
   public void cueUpKey(Value key) {
     do {
@@ -87,36 +94,48 @@ public abstract class MapDownlinkModem<View extends WarpDownlinkView> extends Wa
     return this.upQueue.poll();
   }
 
+public static int nextUpCueNullCount;
+
   @Override
   protected Push<CommandMessage> nextUpCue() {
     HashTrieSet<Value> oldKeyQueue;
     HashTrieSet<Value> newKeyQueue;
     Value key;
+
     do {
       oldKeyQueue = this.keyQueue;
       key = oldKeyQueue.next(this.lastKey);
       newKeyQueue = oldKeyQueue.removed(key);
     } while (oldKeyQueue != newKeyQueue && !KEY_QUEUE.compareAndSet(this, oldKeyQueue, newKeyQueue));
+
     if (key != null) {
       this.lastKey = key;
+
       final Uri hostUri = hostUri();
       final Uri nodeUri = nodeUri();
       final Uri laneUri = laneUri();
       final float prio = prio();
       final Value body = nextUpKey(key);
       final CommandMessage message = new CommandMessage(nodeUri, laneUri, body);
-      return new Push<CommandMessage>(Uri.empty(), hostUri, nodeUri, laneUri,
-                                      prio, null, message, null);
+
+      return new Push<CommandMessage>(Uri.empty(), hostUri, nodeUri, laneUri, prio, null, message, null);
     } else {
+      nextUpCueNullCount++;
       return null;
     }
   }
 
+  public static int feedUpMethodCount;
+  public static int feedUpQueueNotEmpty;
+
   @Override
   protected void feedUp() {
+    // TODO: This is called when the method is already locked
     if (!this.keyQueue.isEmpty()) {
       cueUp();
+      feedUpQueueNotEmpty++;
     }
+    feedUpMethodCount++;
     super.feedUp();
   }
 

@@ -1144,8 +1144,11 @@ public class MapDownlinkView<K, V> extends WarpDownlinkView implements MapDownli
     return null;
   }
 
+  public static int putCount;
+
   @Override
   public V put(K key, V value) {
+    putCount++;
     return this.model.put(this, key, value);
   }
 

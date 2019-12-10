@@ -14,8 +14,6 @@
 
 package swim.runtime.warp;
 
-import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
-import java.util.concurrent.atomic.AtomicLongFieldUpdater;
 import swim.concurrent.Cont;
 import swim.concurrent.Conts;
 import swim.runtime.CellContext;
@@ -40,6 +38,9 @@ import swim.warp.SyncRequest;
 import swim.warp.SyncedResponse;
 import swim.warp.UnlinkRequest;
 import swim.warp.UnlinkedResponse;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
+import java.util.concurrent.atomic.AtomicLongFieldUpdater;
 
 public abstract class WarpDownlinkModem<View extends DownlinkView> extends DownlinkModel<View> implements WarpBinding {
   protected final float prio;
@@ -220,6 +221,10 @@ public abstract class WarpDownlinkModem<View extends DownlinkView> extends Downl
     return true;
   }
 
+  protected boolean keyQueueIsEmpty() {
+    return true;
+  }
+
   protected void queueUp(Value body, Cont<CommandMessage> cont) {
     throw new UnsupportedOperationException();
   }
@@ -248,18 +253,25 @@ public abstract class WarpDownlinkModem<View extends DownlinkView> extends Downl
     } while (true);
   }
 
+  public static AtomicInteger cueUpCount = new AtomicInteger();
+  public static AtomicInteger didFeedUpCount = new AtomicInteger();
+  public static AtomicInteger didBreakCount = new AtomicInteger();
+
+
   public void cueUp() {
+    cueUpCount.incrementAndGet();
+
     do {
       final int oldStatus = this.status;
       final int newStatus = oldStatus | (FEEDING_UP | CUED_UP);
-      if (oldStatus != newStatus) {
+      if (oldStatus != newStatus || !keyQueueIsEmpty()) {
         if (STATUS.compareAndSet(this, oldStatus, newStatus)) {
-          if ((oldStatus & FEEDING_UP) == 0) {
-            this.linkContext.feedUp();
-          }
+          this.linkContext.feedUp();
+          didFeedUpCount.incrementAndGet();
           break;
         }
       } else {
+        didBreakCount.incrementAndGet();
         break;
       }
     } while (true);
@@ -316,11 +328,21 @@ public abstract class WarpDownlinkModem<View extends DownlinkView> extends Downl
           break;
         }
       } else {
-        newStatus = oldStatus & ~(CUED_UP | FEEDING_UP);
+        newStatus = oldStatus & ~(FEEDING_UP | CUED_UP);
         if (oldStatus == newStatus || STATUS.compareAndSet(this, oldStatus, newStatus)) {
           Push<CommandMessage> push = nextUpQueue();
+
+          if (push == null) {
+            nullCount.incrementAndGet();
+          }
+
+          if ((oldStatus & CUED_UP) != 0) {
+            conditionCount.incrementAndGet();
+          }
+
           if (push == null && (oldStatus & CUED_UP) != 0) {
             push = nextUpCue();
+            nextUpCueCount.incrementAndGet();
           }
           if (push != null) {
             pullUpCommand(push.message());
@@ -330,10 +352,17 @@ public abstract class WarpDownlinkModem<View extends DownlinkView> extends Downl
             this.linkContext.skipUp();
           }
           break;
+        } else {
+          conditionNotMetCount.incrementAndGet();
         }
       }
     } while (true);
   }
+
+  public static AtomicInteger nextUpCueCount = new AtomicInteger();
+  public static AtomicInteger nullCount = new AtomicInteger();
+  public static AtomicInteger conditionCount = new AtomicInteger();
+  public static AtomicInteger conditionNotMetCount = new AtomicInteger();
 
   protected void pullUpCommand(CommandMessage message) {
     onCommand(message);
@@ -353,7 +382,7 @@ public abstract class WarpDownlinkModem<View extends DownlinkView> extends Downl
 
   protected void pushUp(Envelope envelope) {
     this.linkContext.pushUp(new Push<Envelope>(Uri.empty(), hostUri(), nodeUri(), laneUri(),
-                                               prio(), null, envelope, null));
+        prio(), null, envelope, null));
   }
 
   public void link() {
@@ -667,9 +696,9 @@ public abstract class WarpDownlinkModem<View extends DownlinkView> extends Downl
     final long commandCount = COMMAND_COUNT.addAndGet(this, (long) commandDelta);
 
     return new WarpDownlinkProfile(cellAddressDown(), execDelta, execRate, execTime,
-                                   openDelta, openCount, closeDelta, closeCount,
-                                   eventDelta, eventRate, eventCount,
-                                   commandDelta, commandRate, commandCount);
+        openDelta, openCount, closeDelta, closeCount,
+        eventDelta, eventRate, eventCount,
+        commandDelta, commandRate, commandCount);
   }
 
   static final int OPENED = 1 << 0;

@@ -14,8 +14,8 @@
 
 package swim.server;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import swim.actor.ActorSpaceDef;
 import swim.api.SwimLane;
@@ -23,57 +23,44 @@ import swim.api.SwimRoute;
 import swim.api.agent.AbstractAgent;
 import swim.api.agent.AgentRoute;
 import swim.api.downlink.MapDownlink;
-import swim.api.function.DidClose;
-import swim.api.function.DidConnect;
-import swim.api.function.DidDisconnect;
 import swim.api.lane.JoinMapLane;
 import swim.api.lane.MapLane;
-import swim.api.lane.function.DidDownlinkMap;
-import swim.api.lane.function.WillDownlinkMap;
 import swim.api.plane.AbstractPlane;
-import swim.api.warp.function.DidLink;
 import swim.api.warp.function.DidReceive;
-import swim.api.warp.function.DidSync;
-import swim.api.warp.function.DidUnlink;
-import swim.api.warp.function.WillLink;
 import swim.api.warp.function.WillReceive;
-import swim.api.warp.function.WillSync;
-import swim.api.warp.function.WillUnlink;
-import swim.codec.Format;
 import swim.kernel.Kernel;
-import swim.observable.function.DidRemoveKey;
 import swim.observable.function.DidUpdateKey;
-import swim.observable.function.WillRemoveKey;
 import swim.observable.function.WillUpdateKey;
-import swim.recon.Recon;
+import swim.runtime.downlink.MapDownlinkView;
+import swim.runtime.warp.MapDownlinkModem;
+import swim.runtime.warp.WarpDownlinkModem;
 import swim.service.web.WebServiceDef;
 import swim.structure.Value;
+import java.util.Random;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.fail;
 
 public class JoinMapLaneSpec {
+
   static class TestMapLaneAgent extends AbstractAgent {
     @SwimLane("map")
     MapLane<String, String> testMap = this.<String, String>mapLane()
         .observe(new TestMapLaneController());
 
-    class TestMapLaneController implements WillUpdateKey<String, String>, DidUpdateKey<String, String>,
-        WillRemoveKey<String>, DidRemoveKey<String, String> {
+    class TestMapLaneController implements WillUpdateKey<String, String>, DidUpdateKey<String, String> {
       @Override
       public String willUpdate(String key, String newValue) {
-        System.out.println(nodeUri() + " willUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue));
+//        System.out.println(nodeUri() + " willUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue));
         return newValue;
       }
+
       @Override
       public void didUpdate(String key, String newValue, String oldValue) {
-        System.out.println(nodeUri() + " didUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue) + "; oldValue: " + Format.debug(oldValue));
-      }
-      @Override
-      public void willRemove(String key) {
-        System.out.println(nodeUri() + " willRemove key: " + Format.debug(key));
-      }
-      @Override
-      public void didRemove(String key, String oldValue) {
-        System.out.println(nodeUri() + " didRemove key: " + Format.debug(key) + "; oldValue: " + Format.debug(oldValue));
+//        System.out.println(nodeUri() + " didUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue) + "; oldValue: " + Format.debug(oldValue));
       }
     }
   }
@@ -83,34 +70,16 @@ public class JoinMapLaneSpec {
     JoinMapLane<String, String, String> testJoinMap = this.<String, String, String>joinMapLane()
         .observe(new TestJoinMapLaneController());
 
-    class TestJoinMapLaneController implements WillDownlinkMap<String>, DidDownlinkMap<String>,
-        WillUpdateKey<String, String>, DidUpdateKey<String, String>,
-        WillRemoveKey<String>, DidRemoveKey<String, String> {
-      @Override
-      public MapDownlink<?, ?> willDownlink(String key, MapDownlink<?, ?> downlink) {
-        System.out.println(nodeUri() + " willDownlink key: " + Format.debug(key) + "; downlink: " + downlink);
-        return downlink;
-      }
-      @Override
-      public void didDownlink(String key, MapDownlink<?, ?> downlink) {
-        System.out.println(nodeUri() + " didDownlink key: " + Format.debug(key) + "; downlink: " + downlink);
-      }
+    class TestJoinMapLaneController implements WillUpdateKey<String, String>, DidUpdateKey<String, String> {
       @Override
       public String willUpdate(String key, String newValue) {
-        System.out.println(nodeUri() + " willUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue));
+//        System.out.println(nodeUri() + " willUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue));
         return newValue;
       }
+
       @Override
       public void didUpdate(String key, String newValue, String oldValue) {
-        System.out.println(nodeUri() + " didUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue) + "; oldValue: " + Format.debug(oldValue));
-      }
-      @Override
-      public void willRemove(String key) {
-        System.out.println(nodeUri() + " willRemove key: " + Format.debug(key));
-      }
-      @Override
-      public void didRemove(String key, String oldValue) {
-        System.out.println(nodeUri() + " didRemove key: " + Format.debug(key) + "; oldValue: " + Format.debug(oldValue));
+//        System.out.println(nodeUri() + " didUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue) + "; oldValue: " + Format.debug(oldValue));
       }
     }
 
@@ -129,116 +98,139 @@ public class JoinMapLaneSpec {
     AgentRoute<TestJoinMapLaneAgent> joinMapRoute;
   }
 
-  @Test
-  public void testLinkToJoinMapLane() throws InterruptedException {
-    final Kernel kernel = ServerLoader.loadServerStack();
-    final TestJoinMapPlane plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
-                                         .openPlane("test", TestJoinMapPlane.class);
+  private TestJoinMapPlane plane;
+  private Kernel kernel;
 
-    final CountDownLatch joinDidReceive = new CountDownLatch(4);
-    final CountDownLatch joinDidUpdate = new CountDownLatch(4);
-    class JoinMapLinkController implements WillUpdateKey<String, String>,
-        DidUpdateKey<String, String>, WillReceive, DidReceive, WillLink, DidLink,
-        WillSync, DidSync, WillUnlink, DidUnlink, DidConnect, DidDisconnect, DidClose {
-      @Override
-      public String willUpdate(String key, String newValue) {
-        System.out.println("join link willUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue));
-        return newValue;
-      }
-      @Override
-      public void didUpdate(String key, String newValue, String oldValue) {
-        System.out.println("join link didUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue));
-        joinDidUpdate.countDown();
-      }
-      @Override
-      public void willReceive(Value body) {
-        System.out.println("join link willReceive body: " + Recon.toString(body));
-      }
+  @BeforeMethod
+  public void init() {
+    kernel = ServerLoader.loadServerStack();
+    plane = kernel.openSpace(ActorSpaceDef.fromName("test"))
+        .openPlane("test", TestJoinMapPlane.class);
+
+    kernel.openService(WebServiceDef.standard().port(53556).spaceName("test"));
+    kernel.start();
+  }
+
+  @AfterMethod
+  public void close() {
+    kernel.stop();
+  }
+
+  /**
+   * Test that the lane can accept and process a high rate of entries in a small period of time. This tests against a
+   * previous bug that would cause the lane to stop processing entries.
+   *
+   * @throws InterruptedException if the thread is interrupted while waiting for a countdown
+   */
+  @Test
+  public void testInsertion() throws InterruptedException {
+    int insertionCount = 100_000;
+    final CountDownLatch willReceive = new CountDownLatch(insertionCount);
+    final CountDownLatch didReceive = new CountDownLatch(insertionCount);
+
+    final MapDownlink<String, String> xs = getDownlink("/map/xs", "map", null);
+    final MapDownlink<String, String> ys = getDownlink("/map/ys", "map", null);
+
+    class Observer implements WillReceive, DidReceive {
       @Override
       public void didReceive(Value body) {
-        System.out.println("join link didReceive body: " + Recon.toString(body));
-        joinDidReceive.countDown();
+//        System.out.println("Did receive: " + body);
+        didReceive.countDown();
       }
+
       @Override
-      public void willLink() {
-        System.out.println("join link willLink");
-      }
-      @Override
-      public void didLink() {
-        System.out.println("join link didLink");
-      }
-      @Override
-      public void willSync() {
-        System.out.println("join link willSync");
-      }
-      @Override
-      public void didSync() {
-        System.out.println("join link didSync");
-      }
-      @Override
-      public void willUnlink() {
-        System.out.println("join link willUnlink");
-      }
-      @Override
-      public void didUnlink() {
-        System.out.println("join link didUnlink");
-      }
-      @Override
-      public void didConnect() {
-        System.out.println("join link didConnect");
-      }
-      @Override
-      public void didDisconnect() {
-        System.out.println("join link didDisconnect");
-      }
-      @Override
-      public void didClose() {
-        System.out.println("join link didClose");
+      public void willReceive(Value body) {
+//        System.out.println("Will receive: " + body);
+        willReceive.countDown();
       }
     }
+
+    final MapDownlink<String, String> join = getDownlink("/join/map/all", "join", new Observer());
+
+    for (int i = 0; i < insertionCount; i++) {
+      String ins = Integer.toString(i);
+      xs.put(ins, ins);
+    }
+
+    willReceive.await(30, TimeUnit.SECONDS);
+    didReceive.await(30, TimeUnit.SECONDS);
+
+    assertEquals(willReceive.getCount(), 0);
+    assertEquals(didReceive.getCount(), 0);
+  }
+
+  @Test
+  public void testLinkToJoinMapLane() throws InterruptedException {
+    final MapDownlink<String, String> xs = getDownlink("/map/xs", "map", null);
+    final MapDownlink<String, String> ys = getDownlink("/map/ys", "map", null);
+
+    final MapDownlink<String, String> join = getDownlink("/join/map/all", "join", (WillUpdateKey) (key, newValue) -> {
+//      System.out.println("join link willUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue));
+      return newValue;
+    });
+
+
+    int threads = 1000;
+    CountDownLatch countDownLatch = new CountDownLatch(threads);
+    Random random = new Random();
+    ExecutorService executor = Executors.newFixedThreadPool(100);
+
+    for (int i = 0; i < threads; i++) {
+      executor.execute(() -> {
+        for (int j = 0; j < 15000; j++) {
+          int r = random.nextInt();
+          xs.put(Integer.toString(r), Integer.toString(r));
+//      Thread.sleep(1);
+        }
+
+        countDownLatch.countDown();
+        System.out.println(countDownLatch.getCount());
+      });
+    }
+
+    countDownLatch.await();
+
+//    Thread.sleep(60000);
+
+    System.out.println("MapDownlinkView#putCount: " + MapDownlinkView.putCount);
+    System.out.println("WarpDownlinkModem#cueUpCount: " + WarpDownlinkModem.cueUpCount.get());
+    System.out.println("WarpDownlinkModem#didBreakCount: " + WarpDownlinkModem.didBreakCount.get());
+    System.out.println("WarpDownlinkModem#didFeedUpCount: " + WarpDownlinkModem.didFeedUpCount.get());
+    System.out.println("WarpDownlinkModem#conditionNotMetCount: " + WarpDownlinkModem.conditionNotMetCount.get());
+
+    System.out.println("MapDownlinkModem#feedUpMethodCount: " + MapDownlinkModem.feedUpMethodCount);
+    System.out.println("MapDownlinkModem#feedUpQueueNotEmpty: " + MapDownlinkModem.feedUpQueueNotEmpty);
+    System.out.println("MapDownlinkModem#nextUpCueCount: " + MapDownlinkModem.nextUpCueCount.get());
+    System.out.println("MapDownlinkModem#nullCount: " + MapDownlinkModem.nullCount.get());
+    System.out.println("MapDownlinkModem#conditionCount: " + MapDownlinkModem.conditionCount.get());
+    System.out.println("MapDownlinkModem#nextUpCueNullCount: " + MapDownlinkModem.nextUpCueNullCount);
+
+  }
+
+  private MapDownlink<String, String> getDownlink(String nodeUri, String laneUri, Object observer) {
+    CountDownLatch didSyncLatch = new CountDownLatch(1);
+    MapDownlink<String, String> downlink = plane.downlinkMap()
+        .keyClass(String.class)
+        .valueClass(String.class)
+        .hostUri("warp://localhost:53556/")
+        .nodeUri(nodeUri)
+        .laneUri(laneUri)
+        .didSync(didSyncLatch::countDown);
+
+    if (observer != null) {
+      downlink.observe(observer);
+    }
+
+    downlink.open();
 
     try {
-      kernel.openService(WebServiceDef.standard().port(53556).spaceName("test"));
-      kernel.start();
-      final MapDownlink<String, String> xs = plane.downlinkMap()
-          .keyClass(String.class)
-          .valueClass(String.class)
-          .hostUri("warp://localhost:53556/")
-          .nodeUri("/map/xs")
-          .laneUri("map")
-          .open();
-      final MapDownlink<String, String> ys = plane.downlinkMap()
-          .keyClass(String.class)
-          .valueClass(String.class)
-          .hostUri("warp://localhost:53556/")
-          .nodeUri("/map/ys")
-          .laneUri("map")
-          .open();
-      xs.put("x0", "a");
-      xs.put("x1", "b");
-      ys.put("y0", "c");
-      ys.put("y1", "d");
-
-      final MapDownlink<String, String> join = plane.downlinkMap()
-          .keyClass(String.class)
-          .valueClass(String.class)
-          .hostUri("warp://localhost:53556/")
-          .nodeUri("/join/map/all")
-          .laneUri("join")
-          .observe(new JoinMapLinkController())
-          .open();
-
-      joinDidReceive.await(1, TimeUnit.SECONDS);
-      joinDidUpdate.await(1, TimeUnit.SECONDS);
-      assertEquals(joinDidReceive.getCount(), 0);
-      assertEquals(joinDidUpdate.getCount(), 0);
-      assertEquals(join.size(), 4);
-      assertEquals(join.get("x0"), "a");
-      assertEquals(join.get("x1"), "b");
-      assertEquals(join.get("y0"), "c");
-      assertEquals(join.get("y1"), "d");
-    } finally {
-      kernel.stop();
+      didSyncLatch.await();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+      fail();
     }
+
+    return downlink;
   }
+
 }
