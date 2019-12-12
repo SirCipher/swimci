@@ -140,7 +140,6 @@ public abstract class MapDownlinkModem<View extends WarpDownlinkView> extends Wa
       Logger.info("Key queue is not empty. Calling cueUp()");
       cueUp();
       feedUpQueueNotEmpty++;
-
     }
     feedUpMethodCount++;
     super.feedUp();

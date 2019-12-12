@@ -4,16 +4,21 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.Deque;
+import java.util.concurrent.ConcurrentLinkedDeque;
 
 public final class Logger {
 
-  private static final Queue<LogEntry> MESSAGES = new ConcurrentLinkedQueue<>();
-  private static boolean haveLogged = false;
-  public static final String LOG_FILE_NAME = "swim.log";
+  private static volatile boolean haveLogged = false;
+  private static volatile boolean highLightSequentialInvocations = true;
+  private static volatile boolean squashSequentialInvocations = false;
+  private volatile static String lastMessage;
+
+  private static final Deque<LogEntry> MESSAGES = new ConcurrentLinkedDeque<>();
   private static int bufferSize = 100_000;
   private static PrintWriter printWriter;
+
+  public static final String LOG_FILE_NAME = "swim.log";
 
   private Logger() {
     throw new AssertionError();
@@ -32,6 +37,9 @@ public final class Logger {
     } catch (FileNotFoundException e) {
       throw new RuntimeException("Failed to create file", e);
     }
+  }
+  public static void squashSequentialInvocations(boolean squashSequentialInvocations) {
+    Logger.squashSequentialInvocations = squashSequentialInvocations;
   }
 
   private static void open() {
@@ -76,6 +84,18 @@ public final class Logger {
       haveLogged = true;
     }
 
+    if (squashSequentialInvocations) {
+      if (message.equals(lastMessage)) {
+        final LogEntry logEntry = MESSAGES.peekLast();
+        if (logEntry != null) {
+          logEntry.incrementCount();
+          return;
+        }
+      } else {
+        lastMessage = message;
+      }
+    }
+
     final Thread thread = Thread.currentThread();
     final int METHOD_CALLER_INDEX = 3;
 
@@ -91,22 +111,30 @@ public final class Logger {
     Logger.bufferSize = newBufferSize;
   }
 
-  public static void flush(boolean force) {
-    if (!force){// && Logger.MESSAGES.size() != bufferSize) {
+  public static synchronized void flush(final boolean force) {
+    if (!force) {// && Logger.MESSAGES.size() != bufferSize) {
       return;
     }
 
     final SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss.SSS");
 
-    System.out.println("Writing log files...");
+    System.out.println("Flushing " + Logger.MESSAGES.size() + " messages");
 
     for (LogEntry entry : Logger.MESSAGES) {
-      Date timestamp = new Date(entry.getMilliTime());
-      String res = sdf.format(timestamp);
-      entry.setMessage(entry.getNanoTime() + ", " + entry.getMessage().replace("%d", res));
+      final Date timestamp = new Date(entry.getMilliTime());
+      final String res = sdf.format(timestamp);
+
+      String msg = entry.getNanoTime() + ", " + entry.getMessage().replace("%d", res);
+      int count = entry.getCount();
+      msg = msg.replace("[%c]", "[" + count + "] ")
+          + (highLightSequentialInvocations && count > 1 ? " <----------" : "");
+
+      entry.setMessage(msg);
 
       printWriter.println(entry.toString());
     }
+
+    printWriter.flush();
 
     Logger.MESSAGES.clear();
   }

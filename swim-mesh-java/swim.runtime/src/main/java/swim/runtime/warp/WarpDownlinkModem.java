@@ -341,7 +341,7 @@ public abstract class WarpDownlinkModem<View extends DownlinkView> extends Downl
           }
         }
       } else {
-//        log("Did break block. Old status: " + Integer.toBinaryString(oldStatus) + ", new status: " + Integer.toBinaryString(newStatus));
+        Logger.info("Did break block. Old status: " + Integer.toBinaryString(oldStatus) + ", new status: " + Integer.toBinaryString(newStatus));
         didBreakCount.incrementAndGet();
         break;
       }

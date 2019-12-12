@@ -138,6 +138,7 @@ public class JoinMapLaneSpec {
   @Test(invocationCount = 100)//(groups = {"slow"})
   public void testInsertion() throws InterruptedException, IOException {
     ThreadTools.registerThreadDumpOnShutdown();
+    Logger.squashSequentialInvocations(true);
 
     final int insertionCount = 10000;
 
