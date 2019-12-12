@@ -8,7 +8,7 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="11.0.3" />
+        <option name="gradleJvm" value="11" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/swim-core-java/swim.csv" />
             <option value="$PROJECT_DIR$/swim-core-java/swim.dataflow" />
             <option value="$PROJECT_DIR$/swim-core-java/swim.db" />
+            <option value="$PROJECT_DIR$/swim-core-java/swim.debug" />
             <option value="$PROJECT_DIR$/swim-core-java/swim.decipher" />
             <option value="$PROJECT_DIR$/swim-core-java/swim.deflate" />
             <option value="$PROJECT_DIR$/swim-core-java/swim.http" />

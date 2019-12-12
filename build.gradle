@@ -51,6 +51,13 @@ allprojects {
   }
 }
 
+configure(subprojects.findAll { !it.name.contains("debug") }) {
+  dependencies {
+    implementation project(':swim-debug')
+  }
+}
+
+
 gradle.projectsEvaluated {
   apply plugin: 'java'
 
@@ -61,6 +68,8 @@ gradle.projectsEvaluated {
       compileJava.dependsOn project.tasks.compileModuleInfoJava
     }
   }
+
+
 
   javadoc {
     title 'Swim System'

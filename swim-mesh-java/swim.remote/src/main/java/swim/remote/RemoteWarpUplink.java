@@ -14,16 +14,12 @@
 
 package swim.remote;
 
-import java.net.InetSocketAddress;
-import java.security.Principal;
-import java.security.cert.Certificate;
-import java.util.Collection;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 import swim.api.LinkException;
 import swim.api.auth.Identity;
 import swim.concurrent.PullContext;
 import swim.concurrent.PullRequest;
+import swim.debug.lang.ThreadTools;
+import swim.debug.log.Logger;
 import swim.runtime.DownlinkAddress;
 import swim.runtime.LinkAddress;
 import swim.runtime.LinkBinding;
@@ -35,8 +31,15 @@ import swim.runtime.WarpContext;
 import swim.structure.Value;
 import swim.uri.Uri;
 import swim.warp.Envelope;
+import java.net.InetSocketAddress;
+import java.security.Principal;
+import java.security.cert.Certificate;
+import java.util.Collection;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 
 class RemoteWarpUplink implements WarpContext, PullRequest<Envelope> {
+
   final RemoteHost host;
   final WarpBinding link;
   final Uri remoteNodeUri;
@@ -186,7 +189,7 @@ class RemoteWarpUplink implements WarpContext, PullRequest<Envelope> {
     } while (oldStatus != newStatus && !STATUS.compareAndSet(this, oldStatus, newStatus));
     if (envelope != null) {
       this.link.pushDown(new Push<Envelope>(Uri.empty(), Uri.empty(), this.link.nodeUri(), this.link.laneUri(),
-                                            this.link.prio(), this.host.remoteIdentity(), envelope, null));
+          this.link.prio(), this.host.remoteIdentity(), envelope, null));
     }
     feedDownQueue();
   }
@@ -214,14 +217,19 @@ class RemoteWarpUplink implements WarpContext, PullRequest<Envelope> {
     do {
       oldStatus = this.status;
       if ((oldStatus & PULLING_UP) == 0) {
+        Logger.info("Old status & pulling up is zero");
         newStatus = oldStatus & ~FEEDING_UP | PULLING_UP;
       } else {
+        Logger.info("Old status & pulling up is not equal to zero");
         newStatus = oldStatus | FEEDING_UP;
       }
-    } while (oldStatus != newStatus && !STATUS.compareAndSet(this, oldStatus, newStatus));
+    } while (oldStatus != newStatus && !compareAndSet(oldStatus, newStatus, true));
     if ((oldStatus & PULLING_UP) == 0) {
-
+      Logger.info("Starting feeding up. Old status: " + Integer.toBinaryString(oldStatus) + ", new status: " + Integer.toBinaryString(newStatus));
       this.host.warpSocketContext.feed(this);
+    } else {
+//      ThreadTools.dumpCurrentThread();
+      Logger.info("Already feeding up. Old status: " + Integer.toBinaryString(oldStatus) + ", new status: " + Integer.toBinaryString(newStatus));
     }
   }
 
@@ -231,8 +239,11 @@ class RemoteWarpUplink implements WarpContext, PullRequest<Envelope> {
     this.link.pullUp();
   }
 
+
   @Override
   public void pushUp(Push<?> push) {
+    Logger.info("pushUp() called");
+
     final Object message = push.message();
     if (message instanceof Envelope) {
       int oldStatus;
@@ -240,16 +251,30 @@ class RemoteWarpUplink implements WarpContext, PullRequest<Envelope> {
       do {
         oldStatus = this.status;
         newStatus = oldStatus & ~PULLING_UP;
-      } while (oldStatus != newStatus && !STATUS.compareAndSet(this, oldStatus, newStatus));
+      } while (oldStatus != newStatus && !compareAndSet(oldStatus, newStatus, true));
       if (oldStatus != newStatus && this.pullContext != null) {
+        Logger.info("pushUp() status: "+Integer.toBinaryString(newStatus));
+
         final Envelope remoteEnvelope = ((Envelope) message).nodeUri(this.remoteNodeUri);
         this.pullContext.push(remoteEnvelope);
         this.pullContext = null;
         push.bind();
+      } else {
+        Logger.info("pushUp() else");
       }
     } else {
+      Logger.info("pushUp() trapped: " + message);
       push.trap(new LinkException("unsupported message: " + message));
     }
+  }
+
+  private synchronized boolean compareAndSet(int oldvalue, int newValue, boolean log) {
+    boolean set = STATUS.compareAndSet(this, oldvalue, newValue);
+    if (log) {
+//      Logger.info("RWU: Compare and set? " + set + ". Old value: " + Integer.toBinaryString(oldvalue) + ", new value: " + Integer.toBinaryString(newValue));
+    }
+
+    return set;
   }
 
   @Override
@@ -259,7 +284,8 @@ class RemoteWarpUplink implements WarpContext, PullRequest<Envelope> {
     do {
       oldStatus = this.status;
       newStatus = oldStatus & ~PULLING_UP;
-    } while (oldStatus != newStatus && !STATUS.compareAndSet(this, oldStatus, newStatus));
+    } while (oldStatus != newStatus && !compareAndSet(oldStatus, newStatus, true));
+    Logger.info("skipUp() status: "+Integer.toBinaryString(newStatus));
     if (oldStatus != newStatus && this.pullContext != null) {
       this.pullContext.skip();
       this.pullContext = null;
@@ -335,4 +361,5 @@ class RemoteWarpUplink implements WarpContext, PullRequest<Envelope> {
 
   static final AtomicIntegerFieldUpdater<RemoteWarpUplink> STATUS =
       AtomicIntegerFieldUpdater.newUpdater(RemoteWarpUplink.class, "status");
+
 }

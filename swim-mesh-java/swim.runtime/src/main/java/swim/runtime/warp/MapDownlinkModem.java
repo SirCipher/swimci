@@ -16,11 +16,13 @@ package swim.runtime.warp;
 
 import swim.collections.HashTrieSet;
 import swim.concurrent.Cont;
+import swim.debug.log.Logger;
 import swim.runtime.Push;
 import swim.structure.Value;
 import swim.uri.Uri;
 import swim.warp.CommandMessage;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 
@@ -46,6 +48,10 @@ public abstract class MapDownlinkModem<View extends WarpDownlinkView> extends Wa
     return this.keyQueue.isEmpty();
   }
 
+  @Override
+  protected int keyQueueSize() {
+    return this.keyQueue.size();
+  }
 
   @Override
   protected void queueUp(Value body, Cont<CommandMessage> cont) {
@@ -112,7 +118,7 @@ public abstract class MapDownlinkModem<View extends WarpDownlinkView> extends Wa
       this.lastKey = key;
 
       final Uri hostUri = hostUri();
-      final Uri nodeUri = nodeUri();
+        final Uri nodeUri = nodeUri();
       final Uri laneUri = laneUri();
       final float prio = prio();
       final Value body = nextUpKey(key);
@@ -130,10 +136,11 @@ public abstract class MapDownlinkModem<View extends WarpDownlinkView> extends Wa
 
   @Override
   protected void feedUp() {
-    // TODO: This is called when the method is already locked
     if (!this.keyQueue.isEmpty()) {
+      Logger.info("Key queue is not empty. Calling cueUp()");
       cueUp();
       feedUpQueueNotEmpty++;
+
     }
     feedUpMethodCount++;
     super.feedUp();

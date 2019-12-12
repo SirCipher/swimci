@@ -23,6 +23,7 @@ import swim.concurrent.ConcurrentTrancheQueue;
 import swim.concurrent.PullContext;
 import swim.concurrent.PullRequest;
 import swim.concurrent.PushRequest;
+import swim.debug.log.Logger;
 import swim.http.HttpRequest;
 import swim.http.HttpResponse;
 import swim.io.FlowControl;
@@ -349,7 +350,9 @@ public class WarpWebSocket implements WebSocket<Envelope, Envelope>, WarpSocketC
     } while (true);
   }
 
-  protected void generateDemand() {
+  private void generateDemand() {
+//    Logger.info("Starting generating demand");
+
     demand: do {
       PullRequest<Envelope> pullRequest = null;
       do {
@@ -387,6 +390,8 @@ public class WarpWebSocket implements WebSocket<Envelope, Envelope>, WarpSocketC
         }
       } while (true);
     } while (true);
+
+//    Logger.info("Finished generating demand");
   }
 
   @Override

@@ -1,0 +1,19 @@
+229260257980253, [12:42:24.173] main@swim.runtime.WarpProxy.pullUp(WarpProxy.java:300): Reset feeding up? true. Old status: 110000000011, new status: 11
+229260258079298, [12:42:24.173] main@swim.runtime.WarpProxy.pullUp(WarpProxy.java:300): Key queue size: 0
+229260258310557, [12:42:24.173] main@swim.runtime.WarpProxy.pullUp(WarpProxy.java:300): Up queue is empty? true
+229260258738097, [12:42:24.174] main@swim.runtime.warp.MapDownlinkModem.cueUpKey(MapDownlinkModem.java:73): Feeding up block. Old status: 11, new status: 110000000011
+229260258876650, [12:42:24.174] SwimKernel6@swim.runtime.WarpProxy.pullUp(WarpProxy.java:300): Reset feeding up? true. Old status: 110000000011, new status: 11
+229260258965763, [12:42:24.174] main@swim.runtime.warp.MapDownlinkModem.cueUpKey(MapDownlinkModem.java:73): Feeding up block. Old status: 11, new status: 110000000011
+229260259039096, [12:42:24.174] SwimKernel6@swim.runtime.WarpProxy.pullUp(WarpProxy.java:300): Key queue size: 1
+229260259105903, [12:42:24.174] SwimKernel6@swim.runtime.WarpProxy.pullUp(WarpProxy.java:300): Up queue is empty? true
+229260259540446, [12:42:24.175] main@swim.runtime.warp.MapDownlinkModem.cueUpKey(MapDownlinkModem.java:73): Did break block. Old status: 110000000011, new status: 110000000011
+229260259624145, [12:42:24.175] SwimKernel6@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:444): Key queue is not empty. Calling cueUp()
+229260259699597, [12:42:24.175] SwimKernel6@swim.runtime.warp.MapDownlinkModem.feedUp(MapDownlinkModem.java:140): Did break block. Old status: 110000000011, new status: 110000000011
+229260261045330, [12:42:24.176] main@swim.runtime.warp.MapDownlinkModem.cueUpKey(MapDownlinkModem.java:73): Did break block. Old status: 110000000011, new status: 110000000011
+229260261386554, [12:42:24.176] main@swim.runtime.warp.MapDownlinkModem.cueUpKey(MapDownlinkModem.java:73): Did break block. Old status: 110000000011, new status: 110000000011
+229260261531489, [12:42:24.177] main@swim.runtime.warp.MapDownlinkModem.cueUpKey(MapDownlinkModem.java:73): Did break block. Old status: 110000000011, new status: 110000000011
+229260261679084, [12:42:24.177] main@swim.runtime.warp.MapDownlinkModem.cueUpKey(MapDownlinkModem.java:73): Did break block. Old status: 110000000011, new status: 110000000011
+229260262081446, [12:42:24.177] main@swim.runtime.warp.MapDownlinkModem.cueUpKey(MapDownlinkModem.java:73): Did break block. Old status: 110000000011, new status: 110000000011
+229260262227146, [12:42:24.177] main@swim.runtime.warp.MapDownlinkModem.cueUpKey(MapDownlinkModem.java:73): Did break block. Old status: 110000000011, new status: 110000000011
+
+- Looks like the feedUp() was called but it didn't call successfully. This set the new status of 110000000011 and it is never again cleared. So the 'did break block' is always called and it breaks. This happened after the SwimKernel thread enters the party for the first time

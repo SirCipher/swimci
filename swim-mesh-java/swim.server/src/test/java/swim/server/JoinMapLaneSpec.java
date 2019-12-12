@@ -28,8 +28,8 @@ import swim.api.lane.MapLane;
 import swim.api.plane.AbstractPlane;
 import swim.api.warp.function.DidReceive;
 import swim.api.warp.function.WillReceive;
-import swim.codec.Debug;
-import swim.codec.Format;
+import swim.debug.lang.ThreadTools;
+import swim.debug.log.Logger;
 import swim.kernel.Kernel;
 import swim.observable.function.DidUpdateKey;
 import swim.observable.function.WillUpdateKey;
@@ -37,8 +37,8 @@ import swim.runtime.downlink.MapDownlinkView;
 import swim.runtime.warp.MapDownlinkModem;
 import swim.runtime.warp.WarpDownlinkModem;
 import swim.service.web.WebServiceDef;
-import swim.structure.Form;
 import swim.structure.Value;
+import java.io.IOException;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -50,11 +50,13 @@ import static org.testng.Assert.fail;
 public class JoinMapLaneSpec {
 
   static class TestMapLaneAgent extends AbstractAgent {
+
     @SwimLane("map")
     MapLane<String, String> testMap = this.<String, String>mapLane()
         .observe(new TestMapLaneController());
 
     class TestMapLaneController implements WillUpdateKey<String, String>, DidUpdateKey<String, String> {
+
       @Override
       public String willUpdate(String key, String newValue) {
 //        System.out.println(nodeUri() + " willUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue));
@@ -65,15 +67,19 @@ public class JoinMapLaneSpec {
       public void didUpdate(String key, String newValue, String oldValue) {
 //        System.out.println(nodeUri() + " didUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue) + "; oldValue: " + Format.debug(oldValue));
       }
+
     }
+
   }
 
   static class TestJoinMapLaneAgent extends AbstractAgent {
+
     @SwimLane("join")
     JoinMapLane<String, String, String> testJoinMap = this.<String, String, String>joinMapLane()
         .observe(new TestJoinMapLaneController());
 
     class TestJoinMapLaneController implements WillUpdateKey<String, String>, DidUpdateKey<String, String> {
+
       @Override
       public String willUpdate(String key, String newValue) {
 //        System.out.println(nodeUri() + " willUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue));
@@ -84,6 +90,7 @@ public class JoinMapLaneSpec {
       public void didUpdate(String key, String newValue, String oldValue) {
 //        System.out.println(nodeUri() + " didUpdate key: " + Format.debug(key) + "; newValue: " + Format.debug(newValue) + "; oldValue: " + Format.debug(oldValue));
       }
+
     }
 
     @Override
@@ -91,14 +98,17 @@ public class JoinMapLaneSpec {
       testJoinMap.downlink("xs").hostUri("warp://localhost:53556").nodeUri("/map/xs").laneUri("map").open();
       testJoinMap.downlink("ys").hostUri("warp://localhost:53556").nodeUri("/map/ys").laneUri("map").open();
     }
+
   }
 
   static class TestJoinMapPlane extends AbstractPlane {
+
     @SwimRoute("/map/:name")
     AgentRoute<TestMapLaneAgent> mapRoute;
 
     @SwimRoute("/join/map/:name")
     AgentRoute<TestJoinMapLaneAgent> joinMapRoute;
+
   }
 
   private TestJoinMapPlane plane;
@@ -126,8 +136,10 @@ public class JoinMapLaneSpec {
    * @throws InterruptedException if the thread is interrupted while waiting for a countdown
    */
   @Test(invocationCount = 100)//(groups = {"slow"})
-  public void testInsertion() throws InterruptedException {
-    final int insertionCount = 100000;
+  public void testInsertion() throws InterruptedException, IOException {
+    ThreadTools.registerThreadDumpOnShutdown();
+
+    final int insertionCount = 10000;
 
     final CountDownLatch willReceive = new CountDownLatch(insertionCount);
     final CountDownLatch didReceive = new CountDownLatch(insertionCount);
@@ -136,6 +148,7 @@ public class JoinMapLaneSpec {
     final MapDownlink<String, String> ys = getDownlink("/map/ys", "map", null);
 
     class Observer implements WillReceive, DidReceive {
+
       @Override
       public void didReceive(Value body) {
 //        System.out.println("Did receive: "+ Format.debug(body));
@@ -147,6 +160,7 @@ public class JoinMapLaneSpec {
 //        System.out.println("Will receive: "+ Format.debug(body));
         willReceive.countDown();
       }
+
     }
 
     final MapDownlink<String, String> join = getDownlink("/join/map/all", "join", new Observer());
@@ -160,13 +174,12 @@ public class JoinMapLaneSpec {
       }
     }
 
+    System.out.println("Awaiting will receive");
+
 //    didReceive.await(10, TimeUnit.SECONDS);
     willReceive.await(10, TimeUnit.SECONDS);
 
-//    if(willReceive.getCount()!=0){
-//      System.out.println("Will receive latch count: "+ willReceive.getCount());
-//      willReceive.await(5, TimeUnit.SECONDS);
-//    }
+    Logger.flush(true);
 
     System.out.println("MapDownlinkView#putCount: " + MapDownlinkView.putCount);
     System.out.println("WarpDownlinkModem#cueUpCount: " + WarpDownlinkModem.cueUpCount.get());
@@ -207,7 +220,7 @@ public class JoinMapLaneSpec {
           int r = random.nextInt();
           xs.put(Integer.toString(r), Integer.toString(r));
 
-          if(j%1000==0){
+          if (j % 1000 == 0) {
             System.out.println(j);
           }
 

@@ -21,6 +21,10 @@ include 'swim.args'
 project(':swim.args').projectDir = file('swim-core-java/swim.args')
 project(':swim.args').name = 'swim-args'
 
+include 'swim.debug'
+project(':swim.debug').projectDir = file('swim-core-java/swim.debug')
+project(':swim.debug').name = 'swim-debug'
+
 include 'swim.structure'
 project(':swim.structure').projectDir = file('swim-core-java/swim.structure')
 project(':swim.structure').name = 'swim-structure'

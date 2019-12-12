@@ -1,0 +1,6 @@
+apply from: '../project.gradle'
+
+description = 'Debug tools for development'
+ext.homepage = 'https://github.com/swimos/swim/tree/master/swim-system-java/swim-core-java/swim.debug'
+ext.moduleName = 'swim.debug'
+
