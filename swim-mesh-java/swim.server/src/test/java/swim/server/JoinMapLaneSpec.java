@@ -30,6 +30,7 @@ import swim.api.warp.function.DidReceive;
 import swim.api.warp.function.WillReceive;
 import swim.debug.lang.ThreadTools;
 import swim.debug.log.Logger;
+import swim.debug.log.MethodInvocationTracker;
 import swim.kernel.Kernel;
 import swim.observable.function.DidUpdateKey;
 import swim.observable.function.WillUpdateKey;
@@ -181,6 +182,7 @@ public class JoinMapLaneSpec {
     willReceive.await(10, TimeUnit.SECONDS);
 
     Logger.flush(true);
+    MethodInvocationTracker.printMetrics();
 
     System.out.println("MapDownlinkView#putCount: " + MapDownlinkView.putCount);
     System.out.println("WarpDownlinkModem#cueUpCount: " + WarpDownlinkModem.cueUpCount.get());

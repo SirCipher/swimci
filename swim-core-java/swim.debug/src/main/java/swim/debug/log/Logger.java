@@ -38,8 +38,12 @@ public final class Logger {
       throw new RuntimeException("Failed to create file", e);
     }
   }
-  public static void squashSequentialInvocations(boolean squashSequentialInvocations) {
+  public static void squashSequentialInvocations(final boolean squashSequentialInvocations) {
     Logger.squashSequentialInvocations = squashSequentialInvocations;
+  }
+
+  public static void highLightSequentialInvocations(final boolean highLightSequentialInvocations) {
+    Logger.highLightSequentialInvocations = highLightSequentialInvocations;
   }
 
   private static void open() {
@@ -58,28 +62,50 @@ public final class Logger {
   }
 
   public static void info(final String message) {
-    log(message, "INFO");
+    log(message, "INFO", false);
   }
 
   public static void trace(final String message) {
-    log(message, "TRACE");
+    log(message, "TRACE", false);
   }
 
   public static void warn(final String message) {
-    log(message, "WARN");
+    log(message, "WARN", false);
   }
 
   // TODO
   private static void error(final String message, final Throwable throwable) {
-    log(message, "ERROR");
+    log(message, "ERROR", false);
   }
 
   // TODO
   private static void fatal(final String message, final Throwable throwable) {
-    log(message, "FATAL");
+    log(message, "FATAL", false);
   }
 
-  private static void log(final String message, final String level) {
+  public static void info(final String message, final boolean mark) {
+    log(message, "INFO", mark);
+  }
+
+  public static void trace(final String message, final boolean mark) {
+    log(message, "TRACE", mark);
+  }
+
+  public static void warn(final String message, final boolean mark) {
+    log(message, "WARN", mark);
+  }
+
+  // TODO
+  private static void error(final String message, final Throwable throwable, final boolean mark) {
+    log(message, "ERROR", mark);
+  }
+
+  // TODO
+  private static void fatal(final String message, final Throwable throwable, final boolean mark) {
+    log(message, "FATAL", mark);
+  }
+
+  private static void log(final String message, final String level, final boolean isMarked) {
     if (!haveLogged) {
       haveLogged = true;
     }
@@ -99,7 +125,7 @@ public final class Logger {
     final Thread thread = Thread.currentThread();
     final int METHOD_CALLER_INDEX = 3;
 
-    MESSAGES.add(new LogEntry("[" + level + "] " + thread.getName() + "@" + thread.getStackTrace()[METHOD_CALLER_INDEX] + " " + message));
+    MESSAGES.add(new LogEntry("[" + level + "] [" + thread.getName() + "] " + thread.getStackTrace()[METHOD_CALLER_INDEX] + " " + message, isMarked));
     flush(false);
   }
 
@@ -123,19 +149,24 @@ public final class Logger {
     for (LogEntry entry : Logger.MESSAGES) {
       final Date timestamp = new Date(entry.getMilliTime());
       final String res = sdf.format(timestamp);
+      final int count = entry.getCount();
 
       String msg = entry.getNanoTime() + ", " + entry.getMessage().replace("%d", res);
-      int count = entry.getCount();
-      msg = msg.replace("[%c]", "[" + count + "] ")
-          + (highLightSequentialInvocations && count > 1 ? " <----------" : "");
+      msg = msg.replace("[%c]", "[" + count + "] ");
+
+      if (highLightSequentialInvocations && count > 1 && !entry.isMarked()) {
+        msg += " <----------";
+      }
+
+      if (entry.isMarked()) {
+        msg += " <@@@@@@@@@@@@@@@@@@>";
+      }
 
       entry.setMessage(msg);
-
       printWriter.println(entry.toString());
     }
 
     printWriter.flush();
-
     Logger.MESSAGES.clear();
   }
 

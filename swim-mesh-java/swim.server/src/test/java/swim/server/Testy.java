@@ -1,6 +1,5 @@
 package swim.server;
 
-import swim.debug.log.Logger;
 import java.io.IOException;
 
 public class Testy {

@@ -217,7 +217,7 @@ class RemoteWarpUplink implements WarpContext, PullRequest<Envelope> {
     do {
       oldStatus = this.status;
       if ((oldStatus & PULLING_UP) == 0) {
-        Logger.info("Old status & pulling up is zero");
+        Logger.info("Old status & pulling up is zero", true);
         newStatus = oldStatus & ~FEEDING_UP | PULLING_UP;
       } else {
         Logger.info("Old status & pulling up is not equal to zero");
@@ -225,11 +225,10 @@ class RemoteWarpUplink implements WarpContext, PullRequest<Envelope> {
       }
     } while (oldStatus != newStatus && !compareAndSet(oldStatus, newStatus, true));
     if ((oldStatus & PULLING_UP) == 0) {
-      Logger.info("Starting feeding up. Old status: " + Integer.toBinaryString(oldStatus) + ", new status: " + Integer.toBinaryString(newStatus));
+      Logger.info("Starting feeding up. Old status: " + Integer.toBinaryString(oldStatus) + ", new status: " + Integer.toBinaryString(newStatus), true);
       this.host.warpSocketContext.feed(this);
     } else {
-//      ThreadTools.dumpCurrentThread();
-      Logger.info("Already feeding up. Old status: " + Integer.toBinaryString(oldStatus) + ", new status: " + Integer.toBinaryString(newStatus));
+      Logger.info("Already feeding up. Old status: " + Integer.toBinaryString(oldStatus) + ", new status: " + Integer.toBinaryString(newStatus), true);
     }
   }
 
@@ -260,10 +259,10 @@ class RemoteWarpUplink implements WarpContext, PullRequest<Envelope> {
         this.pullContext = null;
         push.bind();
       } else {
-        Logger.info("pushUp() else");
+        Logger.info("pushUp() else", true);
       }
     } else {
-      Logger.info("pushUp() trapped: " + message);
+      Logger.info("pushUp() trapped: " + message, true);
       push.trap(new LinkException("unsupported message: " + message));
     }
   }

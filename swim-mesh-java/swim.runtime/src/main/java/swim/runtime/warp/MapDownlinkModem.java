@@ -124,7 +124,7 @@ public abstract class MapDownlinkModem<View extends WarpDownlinkView> extends Wa
       final Value body = nextUpKey(key);
       final CommandMessage message = new CommandMessage(nodeUri, laneUri, body);
 
-      return new Push<CommandMessage>(Uri.empty(), hostUri, nodeUri, laneUri, prio, null, message, null);
+      return new Push<>(Uri.empty(), hostUri, nodeUri, laneUri, prio, null, message, null);
     } else {
       nextUpCueNullCount++;
       return null;

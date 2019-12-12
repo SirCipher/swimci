@@ -6,6 +6,12 @@ public final class LogEntry {
 
   private final long nanoTime = System.nanoTime();
   private final long milliTime;
+  private final boolean isMarked;
+
+  public boolean isMarked() {
+    return isMarked;
+  }
+
   private String message;
 
   private AtomicInteger atomicInteger = new AtomicInteger(1);
@@ -18,9 +24,10 @@ public final class LogEntry {
     return atomicInteger.get();
   }
 
-  public LogEntry(String message) {
+  public LogEntry(String message, boolean isMarked) {
     this.milliTime = System.currentTimeMillis();
     this.message = "[%c][%d]" + message;
+    this.isMarked = isMarked;
   }
 
   public long getNanoTime() {

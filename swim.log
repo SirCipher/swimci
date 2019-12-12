@@ -1,378 +1,185 @@
-250012813691345, [1] [09:53:54.357][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250012814159602, [1] [09:53:54.358][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250012815031527, [1] [09:53:54.359][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:223) Old status & pulling up is not equal to zero
-250012815327035, [1] [09:53:54.359][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:232) Already feeding up. Old status: 100, new status: 110
-250012922531374, [1] [09:53:54.466][INFO] SwimKernel1@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250012922635287, [1] [09:53:54.466][INFO] SwimKernel1@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 10
-250013116503951, [1] [09:53:54.660][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013116552083, [1] [09:53:54.660][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013116644993, [1] [09:53:54.660][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013116703912, [1] [09:53:54.660][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013123714338, [1] [09:53:54.667][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013123801059, [1] [09:53:54.667][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013123947191, [1] [09:53:54.668][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013124004438, [1] [09:53:54.668][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013158198698, [1] [09:53:54.705][INFO] SwimKernel0@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013161485614, [1] [09:53:54.705][INFO] SwimKernel0@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013161671284, [1] [09:53:54.705][INFO] SwimKernel0@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013161785024, [1] [09:53:54.705][INFO] SwimKernel0@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013163382899, [1] [09:53:54.707][INFO] SwimKernel0@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013163472802, [1] [09:53:54.707][INFO] SwimKernel0@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013163596381, [1] [09:53:54.707][INFO] SwimKernel0@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013163687804, [1] [09:53:54.707][INFO] SwimKernel0@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013174434071, [1] [09:53:54.718][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013174506493, [1] [09:53:54.718][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013174557090, [1] [09:53:54.718][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 10, new status: 100
-250013174725984, [1] [09:53:54.718][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013175717894, [1] [09:53:54.719][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013175792497, [1] [09:53:54.719][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013176778918, [1] [09:53:54.720][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013176861742, [1] [09:53:54.720][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013177283936, [1] [09:53:54.721][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013177337534, [1] [09:53:54.721][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013177390118, [1] [09:53:54.721][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013177551634, [1] [09:53:54.721][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013177700131, [1] [09:53:54.721][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013177752549, [1] [09:53:54.721][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013177829904, [1] [09:53:54.721][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013177887871, [1] [09:53:54.721][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013178134145, [1] [09:53:54.722][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013178189356, [1] [09:53:54.722][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013178244921, [1] [09:53:54.722][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013178336018, [1] [09:53:54.722][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013178449901, [1] [09:53:54.722][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013178499069, [1] [09:53:54.722][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013178569769, [1] [09:53:54.722][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013178627432, [1] [09:53:54.722][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013178832552, [1] [09:53:54.722][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013178921248, [1] [09:53:54.723][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013178973038, [1] [09:53:54.723][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013179060904, [1] [09:53:54.723][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013179181986, [1] [09:53:54.723][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013179234417, [1] [09:53:54.723][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013179297785, [1] [09:53:54.723][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013179354474, [1] [09:53:54.723][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013179557238, [1] [09:53:54.723][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013179603826, [1] [09:53:54.723][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013179655847, [1] [09:53:54.723][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013179735223, [1] [09:53:54.723][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013179841038, [1] [09:53:54.723][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013179890341, [1] [09:53:54.723][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013179948738, [1] [09:53:54.724][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013180000400, [1] [09:53:54.724][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013180240591, [1] [09:53:54.724][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013180284736, [1] [09:53:54.724][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013180333634, [1] [09:53:54.724][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013180404624, [1] [09:53:54.724][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013180498123, [1] [09:53:54.724][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013180542218, [1] [09:53:54.724][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013180609219, [1] [09:53:54.724][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013180662137, [1] [09:53:54.724][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013180844793, [1] [09:53:54.724][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013180889199, [1] [09:53:54.724][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013180942901, [1] [09:53:54.725][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013181023768, [1] [09:53:54.725][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013181124913, [1] [09:53:54.725][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013181172302, [1] [09:53:54.725][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013181237809, [1] [09:53:54.725][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013181292224, [1] [09:53:54.725][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013181494871, [1] [09:53:54.725][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013181537793, [1] [09:53:54.725][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013181587941, [1] [09:53:54.725][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013181655880, [1] [09:53:54.725][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013181755528, [1] [09:53:54.725][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013181799622, [1] [09:53:54.725][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013186419699, [1] [09:53:54.730][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013186679613, [1] [09:53:54.730][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013186980283, [1] [09:53:54.731][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013187038903, [1] [09:53:54.731][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013188681914, [1] [09:53:54.732][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013192491210, [1] [09:53:54.736][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013192712340, [1] [09:53:54.736][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013192904759, [1] [09:53:54.737][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013193007539, [1] [09:53:54.737][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013193078351, [1] [09:53:54.737][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 1
-250013193721774, [1] [09:53:54.737][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013193780157, [1] [09:53:54.737][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013195235489, [1] [09:53:54.739][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013195591784, [1] [09:53:54.739][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013195737565, [1] [09:53:54.739][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013195796406, [1] [09:53:54.739][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013195888325, [1] [09:53:54.739][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013195953528, [1] [09:53:54.740][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013196147936, [1] [09:53:54.740][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013196191410, [1] [09:53:54.740][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013196240265, [1] [09:53:54.740][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013196309086, [1] [09:53:54.740][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013196412938, [1] [09:53:54.740][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013196465457, [1] [09:53:54.740][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013196530868, [1] [09:53:54.740][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013196588403, [1] [09:53:54.740][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013196771988, [1] [09:53:54.740][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013196817117, [1] [09:53:54.740][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013196863469, [1] [09:53:54.740][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013196937605, [1] [09:53:54.741][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013197062346, [1] [09:53:54.741][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013197119227, [1] [09:53:54.741][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013197193349, [1] [09:53:54.741][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013197250220, [1] [09:53:54.741][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013197451277, [1] [09:53:54.741][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013197496943, [1] [09:53:54.741][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013197544464, [1] [09:53:54.741][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013197622143, [1] [09:53:54.741][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013197736811, [1] [09:53:54.741][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013197793929, [1] [09:53:54.741][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013197864343, [1] [09:53:54.741][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013197923789, [1] [09:53:54.742][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013198114267, [1] [09:53:54.742][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013198174098, [1] [09:53:54.742][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013198223429, [1] [09:53:54.742][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013198290388, [1] [09:53:54.742][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013198413766, [1] [09:53:54.742][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013198462297, [1] [09:53:54.742][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013198530737, [1] [09:53:54.742][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013198578962, [1] [09:53:54.742][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013198770202, [1] [09:53:54.742][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013198810254, [1] [09:53:54.742][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013198853467, [1] [09:53:54.742][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013198929322, [1] [09:53:54.743][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013199041746, [1] [09:53:54.743][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013199097174, [1] [09:53:54.743][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013199164929, [1] [09:53:54.743][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013199215778, [1] [09:53:54.743][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013199408907, [1] [09:53:54.743][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013199446419, [1] [09:53:54.743][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013199489846, [1] [09:53:54.743][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013199558537, [1] [09:53:54.743][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013199656333, [1] [09:53:54.743][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013199702209, [1] [09:53:54.743][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013199761839, [1] [09:53:54.743][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013199808088, [1] [09:53:54.743][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013199982708, [1] [09:53:54.744][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013200017686, [1] [09:53:54.744][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013200061681, [1] [09:53:54.744][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013200126138, [1] [09:53:54.744][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013200420062, [1] [09:53:54.744][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013200501951, [1] [09:53:54.744][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013200581204, [1] [09:53:54.744][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013200636084, [1] [09:53:54.744][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013200849219, [1] [09:53:54.744][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013201068168, [1] [09:53:54.745][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013201160177, [1] [09:53:54.745][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013201252060, [1] [09:53:54.745][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013201415859, [1] [09:53:54.745][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013201479161, [1] [09:53:54.745][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013201552831, [1] [09:53:54.745][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013201610439, [1] [09:53:54.745][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013202392986, [1] [09:53:54.746][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013202428318, [1] [09:53:54.746][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013202463154, [1] [09:53:54.746][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013202523664, [1] [09:53:54.746][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013202610806, [1] [09:53:54.746][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013202639218, [1] [09:53:54.746][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013202682243, [1] [09:53:54.746][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013202711262, [1] [09:53:54.746][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013202844483, [1] [09:53:54.746][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013202866593, [1] [09:53:54.746][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013202892488, [1] [09:53:54.746][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013202930291, [1] [09:53:54.747][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013202986009, [1] [09:53:54.747][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013203013044, [1] [09:53:54.747][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013203049666, [1] [09:53:54.747][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013203077104, [1] [09:53:54.747][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013203249738, [1] [09:53:54.747][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013203286356, [1] [09:53:54.747][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013203329523, [1] [09:53:54.747][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013203395619, [1] [09:53:54.747][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013203505508, [1] [09:53:54.747][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013203553982, [1] [09:53:54.747][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013203612343, [1] [09:53:54.747][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013203659834, [1] [09:53:54.747][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013203830897, [1] [09:53:54.747][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013203890806, [1] [09:53:54.747][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013203942856, [1] [09:53:54.748][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013204006017, [1] [09:53:54.748][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013204097896, [1] [09:53:54.748][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013204143146, [1] [09:53:54.748][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013204200999, [1] [09:53:54.748][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013204252958, [1] [09:53:54.748][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013204613482, [1] [09:53:54.748][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013204658450, [1] [09:53:54.748][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013204713949, [1] [09:53:54.748][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013204793203, [1] [09:53:54.748][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013204913318, [1] [09:53:54.749][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013204968556, [1] [09:53:54.749][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013205036892, [1] [09:53:54.749][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013205087146, [1] [09:53:54.749][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013205296796, [1] [09:53:54.749][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013205334939, [1] [09:53:54.749][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013205379545, [1] [09:53:54.749][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013205450860, [1] [09:53:54.749][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013205564858, [1] [09:53:54.749][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013205615958, [1] [09:53:54.749][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013205685098, [1] [09:53:54.749][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013205732421, [1] [09:53:54.749][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013205933747, [1] [09:53:54.750][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013205970905, [1] [09:53:54.750][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013206016570, [1] [09:53:54.750][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013206092146, [1] [09:53:54.750][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013206262855, [1] [09:53:54.750][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013206318894, [1] [09:53:54.750][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013206397429, [1] [09:53:54.750][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013206451484, [1] [09:53:54.750][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013206671141, [1] [09:53:54.750][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013206715129, [1] [09:53:54.750][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013206765678, [1] [09:53:54.750][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013206839296, [1] [09:53:54.750][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013206942827, [1] [09:53:54.751][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013207011644, [1] [09:53:54.751][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013207081026, [1] [09:53:54.751][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013207176651, [1] [09:53:54.751][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013207380214, [1] [09:53:54.751][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013207426809, [1] [09:53:54.751][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013207479217, [1] [09:53:54.751][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013207551943, [1] [09:53:54.751][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013208207819, [1] [09:53:54.752][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013210708701, [1] [09:53:54.754][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013211028284, [1] [09:53:54.755][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013211162793, [1] [09:53:54.755][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013211426004, [1] [09:53:54.755][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013211483366, [1] [09:53:54.755][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013211535870, [1] [09:53:54.755][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013211612945, [1] [09:53:54.755][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013211722258, [1] [09:53:54.755][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013211777487, [1] [09:53:54.755][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013211851238, [1] [09:53:54.755][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013211904945, [1] [09:53:54.756][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013212098744, [1] [09:53:54.756][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013212144499, [1] [09:53:54.756][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013212196804, [1] [09:53:54.756][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013212272823, [1] [09:53:54.756][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013212373583, [1] [09:53:54.756][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013212426216, [1] [09:53:54.756][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013212487434, [1] [09:53:54.756][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013212544809, [1] [09:53:54.756][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013212717701, [1] [09:53:54.756][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013212768704, [1] [09:53:54.756][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013212817949, [1] [09:53:54.756][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013212889499, [1] [09:53:54.756][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013212982524, [1] [09:53:54.757][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013213035266, [1] [09:53:54.757][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013213102865, [1] [09:53:54.757][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013213157312, [1] [09:53:54.757][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013213350689, [1] [09:53:54.757][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013213395424, [1] [09:53:54.757][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013213445085, [1] [09:53:54.757][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013213515066, [1] [09:53:54.757][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013213614150, [1] [09:53:54.757][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013213666326, [1] [09:53:54.757][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013213729474, [1] [09:53:54.757][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013213784943, [1] [09:53:54.757][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013213954704, [1] [09:53:54.758][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013213999301, [1] [09:53:54.758][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013214049430, [1] [09:53:54.758][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013214111511, [1] [09:53:54.758][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013214209921, [1] [09:53:54.758][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013214267150, [1] [09:53:54.758][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013214336247, [1] [09:53:54.758][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013214401965, [1] [09:53:54.758][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013215230756, [1] [09:53:54.759][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013215287968, [1] [09:53:54.759][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013215345568, [1] [09:53:54.759][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013215421104, [1] [09:53:54.759][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013215550591, [1] [09:53:54.759][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013215605865, [1] [09:53:54.759][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013215672240, [1] [09:53:54.759][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013215726548, [1] [09:53:54.759][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013215958560, [1] [09:53:54.760][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013216000964, [1] [09:53:54.760][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013216049759, [1] [09:53:54.760][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013216119336, [1] [09:53:54.760][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013216218629, [1] [09:53:54.760][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013216261513, [1] [09:53:54.760][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013216315647, [1] [09:53:54.760][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013216364481, [1] [09:53:54.760][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013216530229, [1] [09:53:54.760][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013216570345, [1] [09:53:54.760][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013216612609, [1] [09:53:54.760][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013216681697, [1] [09:53:54.760][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013216769525, [1] [09:53:54.760][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013216812319, [1] [09:53:54.760][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013216865579, [1] [09:53:54.760][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013216912714, [1] [09:53:54.761][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013217145891, [1] [09:53:54.761][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013217192616, [1] [09:53:54.761][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013217241657, [1] [09:53:54.761][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013217309093, [1] [09:53:54.761][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013225898537, [1] [09:53:54.769][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013225980565, [1] [09:53:54.770][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013226061698, [1] [09:53:54.770][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013226127521, [1] [09:53:54.770][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013229854965, [1] [09:53:54.773][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013229935045, [1] [09:53:54.774][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013230000361, [1] [09:53:54.774][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013230088898, [1] [09:53:54.774][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013230200226, [1] [09:53:54.774][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013230259004, [1] [09:53:54.774][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013230373829, [1] [09:53:54.774][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013230467278, [1] [09:53:54.774][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013230954458, [1] [09:53:54.775][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013230995109, [1] [09:53:54.775][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013231092717, [1] [09:53:54.775][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013231168664, [1] [09:53:54.775][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013231264438, [1] [09:53:54.775][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013231318070, [1] [09:53:54.775][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013231383219, [1] [09:53:54.775][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013231432977, [1] [09:53:54.775][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013231610701, [1] [09:53:54.775][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013231648186, [1] [09:53:54.775][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013231701356, [1] [09:53:54.775][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013231770874, [1] [09:53:54.775][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013231870946, [1] [09:53:54.775][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013231921828, [1] [09:53:54.776][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013231985711, [1] [09:53:54.776][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013232037099, [1] [09:53:54.776][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013232214388, [1] [09:53:54.776][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013232249167, [1] [09:53:54.776][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013232296496, [1] [09:53:54.776][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013232361931, [1] [09:53:54.776][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013232458234, [1] [09:53:54.776][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013232508393, [1] [09:53:54.776][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013232578151, [1] [09:53:54.776][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013232626586, [1] [09:53:54.776][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013232817513, [1] [09:53:54.776][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013232853836, [1] [09:53:54.776][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013232898744, [1] [09:53:54.776][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013232967208, [1] [09:53:54.777][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013233069096, [1] [09:53:54.777][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
-250013233117904, [1] [09:53:54.777][INFO] main@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013233179843, [1] [09:53:54.777][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013233226901, [1] [09:53:54.777][INFO] main@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 0
-250013233524439, [1] [09:53:54.777][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013233561077, [1] [09:53:54.777][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero
-250013233608581, [1] [09:53:54.777][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100
-250013235420221, [31] [09:53:54.779][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011 <----------
-250013239176059, [1] [09:53:54.783][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
-250013239200360, [1] [09:53:54.783][INFO] SwimKernel0@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
-250013239238344, [1] [09:53:54.783][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:223) Old status & pulling up is not equal to zero
-250013239298949, [1] [09:53:54.783][INFO] main@swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:232) Already feeding up. Old status: 100, new status: 110
-250013239401981, [1] [09:53:54.783][INFO] SwimKernel0@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 32
-250013239449288, [1] [09:53:54.783][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011
-250013239465797, [1] [09:53:54.783][INFO] SwimKernel0@swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
-250013239546226, [1] [09:53:54.783][INFO] SwimKernel0@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:245) pushUp() called
-250013239612963, [1] [09:53:54.783][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011
-250013239612963, [1] [09:53:54.783][INFO] SwimKernel0@swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:256) pushUp() status: 10
-250013239716903, [1] [09:53:54.783][INFO] SwimKernel0@swim.runtime.warp.MapDownlinkModem.feedUp(MapDownlinkModem.java:140) Key queue is not empty. Calling cueUp()
-250013239756286, [26] [09:53:54.783][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011 <----------
-250013242758069, [1] [09:53:54.786][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 111000000011, new status: 111000000011
-250013242907090, [98] [09:53:54.787][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011 <----------
-250013269442026, [1] [09:53:54.813][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 111000000011, new status: 111000000011
-250013269610191, [91] [09:53:54.813][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011 <----------
-250013282819068, [1] [09:53:54.826][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 111000000011, new status: 111000000011
-250013282962377, [22] [09:53:54.827][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011 <----------
-250013292123958, [1] [09:53:54.836][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 111000000011, new status: 111000000011
-250013292275902, [29] [09:53:54.836][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011 <----------
-250013296108199, [1] [09:53:54.840][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 111000000011, new status: 111000000011
-250013296286519, [25] [09:53:54.840][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011 <----------
-250013304695365, [1] [09:53:54.848][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 111000000011, new status: 111000000011
-250013304847236, [9628] [09:53:54.848][INFO] main@swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011 <----------
+254704539968071, [1] [11:12:06.264][INFO] [main] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero <@@@@@@@@@@@@@@@@@@>
+254704540343826, [1] [11:12:06.264][INFO] [main] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100 <@@@@@@@@@@@@@@@@@@>
+254704541488030, [1] [11:12:06.265][INFO] [main] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704541624166, [1] [11:12:06.265][INFO] [main] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:223) Old status & pulling up is not equal to zero
+254704541678520, [1] [11:12:06.265][INFO] [main] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:231) Already feeding up. Old status: 100, new status: 110 <@@@@@@@@@@@@@@@@@@>
+254704593063126, [1] [11:12:06.317][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704593150096, [1] [11:12:06.317][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704593815564, [1] [11:12:06.317][INFO] [SwimKernel1] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704596301804, [1] [11:12:06.320][INFO] [SwimKernel1] swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:244) pushUp() called
+254704596387970, [1] [11:12:06.320][INFO] [SwimKernel1] swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:255) pushUp() status: 10
+254704597858721, [1] [11:12:06.321][INFO] [SwimKernel1] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704615617826, [1] [11:12:06.339][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704615653020, [1] [11:12:06.339][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704615745541, [1] [11:12:06.339][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704615795210, [1] [11:12:06.339][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704714991087, [1] [11:12:06.439][INFO] [SwimKernel1] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704715422192, [1] [11:12:06.439][INFO] [SwimKernel1] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704716140267, [1] [11:12:06.440][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704716244419, [1] [11:12:06.440][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704716709976, [1] [11:12:06.440][INFO] [SwimKernel1] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704716770579, [1] [11:12:06.440][INFO] [SwimKernel1] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704716895440, [1] [11:12:06.440][INFO] [SwimKernel1] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704716941632, [1] [11:12:06.441][INFO] [SwimKernel1] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704718290865, [1] [11:12:06.442][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704718352459, [1] [11:12:06.442][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704718474635, [1] [11:12:06.442][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704718526443, [1] [11:12:06.442][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704720677915, [1] [11:12:06.444][INFO] [main] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero <@@@@@@@@@@@@@@@@@@>
+254704720732672, [1] [11:12:06.444][INFO] [main] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100 <@@@@@@@@@@@@@@@@@@>
+254704720841424, [1] [11:12:06.444][INFO] [main] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704720926318, [1] [11:12:06.444][INFO] [main] swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:244) pushUp() called
+254704720975871, [1] [11:12:06.445][INFO] [main] swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:255) pushUp() status: 0
+254704721070676, [1] [11:12:06.445][INFO] [main] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704721693159, [1] [11:12:06.445][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704721758968, [1] [11:12:06.445][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704721880734, [1] [11:12:06.445][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704721931960, [1] [11:12:06.445][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704724032615, [1] [11:12:06.448][INFO] [SwimKernel2] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704724178245, [1] [11:12:06.448][INFO] [SwimKernel2] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704724390384, [1] [11:12:06.448][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704724475335, [1] [11:12:06.448][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704724851868, [1] [11:12:06.448][INFO] [SwimKernel2] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704724911668, [1] [11:12:06.448][INFO] [SwimKernel2] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704725241536, [1] [11:12:06.449][INFO] [SwimKernel2] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704725292459, [1] [11:12:06.449][INFO] [SwimKernel2] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704725407784, [1] [11:12:06.449][INFO] [SwimKernel2] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704725456136, [1] [11:12:06.449][INFO] [SwimKernel2] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704731679053, [1] [11:12:06.455][INFO] [main] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero <@@@@@@@@@@@@@@@@@@>
+254704731744770, [1] [11:12:06.455][INFO] [main] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100 <@@@@@@@@@@@@@@@@@@>
+254704731863838, [1] [11:12:06.455][INFO] [main] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704731960528, [1] [11:12:06.456][INFO] [main] swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:244) pushUp() called
+254704732014296, [1] [11:12:06.456][INFO] [main] swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:255) pushUp() status: 0
+254704732121863, [1] [11:12:06.456][INFO] [main] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704732933383, [1] [11:12:06.457][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704732998679, [1] [11:12:06.457][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704733129388, [1] [11:12:06.457][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704733177949, [1] [11:12:06.457][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704745615226, [1] [11:12:06.469][INFO] [SwimKernel2] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704745703422, [1] [11:12:06.469][INFO] [SwimKernel2] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704749959933, [1] [11:12:06.474][INFO] [SwimKernel0] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero <@@@@@@@@@@@@@@@@@@>
+254704750027139, [1] [11:12:06.474][INFO] [SwimKernel0] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100 <@@@@@@@@@@@@@@@@@@>
+254704750175458, [1] [11:12:06.474][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704750266328, [1] [11:12:06.474][INFO] [SwimKernel0] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:223) Old status & pulling up is not equal to zero
+254704750327721, [1] [11:12:06.474][INFO] [SwimKernel0] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:231) Already feeding up. Old status: 100, new status: 110 <@@@@@@@@@@@@@@@@@@>
+254704751488268, [1] [11:12:06.475][INFO] [SwimKernel0] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero <@@@@@@@@@@@@@@@@@@>
+254704751590887, [1] [11:12:06.475][INFO] [SwimKernel0] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100 <@@@@@@@@@@@@@@@@@@>
+254704751811318, [1] [11:12:06.475][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704751894961, [1] [11:12:06.475][INFO] [SwimKernel0] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:223) Old status & pulling up is not equal to zero
+254704751975157, [1] [11:12:06.476][INFO] [SwimKernel0] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:231) Already feeding up. Old status: 100, new status: 110 <@@@@@@@@@@@@@@@@@@>
+254704752069919, [1] [11:12:06.476][INFO] [SwimKernel2] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704752303148, [1] [11:12:06.476][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704752320955, [1] [11:12:06.476][INFO] [SwimKernel2] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704752447157, [1] [11:12:06.476][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704752540335, [1] [11:12:06.476][INFO] [SwimKernel1] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704753004854, [1] [11:12:06.477][INFO] [SwimKernel1] swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:244) pushUp() called
+254704753058505, [1] [11:12:06.477][INFO] [SwimKernel1] swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:255) pushUp() status: 10
+254704753372255, [1] [11:12:06.477][INFO] [SwimKernel1] swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:244) pushUp() called
+254704753404770, [1] [11:12:06.477][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704753456473, [1] [11:12:06.477][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704753454706, [2] [11:12:06.477][INFO] [SwimKernel1] swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:255) pushUp() status: 10 <----------
+254704753831295, [1] [11:12:06.477][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704753922404, [1] [11:12:06.477][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704753959926, [1] [11:12:06.478][INFO] [SwimKernel5] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704754011525, [1] [11:12:06.478][INFO] [SwimKernel5] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704754064663, [1] [11:12:06.478][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704754258952, [1] [11:12:06.478][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704754566208, [1] [11:12:06.478][INFO] [SwimKernel5] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704754619066, [1] [11:12:06.478][INFO] [SwimKernel5] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704754741483, [1] [11:12:06.478][INFO] [SwimKernel5] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704754788313, [1] [11:12:06.478][INFO] [SwimKernel5] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704755190134, [1] [11:12:06.479][INFO] [SwimKernel4] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704755310143, [1] [11:12:06.479][INFO] [SwimKernel4] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704755465331, [1] [11:12:06.479][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704755556808, [1] [11:12:06.479][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704755808248, [1] [11:12:06.479][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704755860111, [1] [11:12:06.479][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704756150429, [1] [11:12:06.480][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704756196095, [1] [11:12:06.480][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704756324550, [1] [11:12:06.480][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704756412753, [1] [11:12:06.480][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704756463188, [1] [11:12:06.480][INFO] [SwimKernel4] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704756534886, [2] [11:12:06.480][INFO] [SwimKernel4] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand <----------
+254704756766288, [1] [11:12:06.480][INFO] [SwimKernel5] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704756817676, [2] [11:12:06.480][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand <----------
+254704756947491, [1] [11:12:06.481][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704756999551, [1] [11:12:06.481][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704757304848, [1] [11:12:06.481][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704757356755, [1] [11:12:06.481][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704757477128, [1] [11:12:06.481][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704757530613, [1] [11:12:06.481][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704762663579, [1] [11:12:06.486][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
+254704762733345, [1] [11:12:06.486][INFO] [main] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero <@@@@@@@@@@@@@@@@@@>
+254704762793339, [1] [11:12:06.486][INFO] [main] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 10, new status: 100 <@@@@@@@@@@@@@@@@@@>
+254704762932085, [1] [11:12:06.487][INFO] [main] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704763029080, [1] [11:12:06.487][INFO] [main] swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
+254704763826706, [1] [11:12:06.487][INFO] [main] swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
+254704763898784, [1] [11:12:06.487][INFO] [main] swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
+254704765034820, [1] [11:12:06.489][INFO] [main] swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:244) pushUp() called
+254704765138363, [1] [11:12:06.489][INFO] [main] swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:255) pushUp() status: 0
+254704765296306, [1] [11:12:06.489][INFO] [main] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704765695132, [1] [11:12:06.489][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
+254704765741920, [1] [11:12:06.489][INFO] [main] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:220) Old status & pulling up is zero <@@@@@@@@@@@@@@@@@@>
+254704765791952, [2] [11:12:06.489][INFO] [main] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:228) Starting feeding up. Old status: 0, new status: 100 <@@@@@@@@@@@@@@@@@@>
+254704765978289, [1] [11:12:06.490][INFO] [main] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704766007373, [1] [11:12:06.490][INFO] [SwimKernel0] swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:415) Reset feeding up? true. Old status: 110000000011, new status: 11
+254704766023785, [1] [11:12:06.490][INFO] [main] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704766140178, [1] [11:12:06.490][INFO] [SwimKernel0] swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:423) Key queue size: 0
+254704766190795, [1] [11:12:06.490][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:337) Feeding up block. Old status: 11, new status: 110000000011
+254704766204274, [1] [11:12:06.490][INFO] [SwimKernel0] swim.runtime.warp.WarpDownlinkModem.pullUp(WarpDownlinkModem.java:424) Up queue is empty? true
+254704766246696, [1] [11:12:06.490][INFO] [main] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:223) Old status & pulling up is not equal to zero
+254704766283019, [1] [11:12:06.490][INFO] [SwimKernel0] swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:244) pushUp() called
+254704766293570, [1] [11:12:06.490][INFO] [main] swim.remote.RemoteWarpUplink.feedUp(RemoteWarpUplink.java:231) Already feeding up. Old status: 100, new status: 110 <@@@@@@@@@@@@@@@@@@>
+254704766346521, [1] [11:12:06.490][INFO] [SwimKernel0] swim.remote.RemoteWarpUplink.pushUp(RemoteWarpUplink.java:255) pushUp() status: 10
+254704766441231, [1] [11:12:06.490][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011
+254704766444498, [2] [11:12:06.490][INFO] [SwimKernel0] swim.runtime.warp.MapDownlinkModem.feedUp(MapDownlinkModem.java:140) Key queue is not empty. Calling cueUp() <----------
+254704766509510, [1] [11:12:06.490][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704766581358, [3] [11:12:06.490][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011 <----------
+254704766886188, [1] [11:12:06.490][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704766938691, [1] [11:12:06.491][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704766953231, [1] [11:12:06.491][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011
+254704767056252, [1] [11:12:06.491][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704767079850, [1] [11:12:06.491][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011
+254704767102996, [1] [11:12:06.491][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704767250171, [23] [11:12:06.491][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011 <----------
+254704771421872, [1] [11:12:06.495][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704771511907, [1] [11:12:06.495][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704771661227, [1] [11:12:06.495][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704771732836, [1] [11:12:06.495][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704772160639, [4] [11:12:06.496][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011 <----------
+254704772733245, [1] [11:12:06.496][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704772773016, [1] [11:12:06.496][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011
+254704772806009, [1] [11:12:06.496][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704772948640, [1] [11:12:06.497][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011
+254704773087618, [1] [11:12:06.497][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704773151838, [1] [11:12:06.497][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704773262594, [1] [11:12:06.497][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704773314616, [1] [11:12:06.497][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704773490519, [1] [11:12:06.497][INFO] [SwimKernel5] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704773539899, [1] [11:12:06.497][INFO] [SwimKernel5] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704773613712, [1] [11:12:06.497][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704773663469, [2] [11:12:06.497][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand <----------
+254704773813494, [2] [11:12:06.497][INFO] [SwimKernel3] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand <----------
+254704773849260, [1] [11:12:06.497][INFO] [SwimKernel5] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704773991619, [1] [11:12:06.498][INFO] [SwimKernel5] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704774053308, [1] [11:12:06.498][INFO] [SwimKernel5] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704774250474, [7] [11:12:06.498][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011 <----------
+254704774924972, [1] [11:12:06.498][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 111000000011, new status: 111000000011
+254704775095464, [6] [11:12:06.499][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011 <----------
+254704775647751, [1] [11:12:06.499][INFO] [SwimKernel4] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704775722924, [1] [11:12:06.499][INFO] [SwimKernel4] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704775729504, [2] [11:12:06.499][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011 <----------
+254704776748409, [1] [11:12:06.500][INFO] [SwimKernel5] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704776812253, [1] [11:12:06.500][INFO] [SwimKernel5] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704776951464, [1] [11:12:06.501][INFO] [SwimKernel5] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704777002783, [1] [11:12:06.501][INFO] [SwimKernel5] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704778429525, [7] [11:12:06.502][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011 <----------
+254704783184679, [1] [11:12:06.507][INFO] [SwimKernel5] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704783382098, [1] [11:12:06.507][INFO] [SwimKernel5] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704783386896, [5] [11:12:06.507][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011 <----------
+254704785050979, [1] [11:12:06.509][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704785148394, [1] [11:12:06.509][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand
+254704785191857, [1] [11:12:06.509][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011
+254704785278214, [1] [11:12:06.509][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:359) Starting generating demand
+254704785324424, [1] [11:12:06.509][INFO] [main] swim.runtime.warp.WarpDownlinkModem.cueUp(WarpDownlinkModem.java:344) Did break block. Old status: 110000000011, new status: 110000000011
+254704785333158, [9933] [11:12:06.509][INFO] [SwimKernel0] swim.io.warp.WarpWebSocket.generateDemand(WarpWebSocket.java:399) Finished generating demand <----------
